@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamara 3D - O Retorno do Mistério</title>
+    <style>
+        /* Estilos base com texturas vintage */
+        :root {
+            --dark-brown: #3a2a1d;
+            --old-paper: #f0e6d2;
+            --gold: #c8a971;
+            --deep-red: #8b0000;
+            --dark-green: #2c4c3b;
+        }
+        
+        body {
+            background-color: var(--dark-brown);
+            color: #333;
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%235a4b3d' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
+                linear-gradient(to bottom, #1a1510, #2e231a);
+        }
+        
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background-color: var(--old-paper);
+            border-left: 8px solid var(--gold);
+            border-right: 8px solid var(--gold);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+            position: relative;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Cabeçalho com estilo vintage */
+        header {
+            background: linear-gradient(to bottom, #5d4b32, #3a2a1d);
+            padding: 15px 0;
+            border-bottom: 4px solid var(--gold);
+            text-align: center;
+        }
+        
+        .logo {
+            font-family: 'Copperplate', 'Copperplate Gothic Light', fantasy;
+            font-size: 42px;
+            color: var(--old-paper);
+            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+            letter-spacing: 3px;
+            margin: 0;
+            padding: 10px;
+        }
+        
+        .logo span {
+            color: var(--gold);
+            font-size: 24px;
+            vertical-align: super;
+        }
+        
+        .subtitle {
+            color: var(--gold);
+            font-style: italic;
+            margin-top: -5px;
+            letter-spacing: 2px;
+        }
+        
+        /* Menu de navegação estilo 2004 */
+        .main-nav {
+            background: linear-gradient(to bottom, #2c4c3b, #1e3326);
+            padding: 0;
+            border-top: 2px solid #4a7860;
+            border-bottom: 2px solid #15231c;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-nav li {
+            border-right: 1px solid #4a7860;
+        }
+        
+        .main-nav li:last-child {
+            border-right: none;
+        }
+        
+        .main-nav a {
+            display: block;
+            color: var(--old-paper);
+            text-decoration: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .main-nav a:hover {
+            background: linear-gradient(to bottom, #3a6350, #2c4c3b);
+            color: var(--gold);
+        }
+        
+        /* Conteúdo principal */
+        .main-content {
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+        }
+        
+        .welcome {
+            flex: 2;
+        }
+        
+        .welcome h2 {
+            color: var(--deep-red);
+            border-bottom: 2px dotted var(--gold);
+            padding-bottom: 10px;
+            font-family: 'Copperplate', fantasy;
+        }
+        
+        .sidebar {
+            flex: 1;
+            background: linear-gradient(to bottom, #e6d9c1, #d4c5a8);
+            padding: 20px;
+            border: 1px solid var(--gold);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar h3 {
+            color: var(--dark-green);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        
+        /* Elementos interativos */
+        .flash-message {
+            background: #f8f3e6;
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .download-btn {
+            display: block;
+            background: linear-gradient(to bottom, #8b0000, #6d0000);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid #500000;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(to bottom, #a00, #800);
+            transform: translateY(-2px);
+        }
+        
+        /* Rodapé vintage */
+        footer {
+            background: linear-gradient(to bottom, #2c4c3b, #1e3326);
+            color: var(--old-paper);
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            border-top: 4px solid var(--gold);
+        }
+        
+        /* Efeitos de texto e elementos vintage */
+        .marquee {
+            background: #1e3326;
+            color: var(--gold);
+            padding: 5px;
+            overflow: hidden;
+            border-top: 1px solid #4a7860;
+            border-bottom: 1px solid #4a7860;
+        }
+        
+        .pixel-art {
+            image-rendering: pixelated;
+            border: 2px solid var(--gold);
+        }
+        
+        /* Media queries para responsividade */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .main-nav li {
+                border-right: none;
+                border-bottom: 1px solid #4a7860;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">ANAMARA <span>3D</span></h1>
+            <p class="subtitle">O mistério continua após 20 anos...</p>
+        </header>
+        
+        <div class="marquee">
+            <marquee behavior="scroll" direction="left">• Bem-vindo ao site oficial de Anamara 3D • O retorno do clássico mistério • Descubra os segredos do asilo •</marquee>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">O Jogo</a></li>
+                <li><a href="#">História</a></li>
+                <li><a href="#">Personagens</a></li>
+                <li><a href="#">Download</a></li>
+                <li><a href="#">Fórum</a></li>
+            </ul>
+        </nav>
+        
+        <div class="main-content">
+            <div class="welcome">
+                <h2>BEM-VINDO AO RENASCIMENTO DE UM MISTÉRIO</h2>
+                <p>Anamara 3D é a recriação moderna do clássico jogo de Flash de 2004, "La Piedra de Anamara". Reviva a experiência com gráficos remasterizados em 3D, mantendo a atmosfera única e os puzzles intrigantes que cativaram milhares de jogadores.</p>
+                
+                <div class="flash-message">
+                    "O asilo esconde segredos que nem mesmo o tempo conseguiu apagar..."
+                </div>
+                
+                <p>Explore o sinistro asilo dos anos 40, agora com visuais impressionantes em 3D que mantêm a essência nostálgica do original. Descubra o que aconteceu com Anamara e desvende os mistérios que permaneceram ocultos por quase duas décadas.</p>
+                
+                <a href="https://100nome.itch.io/anamara3d" class="download-btn">JOGAR AGORA - DISPONÍVEL NO ITCH.IO</a>
+                
+                <h2>O RETORNO DE UMA LENDA</h2>
+                <p>Após 18 anos de espera, a comunidade finalmente terá respostas. Esta recriação fiel inclui todo o conteúdo original além de novas áreas, puzzles expandidos e o tão aguardado Capítulo 2 que completa a história.</p>
+            </div>
+            
+            <div class="sidebar">
+                <h3>NOTÍCIAS RECENTES</h3>
+                <p><strong>15/09/2023</strong><br>Trailer de gameplay disponível!</p>
+                <p><strong>02/09/2023</strong><br>Beta testing aberto para apoiadores.</p>
+                <p><strong>20/08/2023</strong><br>Novas screenshots do asilo.</p>
+                
+                <h3>LINK IMPORTANTE</h3>
+                <p>Visite a <a href="https://anamarawiki.rf.gd/" style="color: var(--deep-red);">Wiki de Anamara</a> para conhecer toda a lore e história por trás do mistério.</p>
+                
+                <h3>COMUNIDADE</h3>
+                <p>Junte-se aos fãs que mantiveram viva a chama deste mistério por quase 20 anos.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Anamara 3D © 2023 - Baseado no jogo original "La Piedra de Anamara" (2004)</p>
+            <p>Este site é uma homenagem à comunidade de fãs que manteve vivo o mistério por quase duas décadas</p>
+        </footer>
+    </div>
+</body>
+</html>
