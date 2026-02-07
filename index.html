@@ -1,274 +1,294 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>100Nome Traduções [Jogos em PT-PT]</title>
+    <meta name="description" content="Traduções em PT-PT! O maior portal de Traduções de Jogos de Portugal, com traduções dos mais variados jogos em português de Portugal. 100 Nome!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anamara 3D - O Retorno do Mistério</title>
-    <style>
-        /* Estilos base com texturas vintage */
-        :root {
-            --dark-brown: #3a2a1d;
-            --old-paper: #f0e6d2;
-            --gold: #c8a971;
-            --deep-red: #8b0000;
-            --dark-green: #2c4c3b;
-        }
-        
-        body {
-            background-color: var(--dark-brown);
-            color: #333;
-            font-family: 'Times New Roman', serif;
-            margin: 0;
-            padding: 0;
-            background-image: 
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%235a4b3d' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E"),
-                linear-gradient(to bottom, #1a1510, #2e231a);
-        }
-        
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            background-color: var(--old-paper);
-            border-left: 8px solid var(--gold);
-            border-right: 8px solid var(--gold);
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
-            position: relative;
-            background-image: 
-                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        /* Cabeçalho com estilo vintage */
-        header {
-            background: linear-gradient(to bottom, #5d4b32, #3a2a1d);
-            padding: 15px 0;
-            border-bottom: 4px solid var(--gold);
-            text-align: center;
-        }
-        
-        .logo {
-            font-family: 'Copperplate', 'Copperplate Gothic Light', fantasy;
-            font-size: 42px;
-            color: var(--old-paper);
-            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-            letter-spacing: 3px;
-            margin: 0;
-            padding: 10px;
-        }
-        
-        .logo span {
-            color: var(--gold);
-            font-size: 24px;
-            vertical-align: super;
-        }
-        
-        .subtitle {
-            color: var(--gold);
-            font-style: italic;
-            margin-top: -5px;
-            letter-spacing: 2px;
-        }
-        
-        /* Menu de navegação estilo 2004 */
-        .main-nav {
-            background: linear-gradient(to bottom, #2c4c3b, #1e3326);
-            padding: 0;
-            border-top: 2px solid #4a7860;
-            border-bottom: 2px solid #15231c;
-        }
-        
-        .main-nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .main-nav li {
-            border-right: 1px solid #4a7860;
-        }
-        
-        .main-nav li:last-child {
-            border-right: none;
-        }
-        
-        .main-nav a {
-            display: block;
-            color: var(--old-paper);
-            text-decoration: none;
-            padding: 12px 25px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        
-        .main-nav a:hover {
-            background: linear-gradient(to bottom, #3a6350, #2c4c3b);
-            color: var(--gold);
-        }
-        
-        /* Conteúdo principal */
-        .main-content {
-            padding: 30px;
-            display: flex;
-            gap: 30px;
-        }
-        
-        .welcome {
-            flex: 2;
-        }
-        
-        .welcome h2 {
-            color: var(--deep-red);
-            border-bottom: 2px dotted var(--gold);
-            padding-bottom: 10px;
-            font-family: 'Copperplate', fantasy;
-        }
-        
-        .sidebar {
-            flex: 1;
-            background: linear-gradient(to bottom, #e6d9c1, #d4c5a8);
-            padding: 20px;
-            border: 1px solid var(--gold);
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .sidebar h3 {
-            color: var(--dark-green);
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
-        
-        /* Elementos interativos */
-        .flash-message {
-            background: #f8f3e6;
-            border: 1px dashed var(--gold);
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-style: italic;
-        }
-        
-        .download-btn {
-            display: block;
-            background: linear-gradient(to bottom, #8b0000, #6d0000);
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            text-align: center;
-            font-weight: bold;
-            border: 2px solid #500000;
-            margin: 20px 0;
-            transition: all 0.3s;
-        }
-        
-        .download-btn:hover {
-            background: linear-gradient(to bottom, #a00, #800);
-            transform: translateY(-2px);
-        }
-        
-        /* Rodapé vintage */
-        footer {
-            background: linear-gradient(to bottom, #2c4c3b, #1e3326);
-            color: var(--old-paper);
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            border-top: 4px solid var(--gold);
-        }
-        
-        /* Efeitos de texto e elementos vintage */
-        .marquee {
-            background: #1e3326;
-            color: var(--gold);
-            padding: 5px;
-            overflow: hidden;
-            border-top: 1px solid #4a7860;
-            border-bottom: 1px solid #4a7860;
-        }
-        
-        .pixel-art {
-            image-rendering: pixelated;
-            border: 2px solid var(--gold);
-        }
-        
-        /* Media queries para responsividade */
-        @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .main-nav ul {
-                flex-direction: column;
-            }
-            
-            .main-nav li {
-                border-right: none;
-                border-bottom: 1px solid #4a7860;
-            }
-        }
-    </style>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://i.imgur.com/hQXoTWA.png" type="image/x-icon">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNRR1FVXYQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZNRR1FVXYQ');
+    </script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="logo">ANAMARA <span>3D</span></h1>
-            <p class="subtitle">O mistério continua após 20 anos...</p>
-        </header>
-        
-        <div class="marquee">
-            <marquee behavior="scroll" direction="left">• Bem-vindo ao site oficial de Anamara 3D • O retorno do clássico mistério • Descubra os segredos do asilo •</marquee>
-        </div>
-        
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">O Jogo</a></li>
-                <li><a href="#">História</a></li>
-                <li><a href="#">Personagens</a></li>
-                <li><a href="#">Download</a></li>
-                <li><a href="#">Fórum</a></li>
-            </ul>
-        </nav>
-        
-        <div class="main-content">
-            <div class="welcome">
-                <h2>BEM-VINDO AO RENASCIMENTO DE UM MISTÉRIO</h2>
-                <p>Anamara 3D é a recriação moderna do clássico jogo de Flash de 2004, "La Piedra de Anamara". Reviva a experiência com gráficos remasterizados em 3D, mantendo a atmosfera única e os puzzles intrigantes que cativaram milhares de jogadores.</p>
-                
-                <div class="flash-message">
-                    "O asilo esconde segredos que nem mesmo o tempo conseguiu apagar..."
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="60">
+            </a>
+
+            <div class="nav-links">
+                <a href="#apoio" class="nav-link">
+                    <i class="fas fa-heart"></i> Apoiar
+                </a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+                        <a href="#misterio"><i class="fas fa-search"></i> Mistério</a>
+                        <a href="#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+                        <a href="#corrida"><i class="fas fa-car"></i> Corrida</a>
+                        <a href="#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+                    </div>
                 </div>
-                
-                <p>Explore o sinistro asilo dos anos 40, agora com visuais impressionantes em 3D que mantêm a essência nostálgica do original. Descubra o que aconteceu com Anamara e desvende os mistérios que permaneceram ocultos por quase duas décadas.</p>
-                
-                <a href="https://100nome.itch.io/anamara3d" class="download-btn">JOGAR AGORA - DISPONÍVEL NO ITCH.IO</a>
-                
-                <h2>O RETORNO DE UMA LENDA</h2>
-                <p>Após 18 anos de espera, a comunidade finalmente terá respostas. Esta recriação fiel inclui todo o conteúdo original além de novas áreas, puzzles expandidos e o tão aguardado Capítulo 2 que completa a história.</p>
+                <a href="#traduzir" class="nav-link">
+                    <i class="fas fa-language"></i> Traduzir
+                </a>
+                <a href="https://www.youtube.com/@100NomePT" class="nav-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" class="nav-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
             </div>
-            
-            <div class="sidebar">
-                <h3>NOTÍCIAS RECENTES</h3>
-                <p><strong>15/09/2023</strong><br>Trailer de gameplay disponível!</p>
-                <p><strong>02/09/2023</strong><br>Beta testing aberto para apoiadores.</p>
-                <p><strong>20/08/2023</strong><br>Novas screenshots do asilo.</p>
-                
-                <h3>LINK IMPORTANTE</h3>
-                <p>Visite a <a href="https://anamarawiki.rf.gd/" style="color: var(--deep-red);">Wiki de Anamara</a> para conhecer toda a lore e história por trás do mistério.</p>
-                
-                <h3>COMUNIDADE</h3>
-                <p>Junte-se aos fãs que mantiveram viva a chama deste mistério por quase 20 anos.</p>
+
+            <div class="search-container">
+                <form id="search-form" method="get" action="#">
+                    <div class="search-wrapper">
+                        <input type="text" id="search-input" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                        <button type="submit" class="search-btn" aria-label="Pesquisar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu de navegação">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Menu móvel -->
+        <div class="mobile-menu" id="mobileMenu">
+            <!-- Campo de pesquisa móvel -->
+            <div class="mobile-search">
+                <form id="mobile-search-form" class="mobile-search-form">
+                    <div class="mobile-search-wrapper">
+                        <input type="text" id="mobile-search-input" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                        <button type="submit" class="mobile-search-btn" aria-label="Pesquisar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <a href="#apoio" class="mobile-link">
+                <i class="fas fa-heart"></i> Apoiar o projeto
+            </a>
+            <a href="#" class="mobile-link" id="mobileCategories">
+                <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="mobile-submenu" id="mobileSubmenu">
+                <a href="#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+                <a href="#misterio"><i class="fas fa-search"></i> Mistério</a>
+                <a href="#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+                <a href="#corrida"><i class="fas fa-car"></i> Corrida</a>
+                <a href="#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+            </div>
+            <a href="#traduzir" class="mobile-link">
+                <i class="fas fa-language"></i> Traduzir jogos
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" class="mobile-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> Canal YouTube
+            </a>
+            <a href="https://discord.gg/Xv7ax2VkEp" class="mobile-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Servidor Discord
+            </a>
+            <a href="/arquivo" class="mobile-link">
+                <i class="fas fa-archive"></i> Arquivo
+            </a>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho Hero -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome">
+            </div>
+            <p class="description">O maior portal de traduções de jogos de Portugal.
+            <br>Coloca os jogos em português!</p>
+
+
+            <div class="hero-cta">
+                <a href="#destaques" class="hero-btn">
+                    <i class="fas fa-gamepad"></i> Explorar Traduções
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" class="hero-btn hero-btn-secondary" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Junta-te à Comunidade
+                </a>
             </div>
         </div>
-        
-        <footer>
-            <p>Anamara 3D © 2023 - Baseado no jogo original "La Piedra de Anamara" (2004)</p>
-            <p>Este site é uma homenagem à comunidade de fãs que manteve vivo o mistério por quase duas décadas</p>
-        </footer>
+    </header>
+            <div class="hero-banner">
+                <div class="banner-text">
+                    <div class="scrolling-text">
+                        <span>✦ Entra no <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">servidor do Discord</a> para notificações e novidades. ✦ Subscreve o <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">canal do YouTube</a> e ativa as notificações para vídeos de traduções! ♡ ✦</span>
+                    </div>
+                </div>
+            </div>
+    <!-- Destaques Principais -->
+    <section class="featured-section" id="destaques">
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i> Destaques
+            </h2>
+            <p class="section-subtitle">As traduções mais recentes e populares</p>
+        </div>
+        <div class="featured-grid" id="featuredGrid">
+            <!-- Carregado via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Controlo de Vista (Carrossel/Grelha) -->
+    <div class="view-control-wrapper">
+        <div class="view-control">
+            <button class="view-btn active" data-view="carousel" title="Vista em carrossel">
+                <i class="fas fa-grip-horizontal"></i> Carrossel
+            </button>
+            <button class="view-btn" data-view="grid" title="Vista em grelha">
+                <i class="fas fa-th"></i> Grelha
+            </button>
+        </div>
     </div>
+
+    <!-- Categorias Netflix-style -->
+    <main class="main-content" id="mainContent">
+        <!-- As categorias serão carregadas dinamicamente aqui -->
+        <div id="categoriesContainer">
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>A carregar traduções...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Área de Apoio -->
+    <section class="support-section" id="apoio">
+        <div class="support-container">
+            <h2><i class="fas fa-hands-helping"></i> Apoia o Projeto</h2>
+            <p>O 100Nome é mantido por voluntários apaixonados por jogos e pela língua portuguesa. O teu apoio ajuda-nos a continuar este trabalho!</p>
+
+            <div class="support-options">
+                <a href="https://ko-fi.com/100nometraducoes" class="support-btn primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-coffee"></i> Fazer um donativo
+                </a>
+                <a href="#traduzir" class="support-btn secondary">
+                    <i class="fas fa-language"></i> Colaborar em tradução
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com?subject=Reportar%20Erro" class="support-btn secondary">
+                    <i class="fas fa-bug"></i> Reportar um erro
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Área Traduzir -->
+    <section class="translate-section" id="traduzir">
+        <div class="translate-container">
+            <h2><i class="fas fa-language"></i> Queres Traduzir?</h2>
+            <p>Junta-te à nossa comunidade de tradutores! Partilha o teu conhecimento e ajuda a trazer mais jogos para português.</p>
+            <a href="mailto:100nome.portugal@gmail.com?subject=Quero%20Traduzir" class="translate-btn">
+                <i class="fas fa-envelope"></i> Contacta-nos
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-th-large"></i> Categorias</h3>
+                <a href="#acao">Ação / Sobrevivência</a>
+                <a href="#misterio">Mistério</a>
+                <a href="#quebracabecas">Quebra-cabeças</a>
+                <a href="#corrida">Corrida</a>
+                <a href="#estrategia">Estratégia</a>
+            </div>
+
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Ligações</h3>
+                <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Servidor Discord
+                </a>
+                <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> Canal YouTube
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com">
+                    <i class="fas fa-envelope"></i> Contactar (e-mail)
+                </a>
+                <a href="/arquivo">
+                    <i class="fas fa-archive"></i> Arquivo
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3><i class="fas fa-gavel"></i> Legal</h3>
+                <p>As traduções estão ao abrigo das respetivas licenças atualizadas.</p>
+                <p>Solicita-se a leitura da Nota Legal disponível.</p>
+                <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="legal-link">
+                    <i class="fas fa-folder-open"></i> Pasta de Licenças
+                </a>
+            </div>
+
+            <div class="footer-section logo-section">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="80">
+                <h3>100Nome Traduções</h3>
+                <p>Traduções em PT-PT desde 2012</p>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="mailto:100nome.portugal@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 100Nome Traduções. Todos os direitos reservados.</p>
+            <p class="footer-note">Este projeto é mantido por voluntários apaixonados pela língua portuguesa.</p>
+        </div>
+    </footer>
+
+    <!-- Botão para voltar ao topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="game-page-script.js"></script>
 </body>
 </html>

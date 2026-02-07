@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Beneath a Steel Sky PT-PT - Tradução 100Nome</title>
+    <meta name="description" content="Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares, Robert Foster encontra-se em Union City, uma vasta metrópole sob a…">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../game-page.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://i.imgur.com/hQXoTWA.png" type="image/x-icon">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNRR1FVXYQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZNRR1FVXYQ');
+    </script>
+</head>
+<body data-guid="beneath-a-steel-sky-pt-pt-portugues-20354">
+    <!-- Barra de Navegação (mesma do index.html) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="60">
+            </a>
+
+            <div class="nav-links">
+                <a href="/#apoio" class="nav-link">
+                    <i class="fas fa-heart"></i> Apoiar
+                </a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+                        <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+                        <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+                        <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+                        <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+                    </div>
+                </div>
+                <a href="/#traduzir" class="nav-link">
+                    <i class="fas fa-language"></i> Traduzir
+                </a>
+                <a href="https://www.youtube.com/@100NomePT" class="nav-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" class="nav-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu de navegação">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="/" class="breadcrumb-link">
+                <i class="fas fa-home"></i> Início
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="/#misterio" class="breadcrumb-link">
+                <i class="fas fa-search"></i> Mistério
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Beneath a Steel Sky</span>
+        </div>
+    </nav>
+
+    <!-- Página do Jogo -->
+    <main class="game-page">
+        <!-- Cabeçalho do Jogo -->
+        <section class="game-header">
+            <div class="game-header-bg"></div>
+            <div class="game-header-container">
+                <div class="game-cover-wrapper">
+                    <img src="../data/imgs/beneath-a-steel-sky-pt-pt.png" alt="Beneath a Steel Sky PT-PT - Tradução PT-PT - 100Nome" class="game-cover">
+                    <div class="game-badges-top">
+                        <span class="badge badge-category"><i class="fas fa-search"></i> Mistério</span>
+                    </div>
+                </div>
+                <div class="game-header-info">
+                    <h1 class="game-page-title">Beneath a Steel Sky PT-PT</h1>
+                    <p class="game-subtitle">Tradução em português de Portugal</p>
+                    
+                    <div class="game-meta-row">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>21 Julho 2023</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>n/d</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Versão 1.0</span>
+                        </div>
+                    </div>
+
+                    <div class="game-actions">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-arrow-down"></i> Ver Descarga
+                        </a>
+                        <button class="btn btn-secondary" onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Partilha não suportada')">
+                            <i class="fas fa-share-alt"></i> Partilhar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="game-content-wrapper">
+            <div class="game-main-content">
+                <!-- Descrição -->
+                <section class="game-section">
+                    <h2 class="section-title"><i class="fas fa-book-open"></i> Sobre o Jogo</h2>
+                    <div class="section-content">
+                        <p>Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares, Robert Foster encontra-se em Union City, uma vasta metrópole sob a tirania de uma IA fascista. Sozinho, acompanhado apenas do circuito impresso do seu melhor amigo, Foster terá de descobrir a verdade sinistra e a razão pela qual é particularmente perseguido.</p>
+                    </div>
+                </section>
+
+                <!-- Informações do Jogo -->
+                <section class="game-section">
+                    <h2 class="section-title"><i class="fas fa-gamepad"></i> Informações do Jogo</h2>
+                    <div class="section-content">
+                        <dl class="info-list">
+                            <dt>Nome:</dt><dd>Beneath a Steel Sky</dd>
+<dt>Nome Original:</dt><dd>Beneath a Steel Sky</dd>
+<dt>Criado por:</dt><dd>Revolution Software</dd>
+<dt>Estilo:</dt><dd>Aventura, Indie</dd>
+                        </dl>
+                    </div>
+                </section>
+
+                <!-- Informações da Tradução -->
+                <section class="game-section">
+                    <h2 class="section-title"><i class="fas fa-language"></i> Informações da Tradução</h2>
+                    <div class="section-content">
+                        <dl class="info-list">
+                            <dt>Versão:</dt><dd>1.0</dd>
+<dt>Fornecida por:</dt><dd>[oficial]</dd>
+<dt>Tradutores:</dt><dd>n/d</dd>
+<dt>Atributos:</dt><dd><span class="attribute-badge" title="Tradução">T</span><span class="attribute-badge" title="Menu">M</span><span class="attribute-badge" title="Revisão">R</span></dd>
+                        </dl>
+                    </div>
+                </section>
+
+                
+  <section class="game-section download-section" id="download">
+    <h2 class="section-title"><i class="fas fa-download"></i> Descargas e Avisos</h2>
+    <div class="section-content">
+      <p class="download-intro">Antes de descarregar, verifica as licenças e os avisos abaixo.</p>
+      <div class="download-actions">
+        <a href="https://rebrand.ly/beneathsteel724442" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-download"></i> Descarregar Tradução
+        </a>
+        <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <i class="fas fa-folder-open"></i> Licenças
+        </a>
+      </div>
+      
+      <div class="download-count" data-downloads>
+        <i class="fas fa-download"></i>
+        <span id="downloadsCount">—</span>
+      </div>
+      <div class="license-warning">
+        <i class="fas fa-scale-balanced"></i>
+        <div>
+          <strong>Licença atualizada:</strong> consulta a pasta oficial antes de usar esta tradução.
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>
+                
+  <section class="game-section comments-section" id="comentarios">
+    <h2 class="section-title"><i class="fas fa-comments"></i> Comentários</h2>
+    <div class="section-content">
+      <p class="comments-intro">Partilha a tua experiência com esta tradução. Se encontraste algum erro, diz-nos aqui.</p>
+      <div class="giscus-wrap">
+        <div class="giscus" data-giscus-title="Beneath a Steel Sky"></div>
+      </div>
+      <script src="https://giscus.app/client.js"
+        data-repo="100nome-traducoes/site-comments"
+        data-repo-id="R_kgDORK-2Yg"
+        data-category="Comentários"
+        data-category-id="DIC_kwDORK-2Ys4C2BON"
+        data-mapping="specific"
+        data-term="Beneath a Steel Sky"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="https://raw.githubusercontent.com/100nome-traducoes/site-comments/refs/heads/main/giscus-theme.css"
+        data-lang="pt"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+  </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="game-sidebar">
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-heart"></i> Apoia o Projeto</h3>
+                    <p>Gostaste desta tradução? Apoia o 100Nome!</p>
+                    <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-coffee"></i> Fazer Donativo
+                    </a>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-users"></i> Comunidade</h3>
+                    <div class="community-links">
+                        <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-discord"></i> Discord
+                        </a>
+                        <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-gamepad"></i> Jogos Relacionados</h3>
+                    <div class="related-games">
+                        <!-- Será preenchido via JavaScript -->
+                        <p class="loading-text">A carregar sugestões...</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-th-large"></i> Categorias</h3>
+                <a href="/#acao">Ação / Sobrevivência</a>
+                <a href="/#misterio">Mistério</a>
+                <a href="/#quebracabecas">Quebra-cabeças</a>
+                <a href="/#corrida">Corrida</a>
+                <a href="/#estrategia">Estratégia</a>
+            </div>
+
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Ligações</h3>
+                <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Servidor Discord
+                </a>
+                <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> Canal YouTube
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com">
+                    <i class="fas fa-envelope"></i> Contactar (e-mail)
+                </a>
+                <a href="/arquivo">
+                    <i class="fas fa-archive"></i> Arquivo
+                </a>
+            </div>
+
+            <div class="footer-section">
+                <h3><i class="fas fa-gavel"></i> Legal</h3>
+                <p>As traduções estão ao abrigo das respetivas licenças atualizadas.</p>
+                <p>Solicita-se a leitura da Nota Legal disponível.</p>
+                <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="legal-link">
+                    <i class="fas fa-folder-open"></i> Pasta de Licenças
+                </a>
+            </div>
+
+            <div class="footer-section logo-section">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="80">
+                <h3>100Nome Traduções</h3>
+                <p>Traduções em PT-PT desde 2012</p>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="mailto:100nome.portugal@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 100Nome Traduções. Todos os direitos reservados.</p>
+            <p class="footer-note">Este projeto é mantido por voluntários apaixonados pela língua portuguesa.</p>
+        </div>
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Back to top
+        $(document).ready(function() {
+            const $backToTop = $('#backToTop');
+            
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 300) {
+                    $backToTop.addClass('visible');
+                } else {
+                    $backToTop.removeClass('visible');
+                }
+            });
+
+            $backToTop.on('click', function() {
+                $('html, body').animate({ scrollTop: 0 }, 500);
+            });
+
+            // Menu mobile
+            $('#menuToggle').on('click', function() {
+                $('.mobile-menu').toggleClass('active');
+            });
+        });
+    </script>
+    <script src="../game-page-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "100nome-site",
+  "version": "1.0.0",
+  "description": "Site de traduções de jogos 100Nome",
+  "scripts": {
+    "build:wiki": "node build-wiki.js",
+    "build:all": "npm run build:wiki && npm run build:pages",
+    "build:pages": "node build-game-pages.js",
+    "dev": "npm run build:all && python -m http.server 8000",
+    "watch:wiki": "nodemon --watch wiki-content --exec 'npm run build:wiki'"
+  },
+  "keywords": [
+    "traduções",
+    "jogos",
+    "pt-pt"
+  ],
+  "author": "100Nome",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^11.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

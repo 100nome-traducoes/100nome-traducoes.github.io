@@ -1,0 +1,71 @@
+---
+titulo: Wiki de Tradução
+descricao: Wiki completa da tradução PT-PT de Dead Island. Consulta termos, zombies, armas, locais, conquistas e muito mais.
+icone: info-circle
+ordem: 1
+---
+
+# Wiki de Tradução — Dead Island PT-PT
+
+<div class="wiki-cover">
+  <img src="../../data/wiki-content/dead-island-pt-pt-tuga-definitive-34406/imgs/dead-island-edição-tuga.jpg" alt="Capa da Wiki Dead Island">
+</div>
+
+Bem-vindo à wiki oficial da tradução **Dead Island PT-PT**. Aqui encontras um glossário organizado por temas, com termos traduzidos, zombies, armas, locais, missões e curiosidades. O objetivo é tornar a navegação rápida e útil, sem ruído desnecessário.
+
+## Trailer da Tradução
+
+<div class="wiki-video">
+  <iframe
+    width="100%"
+    height="400"
+    src="https://www.youtube.com/embed/wQsys-tXpME"
+    title="Trailer da Tradução Dead Island PT-PT"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+## Explorar a Wiki
+
+<div class="wiki-categories-grid">
+  <a href="zombies.html" class="wiki-category-card">
+    <i class="fas fa-skull"></i>
+    <h3>Zombies</h3>
+    <p>Tipos, variações e notas importantes.</p>
+  </a>
+  <a href="armas.html" class="wiki-category-card">
+    <i class="fas fa-axe"></i>
+    <h3>Armas</h3>
+    <p>Armas, níveis e traduções úteis.</p>
+  </a>
+  <a href="lugares.html" class="wiki-category-card">
+    <i class="fas fa-map-marker-alt"></i>
+    <h3>Lugares</h3>
+    <p>Locais, zonas e nomes traduzidos.</p>
+  </a>
+  <a href="mods.html" class="wiki-category-card">
+    <i class="fas fa-wrench"></i>
+    <h3>Mods</h3>
+    <p>Alterações e conteúdos adicionais.</p>
+  </a>
+  <a href="conquistas.html" class="wiki-category-card">
+    <i class="fas fa-trophy"></i>
+    <h3>Conquistas</h3>
+    <p>Objetivos e traduções associadas.</p>
+  </a>
+  <a href="missoes.html" class="wiki-category-card">
+    <i class="fas fa-tasks"></i>
+    <h3>Missões</h3>
+    <p>Missões principais e secundárias.</p>
+  </a>
+</div>
+
+## Como usar esta Wiki
+
+1. Usa a barra lateral para navegar entre categorias.
+2. Cada página tem secções com títulos claros e ligação direta.
+3. Se não encontrares algo, usa a pesquisa na própria wiki.
+
+> Esta wiki é atualizada conforme a tradução evolui. Se encontrares algo em falta, deixa sugestão nos comentários do jogo.

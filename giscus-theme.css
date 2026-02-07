@@ -1,0 +1,77 @@
+/* 100Nome Giscus Theme (adapted to site palette) */
+
+:root {
+  color-scheme: dark;
+
+  --color-canvas-default: #00111d;
+  --color-canvas-subtle: #0a1929;
+  --color-canvas-inset: #0a1929;
+  --color-canvas-overlay: #001a2a;
+
+  --color-border-default: rgba(255, 255, 255, 0.12);
+  --color-border-muted: rgba(255, 255, 255, 0.08);
+
+  --color-fg-default: #d8d8d8;
+  --color-fg-muted: #a0a0a0;
+  --color-fg-subtle: #b8b8b8;
+  --color-fg-on-emphasis: #00111d;
+
+  --color-accent-fg: #e39e44;
+  --color-accent-emphasis: #e39e44;
+  --color-accent-muted: rgba(227, 158, 68, 0.2);
+  --color-accent-subtle: rgba(227, 158, 68, 0.12);
+
+  --color-neutral-muted: rgba(255, 255, 255, 0.08);
+  --color-neutral-subtle: rgba(255, 255, 255, 0.04);
+
+  --color-success-emphasis: #2ea043;
+  --color-attention-emphasis: #d29922;
+  --color-danger-emphasis: #f85149;
+
+  --color-btn-text: #00111d;
+  --color-btn-bg: #e39e44;
+  --color-btn-border: #c6893a;
+  --color-btn-hover-bg: #c6893a;
+  --color-btn-hover-border: #c6893a;
+  --color-btn-active-bg: #c6893a;
+  --color-btn-active-border: #c6893a;
+
+  --color-btn-primary-text: #00111d;
+  --color-btn-primary-bg: #e39e44;
+  --color-btn-primary-border: #c6893a;
+  --color-btn-primary-hover-bg: #c6893a;
+  --color-btn-primary-hover-border: #c6893a;
+  --color-btn-primary-active-bg: #c6893a;
+  --color-btn-primary-active-border: #c6893a;
+
+  --color-primer-shadow-highlight: 0 0 0 1px rgba(227, 158, 68, 0.25);
+  --color-primer-shadow-focus: 0 0 0 3px rgba(227, 158, 68, 0.25);
+}
+
+.main {
+  font-family: "Open Sans", sans-serif;
+}
+
+.markdown-body {
+  color: var(--color-fg-default);
+}
+
+.markdown-body a {
+  color: var(--color-accent-fg);
+}
+
+.markdown-body a:hover {
+  color: #c6893a;
+}
+
+.gsc-comment-box {
+  border-radius: 10px;
+}
+
+.gsc-input {
+  border-radius: 8px;
+}
+
+.gsc-replies {
+  border-left: 2px solid rgba(227, 158, 68, 0.2);
+}

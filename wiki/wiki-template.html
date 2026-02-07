@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>{{TITULO}} - Wiki {{JOGO_NOME}} - 100Nome</title>
+    <meta name="description" content="{{DESCRICAO}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../wiki.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/hQXoTWA.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="60">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <div class="breadcrumbs-container">
+            <a href="/" class="breadcrumb-link"><i class="fas fa-home"></i> Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../../jogo/{{JOGO_ID}}.html" class="breadcrumb-link">{{JOGO_NOME}}</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="index.html" class="breadcrumb-link">Wiki</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{TITULO}}</span>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="wiki-container">
+        <!-- Sidebar -->
+        <aside class="wiki-sidebar">
+            <div class="wiki-nav">
+                <h3 class="wiki-nav-title"><i class="fas fa-list"></i> Conteúdos</h3>
+                <ul class="wiki-nav-list">
+                    {{SIDEBAR_NAV}}
+                </ul>
+            </div>
+
+            <!-- Voltar ao jogo -->
+            <div class="wiki-back-link">
+                <a href="../../jogo/{{JOGO_ID}}.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Jogo
+                </a>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Wiki -->
+        <div class="wiki-content">
+            <!-- Cabeçalho da Página -->
+            <div class="wiki-page-header">
+                <div class="page-icon">
+                    <i class="fas fa-{{ICONE}}"></i>
+                </div>
+                <div>
+                    <h1>{{TITULO}}</h1>
+                </div>
+            </div>
+
+            <!-- Conteúdo Markdown Convertido -->
+            {{CONTEUDO}}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2024 100Nome Traduções</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <script>
+        $(document).ready(function() {
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#backToTop').addClass('visible');
+                } else {
+                    $('#backToTop').removeClass('visible');
+                }
+            });
+
+            $('#backToTop').click(function() {
+                $('html, body').animate({ scrollTop: 0 }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
