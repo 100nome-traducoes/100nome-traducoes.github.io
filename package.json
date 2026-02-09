@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Site de traduções de jogos 100Nome",
   "scripts": {
-    "build:wiki": "node build-wiki.js",
-    "build:all": "npm run build:wiki && npm run build:pages",
-    "build:pages": "node build-game-pages.js",
+    "build:home": "node scripts/build-home.js",
+    "build:wiki": "node scripts/build-wiki.js",
+    "build:pages": "node scripts/build-pages.js",
+    "build:sitemap": "node scripts/build-sitemap.js",
+    "build:robots": "node scripts/build-robots.js",
+    "build:all": "npm run build:home && npm run build:pages && npm run build:wiki && npm run build:sitemap && npm run build:robots",
     "dev": "npm run build:all && python -m http.server 8000",
-    "watch:wiki": "nodemon --watch wiki-content --exec 'npm run build:wiki'"
+    "watch:wiki": "nodemon --watch data/wiki-content --exec 'npm run build:wiki'"
   },
   "keywords": [
     "traduções",

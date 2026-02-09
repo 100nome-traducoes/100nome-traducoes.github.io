@@ -35,45 +35,94 @@
     </script>
 </head>
 <body data-guid="world-of-goo-traducao-pt-pt-portugues-31909">
-    <!-- Barra de Navegação (mesma do index.html) -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="logo">
-                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="60">
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="60">
+        </a>
+
+        <div class="nav-links">
+            <a href="/#apoio" class="nav-link">
+                <i class="fas fa-heart"></i> Apoiar
             </a>
-
-            <div class="nav-links">
-                <a href="/#apoio" class="nav-link">
-                    <i class="fas fa-heart"></i> Apoiar
+            <div class="dropdown">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
                 </a>
-                <div class="dropdown">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
-                        <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
-                        <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
-                        <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
-                        <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
-                    </div>
+                <div class="dropdown-content">
+                    <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+                    <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+                    <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+                    <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+                    <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
                 </div>
-                <a href="/#traduzir" class="nav-link">
-                    <i class="fas fa-language"></i> Traduzir
-                </a>
-                <a href="https://www.youtube.com/@100NomePT" class="nav-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i> YouTube
-                </a>
-                <a href="https://discord.gg/Xv7ax2VkEp" class="nav-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-discord"></i> Discord
-                </a>
             </div>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu de navegação">
-                <i class="fas fa-bars"></i>
-            </button>
+            <a href="/#traduzir" class="nav-link">
+                <i class="fas fa-language"></i> Traduzir
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="https://discord.gg/Xv7ax2VkEp" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Discord
+            </a>
         </div>
-    </nav>
+
+        <div class="search-container">
+            <form id="search-form" method="get" action="/">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" name="q" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                    <button type="submit" class="search-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu de navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-search">
+            <form id="mobile-search-form" class="mobile-search-form" method="get" action="/">
+                <div class="mobile-search-wrapper">
+                    <input type="text" id="mobile-search-input" name="q" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                    <button type="submit" class="mobile-search-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <a href="/#apoio" class="mobile-link">
+            <i class="fas fa-heart"></i> Apoiar o projeto
+        </a>
+        <a href="#" class="mobile-link" id="mobileCategories">
+            <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="mobile-submenu" id="mobileSubmenu">
+            <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+            <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+            <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+            <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+            <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+        </div>
+        <a href="/#traduzir" class="mobile-link">
+            <i class="fas fa-language"></i> Traduzir jogos
+        </a>
+        <a href="https://www.youtube.com/@100NomePT" class="mobile-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> Canal YouTube
+        </a>
+        <a href="https://discord.gg/Xv7ax2VkEp" class="mobile-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-discord"></i> Servidor Discord
+        </a>
+        <a href="/arquivo" class="mobile-link">
+            <i class="fas fa-archive"></i> Arquivo
+        </a>
+    </div>
+</nav>
+
 
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -83,7 +132,7 @@
             </a>
             <span class="breadcrumb-separator">/</span>
             <a href="/#quebracabecas" class="breadcrumb-link">
-                <i class="fas fa-puzzle-piece"></i> Quebra-cabeças
+                <i class="fas fa-undefined"></i> Quebra-cabeças
             </a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">World of Goo</span>
@@ -105,7 +154,7 @@
                 <div class="game-header-info">
                     <h1 class="game-page-title">World of Goo PT-PT</h1>
                     <p class="game-subtitle">Tradução em português de Portugal</p>
-                    
+
                     <div class="game-meta-row">
                         <div class="meta-item">
                             <i class="fas fa-calendar-alt"></i>
@@ -125,6 +174,7 @@
                         <a href="#download" class="btn btn-primary">
                             <i class="fas fa-arrow-down"></i> Ver Descarga
                         </a>
+                        
                         <button class="btn btn-secondary" onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Partilha não suportada')">
                             <i class="fas fa-share-alt"></i> Partilhar
                         </button>
@@ -164,7 +214,7 @@
                             <dt>Versão:</dt><dd>1.0</dd>
 <dt>Fornecida por:</dt><dd>C64</dd>
 <dt>Tradutores:</dt><dd>João Frade</dd>
-<dt>Atributos:</dt><dd><span class="attribute-badge" title="Tradução">T</span><span class="attribute-badge" title="Menu">M</span></dd>
+<dt>Atributos:</dt><dd><span class="attribute-badge" title="Textos traduzidos">T</span><span class="attribute-badge" title="Menus traduzidos">M</span></dd>
                         </dl>
                     </div>
                 </section>
@@ -175,18 +225,18 @@
     <div class="section-content">
       <p class="download-intro">Antes de descarregar, verifica as licenças e os avisos abaixo.</p>
       <div class="download-actions">
-        <a href="https://rebrand.ly/mundogoof39321" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-download"></i> Descarregar Tradução
+        <a href="https://rebrand.ly/mundogoof39321" class="btn btn-primary download-btn" target="_blank" rel="noopener noreferrer" aria-label="Descarregar Tradução">
+          <i class="fas fa-download"></i>
+          <div class="download-btn-text">
+            <div>Descarregar Tradução</div>
+            <div id="downloadsCount" class="download-stats-number" aria-hidden="true">—</div>
+          </div>
         </a>
         <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           <i class="fas fa-folder-open"></i> Licenças
         </a>
       </div>
       
-      <div class="download-count" data-downloads>
-        <i class="fas fa-download"></i>
-        <span id="downloadsCount">—</span>
-      </div>
       <div class="license-warning">
         <i class="fas fa-scale-balanced"></i>
         <div>
@@ -221,7 +271,7 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="https://raw.githubusercontent.com/100nome-traducoes/site-comments/refs/heads/main/giscus-theme.css"
+        data-theme="/giscus-theme.css"
         data-lang="pt"
         crossorigin="anonymous"
         async>
@@ -263,77 +313,80 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3><i class="fas fa-th-large"></i> Categorias</h3>
-                <a href="/#acao">Ação / Sobrevivência</a>
-                <a href="/#misterio">Mistério</a>
-                <a href="/#quebracabecas">Quebra-cabeças</a>
-                <a href="/#corrida">Corrida</a>
-                <a href="/#estrategia">Estratégia</a>
-            </div>
-
-            <div class="footer-section">
-                <h3><i class="fas fa-link"></i> Ligações</h3>
-                <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-discord"></i> Servidor Discord
-                </a>
-                <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i> Canal YouTube
-                </a>
-                <a href="mailto:100nome.portugal@gmail.com">
-                    <i class="fas fa-envelope"></i> Contactar (e-mail)
-                </a>
-                <a href="/arquivo">
-                    <i class="fas fa-archive"></i> Arquivo
-                </a>
-            </div>
-
-            <div class="footer-section">
-                <h3><i class="fas fa-gavel"></i> Legal</h3>
-                <p>As traduções estão ao abrigo das respetivas licenças atualizadas.</p>
-                <p>Solicita-se a leitura da Nota Legal disponível.</p>
-                <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="legal-link">
-                    <i class="fas fa-folder-open"></i> Pasta de Licenças
-                </a>
-            </div>
-
-            <div class="footer-section logo-section">
-                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="80">
-                <h3>100Nome Traduções</h3>
-                <p>Traduções em PT-PT desde 2012</p>
-                <div class="social-icons">
-                    <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="mailto:100nome.portugal@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3><i class="fas fa-th-large"></i> Categorias</h3>
+            <a href="/#acao">Ação / Sobrevivência</a>
+            <a href="/#misterio">Mistério</a>
+            <a href="/#quebracabecas">Quebra-cabeças</a>
+            <a href="/#corrida">Corrida</a>
+            <a href="/#estrategia">Estratégia</a>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 100Nome Traduções. Todos os direitos reservados.</p>
-            <p class="footer-note">Este projeto é mantido por voluntários apaixonados pela língua portuguesa.</p>
+        <div class="footer-section">
+            <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Servidor Discord
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> Canal YouTube
+            </a>
+            <a href="mailto:100nome.portugal@gmail.com">
+                <i class="fas fa-envelope"></i> Contactar (e-mail)
+            </a>
+            <a href="/arquivo">
+                <i class="fas fa-archive"></i> Arquivo
+            </a>
         </div>
-    </footer>
 
-    <!-- Botão voltar ao topo -->
-    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+        <div class="footer-section">
+            <h3><i class="fas fa-gavel"></i> Legal</h3>
+            <p>As traduções estão ao abrigo das respetivas licenças atualizadas.</p>
+            <p>Solicita-se a leitura da Nota Legal disponível.</p>
+            <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="legal-link">
+                <i class="fas fa-folder-open"></i> Pasta de Licenças
+            </a>
+        </div>
+
+        <div class="footer-section logo-section">
+            <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome Logo" width="80">
+            <h3>100Nome Traduções</h3>
+            <p>Traduções em PT-PT desde 2012</p>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 100Nome Traduções. Todos os direitos reservados.</p>
+        <p class="footer-note">Este projeto é mantido por voluntários apaixonados pela língua portuguesa.</p>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
 
     <script>
         // Back to top
         $(document).ready(function() {
             const $backToTop = $('#backToTop');
-            
+            const $globalSearchForm = $('#search-form');
+            const $globalSearchInput = $('#search-input');
+            const $globalMobileSearchForm = $('#mobile-search-form');
+            const $globalMobileSearchInput = $('#mobile-search-input');
+
             $(window).on('scroll', function() {
                 if ($(this).scrollTop() > 300) {
                     $backToTop.addClass('visible');
@@ -348,7 +401,47 @@
 
             // Menu mobile
             $('#menuToggle').on('click', function() {
-                $('.mobile-menu').toggleClass('active');
+                $('#mobileMenu').toggleClass('active');
+            });
+
+            $('#mobileCategories').on('click', function(e) {
+                e.preventDefault();
+                $('#mobileSubmenu').toggleClass('active');
+            });
+
+            // Scroll suave para âncoras internas
+            $('a[href^="#"]').on('click', function(e) {
+                const target = $(this.getAttribute('href'));
+                if (target.length) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 600);
+                }
+            });
+
+            function getHomeUrl() {
+                const parts = window.location.pathname.split('/').filter(Boolean);
+                if (parts.length > 0 && !['wiki', 'jogo'].includes(parts[0]) && !parts[0].endsWith('.html')) {
+                    return '/' + parts[0] + '/';
+                }
+                return '/';
+            }
+
+            const homeUrl = getHomeUrl();
+            $globalSearchForm.attr('action', homeUrl);
+            $globalMobileSearchForm.attr('action', homeUrl);
+
+            $globalSearchForm.on('submit', function(e) {
+                e.preventDefault();
+                const q = ($globalSearchInput.val() || '').trim();
+                if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
+            });
+
+            $globalMobileSearchForm.on('submit', function(e) {
+                e.preventDefault();
+                const q = ($globalMobileSearchInput.val() || '').trim();
+                if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
             });
         });
     </script>

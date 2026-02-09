@@ -27,7 +27,7 @@ $(document).ready(function() {
         }
 
         const jogoAtual = window.jogosPorGuid[GUID_JOGO_ATUAL];
-        
+
         if (!jogoAtual) {
             console.error('Jogo não encontrado:', GUID_JOGO_ATUAL);
             $('.related-games').html(`
@@ -150,7 +150,7 @@ $(document).ready(function() {
                             .map(jogo => {
                                 let similaridade = 0;
 
-                                const categoriasComum = jogo.categorias.filter(cat => 
+                                const categoriasComum = jogo.categorias.filter(cat =>
                                     jogoAtual.categorias.includes(cat)
                                 ).length;
                                 similaridade += categoriasComum * 20;
@@ -166,7 +166,7 @@ $(document).ready(function() {
                                 if (jogo.informacoesJogo?.estilo && jogoAtual.informacoesJogo?.estilo) {
                                     const estilosJogo = jogo.informacoesJogo.estilo.toLowerCase().split(',');
                                     const estilosAtual = jogoAtual.informacoesJogo.estilo.toLowerCase().split(',');
-                                    const estilosComum = estilosJogo.filter(estilo => 
+                                    const estilosComum = estilosJogo.filter(estilo =>
                                         estilosAtual.some(e => e.trim() === estilo.trim())
                                     ).length;
                                     similaridade += estilosComum * 10;
@@ -216,12 +216,12 @@ $(document).ready(function() {
                     const texto = `${formatarNumero(registo.downloads)} descargas`;
                     $('#downloadsCount').text(texto);
                 } else {
-                    $('.download-count').hide();
+                    $('.download-stats-number').hide();
                 }
             },
             error: function(error) {
                 console.error('Erro ao carregar downloads:', error);
-                $('.download-count').hide();
+                $('.download-stats-number').hide();
             }
         });
     }

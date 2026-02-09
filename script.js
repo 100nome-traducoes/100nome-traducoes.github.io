@@ -25,6 +25,7 @@ $(document).ready(function() {
     let todasCategorias = new Set();
     let currentView = 'carousel';
     let isCarouselDragging = false;
+    const initialQuery = new URLSearchParams(window.location.search).get('q');
 
     // Inicialização
     function init() {
@@ -47,6 +48,13 @@ $(document).ready(function() {
 
                 const savedView = localStorage.getItem('viewMode');
                 aplicarVista(savedView || 'carousel');
+
+                if (initialQuery) {
+                    $searchInput.val(initialQuery);
+                    $('#mobile-search-input').val(initialQuery);
+                    pesquisarTraducoes(initialQuery);
+                }
+
                 $loadingIndicator.hide();
             },
             error: function(error) {
@@ -719,8 +727,14 @@ $(document).ready(function() {
             e.preventDefault();
             const query = $searchInput.val().trim();
             if (query) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('q', query);
+                window.history.replaceState({}, '', url);
                 pesquisarTraducoes(query);
             } else {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('q');
+                window.history.replaceState({}, '', url);
                 // Se a pesquisa estiver vazia, voltar à vista atual
                 aplicarVista(currentView);
             }
@@ -731,11 +745,17 @@ $(document).ready(function() {
             e.preventDefault();
             const query = $('#mobile-search-input').val().trim();
             if (query) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('q', query);
+                window.history.replaceState({}, '', url);
                 pesquisarTraducoes(query);
                 // Fechar menu mobile após pesquisa
                 $mobileMenu.removeClass('active');
                 $mobileSubmenu.slideUp();
             } else {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('q');
+                window.history.replaceState({}, '', url);
                 aplicarVista(currentView);
             }
         });

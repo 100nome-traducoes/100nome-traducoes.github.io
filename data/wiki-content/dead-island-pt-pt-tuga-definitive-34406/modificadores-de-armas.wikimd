@@ -1,0 +1,123 @@
+---
+jogo: dead-island
+titulo: Modificadores
+descricao: Prefixos e sufixos das armas do Dead Island, traduzidos e organizados por categoria.
+icone: flash
+ordem: 2
+---
+
+# Modificadores de Armas
+
+> [intro] No Dead Island, as armas podem ter características especiais que alteram o seu desempenho. Estes modificadores aparecem antes ou depois do nome da arma e definem desde efeitos elementais até níveis de qualidade.
+
+## [icon:wrench] Modificadores Especiais
+
+:caption: Modificadores que alteram o nome da arma quando ela possui uma [Modificação](/wiki/dead-island-pt-pt-tuga-definitive-34406/mods.html) aplicada
+
+| ^ | Farpeado | Explosivo | Hemorragia | Aparafusado | Halterado | Peso Pesado |
+|---|---|---|---|---|---|---|
+| PT-PT | Farpeado | Explosivo | Hemorragia | Aparafusado | Halterado | Peso Pesado |
+| EN | Barbed | Explosive | Bleeding | Bolted | Weighted | Heavy |
+
+| ^ | Piranha | Tubarão | Crítico | Detox | Eletrizante | em Brasa |
+|---|---|---|---|---|---|---|
+| PT-PT | Piranha | Tubarão | Crítico | Detox | Eletrizante | em Brasa |
+| EN | Piranha | Shark | Critical | Detox | Shock | Scorching |
+
+| ^ | Vitrificado | em Alta Tensão | Lamelado | Impactante | Relâmpago | Mágico |
+|---|---|---|---|---|---|---|
+| PT-PT | Vitrificado | em Alta Tensão | Lamelado | Impactante | Relâmpago | Mágico |
+| EN | Glazed | High Voltage | Slash | Impact | Lightning | Magic Wand |
+
+| ^ | Prego a Fundo | Brilhante | Paralisante | Soberbo | Picada da Morte | Serra Circular |
+|---|---|---|---|---|---|---|
+| PT-PT | Prego a Fundo | Brilhante | Paralisante | Soberbo | Picada da Morte | Serra Circular |
+| EN | Nail'd | Old Smoky | Paralyzing | Pride | Deathstalker | Sawdisc |
+
+| ^ | em Curto-circuito | Flamejante | Tesla | Afiado | Tóxico | Venenoso | Fénix |
+|---|---|---|---|---|---|---|---|
+| PT-PT | em Curto-circuito | Flamejante | Tesla | Afiado | Tóxico | Venenoso | Fénix |
+| EN | Short-Circuit | Striker | Tesla | Razor | Toxic | Venom | Phoenix |
+
+## [icon:fire] Níveis de Dano
+
+:caption: Níveis de poder de dano das armas (do mais fraco ao mais forte)
+
+| ^ | Ineficaz | Impotente | Medíocre | Comum | Agressivo | Malévolo | Danoso |
+|---|---|---|---|---|---|---|---|
+| PT-PT | Ineficaz | Impotente | Medíocre | Comum | Agressivo | Malévolo | Danoso |
+| EN | Feeble | Puny | Mediocre | Ordinary | Spiteful | Malicious | Damaging |
+
+| ^ | Perigoso | Selvagem | Perverso | Cruel | Chacinante | Massacrante | Mortífero | Letal |
+|---|---|---|---|---|---|---|---|---|
+| PT-PT | Perigoso | Selvagem | Perverso | Cruel | Chacinante | Massacrante | Mortífero | Letal |
+| EN | Dangerous | Savage | Vicious | Cruel | Slaughtering | Devastating | Deadly | Lethal |
+
+## [icon:speedometer] Velocidade de Recarga
+
+:caption: Velocidade de ataque das armas (do mais lento ao mais rápido)
+
+| ^ | Molenga | Vagaroso | Lento | Compassado | Ritmo Médio | Brisa | Ligeiro |
+|---|---|---|---|---|---|---|---|
+| PT-PT | Molenga | Vagaroso | Lento | Compassado | Ritmo Médio | Brisa | Ligeiro |
+| EN | Sluggish | Slow | Unwieldy | Languid | Medium-speed | Brisk | Rapid |
+
+| ^ | Rápido | Célere | Ágil | Acelerado | Veloz | Alta Velocidade | Frenético | Ultrarrápido |
+|---|---|---|---|---|---|---|---|---|
+| PT-PT | Rápido | Célere | Ágil | Acelerado | Veloz | Alta Velocidade | Frenético | Ultrarrápido |
+| EN | Quick | Swift | Deft | Speedy | Fast | High-speed | Super-quick | Lightning-fast |
+
+## [icon:weight] Força de Impacto
+
+:caption: Intensidade do impacto das armas (do mais fraco ao mais forte)
+
+| ^ | Fatigante | Inquietante | Marcante | Preocupante | Debilitante | Temeroso | Medonho | Aterrador |
+|---|---|---|---|---|---|---|---|---|
+| PT-PT | Fatigante | Inquietante | Marcante | Preocupante | Debilitante | Temeroso | Medonho | Aterrador |
+| EN | Tiring | Frightening | Striking | Threatening | Debilitating | Awe-inspiring | Formidable | Terrifying |
+
+| ^ | Incapacitante | Ruturante | Enervante | Neutralizante | Imobilizante | Aniquilante | Diabólico |
+|---|---|---|---|---|---|---|---|
+| PT-PT | Incapacitante | Ruturante | Enervante | Neutralizante | Imobilizante | Aniquilante | Diabólico |
+| EN | Disabling | Shattering | Enervating | Crippling | Incapacitating | Paralyzing | Diabolical |
+
+## [icon:shield] Durabilidade
+
+:caption: Resistência e longevidade das armas (do mais frágil ao mais durável)
+
+| ^ | Quebradiço | Frouxo | Defeituoso | Frágil | Fraco | Desgastado | Usado | Confiável |
+|---|---|---|---|---|---|---|---|---|
+| PT-PT | Quebradiço | Frouxo | Defeituoso | Frágil | Fraco | Desgastado | Usado | Confiável |
+| EN | Flimsy | Frail | Shoddy | Fragile | Weak | Worn | Used | Reliable |
+
+| ^ | Constante | Robusto | Duradouro | Forte | Resistente | Imune | Indestrutível |
+|---|---|---|---|---|---|---|---|
+| PT-PT | Constante | Robusto | Duradouro | Forte | Resistente | Imune | Indestrutível |
+| EN | Dependable | Sturdy | Stout | Strong | Tough | Impervious | Indestructible |
+
+## [icon:crosshairs] Precisão
+
+:caption: Precisão de armas de fogo (do menos ao mais preciso)
+
+| ^ | Vesgo | Torto | Impreciso | Viciado | Incerto | Curto Alcance | Semipreciso | Estável |
+|---|---|---|---|---|---|---|---|---|
+| PT-PT | Vesgo | Torto | Impreciso | Viciado | Incerto | Curto Alcance | Semipreciso | Estável |
+| EN | Defective | Skewed | Imprecise | Flawed | Unreliable | Short range | Semi-accurate | Well-balanced |
+
+| ^ | Calibrado | Rigoroso | Preciso | Fiel | Certeiro | Perfeito | Mira Certa |
+|---|---|---|---|---|---|---|---|
+| PT-PT | Calibrado | Rigoroso | Preciso | Fiel | Certeiro | Perfeito | Mira Certa |
+| EN | Calibrated | Accurate | Precise | Trusty | Spot-on | Perfect | Dead Eye |
+
+## [icon:comment-text] Notas da Tradução
+
+> **Equipa de Tradução**: Os modificadores foram organizados por categorias para facilitar a consulta durante o jogo.
+
+==Escolha chave:== Termos como "Aparafusado" e "Halterado" mantêm a ideia de modificação física sem ser demasiado técnico. "Flamejante" substituiu diretamente "Striker" para maior clareza visual.
+
+## [icon:link] Links Relacionados
+
+- [Wiki Principal do Dead Island](/jogo/dead-island-wiki/)
+- [Zombies](/jogo/dead-island-wiki/zombies.html)
+- [Armas](/jogo/dead-island-wiki/armas.html)
+- [Lugares](/jogo/dead-island-wiki/lugares.html)

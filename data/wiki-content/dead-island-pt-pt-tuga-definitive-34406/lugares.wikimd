@@ -1,0 +1,255 @@
+---
+jogo: dead-island
+titulo: Áreas e Lugares
+descricao: Todos os lugares, zonas e áreas do Dead Island traduzidos para português de Portugal.
+icone: map-marker
+ordem: 3
+---
+
+# Áreas e Lugares
+
+> [intro] O Dead Island decorre na ilha de Banoi, apresentando diversos ambientes desde resorts paradisíacos até zonas urbanas devastadas. Esta página documenta todos os locais com os nomes oficiais em PT-PT.
+
+## [icon:umbrella-beach] Resort de Banoi
+
+:caption: Áreas do resort e zonas costeiras
+
+| ^ | Bar | Distrito do Diamante | Praia do Diamante | Bangalós do Diamante |
+|---|---|---|---|---|
+| PT-PT | Bar | Distrito do Diamante | Praia do Diamante | Bangalós do Diamante |
+| EN | Bar | Diamond District | Diamond Beach | Diamond Bungalows |
+
+| ^ | Distrito dos Bangalós do Diamante | Gasolineira do Farol | Túnel da Gasolineira | Distrito do Ouro |
+|---|---|---|---|---|
+| PT-PT | Distrito dos Bangalós do Diamante | Gasolineira do Farol | Túnel da Gasolineira | Distrito do Ouro |
+| EN | Diamond Bungalows District | Lighthouse Gas Station | Tunnel Gas Station | Golden District |
+
+| ^ | Praia do Ouro | Bangalós do Ouro | Distrito dos Bangalós do Ouro | Hotel |
+|---|---|---|---|---|
+| PT-PT | Praia do Ouro | Bangalós do Ouro | Distrito dos Bangalós do Ouro | Hotel |
+| EN | Golden Beach | Gold Bungalows | Golden Bungalows District | Hotel |
+
+| ^ | Bangalós do Hotel | Farol | Marinha Antiga | Oficina da Marinha Antiga |
+|---|---|---|---|---|
+| PT-PT | Bangalós do Hotel | Farol | Marinha Antiga | Oficina da Marinha Antiga |
+| EN | Hotel Bungalows | Lighthouse | Old Marina | Old Marina Workshop |
+
+| ^ | Resort de Férias de Banoi | Resort | Resort, Búnquer # | Distrito da Prata |
+|---|---|---|---|---|
+| PT-PT | Resort de Férias de Banoi | Resort | Resort, Búnquer # | Distrito da Prata |
+| EN | Banoi Holiday Resort | Resort | Resort, Bunker # | Silver District |
+
+| ^ | Bangalós da Prata | Distrito dos Bangalós da Prata | Rua Canale | Igreja de São Cristóvão |
+|---|---|---|---|---|
+| PT-PT | Bangalós da Prata | Distrito dos Bangalós da Prata | Rua Canale | Igreja de São Cristóvão |
+| EN | Silver Bungalows | Silver Bungalows District | Canale Street | St. Christopher’s Church |
+
+## [icon:city] Cidade e Zonas Urbanas
+
+:caption: Áreas urbanas, centros e zonas comerciais
+
+| ^ | Quarentena | Baixa | Orla Nascente | Gasolineira |
+|---|---|---|---|---|
+| PT-PT | Quarentena | Baixa | Orla Nascente | Gasolineira |
+| EN | Quarantine | Down Town | Eastern Waterfront | Gas Station |
+
+| ^ | Cemitério de São Cristóvão | Estrada Langar | Supermercado | Distrito do Supermercado |
+|---|---|---|---|---|
+| PT-PT | Cemitério de São Cristóvão | Estrada Langar | Supermercado | Distrito do Supermercado |
+| EN | St. Christopher’s Cemetery | Langar Road | Supermarket | Supermarket District |
+
+| ^ | Base do Nick | Cidade Velha | Ponte da Cidade Velha | Ponte Real |
+|---|---|---|---|---|
+| PT-PT | Base do Nick | Cidade Velha | Ponte da Cidade Velha | Ponte Real |
+| EN | Nick's Hub | Old Town | Oldtown Bridge | Queens Bridge |
+
+| ^ | Colina Real | Túnel Afundado | Margem do Rio | Bairro de Lata |
+|---|---|---|---|---|
+| PT-PT | Colina Real | Túnel Afundado | Margem do Rio | Bairro de Lata |
+| EN | Queenscliffe | Sunken Tunnel | Riverside | Shanty Town |
+
+| ^ | Base do Simon | Favela | Favela, Torre de Água | Favela, Estação de Rádio |
+|---|---|---|---|---|
+| PT-PT | Base do Simon | Favela | Favela, Torre de Água | Favela, Estação de Rádio |
+| EN | Simon's Hub | City Slums | Slums, Water Tower | Slums, Radio Station |
+
+| ^ | Favela, Gasolineira | Colina da Vitória | Armazéns | Tratamento das Águas |
+|---|---|---|---|---|
+| PT-PT | Favela, Gasolineira | Colina da Vitória | Armazéns | Tratamento das Águas |
+| EN | Slums, Gas Station | Victory Hill | Warehouses | Wastewater Plant |
+
+| ^ | Orla do Porto | Orla Poente | Distrito Rico | Casa Assombrada |
+|---|---|---|---|---|
+| PT-PT | Orla do Porto | Orla Poente | Distrito Rico | Casa Assombrada |
+| EN | Waterfront Harbour | Western Waterfront | Wealthy District | Haunted House |
+
+## [icon:mountain] Selva e Áreas Naturais
+
+:caption: Zonas rurais, selva e acampamentos
+
+| ^ | Caverna do Ope | Quinta | Round Rock | Câmara Municipal |
+|---|---|---|---|---|
+| PT-PT | Caverna do Ope | Quinta | Round Rock | Câmara Municipal |
+| EN | Ope's Cave | Farm | Round Rock | City Hall |
+
+| ^ | Torre Salva-Vidas | Quedas de Gaia | Cidade Fantasma | Acampamento dos Rebeldes |
+|---|---|---|---|---|
+| PT-PT | Torre Salva-Vidas | Quedas de Gaia | Cidade Fantasma | Acampamento dos Rebeldes |
+| EN | Lifeguard Tower | Gaia Falls | Ghost Town | Rebels Camp |
+
+| ^ | Acampamento de Exploração | Selva | Selva, Antena | Selva, Búnquer da Cascata |
+|---|---|---|---|---|
+| PT-PT | Acampamento de Exploração | Selva | Selva, Antena | Selva, Búnquer da Cascata |
+| EN | Lumber Camp | Jungle | Jungle, Antenna | Jungle, Waterfall Bunker |
+
+| ^ | Túnel da Selva | Aldeia da Selva | Barco do Mowen | Acampamento do Mowen |
+|---|---|---|---|---|
+| PT-PT | Túnel da Selva | Aldeia da Selva | Barco do Mowen | Acampamento do Mowen |
+| EN | Jungle Tunnel | Jungle Village | Mowen's Boat | Mowen's Camp |
+
+| ^ | Acampamento do Viaduto | Aldeia do Rio | Acampamento dos Contrabandistas | Marina dos Contrabandistas |
+|---|---|---|---|---|
+| PT-PT | Acampamento do Viaduto | Aldeia do Rio | Acampamento dos Contrabandistas | Marina dos Contrabandistas |
+| EN | Overpass Camp | River Village | Smuggler's Camp | Smuggler's Marina |
+
+| ^ | Catacumbas | Cascata | Cascata Chuva de Prata | Passo Panoche |
+|---|---|---|---|---|
+| PT-PT | Catacumbas | Cascata | Cascata Chuva de Prata | Passo Panoche |
+| EN | Catacombs | Waterfall | Silver Rain Waterfall | Panoche Pass |
+
+## [icon:flask] Laboratório e Instalações
+
+:caption: Instalações científicas e complexos especiais
+
+| ^ | Bangalós do Laboratório | Laboratório | Oficina do Laboratório | Acampamento dos Nativos |
+|---|---|---|---|---|
+| PT-PT | Bangalós do Laboratório | Laboratório | Oficina do Laboratório | Acampamento dos Nativos |
+| EN | Laboratory Bungalows | Laboratory | Laboratory Workshop | Natives Camp |
+
+| ^ | Cave | Bloco Zero - Armaria | Bloco Zero - Cantina | Bloco Zero - Entrada |
+|---|---|---|---|---|
+| PT-PT | Cave | Bloco Zero - Armaria | Bloco Zero - Cantina | Bloco Zero - Entrada |
+| EN | Basement | Block Zero - Armory | Block Zero - Canteen | Block Zero - Entrance |
+
+| ^ | Bloco Zero - Rés-do-Chão | Bloco Zero - Cozinha | Bloco Zero - Primeiro Andar | Bloco Zero - Armazém |
+|---|---|---|---|---|
+| PT-PT | Bloco Zero - Rés-do-Chão | Bloco Zero - Cozinha | Bloco Zero - Primeiro Andar | Bloco Zero - Armazém |
+| EN | Block Zero - First Floor | Block Zero - Kitchen | Block Zero - Second Floor | Block Zero - Warehouse |
+
+| ^ | Esgotos | Casa do Vizinho do Tim | Ambulatório | Sala das Caldeiras |
+|---|---|---|---|---|
+| PT-PT | Esgotos | Casa do Vizinho do Tim | Ambulatório | Sala das Caldeiras |
+| EN | Sewers | Tim's Neighbor House | Ambulatory | Boiler Room |
+
+## [icon:building] Edifícios e Pisos
+
+:caption: Interiores, pisos e divisões específicas
+
+| ^ | Rés-do-Chão | Primeiro Andar | Segundo Andar | Cozinha |
+|---|---|---|---|---|
+| PT-PT | Rés-do-Chão | Primeiro Andar | Segundo Andar | Cozinha |
+| EN | First Floor | Second Floor | Third Floor | Kitchen |
+
+| ^ | Átrio de Escritórios | Escritórios | Piscina | Sala do Servidor |
+|---|---|---|---|---|
+| PT-PT | Átrio de Escritórios | Escritórios | Piscina | Sala do Servidor |
+| EN | Office Lobby | Offices | Swimming Pool | Server Room |
+
+## [icon:hospital] Hospital
+
+:caption: Áreas do hospital e suas divisões
+
+| ^ | Telhado do Hospital | Hospital - Piso 0 | Hospital - Piso 1 | Hospital - Piso 2 |
+|---|---|---|---|---|
+| PT-PT | Telhado do Hospital | Hospital - Piso 0 | Hospital - Piso 1 | Hospital - Piso 2 |
+| EN | Hospital Roof | Hospital Floor 1 | Hospital Floor 2 | Hospital Floor 3 |
+
+| ^ | Hospital | Duches | Duches Abandonados | Pavilhão de Ockhams |
+|---|---|---|---|---|
+| PT-PT | Hospital | Duches | Duches Abandonados | Pavilhão de Ockhams |
+| EN | Hospital | Shower Room | Abandoned Shower Room | Ockhams Ward |
+
+## [icon:gavel] Prisão
+
+:caption: Áreas da prisão e blocos de celas
+
+| ^ | Cantina da Prisão | Bloco de Celas A | Bloco de Celas B | Bloco de Celas B - Sala de Controlo |
+|---|---|---|---|---|
+| PT-PT | Cantina da Prisão | Bloco de Celas A | Bloco de Celas B | Bloco de Celas B - Sala de Controlo |
+| EN | Prison Canteen | Cell Block A | Cell Block B | Cell Block B - Control Room |
+
+| ^ | Sala de Controlo | Sala de Controlo - Bloco B | Sala de Controlo - Bloco C | Bloco de Celas C |
+|---|---|---|---|---|
+| PT-PT | Sala de Controlo | Sala de Controlo - Bloco B | Sala de Controlo - Bloco C | Bloco de Celas C |
+| EN | Control Room | Control Room – Block B | Control Room - Block C | Cell Block C |
+
+| ^ | Bloco de Celas C - Elevador | Bloco de Celas C - Sala de Controlo Principal | Bloco C | Bloco C - Duches |
+|---|---|---|---|---|
+| PT-PT | Bloco de Celas C - Elevador | Bloco de Celas C - Sala de Controlo Principal | Bloco C | Bloco C - Duches |
+| EN | Cell Block C - Elevator | Cell Block C - Main Controll Room | Block C | Block C Showers |
+
+## [icon:shield-alt] Esquadra de Polícia
+
+:caption: Áreas da esquadra e dependências policiais
+
+| ^ | Esquadra de Polícia - Átrio | Esquadra de Polícia - Cave | Sala Principal | Estacionamento da Polícia |
+|---|---|---|---|---|
+| PT-PT | Esquadra de Polícia - Átrio | Esquadra de Polícia - Cave | Sala Principal | Estacionamento da Polícia |
+| EN | Police Station Atrium | Police Station Basement | Main Hall | Police Parking |
+
+| ^ | Esquadra de Polícia | Gabinete do Chefe de Polícia | Gabinete dos Detetives | Praça do Paraíso |
+|---|---|---|---|---|
+| PT-PT | Esquadra de Polícia | Gabinete do Chefe de Polícia | Gabinete dos Detetives | Praça do Paraíso |
+| EN | Police Station | Police Chief's Office | Detectives Office | Paradise Square |
+
+| ^ | Avenida do Parque | Prospeto do Rio | Parque de Riverwood | Avenida Seaside |
+|---|---|---|---|---|
+| PT-PT | Avenida do Parque | Prospeto do Rio | Parque de Riverwood | Avenida Seaside |
+| EN | Parkside Avenue | River Prospect | Riverwood Park | Seaside Avenue |
+
+| ^ | Quarteirão Sunshine | Praça Central | Estacionamento | Estacionamento -1 |
+|---|---|---|---|---|
+| PT-PT | Quarteirão Sunshine | Praça Central | Estacionamento | Estacionamento -1 |
+| EN | Sunshine Quarter | Town Square | Parking Lot / ParkingLot | Parking -1 |
+
+| ^ | Estacionamento -2 | Estacionamento -3 | Estacionamento - Piso 0 |
+|---|---|---|---|
+| PT-PT | Estacionamento -2 | Estacionamento -3 | Estacionamento - Piso 0 |
+| EN | Parking -2 | Parking -3 | Parking Ground Zero |
+
+## [icon:subway] Áreas Subterrâneas
+
+:caption: Zonas subterrâneas e túneis
+
+| ^ | Rua Canale - Subterrâneo | Igreja - Subterrâneo | Baixa - Subterrâneo | Orla Nascente - Subterrâneo |
+|---|---|---|---|---|
+| PT-PT | Rua Canale - Subterrâneo | Igreja - Subterrâneo | Baixa - Subterrâneo | Orla Nascente - Subterrâneo |
+| EN | Canale Street Underground | Church Underground | Downtown Underground | Eastern Waterfront Underground |
+
+| ^ | Supermercado - Subterrâneo | Distrito do Supermercado - Subterrâneo | Esquadra de Polícia - Subterrâneo | Colina Real - Subterrâneo |
+|---|---|---|---|---|
+| PT-PT | Supermercado - Subterrâneo | Distrito do Supermercado - Subterrâneo | Esquadra de Polícia - Subterrâneo | Colina Real - Subterrâneo |
+| EN | Supermarket Underground | Supermarket District Underground | Police Station Underground | Queenscliffe Underground |
+
+| ^ | Margem do Rio - Subterrâneo | Bairro de Lata - Subterrâneo | Câmara Municipal - Subterrâneo | Colina da Vitória - Subterrâneo |
+|---|---|---|---|---|
+| PT-PT | Margem do Rio - Subterrâneo | Bairro de Lata - Subterrâneo | Câmara Municipal - Subterrâneo | Colina da Vitória - Subterrâneo |
+| EN | Riverside Underground | Shanty Town Underground | Town Hall Underground | Victory Hill Underground |
+
+| ^ | Tratamento das Águas - Subterrâneo |
+|---|---|
+| PT-PT | Tratamento das Águas - Subterrâneo |
+| EN | Wastewater Plant Underground |
+
+## [icon:comment-text] Notas da Tradução
+
+> **Equipa de Tradução**: Os nomes foram mantidos próximos dos originais quando possível, com adaptações para soarem natural em PT-PT.
+
+==Escolha chave:== "Shanty Town" tornou-se "Bairro de Lata" (mais comum em PT-PT) em vez de "Bairro de Barracas". "City Slums" manteve "Favela" por ser termo reconhecido.
+
+## [icon:link] Links Relacionados
+
+- [Wiki Principal do Dead Island](/jogo/dead-island-wiki/)
+- [Zombies](/jogo/dead-island-wiki/zombies.html)
+- [Armas](/jogo/dead-island-wiki/armas.html)
+- [Modificadores de Armas](/jogo/dead-island-wiki/modificadores-de-armas.html)

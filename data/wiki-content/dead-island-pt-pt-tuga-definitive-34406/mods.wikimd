@@ -1,0 +1,207 @@
+---
+jogo: dead-island
+titulo: Mods
+descricao: Todas as modificações (mods) e projetos de armas do Dead Island, organizados por tipo e categoria.
+icone: wrench
+ordem: 4
+---
+
+# Modificações e Projetos
+
+> [intro] As **modificações** (mods) permitem personalizar armas com efeitos especiais no Dead Island. Cada modificação requer um **Projeto** (Blueprint) e materiais específicos. Esta página lista todas as mods disponíveis, organizadas por tipo de arma e efeito.
+
+## 📋 Visão Geral
+Os projetos dividem-se em **3 categorias principais**:
+
+:::grid
+- ⚔️ Armas Corpo a Corpo (#armas-corpo-a-corpo)
+- 🔫 Armas de Fogo (#armas-de-fogo)
+- 🎯 Armas à Distância (#armas-a-distancia)
+:::
+
+
+---
+
+## ⚔️ Armas Corpo a Corpo
+
+### Subcategorias
+
+Cada categoria tem **subcategorias de efeito**:
+
+:::grid
+- [icon:water] Sangramento (#sangramento)
+- [icon:bullseye] Crítico (#critico)
+- [icon:fire] Chamas (#chamas)
+- [icon:flash] Impacto (#impacto)
+- [icon:skull] Veneno (#veneno)
+- [icon:lightning-bolt] Choque (#choque)
+:::
+
+### [icon:water] Sangramento
+:caption: Modificações que causam sangramento
+
+| ^ | Mod. Prego a Fundo | Mod. Porcas e Parafusos | Mod. Arame Farpado | Mod. Vitrificada |
+|---|---|---|---|---|
+| PT-PT | Mod. Prego a Fundo | Mod. Porcas e Parafusos | Mod. Arame Farpado | Mod. Vitrificada |
+| EN | Nail'd Mod | Nuts & Bolts Mod | Barbed Wire Mod | Glazed Mod |
+
+| ^ | Mod. Garras Dilacerantes | Mod. Home Run Arrasador | Mod. Medieval | Mod. Maria Sangrenta |
+|---|---|---|---|---|
+| PT-PT | Mod. Garras Dilacerantes | Mod. Home Run Arrasador | Mod. Medieval | Mod. Maria Sangrenta |
+| EN | Rending Claws Mod | Devastating Home Run Mod | Medieval Mod | Bloody Mary Mod |
+
+| ^ | Mod. Machado de Serra Circular | Mod. Fatiadora | Mod. Farrapadora | Mod. Afiada |
+|---|---|---|---|---|
+| PT-PT | Mod. Machado de Serra Circular | Mod. Fatiadora | Mod. Farrapadora | Mod. Afiada |
+| EN | Saw Disc Axe Mod | Shredder Mod | Ripper Mod | Razor Mod |
+
+| ^ | Mod. Lamelada |
+|---|---|
+| PT-PT | Mod. Lamelada |
+| EN | Slash Mod |
+
+### [icon:bullseye] Crítico
+:caption: Modificações que aumentam dano crítico
+
+| ^ | Mod. Halterada | Mod. Peso Pesado | Mod. Piranha | Mod. Tubarão |
+|---|---|---|---|---|
+| PT-PT | Mod. Halterada | Mod. Peso Pesado | Mod. Piranha | Mod. Tubarão |
+| EN | Weighted Mod | Heavy Mod | Piranha Mod | Shark Mod |
+
+### [icon:fire] Chamas
+:caption: Modificações com efeito de fogo
+
+| ^ | Mod. Tocha | Mod. Brasa Cortante | Mod. Fénix | Mod. Incandescente |
+|---|---|---|---|---|
+| PT-PT | Mod. Tocha | Mod. Brasa Cortante | Mod. Fénix | Mod. Incandescente |
+| EN | Torch Mod | Red Hot Blade Mod | Phoenix Mod | Hot Rod Mod |
+
+### [icon:flash] Impacto
+:caption: Modificações com alto impacto/choque
+
+| ^ | Mod. Impacto | Mod. Relâmpago | Mod. Varinha Mágica | Mod. Manopla do Fanático |
+|---|---|---|---|---|
+| PT-PT | Mod. Impacto | Mod. Relâmpago | Mod. Varinha Mágica | Mod. Manopla do Fanático |
+| EN | Impact Mod | Lightning Mod | Magic Wand Mod | Juggernaut Gauntlets Mod |
+
+| ^ | Mod. Choca-e-Pica | Mod. Malho Relâmpago | Mod. Justiça | Mod. Tesla |
+|---|---|---|---|---|
+| PT-PT | Mod. Choca-e-Pica | Mod. Malho Relâmpago | Mod. Justiça | Mod. Tesla |
+| EN | Pick-and-ohm Mod | Shocking Sledge Mod | Justice Mod | Tesla Mod |
+
+| ^ | Mod. Pé-de-Cabra Relâmpago | Mod. Trabalho Pesado |
+|---|---|---|
+| PT-PT | Mod. Pé-de-Cabra Relâmpago | Mod. Trabalho Pesado |
+| EN | Shocking Crowbar Mod | Heavy Duty Mod |
+
+### [icon:skull] Veneno
+:caption: Modificações com efeito venenoso
+
+| ^ | Mod. Golpe Paralisante | Mod. Venenosa | Mod. Tóxica | Mod. Picada da Morte |
+|---|---|---|---|---|
+| PT-PT | Mod. Golpe Paralisante | Mod. Venenosa | Mod. Tóxica | Mod. Picada da Morte |
+| EN | Paralyzing Strike Mod | Venom Mod | Toxic Mod | Deathstalker Mod |
+
+| ^ | Mod. Veneno do Assassino |
+|---|---|
+| PT-PT | Mod. Veneno do Assassino |
+| EN | Assassin's Poison Mod |
+
+### [icon:lightning-bolt] Choque
+:caption: Modificações com efeito elétrico
+
+| ^ | Mod. Choque | Mod. Alta Tensão | Mod. Curto-Circuito | Mod. Brilhante |
+|---|---|---|---|---|
+| PT-PT | Mod. Choque | Mod. Alta Tensão | Mod. Curto-Circuito | Mod. Brilhante |
+| EN | Shock Mod | High Voltage Mod | Short-Circuit Mod | Old Smoky Mod |
+
+| ^ | Mod. Corpo Elétrico | Mod. Profundamente Chocado |
+|---|---|---|
+| PT-PT | Mod. Corpo Elétrico | Mod. Profundamente Chocado |
+| EN | Bodily Harm Mod | Bluntly Shocked Mod |
+
+---
+
+## 🔫 Armas de Fogo
+
+### Subcategorias
+
+Cada categoria tem **subcategorias de efeito**:
+
+:::grid
+- [icon:bomb] Explosão (#fogo-explosao)
+- [icon:fire] Chamas (#fogo-chamas)
+- [icon:skull] Veneno (#fogo-veneno)
+- [icon:lightning-bolt] Choque (#fogo-choque)
+:::
+
+### [icon:bomb] Explosão {#fogo-explosao}
+:caption: Modificações explosivas para armas de fogo
+
+| ^ | Mod. Pistola Soberba | Mod. Espingarda Soberba | Mod. Caçadeira Soberba |
+|---|---|---|---|
+| PT-PT | Mod. Pistola Soberba | Mod. Espingarda Soberba | Mod. Caçadeira Soberba |
+| EN | Pride Gun Mod | Pride Rifle Mod | Pride Shotgun Mod |
+
+### [icon:fire] Chamas {#fogo-chamas}
+:caption: Modificações incendiárias para armas de fogo
+
+| ^ | Mod. Pistola Flamejante | Mod. Espingarda Flamejante | Mod. Caçadeira Flamejante |
+|---|---|---|---|
+| PT-PT | Mod. Pistola Flamejante | Mod. Espingarda Flamejante | Mod. Caçadeira Flamejante |
+| EN | Striker Gun Mod | Striker Rifle Mod | Striker Shotgun Mod |
+
+### [icon:skull] Veneno {#fogo-veneno}
+:caption: Modificações tóxicas para armas de fogo
+
+| ^ | Mod. Pistola Detox | Mod. Espingarda Detox | Mod. Caçadeira Detox |
+|---|---|---|---|
+| PT-PT | Mod. Pistola Detox | Mod. Espingarda Detox | Mod. Caçadeira Detox |
+| EN | Detox Gun Mod | Detox Rifle Mod | Detox Shotgun Mod |
+
+### [icon:lightning-bolt] Choque {#fogo-choque}
+:caption: Modificações elétricas para armas de fogo
+
+| ^ | Mod. Pistola Eletrizante | Mod. Espingarda Eletrizante | Mod. Caçadeira Eletrizante |
+|---|---|---|---|
+| PT-PT | Mod. Pistola Eletrizante | Mod. Espingarda Eletrizante | Mod. Caçadeira Eletrizante |
+| EN | Shock Gun Mod | Shock Rifle Mod | Shock Shotgun Mod |
+
+---
+
+## 🎯 Armas à Distância
+
+:caption: Projetos para armas arremessáveis e à distância
+
+| ^ | Projeto Molotov | Projeto Bomba Sangrante | Projeto Bomba Eletrizante | Projeto Bomba Venenosa |
+|---|---|---|---|---|
+| PT-PT | Projeto Molotov | Projeto Bomba Sangrante | Projeto Bomba Eletrizante | Projeto Bomba Venenosa |
+| EN | Molotov Blueprint | Bleed Bomb | Shock Bomb Blueprint | Poison Bomb Blueprint |
+
+| ^ | Projeto Bomba Atordoante | Projeto Granada de Pulso Sónico | Projeto Arma de Choque | Mod. Bomba Adesiva |
+|---|---|---|---|---|
+| PT-PT | Projeto Bomba Atordoante | Projeto Granada de Pulso Sónico | Projeto Arma de Choque | Mod. Bomba Adesiva |
+| EN | Stun Bomb Blueprint | Sonic Pulse Grenade Blueprint | Stun Gun | Sticky Bomb Mod |
+
+| ^ | Mod. Faca-Bomba Tesla |
+|---|---|
+| PT-PT | Mod. Faca-Bomba Tesla |
+| EN | Tesla Bomb Knife Mod |
+
+---
+
+## [icon:comment-text] Notas da Tradução
+
+> **Equipa de Tradução**: Mantivemos "Mod." como abreviação consistente para "Modificação". Os nomes foram adaptados para serem descritivos em PT-PT, mantendo o espírito dos originais.
+
+==Escolha chave:== "Pick-and-ohm Mod" tornou-se "Mod. Choca-e-Pica" - uma solução criativa que mantém o trocadilho elétrico ("ohm" como unidade de resistência) enquanto soa natural em português.
+
+---
+
+## [icon:link] Links Relacionados
+
+- [Wiki Principal do Dead Island](/jogo/dead-island-wiki/)
+- [Zombies](/jogo/dead-island-wiki/zombies.html)
+- [Armas](/jogo/dead-island-wiki/armas.html)
+- [Modificadores de Armas](/jogo/dead-island-wiki/modificadores-de-armas.html)
+- [Áreas e Lugares](/jogo/dead-island-wiki/areas.html)

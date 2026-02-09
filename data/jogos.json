@@ -115,6 +115,7 @@
       ],
       "dataPublicacao": "Mon, 08 Apr 2024 18:03:00 GMT",
       "link": "https://100nome.blogs.sapo.pt/dead-island-pt-pt-tuga-definitive-34406",
+      "linkWiki": "/wiki/dead-island-pt-pt-tuga-definitive-34406",
       "avisos": [
         "Linguagem agressiva."
       ],
@@ -506,7 +507,7 @@
       "dataPublicacao": "Sat, 06 May 2023 13:28:00 GMT",
       "link": "https://100nome.blogs.sapo.pt/supertuxkart-portugues-portugal-pt-pt-21485",
       "notas": [
-        "Tradução é oficial, porém só será lançada oficialmente na próxima versão do jogo. Transferir o pacote abaixo para uma tradução melhorada."
+        "Tradução oficial. Para versões antigas do jogo, descarregar o pacote para uma tradução melhorada."
       ],
       "siteLink": "https://supertuxkart.net/",
       "rebrandlyId": "482abffe599940d1b64f11ed264b6d7c",
@@ -1136,14 +1137,12 @@
       "informacoesTraducao": {
         "titulo": "Tradução PT-PT",
         "versao": "1.0",
-        "fornecidaPor": "100Nome",
-        "tradutores": "João Frade",
-        "revisores": "João Frade",
+        "fornecidaPor": "Comunidade",
+        "tradutores": "<em>almufadado</em>",
         "atributos": [
           "ao",
           "t",
-          "m",
-          "r"
+          "m"
         ]
       },
       "categorias": [
@@ -1156,8 +1155,7 @@
       "dataPublicacao": "Sun, 08 May 2016 00:00:00 GMT",
       "link": "https://100nome.blogs.sapo.pt/jogo-widelands-10962",
       "notas": [
-        "Wiki da Tradução disponível.",
-        "Tutorial da Tradução disponível."
+        "Tradução já incluída no jogo. Descarregar o jogo no site oficial."
       ],
       "rebrandlyId": "",
       "downloadUrl": ""
@@ -1279,7 +1277,7 @@
         "nome": "Don't Starve",
         "nomeOriginal": "Don't Starve",
         "criadoPor": "Klei Entertainment",
-        "estilo": "Aventura, Sobrevivência"
+        "estilo": "Sobrevivência"
       },
       "informacoesTraducao": {
         "titulo": "Tradução PT-PT",
@@ -1295,7 +1293,7 @@
         ]
       },
       "categorias": [
-        "aventura",
+        "sobrevivencia",
         "jogo",
         "português-portugal",
         "pt-pt",

@@ -171,8 +171,52 @@
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1.2rem;
+    align-items: center;
 }
 
+/* Botão de download com contador embutido */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.9rem 1.6rem;
+    min-height: 60px;
+}
+
+.download-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.download-stats-number {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.55);
+    opacity: 0.8;
+}
+
+.download-stats-number.loading {
+    opacity: 0.5;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+@media (max-width: 768px) {
+    .download-btn {
+        padding: 0.85rem 1.4rem;
+    }
+
+    .download-stats-number {
+        font-size: 0.8rem;
+    }
+}
+
+/* Download Links e License Warning */
 .download-links {
     display: flex;
     flex-wrap: wrap;
@@ -213,27 +257,10 @@
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--text-light);
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
 }
 
 .license-warning i {
-    color: var(--primary-color);
-}
-
-.download-count {
-    margin-top: 0.8rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.download-count i {
     color: var(--primary-color);
 }
 
@@ -277,6 +304,33 @@
     background: rgba(255, 255, 255, 0.15);
     border-color: var(--primary-color);
     color: var(--text-light);
+}
+
+.btn-wiki-primary {
+    border: 1px dashed rgba(227, 158, 68, 0.6);
+}
+
+.wiki-inline-section {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wiki-inline-section p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.wiki-inline-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wiki-inline-link:hover {
+    text-decoration: underline;
 }
 
 .comments-section .section-content {

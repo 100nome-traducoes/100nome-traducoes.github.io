@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>100Nome Traduções [Jogos em PT-PT]</title>
+    <meta name="description" content="Traduções em PT-PT! O maior portal de Traduções de Jogos de Portugal, com traduções dos mais variados jogos em português de Portugal. 100 Nome!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://i.imgur.com/hQXoTWA.png" type="image/x-icon">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNRR1FVXYQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZNRR1FVXYQ');
+    </script>
+</head>
+<body>
+    {{HEADER}}
+
+    <!-- Cabeçalho Hero -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="https://i.imgur.com/8Jtqsme.png" alt="100Nome">
+            </div>
+            <p class="description">O maior portal de traduções de jogos de Portugal.
+            <br>Coloca os jogos em português!</p>
+
+
+            <div class="hero-cta">
+                <a href="#destaques" class="hero-btn">
+                    <i class="fas fa-gamepad"></i> Explorar Traduções
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" class="hero-btn hero-btn-secondary" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Junta-te à Comunidade
+                </a>
+            </div>
+        </div>
+    </header>
+            <div class="hero-banner">
+                <div class="banner-text">
+                    <div class="scrolling-text">
+                        <span>✦ Entra no <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">servidor do Discord</a> para notificações e novidades. ✦ Subscreve o <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">canal do YouTube</a> e ativa as notificações para vídeos de traduções! ♡ ✦</span>
+                    </div>
+                </div>
+            </div>
+    <!-- Destaques Principais -->
+    <section class="featured-section" id="destaques">
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i> Destaques
+            </h2>
+            <p class="section-subtitle">As traduções mais recentes e populares</p>
+        </div>
+        <div class="featured-grid" id="featuredGrid">
+            {{FEATURED_GRID}}
+        </div>
+    </section>
+
+    <!-- Controlo de Vista (Carrossel/Grelha) -->
+    <div class="view-control-wrapper">
+        <div class="view-control">
+            <button class="view-btn active" data-view="carousel" title="Vista em carrossel">
+                <i class="fas fa-grip-horizontal"></i> Carrossel
+            </button>
+            <button class="view-btn" data-view="grid" title="Vista em grelha">
+                <i class="fas fa-th"></i> Grelha
+            </button>
+        </div>
+    </div>
+
+    <!-- Categorias Netflix-style -->
+    <main class="main-content" id="mainContent">
+        <div id="categoriesContainer">
+            {{CATEGORIES_HTML}}
+        </div>
+    </main>
+
+    <!-- Área de Apoio -->
+    <section class="support-section" id="apoio">
+        <div class="support-container">
+            <h2><i class="fas fa-hands-helping"></i> Apoia o Projeto</h2>
+            <p>O 100Nome é mantido por voluntários apaixonados por jogos e pela língua portuguesa. O teu apoio ajuda-nos a continuar este trabalho!</p>
+
+            <div class="support-options">
+                <a href="https://ko-fi.com/100nometraducoes" class="support-btn primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-coffee"></i> Fazer um donativo
+                </a>
+                <a href="#traduzir" class="support-btn secondary">
+                    <i class="fas fa-language"></i> Colaborar em tradução
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com?subject=Reportar%20Erro" class="support-btn secondary">
+                    <i class="fas fa-bug"></i> Reportar um erro
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Área Traduzir -->
+    <section class="translate-section" id="traduzir">
+        <div class="translate-container">
+            <h2><i class="fas fa-language"></i> Queres Traduzir?</h2>
+            <p>Junta-te à nossa comunidade de tradutores! Partilha o teu conhecimento e ajuda a trazer mais jogos para português.</p>
+            <a href="mailto:100nome.portugal@gmail.com?subject=Quero%20Traduzir" class="translate-btn">
+                <i class="fas fa-envelope"></i> Contacta-nos
+            </a>
+        </div>
+    </section>
+
+    {{FOOTER}}
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="game-page-script.js"></script>
+</body>
+</html>

@@ -4,11 +4,16 @@ const fs = require('fs');
 const path = require('path');
 
 const jogosPath = path.join(__dirname, '..', 'data', 'jogos.json');
-const templatePath = path.join(__dirname, '..', 'jogo', 'game-template.html');
+const templatePath = path.join(__dirname, '..', 'templates', 'game-page.html');
+const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputDir = path.join(__dirname, '..', 'jogo');
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function readPartial(name) {
+  return fs.readFileSync(path.join(partialsDir, name), 'utf8');
 }
 
 function escapeHtml(text) {
@@ -53,9 +58,37 @@ function truncate(text, maxLen = 160) {
   return t.slice(0, maxLen - 1).trim() + '…';
 }
 
+/* ============================
+ WIKI (BUILD)
+ ============================ */
+
+
+function buildWikiButton(jogo) {
+  if (!jogo.linkWiki) return '';
+
+  return `
+  <a href="${escapeHtml(jogo.linkWiki)}" class="btn btn-secondary btn-wiki-primary">
+  <i class="fas fa-book"></i> Wiki da Tradução
+  </a>`;
+}
+
+
+function buildWikiInlineSection(jogo) {
+  if (!jogo.linkWiki) return '';
+
+  return `
+  <section class="wiki-inline-section">
+  <p>
+  📘 Para detalhes técnicos, notas da tradução e diferenças relevantes,
+  consulta a <a href="${escapeHtml(jogo.linkWiki)}" class="wiki-inline-link">Wiki da Tradução</a>.
+  </p>
+  </section>`;
+}
+
 function getCategoriaIcone(categoriaId) {
   const icones = {
     acao: 'fist-raised',
+    sobrevivencia: 'person-shelter',
     misterio: 'search',
     corrida: 'car',
     estrategia: 'chess-board',
@@ -71,6 +104,7 @@ function getCategoriaIcone(categoriaId) {
 function extrairCategoriasPrincipais(categorias) {
   const categoriasMap = {
     acao: 'Ação',
+    sobrevivencia: 'Sobrevivência',
     misterio: 'Mistério',
     quebracabecas: 'Quebra-cabeças',
     corrida: 'Corrida',
@@ -95,6 +129,7 @@ function buildBadgesHtml(categorias) {
 
   const labelToId = {
     'Ação': 'acao',
+    'Sobrevivência': 'sobrevivencia',
     'Mistério': 'misterio',
     'Quebra-cabeças': 'quebracabecas',
     'Corrida': 'corrida',
@@ -129,11 +164,11 @@ function buildInfoRows(info) {
 
 function buildAtributos(atributos) {
   const map = {
-    ao: { label: 'AO', title: 'Acordo Ortográfico' },
-    t: { label: 'T', title: 'Tradução' },
-    m: { label: 'M', title: 'Menu' },
-    r: { label: 'R', title: 'Revisão' },
-    i: { label: 'I', title: 'Imagens' }
+    ao: { label: 'AO', title: 'Acordo ortográfico de \'90' },
+    t: { label: 'T', title: 'Textos traduzidos' },
+    m: { label: 'M', title: 'Menus traduzidos' },
+    r: { label: 'R', title: 'Revisão do 100Nome a 100%' },
+    i: { label: 'I', title: 'Imagens traduzidas' }
   };
 
   return (atributos || [])
@@ -215,18 +250,18 @@ function buildDownloadSection(jogo) {
     <div class="section-content">
       <p class="download-intro">${escapeHtml(downloadIntro)}</p>
       <div class="download-actions">
-        <a href="${escapeHtml(jogo.downloadUrl || jogo.link || '#')}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-          <i class="fas ${downloadIcon}"></i> ${escapeHtml(downloadLabel)}
+        <a href="${escapeHtml(jogo.downloadUrl || jogo.link || '#')}" class="btn btn-primary download-btn" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(downloadLabel)}">
+          <i class="fas ${downloadIcon}"></i>
+          <div class="download-btn-text">
+            <div>${escapeHtml(downloadLabel)}</div>
+            <div id="downloadsCount" class="download-stats-number" aria-hidden="true">—</div>
+          </div>
         </a>
         <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           <i class="fas fa-folder-open"></i> Licenças
         </a>
       </div>
       ${linksHtml}
-      <div class="download-count" data-downloads>
-        <i class="fas fa-download"></i>
-        <span id="downloadsCount">—</span>
-      </div>
       <div class="license-warning">
         <i class="fas fa-scale-balanced"></i>
         <div>
@@ -261,7 +296,7 @@ function buildCommentsSection(jogo) {
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="https://raw.githubusercontent.com/100nome-traducoes/site-comments/refs/heads/main/giscus-theme.css"
+        data-theme="/giscus-theme.css"
         data-lang="pt"
         crossorigin="anonymous"
         async>
@@ -286,33 +321,38 @@ function getBreadcrumbCategoria(jogoCategorias, categoriasPrincipais) {
   return { id: 'jogo', nome: 'Jogo', icon: 'gamepad' };
 }
 
-function buildPageHtml(template, jogo, categoriasPrincipais) {
+
+function buildPageHtml(template, jogo, categoriasPrincipais, header, footer) {
   const tituloSemPrefixo = stripPrefixTitulo(jogo.titulo || '');
   const breadcrumbTitulo = stripPtPt(jogo.titulo || '');
   const metaDescription = truncate(jogo.descricao || '', 160);
-  const categoria = getBreadcrumbCategoria(jogo.categorias, categoriasPrincipais);
+  const breadcrumbCategoria = getBreadcrumbCategoria(jogo.categorias, categoriasPrincipais);
+  const badgesHtml = buildBadgesHtml(jogo.categorias);
 
   const replacements = {
+    '{{HEADER}}': header || '',
+    '{{FOOTER}}': footer || '',
     '{{PAGE_TITLE}}': escapeHtml(`${tituloSemPrefixo} - Tradução 100Nome`),
     '{{META_DESCRIPTION}}': escapeHtml(metaDescription),
     '{{GUID}}': escapeHtml(jogo.guid),
-    '{{BREADCRUMB_CATEGORY_ID}}': escapeHtml(categoria.id),
-    '{{BREADCRUMB_CATEGORY_NAME}}': escapeHtml(categoria.nome),
-    '{{BREADCRUMB_CATEGORY_ICON}}': escapeHtml(getCategoriaIcone(categoria.id)),
     '{{BREADCRUMB_CURRENT}}': escapeHtml(breadcrumbTitulo),
+    '{{BREADCRUMB_CATEGORY_ID}}': escapeHtml(breadcrumbCategoria.id),
+    '{{BREADCRUMB_CATEGORY_NAME}}': escapeHtml(breadcrumbCategoria.nome),
+    '{{BREADCRUMB_CATEGORY_ICON}}': escapeHtml(breadcrumbCategoria.icon),
     '{{COVER_IMAGE}}': escapeHtml(jogo.capa || ''),
     '{{COVER_ALT}}': escapeHtml(`${tituloSemPrefixo} - Tradução PT-PT - 100Nome`),
-    '{{BADGES_HTML}}': buildBadgesHtml(jogo.categorias),
     '{{GAME_TITLE}}': escapeHtml(tituloSemPrefixo),
     '{{GAME_SUBTITLE}}': escapeHtml('Tradução em português de Portugal'),
     '{{META_DATE}}': escapeHtml(formatDatePt(jogo.dataPublicacao)),
     '{{META_TRADUTORES}}': escapeHtml(jogo.informacoesTraducao?.tradutores || 'n/d'),
     '{{META_VERSION}}': escapeHtml(`Versão ${jogo.informacoesTraducao?.versao || '1.0'}`),
-    '{{DOWNLOAD_LINK}}': escapeHtml(jogo.downloadUrl || jogo.link || '#'),
+    '{{BADGES_HTML}}': badgesHtml,
     '{{DESCRIPTION_PARAGRAPHS}}': buildDescriptionParagraphs(jogo.descricao),
     '{{INFO_JOGO_ROWS}}': buildInfoRows(jogo.informacoesJogo || {}),
     '{{INFO_TRADUCAO_ROWS}}': buildTraducaoRows(jogo.informacoesTraducao || {}),
     '{{DOWNLOAD_SECTION}}': buildDownloadSection(jogo),
+    '{{WIKI_BUTTON}}': buildWikiButton(jogo),
+    '{{WIKI_INLINE_SECTION}}': buildWikiInlineSection(jogo),
     '{{COMMENTS_SECTION}}': buildCommentsSection(jogo)
   };
 
@@ -332,10 +372,12 @@ function main() {
 
   const data = readJson(jogosPath);
   const template = fs.readFileSync(templatePath, 'utf8');
+  const header = readPartial('header.html');
+  const footer = readPartial('footer.html');
   const categoriasPrincipais = data.categoriasPrincipais || [];
 
   for (const jogo of data.jogos || []) {
-    const html = buildPageHtml(template, jogo, categoriasPrincipais);
+    const html = buildPageHtml(template, jogo, categoriasPrincipais, header, footer);
     const outPath = path.join(outputDir, `${jogo.guid}.html`);
     fs.writeFileSync(outPath, html, 'utf8');
     console.log(`Gerado: ${outPath}`);

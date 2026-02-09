@@ -1,335 +1,178 @@
 # 📚 Sistema Wiki - 100Nome
 
-## Como Funciona
-
-Sistema simples para criar wikis de traduções usando **Markdown** e converter automaticamente em HTML bonito.
+## Visão Geral
+Sistema simples para criar wikis de traduções usando **Markdown** e gerar HTML consistente.
 
 ---
 
-## 📁 Estrutura de Ficheiros
+## 📁 Estrutura Atual
 
 ```
-100nome/
-├── wiki-content/           # Ficheiros wiki em markdown
-│   ├── dead-island/
-│   │   ├── zombies.wikimd
-│   │   ├── armas.wikimd
-│   │   └── lugares.wikimd
-│   └── gta-san-andreas/
-│       └── missoes.wikimd
-│
+100nome-traducoes.github.io/
+├── data/
+│   └── wiki-content/                 # Conteúdo wiki (.wikimd)
+│       └── dead-island-pt-pt-tuga-definitive-34406/
+│           ├── index.wikimd
+│           ├── zombies.wikimd
+│           └── ...
 ├── templates/
-│   └── wiki-template.html  # Template HTML
-│
-├── jogo/                   # Output (gerado)
-│   ├── dead-island-wiki/
-│   │   ├── zombies.html
-│   │   ├── armas.html
-│   │   └── lugares.html
-│   └── ...
-│
-└── build-wiki.js           # Script de build
+│   ├── wiki-page.html                 # Template principal da wiki
+│   └── partials/
+│       ├── header.html
+│       └── footer.html
+├── wiki/                              # Output gerado
+│   └── dead-island-pt-pt-tuga-definitive-34406/
+│       ├── index.html
+│       ├── zombies.html
+│       └── ...
+├── scripts/
+│   └── build-wiki.js
+└── wiki.css
 ```
 
 ---
 
 ## ✍️ Como Escrever uma Wiki
 
-### 1. Criar Ficheiro `.wikimd`
+### 1) Criar ficheiro `.wikimd`
+Cria um ficheiro em:
+`data/wiki-content/[id-do-jogo]/[pagina].wikimd`
 
-Cria um ficheiro em `wiki-content/[nome-do-jogo]/[pagina].wikimd`
-
-### 2. Formato do Ficheiro
-
-```markdown
----
-jogo: dead-island
-titulo: Zombies
-descricao: Tipos de zombies e suas traduções
-icone: skull
-ordem: 1
----
-
-# Título Principal
-
-Texto normal aqui. Podes usar **negrito**, *itálico*, [links](#), etc.
-
-## Secção
-
-### Subsecção
-
-## Tabelas de Tradução
-
-| Nome PT | Nome EN | Imagem | Notas |
-|---------|---------|--------|-------|
-| Caminhante | Walker | https://imgur.com/imagem.jpg | Explicação aqui |
-| Infetado | Infected | https://imgur.com/imagem2.jpg | Outra nota |
-
-## Notas do Tradutor
-
-> **João Frade**: As minhas notas sobre a tradução vão aqui.
-
-## Links
-
-- [Outra página wiki](/jogo/dead-island-wiki/armas.html)
-- [Voltar ao jogo](/jogo/dead-island.html)
-```
-
----
-
-## 🎨 Elementos Disponíveis
-
-### Metadata (Frontmatter)
+### 2) Frontmatter obrigatório
 
 ```yaml
 ---
-jogo: dead-island          # ID do jogo (obrigatório)
-titulo: Zombies            # Título da página (obrigatório)
-descricao: Breve descrição # Para meta tags
-icone: skull               # Ícone FontAwesome (sem 'fa-')
-ordem: 1                   # Ordem na sidebar (opcional)
----
-```
-
-### Tabelas
-
-**Simples:**
-```markdown
-| Nome PT | Nome EN | Notas |
-|---------|---------|-------|
-| Termo 1 | Term 1  | Info  |
-```
-
-**Com Imagens:**
-```markdown
-| Nome PT | Nome EN | Imagem | Notas |
-|---------|---------|--------|-------|
-| Termo | Term | https://imgur.com/abc.jpg | Info |
-```
-
-O script converte URLs de imagens automaticamente em tags `<img>`.
-
-### Notas do Tradutor
-
-```markdown
-> **Nome do Tradutor**: Texto da nota aqui.
-> Pode ter várias linhas.
-```
-
-Renderiza como uma caixa bonita com ícone.
-
-### Caixas de Informação
-
-```markdown
-> Qualquer blockquote sem nome renderiza como info box.
-```
-
-### Listas
-
-```markdown
-- Item 1
-- Item 2
-  - Subitem
-```
-
-### Links
-
-```markdown
-[Texto do link](/caminho/para/pagina.html)
-[Link externo](https://example.com)
-```
-
----
-
-## 🚀 Usar o Build Script
-
-### Instalação
-
-```bash
-npm install marked
-```
-
-### Executar
-
-```bash
-node build-wiki.js
-```
-
-### O que faz:
-
-1. ✅ Lê todos os ficheiros `.wikimd` em `wiki-content/`
-2. ✅ Converte Markdown → HTML
-3. ✅ Processa tabelas e imagens
-4. ✅ Cria navegação automática na sidebar
-5. ✅ Gera ficheiros HTML completos em `/jogo/[jogo]-wiki/`
-
----
-
-## 📝 Exemplo Completo
-
-### Input: `wiki-content/dead-island/zombies.wikimd`
-
-```markdown
----
-jogo: dead-island
 titulo: Zombies
-descricao: Tipos de zombies do Dead Island
+descricao: Nomes dos zombies em PT-PT, com o original ao lado.
 icone: skull
 ordem: 1
 ---
-
-# Zombies
-
-Esta é a wiki de zombies do Dead Island.
-
-## Tipos Principais
-
-| Nome PT | Nome EN | Notas |
-|---------|---------|-------|
-| Caminhante | Walker | Zombie lento |
-| Infetado | Infected | Zombie rápido |
-
-> **João Frade**: Optei por "Caminhante" para manter simplicidade.
-
-## Ver Também
-
-- [Armas](armas.html)
-- [Voltar ao jogo](../dead-island.html)
 ```
 
-### Output: `jogo/dead-island-wiki/zombies.html`
+### 3) Markdown normal + extensões
 
-Página HTML completa com:
-- ✅ Navbar do site
-- ✅ Breadcrumbs
-- ✅ Sidebar com navegação
-- ✅ Conteúdo formatado
-- ✅ Tabelas bonitas
-- ✅ Notas destacadas
-- ✅ Footer
+#### Intro destacada (tipo `>`)
+```markdown
+> [intro] Texto introdutório da página.
+```
+
+#### Highlight inline
+```markdown
+==Escolha chave==
+```
+
+#### Títulos com ícones (Pictogrammers / MDI)
+```markdown
+## [icon:skull] Zombies principais
+### [icon:star] Zombies especiais
+```
+Usa nomes de ícones da biblioteca MDI (sem o prefixo `mdi-`).
+
+#### IDs manuais em títulos
+```markdown
+## Armas brancas {#brancas}
+```
+Fica com `id="brancas"` para usar em âncoras.
+
+#### Grelha de botões (para tópicos)
+```markdown
+:::grid
+- [icon:skull] Zombies (zombies.html)
+- [icon:gun] Armas (armas.html)
+- [icon:map-marker-alt] Lugares (lugares.html)
+:::
+```
+
+#### YouTube (embed simples)
+```markdown
+:::youtube wQsys-tXpME
+:::
+```
+
+#### Captions de tabelas
+Coloca antes da tabela:
+```markdown
+:caption: Zombies principais (PT-PT vs EN)
+| ... |
+```
+
+#### Tabelas com cabeçalho lateral (vertical)
+Ativa com `^` na primeira célula do header:
+```markdown
+| ^ | Caminhante | Infetado |
+|---|---|---|
+| Nome PT | Caminhante | Infetado |
+| Nome EN | Walker | Infected |
+```
+
+Se o primeiro header for só `^`, o `thead` é removido (só cabeçalhos laterais):
+```markdown
+| ^ | A | B |
+|---|---|---|
+| Nome PT | ... | ... |
+```
+
+#### Imagens
+- Usa caminhos curtos para imagens locais:
+```markdown
+![Capa](imgs/capa.jpg)
+```
+O build converte automaticamente para `/data/wiki-content/<jogo>/imgs/...`.
+
+- URLs externas também funcionam.
 
 ---
 
-## 🎯 Vantagens
+## 🎨 Elementos Disponíveis (Resumo)
 
-1. **Rápido**: Escreves em Markdown simples
-2. **Sem HTML**: Não precisas escrever tags
-3. **Automático**: Script converte tudo
-4. **Consistente**: Todas as páginas têm o mesmo visual
-5. **Fácil Manutenção**: Editar é só editar o `.wikimd`
-6. **SEO Friendly**: HTML estático gerado
+- **Intro destacada:** `> [intro] ...`
+- **Highlight:** `==texto==`
+- **Títulos com ícones:** `## [icon:skull] ...`
+- **Grelha de botões:** `:::grid ... :::`
+- **Caption de tabela:** `:caption: ...`
+- **Cabeçalho lateral de tabelas:** `^`
+- **Imagens locais:** `imgs/...`
+
+---
+
+## 🚀 Build
+
+### Instalação
+```bash
+npm install
+```
+
+### Gerar a wiki
+```bash
+npm run build:wiki
+```
+
+### Build completo (site)
+```bash
+npm run build:all
+```
 
 ---
 
 ## 🔧 Personalização
 
-### Mudar Template
-
-Edita `templates/wiki-template.html` para alterar:
-- Estrutura HTML
-- Placeholders disponíveis: `{{TITULO}}`, `{{CONTEUDO}}`, etc.
-
-### Mudar Estilos
-
-Edita `wiki.css` para alterar aparência.
-
-### Adicionar Funcionalidades
-
-Edita `build-wiki.js`:
-- Função `processMarkdown()` - adicionar transformações
-- Função `convertTablesToHTML()` - customizar tabelas
-- Função `convertBlockquotes()` - customizar notas
-
----
-
-## 📊 Ícones Disponíveis
-
-Podes usar qualquer ícone do FontAwesome (sem o prefixo `fa-`):
-
-- `skull` - Zombies
-- `crosshairs` - Armas
-- `map-marker-alt` - Lugares
-- `wrench` - Mods
-- `trophy` - Conquistas
-- `tasks` - Missões
-- `book-open` - Capítulos
-- `key` - Segredos
-- `star` - Habilidades
-- `gamepad` - Genérico
+- **Template:** `templates/wiki-page.html`
+- **CSS:** `wiki.css`
+- **Build:** `scripts/build-wiki.js`
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Imagens não aparecem
-- Verifica se o URL está correto
-- URLs devem estar completos: `https://...`
+**Imagens não aparecem**
+- Confirma que usaste `imgs/...` ou URL completa
 
-### Tabela não formatou bem
-- Verifica que tens `|` em todas as células
-- Linha de separação deve ter `---`
+**Tabelas não formatam**
+- Verifica os `|` e a linha de separação `---`
 
-### Sidebar vazia
-- Verifica que todos os ficheiros têm frontmatter correto
-- Campo `ordem` define a posição
-
-### Erro no build
-```bash
-npm install marked  # Instalar dependências
-```
+**Sidebar vazia**
+- Confirma frontmatter e `ordem`
 
 ---
 
-## 📚 Exemplos de Wikis
-
-### Wiki Simples (só termos)
-
-```markdown
----
-jogo: jogo-x
-titulo: Termos Comuns
-icone: book
----
-
-# Termos Comuns
-
-| PT | EN |
-|----|-----|
-| Saltar | Jump |
-| Correr | Run |
-```
-
-### Wiki Complexa (com tudo)
-
-```markdown
----
-jogo: jogo-x
-titulo: Armas Completo
-icone: crosshairs
-ordem: 2
----
-
-# Armas
-
-## Armas Brancas
-
-| Nome PT | Nome EN | Imagem | Dano | Notas |
-|---------|---------|--------|------|-------|
-| Machado | Axe | url | 50 | Lento mas forte |
-
-## Armas de Fogo
-
-| Nome PT | Nome EN | Cadência | Notas |
-|---------|---------|----------|-------|
-| Pistola | Pistol | Média | Munição comum |
-
-> **Tradutor**: Mantive nomes literais para clareza.
-
-## Mods
-
-Ver [página de mods](mods.html) para mais detalhes.
-```
-
----
-
-Feito com ❤️ para o 100Nome! 🎮
+Feito para manter a wiki rápida, consistente e fácil de editar.
