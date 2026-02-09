@@ -1,7 +1,7 @@
 ---
 titulo: Armas
 descricao: Lista completa das armas do Dead Island com tradução PT-PT vs EN, incluindo armas contundentes, cortantes, de fogo, de combate e de arremesso.
-icone: pistol
+icone: sword-cross
 ordem: 2
 ---
 
@@ -14,7 +14,7 @@ ordem: 2
 :::grid
 - [icon:hammer] Contundentes (#armas-contundentes)
 - [icon:sword] Cortantes (#armas-cortantes)
-- [icon:fire] Fogo (#armas-de-fogo)
+- [icon:pistol] Fogo (#armas-de-fogo)
 - [icon:boxing-glove] Combate (#armas-de-combate)
 - [icon:bomb] Arremesso (#armas-de-arremesso)
 :::
@@ -182,7 +182,7 @@ ordem: 2
 | 7 | Víquingue do Sul | Viking of the South | Machado de Bombeiro | Possível referência a Érico Torvaldsson. |
 | 8 | Kata-Zombies | Zed's Demise | Katana | Trocadilho entre "catar" e "katana". |
 
-## [icon:fire] Armas de fogo
+## [icon:pistol] Armas de fogo
 
 :caption: Armas de fogo (PT-PT vs EN)
 
@@ -215,7 +215,7 @@ ordem: 2
 | 25 | Caçadeira Ação por Bomba Superior | Pump-Action Shotgun Premium | Caçadeira de Ação por Bomba |
 | 26 | Caçadeira Ação por Bomba Enferrujada | Pump-Action Shotgun, rusty | Caçadeira de Ação por Bomba |
 
-### [icon:fire] Armas de fogo lendárias
+### [icon:pistol] Armas de fogo lendárias
 
 :caption: Armas de fogo lendárias (PT-PT vs EN)
 
@@ -276,10 +276,3 @@ ordem: 2
 > **João Frade**: A tradução das armas privilegiou a clareza e a familiaridade para jogadores portugueses. 
 > 
 > ==Escolha chave:== Para as armas lendárias, optámos por traduções criativas que mantêm referências culturais e trocadilhos, como "Machado de Assis" para "Banisher" ou "Chiave Italiana" para "Italian Plumber", garantindo que o humor e a intenção originais são preservados em PT-PT.
-
-## [icon:link] Links Relacionados
-
-- [Wiki Principal do Dead Island](/jogo/dead-island-wiki/)
-- [Zombies](zombies.html)
-- [Lugares](lugares.html)
-- [Afixos das Armas](/dead-island-categorias-de-armas-38998)

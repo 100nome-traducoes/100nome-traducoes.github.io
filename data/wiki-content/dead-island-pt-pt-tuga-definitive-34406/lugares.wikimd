@@ -83,7 +83,7 @@ ordem: 3
 | PT-PT | Orla do Porto | Orla Poente | Distrito Rico | Casa Assombrada |
 | EN | Waterfront Harbour | Western Waterfront | Wealthy District | Haunted House |
 
-## [icon:mountain] Selva e Áreas Naturais
+## [icon:forest] Selva e Áreas Naturais
 
 :caption: Zonas rurais, selva e acampamentos
 
@@ -141,7 +141,7 @@ ordem: 3
 | PT-PT | Esgotos | Casa do Vizinho do Tim | Ambulatório | Sala das Caldeiras |
 | EN | Sewers | Tim's Neighbor House | Ambulatory | Boiler Room |
 
-## [icon:building] Edifícios e Pisos
+## [icon:office-building] Edifícios e Pisos
 
 :caption: Interiores, pisos e divisões específicas
 
@@ -188,7 +188,7 @@ ordem: 3
 | PT-PT | Bloco de Celas C - Elevador | Bloco de Celas C - Sala de Controlo Principal | Bloco C | Bloco C - Duches |
 | EN | Cell Block C - Elevator | Cell Block C - Main Controll Room | Block C | Block C Showers |
 
-## [icon:shield-alt] Esquadra de Polícia
+## [icon:shield] Esquadra de Polícia
 
 :caption: Áreas da esquadra e dependências policiais
 
@@ -246,10 +246,3 @@ ordem: 3
 > **Equipa de Tradução**: Os nomes foram mantidos próximos dos originais quando possível, com adaptações para soarem natural em PT-PT.
 
 ==Escolha chave:== "Shanty Town" tornou-se "Bairro de Lata" (mais comum em PT-PT) em vez de "Bairro de Barracas". "City Slums" manteve "Favela" por ser termo reconhecido.
-
-## [icon:link] Links Relacionados
-
-- [Wiki Principal do Dead Island](/jogo/dead-island-wiki/)
-- [Zombies](/jogo/dead-island-wiki/zombies.html)
-- [Armas](/jogo/dead-island-wiki/armas.html)
-- [Modificadores de Armas](/jogo/dead-island-wiki/modificadores-de-armas.html)

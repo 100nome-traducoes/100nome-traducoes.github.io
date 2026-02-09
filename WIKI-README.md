@@ -121,6 +121,12 @@ O build converte automaticamente para `/data/wiki-content/<jogo>/imgs/...`.
 
 - URLs externas também funcionam.
 
+#### Links
+```markdown
+[Texto do link](armas.html)
+[Link externo](https://example.com)
+```
+
 ---
 
 ## 🎨 Elementos Disponíveis (Resumo)

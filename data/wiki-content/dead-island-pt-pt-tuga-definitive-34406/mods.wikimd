@@ -1,7 +1,7 @@
 ---
 jogo: dead-island
 titulo: Mods
-descricao: Todas as modificações (mods) e projetos de armas do Dead Island, organizados por tipo e categoria.
+descricao: Todas as modificações (mods) e projetos de armas do Dead Island, organizados por tipo de arma e efeito.
 icone: wrench
 ordem: 4
 ---
@@ -11,7 +11,7 @@ ordem: 4
 > [intro] As **modificações** (mods) permitem personalizar armas com efeitos especiais no Dead Island. Cada modificação requer um **Projeto** (Blueprint) e materiais específicos. Esta página lista todas as mods disponíveis, organizadas por tipo de arma e efeito.
 
 ## 📋 Visão Geral
-Os projetos dividem-se em **3 categorias principais**:
+Os projetos dividem-se em **3 tipos principais**:
 
 :::grid
 - ⚔️ Armas Corpo a Corpo (#armas-corpo-a-corpo)
@@ -24,9 +24,9 @@ Os projetos dividem-se em **3 categorias principais**:
 
 ## ⚔️ Armas Corpo a Corpo
 
-### Subcategorias
+### Efeitos
 
-Cada categoria tem **subcategorias de efeito**:
+Armas corpo a corpo dividem-se em **categorias de efeitos**:
 
 :::grid
 - [icon:water] Sangramento (#sangramento)
@@ -124,9 +124,9 @@ Cada categoria tem **subcategorias de efeito**:
 
 ## 🔫 Armas de Fogo
 
-### Subcategorias
+### Categorias de efeitos
 
-Cada categoria tem **subcategorias de efeito**:
+Armas de fogo dividem-se em **categorias de efeitos**:
 
 :::grid
 - [icon:bomb] Explosão (#fogo-explosao)
@@ -195,13 +195,3 @@ Cada categoria tem **subcategorias de efeito**:
 > **Equipa de Tradução**: Mantivemos "Mod." como abreviação consistente para "Modificação". Os nomes foram adaptados para serem descritivos em PT-PT, mantendo o espírito dos originais.
 
 ==Escolha chave:== "Pick-and-ohm Mod" tornou-se "Mod. Choca-e-Pica" - uma solução criativa que mantém o trocadilho elétrico ("ohm" como unidade de resistência) enquanto soa natural em português.
-
----
-
-## [icon:link] Links Relacionados
-
-- [Wiki Principal do Dead Island](/jogo/dead-island-wiki/)
-- [Zombies](/jogo/dead-island-wiki/zombies.html)
-- [Armas](/jogo/dead-island-wiki/armas.html)
-- [Modificadores de Armas](/jogo/dead-island-wiki/modificadores-de-armas.html)
-- [Áreas e Lugares](/jogo/dead-island-wiki/areas.html)

@@ -134,9 +134,9 @@ function convertYouTubeEmbeds(markdown) {
 
 // Adicionar captions a tabelas via linha ":caption: texto" antes da tabela
 function convertTableCaptions(html) {
-    return html.replace(/<p>\s*:caption:\s*([^<]+?)\s*<\/p>\s*<table>/gi, (match, captionText) => {
-        const safeText = captionText.trim();
-        return `<table><caption>${safeText}</caption>`;
+    return html.replace(/<p>\s*:caption:\s*([\s\S]*?)\s*<\/p>\s*<table>/gi, (match, captionHtml) => {
+        const safeHtml = captionHtml.trim();
+        return `<table><caption>${safeHtml}</caption>`;
     });
 }
 
@@ -252,6 +252,16 @@ function countTermsFromMarkdown(content) {
             .map(l => l.split('|').map(c => c.trim()).filter(Boolean));
 
         let tableCount = 0;
+
+        // Detectar tabelas invertidas (cabeçalho vertical)
+        const headerCells = rows[0] || [];
+        const headerFirst = (headerCells[0] || '').toLowerCase();
+        const isVerticalHeader = headerFirst === '^';
+        if (isVerticalHeader) {
+            tableCount = Math.max(0, headerCells.length - 1);
+        }
+
+        // Procurar linhas "Nome PT/EN" para contar colunas
         rows.forEach(cells => {
             const first = (cells[0] || '').toLowerCase();
             if (/^nome(\s+(pt|en))?$/.test(first)) {
@@ -415,6 +425,45 @@ function buildSidebarNav(jogoId, currentPage, wikiPages) {
     return pages;
 }
 
+function buildRelatedLinks(currentPage, wikiPages) {
+    const pages = [...wikiPages].sort((a, b) => (a.metadata.ordem || 999) - (b.metadata.ordem || 999));
+    const currentIndex = pages.findIndex(p => p.filename === currentPage);
+    const links = [];
+
+    const indexPage = pages.find(p => p.filename === 'index');
+    if (indexPage && currentPage !== 'index') {
+        links.push({ label: 'Visão Geral', href: './' });
+    }
+
+    if (currentIndex > 0) {
+        const prev = pages[currentIndex - 1];
+        if (prev) {
+            const href = prev.filename === 'index' ? './' : `${prev.filename}.html`;
+            links.push({ label: `Anterior: ${prev.metadata.titulo || 'Página'}`, href });
+        }
+    }
+
+    if (currentIndex >= 0 && currentIndex < pages.length - 1) {
+        const next = pages[currentIndex + 1];
+        if (next) {
+            const href = next.filename === 'index' ? './' : `${next.filename}.html`;
+            links.push({ label: `Seguinte: ${next.metadata.titulo || 'Página'}`, href });
+        }
+    }
+
+    if (!links.length) return '';
+
+    const linksHtml = links.map(l => `<a href="${l.href}">${l.label}</a>`).join('');
+    return `
+        <div class="wiki-related">
+            <h3 class="wiki-related-title"><i class="mdi mdi-link-variant"></i> Relacionado</h3>
+            <div class="wiki-related-links">
+                ${linksHtml}
+            </div>
+        </div>
+    `;
+}
+
 // Carregar template HTML
 function loadTemplate() {
     const templatePath = path.join(__dirname, CONFIG.templateFile);
@@ -447,6 +496,7 @@ function processWikiFile(filePath, jogoId, allWikiPages, jogoData) {
     // Construir navegação
     const filename = path.basename(filePath, '.wikimd');
     const sidebarNav = buildSidebarNav(jogoId, filename, allWikiPages);
+    const relatedLinks = buildRelatedLinks(filename, allWikiPages);
     
     // Substituir placeholders
     const gameCover = jogoData?.capa ? `/${jogoData.capa.replace(/^\/+/, '')}` : '';
@@ -466,6 +516,7 @@ function processWikiFile(filePath, jogoId, allWikiPages, jogoData) {
         .replace(/\{\{JOGO_NOME\}\}/g, jogoId.replace(/-/g, ' ').toUpperCase())
         .replace(/\{\{JOGO_ID\}\}/g, jogoId)
         .replace(/\{\{CONTEUDO\}\}/g, htmlContent)
+        .replace(/\{\{RELATED_LINKS\}\}/g, relatedLinks)
         .replace(/\{\{SIDEBAR_NAV\}\}/g, sidebarNav)
         .replace(/\{\{ICONE\}\}/g, metadata.icone || 'book')
         .replace(/\{\{PAGE_SUBTITLE\}\}/g, metadata.descricao || '')

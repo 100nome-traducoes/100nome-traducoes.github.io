@@ -627,6 +627,50 @@
     box-shadow: 0 10px 24px rgba(227, 158, 68, 0.3);
 }
 
+/* Links relacionados */
+.wiki-related {
+    margin: 2rem 0 0;
+    padding: 1.2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.wiki-related-title {
+    font-size: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.wiki-related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.wiki-related-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.wiki-related-links a:hover {
+    background: rgba(227, 158, 68, 0.15);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
 .wiki-button {
     display: flex;
     align-items: center;

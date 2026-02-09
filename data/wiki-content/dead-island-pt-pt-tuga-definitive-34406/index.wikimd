@@ -20,11 +20,12 @@ ordem: 1
 
 :::grid
 - [icon:skull] Zombies (zombies.html)
-- [icon:pistol] Armas (armas.html)
+- [icon:sword-cross] Armas (armas.html)
 - [icon:map-marker] Lugares (lugares.html)
 - [icon:wrench] Mods (mods.html)
-- [icon:trophy] Conquistas (conquistas.html)
 - [icon:format-list-checks] Missões (missoes.html)
+- [icon:trophy] Conquistas (conquistas.html)
+- [icon:timer] Desafios (desafios.html)
 :::
 
 ## Como usar esta Wiki
