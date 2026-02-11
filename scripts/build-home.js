@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataPath = path.join(__dirname, '..', 'data', 'jogos.json');
+const dataPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
 const templatePath = path.join(__dirname, '..', 'templates', 'home.html');
 const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputPath = path.join(__dirname, '..', 'index.html');
@@ -234,13 +234,15 @@ function buildCategories(data) {
 function main() {
   const data = readJson(dataPath);
   const template = fs.readFileSync(templatePath, 'utf8');
-  const header = readPartial('header-home.html');
+  const header = readPartial('header.html');
   const footer = readPartial('footer.html');
+  const favicon = readPartial('favicon.html');
 
   const featuredGrid = buildFeaturedGrid(data);
   const categoriesHtml = buildCategories(data);
 
   let html = template
+    .replace(/\{\{FAVICON\}\}/g, favicon)
     .replace(/\{\{HEADER\}\}/g, header)
     .replace(/\{\{FOOTER\}\}/g, footer)
     .replace(/\{\{FEATURED_GRID\}\}/g, featuredGrid)

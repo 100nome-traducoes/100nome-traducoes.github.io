@@ -21,11 +21,15 @@ ordem: 1
 :::grid
 - [icon:skull] Zombies (zombies.html)
 - [icon:sword-cross] Armas (armas.html)
+- [icon:flash] Modificadores (modificadores-de-armas.html)
 - [icon:map-marker] Lugares (lugares.html)
 - [icon:wrench] Mods (mods.html)
-- [icon:format-list-checks] Missões (missoes.html)
-- [icon:trophy] Conquistas (conquistas.html)
 - [icon:timer] Desafios (desafios.html)
+- [icon:trophy] Conquistas (conquistas.html)
+- [icon:map] Missões (missoes.html)
+- [icon:book] Capítulos (capitulos.html)
+- [icon:lock] Segredos (segredos.html)
+- [icon:account-box] Habilidades (habilidades.html)
 :::
 
 ## Como usar esta Wiki

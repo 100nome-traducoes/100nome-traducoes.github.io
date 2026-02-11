@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const jogosPath = path.join(__dirname, '..', 'data', 'jogos.json');
+const jogosPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
 const templatePath = path.join(__dirname, '..', 'templates', 'game-page.html');
 const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputDir = path.join(__dirname, '..', 'jogo');
@@ -322,7 +322,7 @@ function getBreadcrumbCategoria(jogoCategorias, categoriasPrincipais) {
 }
 
 
-function buildPageHtml(template, jogo, categoriasPrincipais, header, footer) {
+function buildPageHtml(template, jogo, categoriasPrincipais, header, footer, favicon) {
   const tituloSemPrefixo = stripPrefixTitulo(jogo.titulo || '');
   const breadcrumbTitulo = stripPtPt(jogo.titulo || '');
   const metaDescription = truncate(jogo.descricao || '', 160);
@@ -330,6 +330,7 @@ function buildPageHtml(template, jogo, categoriasPrincipais, header, footer) {
   const badgesHtml = buildBadgesHtml(jogo.categorias);
 
   const replacements = {
+    '{{FAVICON}}': favicon || '',
     '{{HEADER}}': header || '',
     '{{FOOTER}}': footer || '',
     '{{PAGE_TITLE}}': escapeHtml(`${tituloSemPrefixo} - Tradução 100Nome`),
@@ -374,10 +375,11 @@ function main() {
   const template = fs.readFileSync(templatePath, 'utf8');
   const header = readPartial('header.html');
   const footer = readPartial('footer.html');
+  const favicon = readPartial('favicon.html');
   const categoriasPrincipais = data.categoriasPrincipais || [];
 
   for (const jogo of data.jogos || []) {
-    const html = buildPageHtml(template, jogo, categoriasPrincipais, header, footer);
+    const html = buildPageHtml(template, jogo, categoriasPrincipais, header, footer, favicon);
     const outPath = path.join(outputDir, `${jogo.guid}.html`);
     fs.writeFileSync(outPath, html, 'utf8');
     console.log(`Gerado: ${outPath}`);

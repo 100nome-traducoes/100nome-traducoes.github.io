@@ -16,7 +16,7 @@ const CONFIG = {
     inputDir: '../data/wiki-content',
     outputDir: '../wiki',
     templateFile: '../templates/wiki-page.html',
-    dataFile: '../data/jogos.json'
+    dataFile: '../data/game-content/jogos.json'
 };
 
 // Parser de frontmatter YAML
@@ -492,6 +492,7 @@ function processWikiFile(filePath, jogoId, allWikiPages, jogoData) {
     let template = loadTemplate();
     const header = loadPartial('header.html');
     const footer = loadPartial('footer.html');
+    const favicon = loadPartial('favicon.html');
     
     // Construir navegação
     const filename = path.basename(filePath, '.wikimd');
@@ -509,6 +510,7 @@ function processWikiFile(filePath, jogoId, allWikiPages, jogoData) {
     const dataMeta = `<span><i class="mdi mdi-clock-outline"></i> Atualizado em ${updatedAt}</span>`;
 
     template = template
+        .replace(/\{\{FAVICON\}\}/g, favicon)
         .replace(/\{\{HEADER\}\}/g, header)
         .replace(/\{\{FOOTER\}\}/g, footer)
         .replace(/\{\{TITULO\}\}/g, metadata.titulo || 'Wiki')

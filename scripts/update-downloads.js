@@ -11,8 +11,8 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-const jogosPath = path.join(__dirname, '..', 'data', 'jogos.json');
-const downloadsPath = path.join(__dirname, '..', 'data', 'downloads.json');
+const jogosPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
+const downloadsPath = path.join(__dirname, '..', 'data', 'game-content', 'downloads.json');
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));

@@ -98,6 +98,8 @@ a:hover {
 .logo img {
     height: 50px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    width: fit-content;
+    transition: ease .5s;
 }
 
 .logo:hover {
@@ -429,7 +431,7 @@ a:hover {
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
-    url('https://i.imgur.com/P2NnOkq.png') no-repeat center center;
+    url('data/site-assets/hero-image.png') no-repeat center center;
     background-size: cover;
     min-height: 400px;
     display: flex;

@@ -130,7 +130,7 @@ $(document).ready(function() {
             }
 
             $.ajax({
-                url: '../data/jogos.json',
+                url: '../data/game-content/jogos.json',
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {
@@ -207,7 +207,7 @@ $(document).ready(function() {
 
     function carregarDownloads() {
         $.ajax({
-            url: '../data/downloads.json',
+            url: '../data/game-content/downloads.json',
             method: 'GET',
             dataType: 'json',
             success: function(data) {

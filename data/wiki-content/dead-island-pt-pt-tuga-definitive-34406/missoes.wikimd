@@ -1,0 +1,261 @@
+---
+jogo: dead-island
+titulo: Missões
+descricao: Todas as missões do Dead Island (principais e secundárias) traduzidas para português de Portugal, organizadas por atos e zonas.
+icone: map
+ordem: 7
+---
+
+# Missões
+
+> [intro] O Dead Island apresenta uma campanha principal dividida em 4 atos, além de numerosas missões secundárias distribuídas por diferentes zonas da ilha. Esta página documenta todos os nomes das missões com as respetivas traduções.
+
+## 📋 Visão Geral
+As missões dividem-se em **2 grupos**:
+
+:::grid
+- 🎯 Missões Principais (#missoes-principais)
+- 🧩 Missões Secundárias (#missoes-secundarias)
+:::
+
+## 🎯 Missões Principais {#missoes-principais}
+
+Este grupo subdivide-se em **atos**:
+
+:::grid
+- [icon:play] Prólogo (#prologo)
+- [icon:numeric-1-circle] Ato 1 - Resort (#ato-1-resort)
+- [icon:numeric-2-circle] Ato 2 - Moresby (#ato-2-moresby)
+- [icon:numeric-3-circle] Ato 3 - Selva (#ato-3-selva)
+- [icon:numeric-4-circle] Ato 4 - Prisão (#ato-4-prisao)
+:::
+
+### [icon:play] Prólogo {#prologo}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 1 | Caos Instalado | Chaos Overture |
+
+### [icon:numeric-1-circle] Ato 1 - Resort {#ato-1-resort}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 2 | Maré de Azar | Blood on the Sand |
+| 3 | Passaporte Para a Vida | Passport to Life |
+| 4 | Êxodo | Exodus |
+| 5 | Para Matar o Tempo | To Kill Time |
+| 6 | Esta é Canja | A Piece of Cake |
+| 7 | Achado Não é Roubado | Seek'n'Loot |
+| 8 | Sangue Nas Veias | Born to be Wild |
+| 9 | Black Hawk Down | Black Hawk Down |
+| 10 | A Carrinha Trágica | Misery Wagon |
+| 11 | É Preciso Ter Estofo | Only the Strong Survive |
+| 12 | Pela Estrada Fora | On the Road |
+
+### [icon:numeric-2-circle] Ato 2 - Moresby {#ato-2-moresby}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 13 | Átrio da Peleja | Ram on Heaven's Door |
+| 14 | Silêncio Divino | Sacred Silence |
+| 15 | Deu Água Pela Barba | Drowned Hope |
+| 16 | Gota a Gota | Drop by Drop |
+| 17 | Caminho da Salvação | Way of Salvation |
+| 18 | Águas Passadas | Let the Waters Flow |
+| 19 | Remar Contra a Maré | Head Against the Wall |
+| 20 | Uma Aventura no Supermercado | Supermarket Journey |
+| 21 | Regresso Agridoce | Bitter Return |
+| 22 | Miúda em Apuros | Lady in Trouble |
+| 23 | A Fé Move Montanhas | Faith Will Move Mountains |
+| 24 | Nunca é Tarde Demais | It's Never Too Late |
+| 25 | Um Pássaro no Telhado | Bird on the Roof |
+| 26 | Lar Doce Lar | Home Sweet Home |
+| 27 | Devastador | Devastator |
+
+### [icon:numeric-3-circle] Ato 3 - Selva {#ato-3-selva}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 28 | Bem-Vindos à Selva | Welcome to the Jungle |
+| 29 | Perseguir Sombras | Chasing Shadows |
+| 30 | Soldado da Fortuna | Soldier of Fortune |
+| 31 | Rei do Pântano | King of the Swamp |
+| 32 | Cruzar o Rio | River Trip |
+| 33 | Casa da Ciência | House of Science |
+| 34 | Homem de Fé | Man of Faith |
+| 35 | Ciência Demoníaca | Demonic Science |
+| 36 | Puro Sangue | Pure Blood |
+| 37 | Conversa Dura... | Hard Talk |
+| 38 | Provisões do Barco | Boat Supplies |
+| 39 | Último Adeus | Back in Black |
+| 40 | Sem Tempo Para Conversa | No Time to Talk |
+
+### [icon:numeric-4-circle] Ato 4 - Prisão {#ato-4-prisao}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 41 | Titus Andronicus | Titus Andronikus |
+| 42 | Corredor da Morte | The Green Mile |
+| 43 | Muni-Los de Coragem | Full Metal Jacket |
+| 44 | A Cozinha de Dante | Dante's Kitchen |
+| 45 | Labirinto do Diabo | Devil's Labyrinth |
+| 46 | Seguindo o Coelho Branco | Chasing the White Rabbit |
+| 47 | À Beira do Abismo | On The Edge |
+
+## 🧩 Missões Secundárias {#missoes-secundarias}
+
+:::grid
+- [icon:umbrella-beach] Resort (#secundarias-resort)
+- [icon:city] Moresby (#secundarias-moresby)
+- [icon:forest] Selva (#secundarias-selva)
+- [icon:flask] Laboratório (#secundarias-laboratorio)
+- [icon:gavel] Prisão (#secundarias-prisao)
+- [icon:sync] Eventos Contínuos (#eventos-continuos)
+- [icon:puzzle-plus] Campanha do Ryder White (#campanha-ryder-white)
+:::
+
+### [icon:umbrella-beach] Resort {#secundarias-resort}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 1 | Um Raio de Esperança | A Ray of Hope |
+| 2 | Ao Pó Hão De Voltar | Ashes to Ashes |
+| 3 | Uma Voz Vinda do Céu | A Voice from Above the Sky |
+| 4 | Maldito Serviço de Saúde! | Bloody Health Service! |
+| 5 | São Valentim Sangrento | Bloody Valentine |
+| 6 | Conselho do Desespero | Counsel of Despair |
+| 7 | Capote! | Crash |
+| 8 | Família Distante | Family Matters |
+| 9 | Dá-lhe Gás | Fluid Necessity |
+| 10 | Chave de Ouro | Gold Digger |
+| 11 | Toca-e-Foge | Hit and Run |
+| 12 | Casa Cheia de Surpresas | House Full of Surprises |
+| 13 | Ascender ao Céu | Knockin' on Heaven's Door |
+| 14 | A Ressurreição de Lázaro | Lazarus Rising |
+| 15 | Uma Bolsa Para a Vida | Life in the Bag |
+| 16 | Acende a Minha Chama | Light My Fire |
+| 17 | Voltar Para a Toca | Make Yourself at Home |
+| 18 | Meu Precioso... | My Precious... |
+| 19 | Nighthawk | Nighthawk |
+| 20 | A Escolta do Omar | Omar Escort |
+| 21 | No Ar | On the Air |
+| 22 | Sem Reservas | Out of Stock |
+| 23 | Diz-me Onde Dói | Tell Me Where It Hurts |
+| 24 | Perdidos | The Lost |
+| 25 | Açúcar a Mais | Too Much Sugar |
+| 26 | Anita Não Consegue Dormir | Toy Story |
+| 27 | Amar Pelas Duas | Two Hearts |
+| 28 | Água Choca | Waterdance |
+
+### [icon:city] Moresby {#secundarias-moresby}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 29 | O Que Arde Cura | Alcohol for Theresa |
+| 30 | Limpeza de Sangue | A New Broom Sweeps Clean |
+| 31 | Tão Perto Mas Tão Longe | A Tough Nut to Crack |
+| 32 | Onde Para o Chefão? | Big Daddy, Where Are You? |
+| 33 | Laços de Sangue | Blood Ties |
+| 34 | Enterrar os Mortos | Bury The Dead |
+| 35 | Com o Carro às Costas | Cat on the Roof |
+| 36 | Ligeiros Socorros | Fast Aid |
+| 37 | Deus é a Minha Fortaleza | Fortress of God |
+| 38 | Filhos da Perdição | Godless Entities |
+| 39 | Quem Tudo Quer, Tudo Perde | Grasp All, Lose All |
+| 40 | Guarda de Plantão | Guard on Duty |
+| 41 | Heróis e Vilões | Heroes and Villains |
+| 42 | Prisão Perpétua | Imprisoned for Life |
+| 43 | A Sangue-Frio | In Cold Blood |
+| 44 | Dia do Julgamento | Judgement Day |
+| 45 | Falar Com as Paredes | Last Chance on the Wall |
+| 46 | Última Vontade | Last Will |
+| 47 | Justa Causa | Matter of Justice |
+| 48 | Um Sermão aos Peixes | Message to the Masses |
+| 49 | Um Pé na Cova | One Foot in the Grave |
+| 50 | Último Suspiro | One Last Breath |
+| 51 | Andar aos Papéis | Paperwork |
+| 52 | Retrato de Felicidade | Picture of Bliss |
+| 53 | Rádio Ga Ga | Radio Ga Ga |
+| 54 | O Rei Manda... | Simon Says... |
+| 55 | Sete Palmos de Terra | Six Feet Under |
+| 56 | Bebidas Calientes | Spicy Drinks |
+| 57 | Jogo de Espiões | Spy Game |
+| 58 | Sobrevivente | Survivor |
+| 59 | A Primeira Cabeça do Cérbero | The First Head of Cerberus |
+| 60 | A Segunda Cabeça do Cérbero | The Second Head of Cerberus |
+| 61 | A Terceira Cabeça do Cérbero | The Third Head of Cerberus |
+| 62 | Convidados Indesejados | Uninvited Guests |
+
+### [icon:forest] Selva {#secundarias-selva}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 63 | Uma Questão de Honor | A Matter of Honor |
+| 64 | Um Ferido Doente | A Wounded Crank |
+| 65 | Sangue nos Trópicos | Blood in the Tropics |
+| 66 | Ponte Longe Demais | Bridge Too Far |
+| 67 | Medo de Morte | Cold Stone |
+| 68 | Um Desejo de Morte | Death Wish |
+| 69 | Caído do Céu | Fallen Angel |
+| 70 | Principezinho | Little Prince |
+| 71 | Restos dos Condenados | Remains of the Damned |
+| 72 | Segundos Socorros | Second Aid |
+| 73 | Câmara? Ação! | Show Must Go On |
+| 74 | À Pesca de Mortos | The Dead in the Fishing Net |
+| 75 | Um Cafezinho | Visit to the Pub |
+
+### [icon:flask] Laboratório {#secundarias-laboratorio}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 76 | Danse Macabre | Danse Macabre |
+| 77 | Deus ex Machina | Deus ex Machina |
+| 78 | Repelente de Insetos | Insect Repellent |
+| 79 | Mensagem de Amor | Message of Love |
+| 80 | Sem Sinal de Vida | No Sign of Life |
+| 81 | Escravos de Energia | Power Slaves |
+| 82 | Ratos no Laboratório | Rats in the Lab |
+| 83 | Carne Putrefacta | Rotting Flesh |
+| 84 | Para Zombies é Comida-de-Urso | Scran's not for the Dead |
+| 85 | Busca Substancial | Substance of Matter |
+| 86 | Matar a Fome | The Dead Don't Eat Crackers |
+| 87 | Trabalho Suado | Wet Job |
+| 88 | Computa a Minha Dor | Where is my Pineapple? |
+
+### [icon:gavel] Prisão {#secundarias-prisao}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 89 | Propriedades da Adicção | Acid Funk |
+| 90 | Carniceiro de Banoi | Banoi Butcher |
+| 91 | Armaria Bloqueada | Locked Armory |
+| 92 | Tremenda Aflição | Painful Insanity |
+
+### [icon:sync] Eventos Contínuos {#eventos-continuos}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 93 | Réstia de Humanidade | Ashes of Humanity |
+| 94 | Deter-Gente Morta | Bleach with a Vengeance |
+| 95 | Composto de Sangue | Blood Compound |
+| 96 | Álcool Também Mata | Death in the Glass |
+| 97 | Luz Divina | Divine Light |
+| 98 | Tempo do Sonho | Dreamtime |
+| 99 | Multiplicação dos Pães | Feeding the Multitude |
+| 100 | Bebidas Para o Calor | Fiery Drinks |
+| 101 | Luz da Vida | Light is Life |
+| 102 | Néctar da Vida | Nectar of Life |
+| 103 | Três Pregos | Three Nails |
+| 104 | Tempo Para Beber | Time for Booze |
+| 105 | Ar no Estômago | Wind in the Stomach |
+| 106 | Erva Da-Minha | Weeds |
+
+### [icon:puzzle-plus] Campanha do Ryder White {#campanha-ryder-white}
+| # | Nome em português | Nome em inglês |
+|---|---|---|
+| 107 | A Águia Aterr(oriz)ou | The Eagle Has Landed |
+| 108 | Recuperar o Brilho | Stolen Thunder |
+| 109 | Um' Ponte Longe Demais | One Bridge Too Far |
+| 110 | Escapar de Banoi | Escape from Banoi |
+| 111 | Cavaleiro Andante | The Knight in Shining Armor |
+| 112 | Restabelecer a Energia | Get the Power Back On |
+| 113 | Medicação Para a Dra. Emily | Medicine for Emily |
+| 114 | Abrir Caminho | Clear the Path |
+| 115 | Cair na Armadilha | It's a Trap |
+| 116 | Evacuar-se da Prisão | Evacuate from the Prison |
+
+## [icon:message-text] Notas da Tradução
+
+> **Equipa de Tradução**: As missões do Dead Island apresentam nomes criativos com muitas referências culturais (filmes, músicas, literatura). Cada tradução procurou manter o espírito do original enquanto soava natural em PT-PT.
+
+> Notas Específicas para "Full Metal Jacket" e "The Green Mile":
+> Para estas missões com nomes de filmes, a tradução optou por não replicar os títulos cinematográficos portugueses. Em vez disso, criou-se uma adaptação contextual que descreve diretamente o objetivo no jogo.

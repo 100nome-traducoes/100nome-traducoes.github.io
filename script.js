@@ -26,6 +26,8 @@ $(document).ready(function() {
     let currentView = 'carousel';
     let isCarouselDragging = false;
     const initialQuery = new URLSearchParams(window.location.search).get('q');
+    const initialHash = window.location.hash;
+    const categoryHashes = ['#acao', '#misterio', '#quebracabecas', '#corrida', '#estrategia'];
 
     // Inicialização
     function init() {
@@ -38,7 +40,7 @@ $(document).ready(function() {
         $loadingIndicator.show();
 
         $.ajax({
-            url: 'data/jogos.json',
+            url: 'data/game-content/jogos.json',
             method: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -53,6 +55,28 @@ $(document).ready(function() {
                     $searchInput.val(initialQuery);
                     $('#mobile-search-input').val(initialQuery);
                     pesquisarTraducoes(initialQuery);
+                } else if (initialHash && categoryHashes.includes(initialHash)) {
+                    // Em modo grelha, uma hash de categoria deve abrir a grelha filtrada.
+                    if (currentView === 'grid') {
+                        carregarGrelhaPorCategoria(initialHash.replace('#', ''));
+                        setTimeout(() => {
+                            const targetTop = $categoriesContainer.offset()?.top;
+                            if (typeof targetTop === 'number') {
+                                $('html, body').animate({
+                                    scrollTop: targetTop - 80
+                                }, 600);
+                            }
+                        }, 50);
+                    } else {
+                        setTimeout(() => {
+                            const target = $(initialHash);
+                            if (target.length) {
+                                $('html, body').animate({
+                                    scrollTop: target.offset().top - 80
+                                }, 600);
+                            }
+                        }, 50);
+                    }
                 }
 
                 $loadingIndicator.hide();
@@ -787,13 +811,7 @@ $(document).ready(function() {
             if (!samePage) return;
 
             const hash = url.hash;
-            const isCategoria = [
-                '#acao',
-                '#misterio',
-                '#quebracabecas',
-                '#corrida',
-                '#estrategia'
-            ].includes(hash);
+            const isCategoria = categoryHashes.includes(hash);
 
             if (isCategoria && currentView === 'grid') {
                 e.preventDefault();

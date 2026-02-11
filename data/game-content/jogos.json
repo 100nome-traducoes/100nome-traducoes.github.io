@@ -1,14 +1,12 @@
 {
   "destaques": [
-    "dead-island-pt-pt-tuga-definitive-34406"
   ],
   "jogos": [
     {
       "guid": "the-ball-jogo-traduzido-portugues-30712",
       "titulo": "Tradução: The Ball PT-PT",
-      "capa": "data/imgs/the-ball-jogo-tradução-português.jpeg",
+      "capa": "data/game-content/imgs/the-ball-jogo-tradução-português.jpeg",
       "descricao": "Enquanto intrépido arqueólogo que labora nas encostas de um vulcão adormecido algures no México, vês-te aprisionado numa caverna. Não tarda até que percebas que este recinto transcende a mera cavidade. Desvendarás antigas ruínas, ocultas de forasteiros por séculos, e depararás com um enigmático artefacto, uma Bola revestida de ouro e metal. À medida que avanças na resolução do enigma deste lugar surpreendente, é imperativo desvelar os segredos da Bola e dominar a arte de controlar este artefacto ancestral. Adentrando mais no vulcão, revelarás alguns dos mais grandiosos segredos da humanidade, defrontando, não apenas enigmas e armadilhas, mas também diversas criaturas singulares - os guardiões deste mistério. Precisarás de derrotar estas criaturas, valendo-te unicamente do poder da Bola.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "The Ball",
         "nomeOriginal": "The Ball",
@@ -45,9 +43,8 @@
     {
       "guid": "vampireville-traducao-em-portugues-48704",
       "titulo": "Tradução: Vampireville PT-PT",
-      "capa": "data/imgs/vampireville-português.jpeg",
+      "capa": "data/game-content/imgs/vampireville-português.jpeg",
       "descricao": "O governo obterá em breve o direito de vender o Castelo de Malgrey, porque nenhum herdeiro reclamou a propriedade nos últimos 100 anos. Todos os peritos avaliadores enviados pelo teu patrão enlouqueceram, incluindo um dos teus colegas mais próximos. É a tua oportunidade! Desvenda os segredos desta propriedade usando os teus talentos de caça a objetos escondidos. Avalia este velho imóvel e descobre o que levou os outros agentes imobiliários a enlouquecerem em Vampireville!",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Vampireville",
         "nomeOriginal": "Vampireville",
@@ -83,7 +80,7 @@
     {
       "guid": "dead-island-pt-pt-tuga-definitive-34406",
       "titulo": "Tradução: Dead Island (todas as versões) PT-PT",
-      "capa": "data/imgs/dead-island-pt-pt.jpg",
+      "capa": "data/game-content/imgs/dead-island-pt-pt.jpg",
       "descricao": "O jogo que redefiniu o género zombie – totalmente remasterizado. O paraíso torna-se num inferno! Vive o Apocalipse Zombie da tua vida – agora ainda mais bonito. Apanhado no centro duma epidemia de zombies na ilha tropical de Banoi, a única coisa em que pensas é sobreviver! A experiência Dead Island esmaga cabeças, parte crânios e desfaz os zombies aos pedaços com modos de luta assustadoramente viscerais, num co-op de 4 jogadores imersos na história, num mundo vasto e aberto à espera de ser explorado.",
       "fonteDescricao": "em store.playstation.com",
       "informacoesJogo": {
@@ -130,7 +127,7 @@
     {
       "guid": "twisted-lands-origin-origem-pt-pt-37909",
       "titulo": "Tradução: Twisted Lands - A Origem PT-PT",
-      "capa": "data/imgs/twisted-lands-origem-origin-português.jpeg",
+      "capa": "data/game-content/imgs/twisted-lands-origem-origin-português.jpeg",
       "descricao": "Em Twisted Lands: A Origem, assume o papel de um detetive talentoso que sempre confiou no seu intelecto para resolver os casos mais difíceis. No entanto, o seu mais recente caso põe à prova os seus instintos de sobrevivência quando viaja para a misteriosa ilha de Tormento em busca de uma jovem desaparecida. Ao iniciar a investigação, depara-se com criaturas disformes que ameaçam pôr fim à sua vida antes que possa cumprir a sua missão. Não só terá de encontrar a jovem e o seu filho, como também protegê-los de uma força negra e sinistra que se revela mais maléfica ainda. Com o tempo a esgotar-se, o detetive deve utilizar todas as suas competências e perspicácia para escapar da ilha antes que a morte o apanhe.",
       "informacoesJogo": {
         "nome": "Twisted Lands - A Origem",
@@ -181,9 +178,8 @@
     {
       "guid": "doors-paradox-traducao-pt-pt-portugues-32933",
       "titulo": "Tradução: Doors Paradox PT-PT",
-      "capa": "data/imgs/doors-paradox-pt-pt.jpeg",
+      "capa": "data/game-content/imgs/doors-paradox-pt-pt.jpeg",
       "descricao": "Tanto quanto nos é possível lembrar, temo-nos situado na linha ténue entre o caos e a ordem. Até que um dia um portal misterioso se abriu e o caos reinou. Agora cabe-te a ti trazer a ordem de volta... o que não será assim tão simples! Um relaxante quebra-cabeças de fuga! Abre caminho para uma série de dioramas 3D feitos à mão, procura objetos úteis, encontra pistas ocultas e resolve enigmas divertidos! Desvenda esta misteriosa aventura sobre o caos, a ordem e o surreal.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Doors: Paradox",
         "nomeOriginal": "Doors: Paradox",
@@ -219,7 +215,7 @@
     {
       "guid": "traducao-gta-vice-city-pt-pt-31456",
       "titulo": "Tradução: GTA - Vice City PT-PT",
-      "capa": "data/imgs/gta-vice-city-pt-pt.jpeg",
+      "capa": "data/game-content/imgs/gta-vice-city-pt-pt.jpeg",
       "descricao": "Bem-vindo de volta a Vice City. Bem-vindo de volta aos anos 80. Da década do cabelo comprido, excessos e fatos em tons pastel, nasce a história da ascensão de um homem ao topo da hierarquia criminosa. Vice City, um enorme subúrbio urbano, que se estende desde a praia até aos pântanos e do luxo ao gueto, foi uma das cidades digitais mais variada, completa e dinâmica alguma vez criada. Combinando jogabilidade em mundo aberto com uma narrativa focada nas personagens, chegas a uma cidade a transbordar de prazeres e degradação que poderás conquistar como quiseres.",
       "fonteDescricao": "em play.google.com",
       "informacoesJogo": {
@@ -268,9 +264,8 @@
     {
       "guid": "transport-giant-down-under-portugues-pt-28855",
       "titulo": "Tradução: Transport Giant e expansão Down Under PT-PT",
-      "capa": "data/imgs/transport-giant-pt-pt.jpeg",
+      "capa": "data/game-content/imgs/transport-giant-pt-pt.jpeg",
       "descricao": "É o ano de 1850: o mundo está a mudar. Uma nova era de produção e transporte em massa começou. Para um empresário inteligente, há muitas oportunidades. Com um pouco de dinheiro e boas ideias, podes estabelecer um império empresarial.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Transport Giant",
         "nomeOriginal": "Transport Giant",
@@ -321,9 +316,8 @@
     {
       "guid": "beneath-a-steel-sky-pt-pt-portugues-20354",
       "titulo": "Tradução: Beneath a Steel Sky PT-PT",
-      "capa": "data/imgs/beneath-a-steel-sky-pt-pt.png",
+      "capa": "data/game-content/imgs/beneath-a-steel-sky-pt-pt.png",
       "descricao": "Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares, Robert Foster encontra-se em Union City, uma vasta metrópole sob a tirania de uma IA fascista. Sozinho, acompanhado apenas do circuito impresso do seu melhor amigo, Foster terá de descobrir a verdade sinistra e a razão pela qual é particularmente perseguido.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Beneath a Steel Sky",
         "nomeOriginal": "Beneath a Steel Sky",
@@ -356,9 +350,8 @@
     {
       "guid": "medieval-ii-total-war-pt-pt-portugues-20903",
       "titulo": "Tradução: Medieval II - Total War PT-PT",
-      "capa": "data/imgs/medieval-2-total-war-pt-pt.jpg",
+      "capa": "data/game-content/imgs/medieval-2-total-war-pt-pt.jpg",
       "descricao": "Gerirás o teu império com punho de ferro, tratando de tudo, desde a construção e melhoria de cidades até ao recrutamento e treino de exércitos. Usa a diplomacia para manipular aliados e inimigos, ultrapassar a temida Inquisição e influenciar o Papa. Lidera a luta nas Cruzadas e traz a vitória ao Islão ou ao Cristianismo na Guerra Santa. Reescreve a história e conquista o mundo. Total War é a guerra total!",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Medieval II - Total War",
         "nomeAlternativo": "Medieval 2: Total War",
@@ -393,9 +386,8 @@
     {
       "guid": "helltaker-pt-pt-portugues-portugal-19857",
       "titulo": "Tradução: Helltaker PT-PT",
-      "capa": "data/imgs/helltaker-pt-pt-portugal.jpg",
+      "capa": "data/game-content/imgs/helltaker-pt-pt-portugal.jpg",
       "descricao": "Acordas um dia com um sonho. Um harém cheio de raparigas demónio. Abres o portal na esperança de realizar os teus desejos mais loucos. O fogo do inferno arde-te nos pulmões, a morte espera-te na próxima esquina e tudo parece saído de um jogo móvel fofinho. Estás no inferno.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Helltaker",
         "nomeOriginal": "Helltaker",
@@ -436,9 +428,8 @@
     {
       "guid": "extreme-tuxracer-pt-pt-19393",
       "titulo": "Tradução: Extreme TuxRacer PT-PT",
-      "capa": "data/imgs/extreme-tux-kart-tradução-português.jpeg",
+      "capa": "data/game-content/imgs/extreme-tux-kart-tradução-português.jpeg",
       "descricao": "Extreme Tux Racer é um jogo de corrida em OpenGL que apresenta Tux, a mascote do Linux. O objetivo do jogo é deslizar por uma montanha coberta de neve e gelo o mais rapidamente possível, apanhando arenques pelo caminho. Ele é baseado na versão GPL de TuxRacer.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Extreme Tux Racer",
         "nomeOriginal": "Extreme Tux Racer",
@@ -475,9 +466,8 @@
     {
       "guid": "supertuxkart-portugues-portugal-pt-pt-21485",
       "titulo": "Tradução: Super Tux Kart PT-PT",
-      "capa": "data/imgs/supetuxkart-tradução-português.jpeg",
+      "capa": "data/game-content/imgs/supetuxkart-tradução-português.jpeg",
       "descricao": "Mais que fazê-lo realista, queremo-lo divertido. Conhece o grande farol ou então traspassa a areia e visita as pirâmides. Temos uma variedade de pistas com diferentes temas para os jogadores desfrutarem, desde corridas debaixo de água, quintas rurais, selvas e até no espaço! Dá o teu melhor a desviar-te de outros karts à medida que (possivelmente) te ultrapassam, só não comas as bananas! Cuidado com bolas de bólingue, desentupidores, pastilhas elásticas e bolos atirados pelos teus adversários. Podes fazer uma corrida contra outros karts, competir num Campeonato, tentar bater o recorde em Contrarrelógio por ti mesmo, jogar no modo Batalha contra o computador ou amigos teus, e mais! Para um desafio maior, joga online, conhece jogadores de todo o mundo e prova de que és feito!",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Super Tux Kart",
         "nomeOriginal": "Super Tux Kart",
@@ -516,7 +506,7 @@
     {
       "guid": "a-pedra-de-anamara-portugues-traducao-21975",
       "titulo": "Tradução: A Pedra de Anamara em português",
-      "capa": "data/imgs/a-pedra-de-anamara-português.jpeg",
+      "capa": "data/game-content/imgs/a-pedra-de-anamara-português.jpeg",
       "descricao": "A Pedra de Anamara, desenvolvido por Gabriel Rodríguez, o criador argentino, é um jogo flash de clicar no qual escapas da polícia, chegando a uma casa estranha, onde decides passar a noite. Tornou-se popular quando foi lançado em 2004, e ainda ganhou alguns prémios na altura! Devido ao sucesso, o lançamento foi apressado e o jogo nunca terminado. Muitos fãs por todo o mundo pedem desde então por um Segundo Capítulo que nunca saiu.",
       "fonteDescricao": "em anamara3d.rf.gd/pt",
       "informacoesJogo": {
@@ -555,7 +545,7 @@
     {
       "guid": "neighbours-back-from-hell-em-portugues-22406",
       "titulo": "Tradução: Vizinhos Voltam do Inferno (2020) PT-PT",
-      "capa": "data/imgs/neighbours-back-from-hell-novo-português.png",
+      "capa": "data/game-content/imgs/neighbours-back-from-hell-novo-português.png",
       "descricao": "Sabias que a palavra alemã \"Schadenfreude\" define o conceito de encontrar alegria na infelicidade de outra pessoa? É também esta a ideia por detrás de Vizinhos Voltam do Inferno, um programa de TV inteiro baseado em partidas cada vez mais ultrajantes pregadas ao teu vizinho resmungão para manter o público entretido e o número de visualizações elevado. É bom ser mau nesta extravagância apalermada inspirada na TV do início dos anos 2000!",
       "fonteDescricao": "em store.steampowered.com",
       "informacoesJogo": {
@@ -603,7 +593,7 @@
     {
       "guid": "vizinhos-do-inferno-2-em-ferias-pt-pt-22940",
       "titulo": "Tradução: Vizinhos do Inferno 2 PT-PT",
-      "capa": "data/imgs/neighbours-from-hell-2-pt-pt.png",
+      "capa": "data/game-content/imgs/neighbours-from-hell-2-pt-pt.png",
       "descricao": "O Sr. Rotweiler precisava de uma pausa para respirar das partidas do Woody, por isso decidiu fazer uma viagem à volta do mundo para se afastar dele. O que não esperava era que o Woody o seguisse a bordo no cruzeiro com uma equipa de filmagens discreta. O teu objectivo é irritar o vizinho. No Vizinhos do Inferno 2 há uma surpresa: a mãe vai com ele e o Woody tem agora perigo a dobrar.",
       "informacoesJogo": {
         "nome": "Vizinhos do Inferno 2 - Em Férias",
@@ -650,7 +640,7 @@
     {
       "guid": "vizinhos-do-inferno-traducao-portugues-23544",
       "titulo": "Tradução: Vizinhos do Inferno PT-PT",
-      "capa": "data/imgs/neighbours-from-hell-português.png",
+      "capa": "data/game-content/imgs/neighbours-from-hell-português.png",
       "descricao": "O teu vizinho do lado é deveras irritante. Está na hora da tua vingança! Cerca-lhe a casa e concebe os mais elaborados truques e armadilhas alguma vez vistos. Como estrela de um novo programa de televisão, as câmaras seguir-te-ão todos os movimentos filmando as tuas partidas. O teu objectivo é simples: irritar o vizinho e provocar o caos... talvez até ganhar um Prémio Vizinho! Mas tem cuidado! Se o vizinho descobre, acaba-se o jogo.",
       "informacoesJogo": {
         "nome": "Vizinhos do Inferno - A Vingança Serve-se Fria",
@@ -697,7 +687,7 @@
     {
       "guid": "twisted-lands-insomniac-pt-pt-portugues-24398",
       "titulo": "Tradução: Twisted Lands - Insónias PT-PT",
-      "capa": "data/imgs/twisted-lands-insomniac-insonias-português.jpg",
+      "capa": "data/game-content/imgs/twisted-lands-insomniac-insonias-português.jpg",
       "descricao": "A saga continua na sequela do mais vendido jogo da temporada. Banhado de terror psicológico, Insónias segue Angel, a esposa da personagem central do jogo original, à medida que tenta escapar do hospital psiquiátrico em que está presa. O jogador vai explorar a barreira ténue entre o que é real e o que é mental enquanto guia Angel na sua intrigante procura para se relembrar de quem é. Enquanto percorres uma bela mansão, um farol em ruínas e os sinistros corredores do hospital, uma rica e perturbadora história em segundo plano responde às perguntas levantadas pelo primeiro jogo para te levar a um desenlace ainda mais surpreendente.",
       "informacoesJogo": {
         "nome": "Twisted Lands - Insónias",
@@ -750,9 +740,8 @@
     {
       "guid": "twisted-lands-shadow-town-pt-pt-24992",
       "titulo": "Tradução: Twisted Lands - Ilha Sombria PT-PT",
-      "capa": "data/imgs/twisted-lands-pt-pt.jpg",
+      "capa": "data/game-content/imgs/twisted-lands-pt-pt.jpg",
       "descricao": "Bem-vindo à Ilha Sombria. Aqui vêem-se praias, mas representam um perigo para quem se aproxima da água. Há floresta, mas quem lá entra jamais regressa. E uma povoação, contudo repleta de ruas vazias e nevoeiro suspenso no ar como por maldição. Aquilo que de facto aqui podes explorar é a fonte do terror que se apega ao coração. Não foi por vontade que Mark e Angel cá vieram parar, mas algo fez o seu pequeno barco embater na ilha e qualquer coisa levou Mark de arrasto a uma chocante verdade à medida que procurava pela esposa. Serás tu a sua mão condutora no decorrer das suas explorações a arrepiantes locais por objectos ocultos? Estarás disposto a apoiá-lo enquanto confronta terrificantes criaturas? Serás a sua musa ao tentar resolver alucinantes quebra-cabeças? Joga Twisted Lands: Ilha Sombria e prova que possuis os requisitos necessários para a sobrevivência.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Twisted Lands - Ilha Sombria",
         "nomeOriginal": "Twisted Lands - Shadow Town",
@@ -803,7 +792,7 @@
     {
       "guid": "jogo-the-tiny-bang-story-11311",
       "titulo": "Tradução: The Tiny Bang Story PT-PT",
-      "capa": "data/imgs/the-tiny-bang-story-pt-pt.png",
+      "capa": "data/game-content/imgs/the-tiny-bang-story-pt-pt.png",
       "descricao": "A vida no Pequeno Planeta era tranquila e despreocupada até que ocorreu um grande desastre - o planeta sofreu o impacto de um meteorito! O mundo desmoronou e agora o seu futuro depende apenas de ti! Utiliza a tua imaginação e criatividade: para restaurar o Pequeno Planeta e ajudar os seus habitantes terás que reparar uma variedade de máquinas e mecanismos assim como resolver quebra-cabeças em cada um dos cinco capítulos deste jogo. A navegação é simples e intuitiva. Não te distrai dos enigmas desafiadores e poderás viver por completo a atmosfera única do jogo.",
       "fonteDescricao": "em store.steampowered.com",
       "informacoesJogo": {
@@ -835,9 +824,8 @@
     {
       "guid": "dear-esther-querida-pt-pt-de-portugal-26427",
       "titulo": "Tradução: Querida Esther Edição Landmark PT-PT",
-      "capa": "data/imgs/dear-esther-pt-pt.jpeg",
+      "capa": "data/game-content/imgs/dear-esther-pt-pt.jpeg",
       "descricao": "Querida Esther é um jogo em primeira pessoa em que, ao contrário dos jogos habituais, o principal objetivo é explorar, desvendar o mistério da ilha, a fim de saberes quem és no jogo e o que fazes naquele sítio. As várias partes da história são aleatoriamente descobertas consoante as tuas explorações na ilha, fazendo de cada caminhada uma experiência única. Esquece as regras dos jogos habituais; se nada se parece real aqui, é porque só pode ser tudo uma ilusão. Qual é o significado da antena? O que teria acontecido à estrada? É a ilha real ou imaginária? Quem é a Esther e por que motivo foi ela a escolhida para te chamar até aqui? As respostas estão lá fora, na praia esquecida e nos túneis da ilha. Ou, afinal de contas, talvez até nem estejam...",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Querida Esther - Edição Landmark",
         "nomeOriginal": "Dear Esther - Landmark Edition",
@@ -873,9 +861,8 @@
     {
       "guid": "blur-jogo-traducao-portugues-pt-pt-br-23886",
       "titulo": "Tradução: Blur (atualizado) PT-PT",
-      "capa": "data/imgs/blur-português-pt-pt.jpg",
+      "capa": "data/game-content/imgs/blur-português-pt-pt.jpg",
       "descricao": "Blur é um jogo de carros de corrida elegante em espaços realistas e 50 carros reais em luta com Ferramentas. Apresenta dano realista e é frequentemente descrito como combinação de Mario Kart com uma corrida arcada. Mais facilmente confundido com o jogo de corridas Wipeout que qualquer simulação para verdadeiros corredores como Forza. Diferente de outros jogos de Ferramentas, Blur depende fortemente da sua física realista e, como se diz por aí: \"Blur não se trata de Ferramentas, mas da tua habilidade de condução por elas ampliada.\"",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Blur",
         "nomeOriginal": "Blur",
@@ -916,7 +903,7 @@
     {
       "guid": "trine-jogo-pt-pt-portugues-de-portugal-27049",
       "titulo": "Tradução: Trine PT-PT",
-      "capa": "data/imgs/trine-pt-pt.jpg",
+      "capa": "data/game-content/imgs/trine-pt-pt.jpg",
       "descricao": "Trine acompanha três personagens ligadas pelo destino e um objecto mágico denominado Trine. Atraídos pelo artefacto, Pontius (o cavaleiro), Amadeus (o feiticeiro) e Zoya (a ladra) vêem-se confinados ao mesmo espaço, sendo-lhes impossível separarem-se. Podendo controlar qualquer um dos heróis e alternar facilmente entre eles, conduzirás a equipa à reconquista da sua individualidade - uma tarefa nada negligenciável. Corrompido pelo Mal, o seu reino é dominado por uma legião de mortos-vivos e esqueletos reanimados vagueiam pelo cenário. A colaboração entre a ladra egoísta, o feiticeiro mulherengo e o cavaleiro desastrado é essencial para a sobrevivência de todos...",
       "fonteDescricao": "em pt.PlayStation.com",
       "informacoesJogo": {
@@ -954,9 +941,8 @@
     {
       "guid": "gta-3-pt-pt-em-portugues-portugal-25519",
       "titulo": "Tradução: GTA 3 PT-PT",
-      "capa": "data/imgs/gta-3-pt-pt.jpg",
+      "capa": "data/game-content/imgs/gta-3-pt-pt.jpg",
       "descricao": "O sucesso aclamado pela crítica Grand Theft Auto III traz para as três dimensões o sombrio e decadente submundo da Cidade de Liberty. Com a liberdade de ir aonde quiseres com quem quiseres, Grand Theft Auto III põe-te o negro, intrigante e implacável mundo do crime nas tuas mãos, se, claro, tiveres suficiente coragem para o enfrentar.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Grand Theft Auto 3",
         "nomeAlternativo": "GTA 3",
@@ -1003,7 +989,7 @@
     {
       "guid": "traducao-gta-san-andreas-pt-pt-25949",
       "titulo": "Tradução: GTA - San Andreas PT-PT",
-      "capa": "data/imgs/gta-san-andreas-pt-pt.jpg",
+      "capa": "data/game-content/imgs/gta-san-andreas-pt-pt.jpg",
       "descricao": "Há cinco anos atrás, Carl Johnson escapou das pressões da vida em Los Santos, San Andreas... uma cidade em declínio com problemas de gangues, drogas e corrupção, onde estrelas do cinema e milionários fazem os possíveis para evitar os traficantes e membros dos bandos. Agora é o início dos anos 90, Carl tem que voltar à sua casa.",
       "fonteDescricao": "em store.steampowered.com",
       "informacoesJogo": {
@@ -1052,9 +1038,8 @@
     {
       "guid": "jogo-glest-13167",
       "titulo": "Tradução: Glest PT-PT",
-      "capa": "data/imgs/glest-pt-pt.png",
+      "capa": "data/game-content/imgs/glest-pt-pt.png",
       "descricao": "Glest é um gratuito jogo 3D de estratégia em tempo real, no qual controlas os exércitos de duas diferentes fações: Tec, essencialmente composta por guerreiros e dispositivos mecânicos, e Magia, que prefere chamar magos e criaturas para o campo de batalha.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Glest",
         "nomeOriginal": "Glest",
@@ -1088,9 +1073,8 @@
     {
       "guid": "the-path-jogo-game-traducao-portugues-pt-32417",
       "titulo": "Tradução: The Path PT-PT",
-      "capa": "data/imgs/the-path-pt-pt.jpeg",
+      "capa": "data/game-content/imgs/the-path-pt-pt.jpeg",
       "descricao": "Parado num bosque nevado, é surpreendido por uma pitada de névoa e de repente está na Floresta, onde todos os contos de fadas têm raiz. A caminho da avó, a menina não segue o caminho, deixando-a livre para explorar a Floresta. A rapariga vai aprender uma valiosa lição com a sua visita ao Bosque? Ou será que as coisas não são como parecem? Podes ler o conto clássico? Dirige-a às tentações, corta caminho até à casa da avó, ou enfrenta o mal que está lá dentro?",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "The Path",
         "nomeOriginal": "The Path",
@@ -1125,9 +1109,8 @@
     {
       "guid": "jogo-widelands-10962",
       "titulo": "Tradução: Widelands PT-PT",
-      "capa": "data/imgs/widelands-pt-pt.png",
+      "capa": "data/game-content/imgs/widelands-pt-pt.png",
       "descricao": "Widelands é um jogo de estratégia em tempo real com focos em economia e construção. Constrói as tuas habitações e desenvolve a economia do teu reino para produzir recursos necessários para conquistar novas áreas e derrotar os teus inimigos.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Widelands",
         "nomeOriginal": "Widelands",
@@ -1163,9 +1146,8 @@
     {
       "guid": "world-of-goo-traducao-pt-pt-portugues-31909",
       "titulo": "Tradução: World of Goo PT-PT",
-      "capa": "data/imgs/world-of-goo-pt-pt.png",
+      "capa": "data/game-content/imgs/world-of-goo-pt-pt.png",
       "descricao": "World of Goo é um jogo de quebra-cabeças baseado na física. A grande maioria dos níveis envolve a construção de uma torre usando as bolas de goo que vivem na área, para alcançar a tubulação que os vai salvá-los.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "World of Goo",
         "nomeOriginal": "World of Goo",
@@ -1200,23 +1182,23 @@
     {
       "guid": "jogo-harry-potter-e-a-pedra-filosofal-6615",
       "titulo": "Tradução: Harry Potter e a Pedra Filosofal PT-PT",
-      "capa": "data/imgs/harry-potter-pedra-filosofal-pt-pt-português.png",
+      "capa": "data/game-content/imgs/harry-potter-pedra-filosofal-pt-pt-português.png",
       "descricao": "Quando Harry Potter soube que era um feiticeiro e um bilhete misterioso lhe chegou, ele foi investigar. Agora podes finalmente entrar na sua pele como ele avança pela sua grande aventura. Descobre Hogwarts, resolve enigmas mágicos, aprende feitiços e luta contra adversários desafiantes.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Harry Potter e a Pedra Filosofal",
         "nomeOriginal": "Harry Potter and the Philosopher's Stone",
-        "criadoPor": "KnowWonder",
+        "criadoPor": "KnowWonder, Electronic Arts",
         "estilo": "Aventura, Ação"
       },
       "informacoesTraducao": {
         "titulo": "Tradução PT-PT",
         "versao": "1.0",
-        "fornecidaPor": "Aventurista",
-        "tradutores": "JotaPova",
+        "fornecidaPor": "[oficial]",
+        "tradutores": "Luís Filipe Silva",
         "atributos": [
           "t",
-          "m"
+          "m",
+          "r"
         ]
       },
       "categorias": [
@@ -1237,7 +1219,7 @@
     {
       "guid": "jogo-trackmania-united-forever-6020",
       "titulo": "Tradução: Trackmania United Forever PT-PT",
-      "capa": "data/imgs/trackmania-pt-pt.jpg",
+      "capa": "data/game-content/imgs/trackmania-pt-pt.jpg",
       "descricao": "Trackmania é o jogo de corridas de carros de maior entretenimento de sempre. Milhões de jogadores jogam-no a solo ou em multijogador. Trackmania United Forever é a edição definitiva graças às numerosas adições e inovações que tem para oferecer. Esta versão traz todos os ambientes da série e está acompanhada de uma campanha a solo, enorme e enriquecida, incluindo 4 diferentes modos e 420 percursos progressivamente mais difíceis.",
       "informacoesJogo": {
         "nome": "Trackmania United Forever",
@@ -1271,7 +1253,7 @@
     {
       "guid": "jogo-dont-starve-5538",
       "titulo": "Tradução: Don't Starve PT-PT",
-      "capa": "data/imgs/dont-starve-pt-pt.jpg",
+      "capa": "data/game-content/imgs/dont-starve-pt-pt.jpg",
       "descricao": "Não deixes a escuridão levar-te. Don't Starve é um jogo de sobrevivência na selva com ciência e magia. Entra no papel do cientista cavalheiro Wilson, que se encontra preso num mundo misterioso e selvagem. Wilson deve aprender a explorar o seu ambiente e habitantes, se quiser alguma esperança de escapar e voltar para casa.",
       "informacoesJogo": {
         "nome": "Don't Starve",
@@ -1311,7 +1293,7 @@
     {
       "guid": "1687",
       "titulo": "Tradução: Dark Tales - Crimes da Rua Morgue PT-PT",
-      "capa": "data/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg",
+      "capa": "data/game-content/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg",
       "descricao": "Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino aterrorizou Paris e só tu, o detetive Dupin, podes parar esta sangrenta rampage.",
       "informacoesJogo": {
         "nome": "Dark Tales - Crimes da Rua Morgue",
@@ -1351,9 +1333,8 @@
     {
       "guid": "jogo-gone-home-4673",
       "titulo": "Tradução: Gone Home PT-PT",
-      "capa": "data/imgs/gone-home-pt-pt.png",
+      "capa": "data/game-content/imgs/gone-home-pt-pt.png",
       "descricao": "7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esperas uma festa por parte da tua família, mas dás-te de caras com a casa vazia. Qualquer coisa não está bem. Onde andam todos? O que terá acontecido aqui? Desvenda o mistério em Gone Home, um jogo de história e exploração da The Fullbright Company.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Gone Home",
         "nomeOriginal": "Gone Home",
@@ -1387,9 +1368,8 @@
     {
       "guid": "jogo-cry-of-fear-3138",
       "titulo": "Tradução: Cry of Fear PT-PT",
-      "capa": "data/imgs/cry-of-fear-portugal-pt-pt.jpg",
+      "capa": "data/game-content/imgs/cry-of-fear-portugal-pt-pt.jpg",
       "descricao": "Em Cry of Fear, terás de explorar e navegar pela cidade decadente e abandonada e os seus misteriosos arredores. Jogas como Simon, um jovem que um dia acordou numa rua desconhecida e mal reconhece a sua própria cidade.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Cry of Fear",
         "nomeOriginal": "Cry of Fear",
@@ -1431,7 +1411,7 @@
     {
       "guid": "jogo-limbo-2596",
       "titulo": "Tradução: Limbo PT-PT",
-      "capa": "data/imgs/limbo-pt-pt.png",
+      "capa": "data/game-content/imgs/limbo-pt-pt.png",
       "descricao": "Atreves-te a entrar no mundo sombrio de LIMBO? Esta fantástica aventura dá-te o controlo de um rapazinho sem nome que anda à procura da sua irmã. Com visuais maravilhosos e encantadores, a utilização brilhante de luz, escuridão e sombra em LIMBO projecta uma atmosfera envolvente que é tão fascinante quanto assustadora. Pirilampos dançam no crepúsculo da floresta nos níveis de abertura do jogo, enquanto que um simples vislumbre da pata de uma aranha gigante é suficiente para provocar-te um arrepio na espinha. Neste mundo de fantasia, cada criatura mexe-se com um sentido de peso e estilo convincente, tornando os muitos perigos ainda mais horripilantes quando surgem no ecrã. A utilização eficaz dos sons dá um toque final de perfeição à apresentação de LIMBO. Assustadoramente minimalista, és obrigado a estar atento a todos os ruídos, pois uma simples imprudência pode causar um sem fim de destinos sangrentos. LIMBO capta o estilo de um conto de fadas dos irmãos Grimm e dá-lhe um acabamento perturbador, que te vai hipnotizar do princípio ao fim.",
       "fonteDescricao": "em pt.PlayStation.com",
       "informacoesJogo": {
@@ -1465,9 +1445,8 @@
     {
       "guid": "1003",
       "titulo": "Tradução: Idade do Japão PT-PT",
-      "capa": "data/imgs/age-of-japan.png",
+      "capa": "data/game-content/imgs/age-of-japan.png",
       "descricao": "Se pensas que viste todos os jogos de troca de mosaicos é porque não jogaste Idade do Japão! Este é um atraente jogo que inclui 40 níveis no estilo japonês com bons gráficos e uma banda sonora calma.",
-      "tradutorDescricao": "tradução por João Frade",
       "informacoesJogo": {
         "nome": "Idade do Japão",
         "nomeOriginal": "Age of Japan",

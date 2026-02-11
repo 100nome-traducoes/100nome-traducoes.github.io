@@ -29,7 +29,7 @@ ordem: 2
 
 ## [icon:hammer] Armas contundentes
 
-:caption: Armas contundentes (PT-PT vs EN)
+:caption: Armas de impacto que causam dano por pancada (ex.: paus, martelos, bastões)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
 |---|---|---|---|
@@ -102,7 +102,7 @@ ordem: 2
 
 ### [icon:hammer] Armas contundentes lendárias
 
-:caption: Armas contundentes lendárias (PT-PT vs EN)
+:caption: Versões raras das contundentes, com nomes especiais e efeitos únicos
 
 | # | Nome em português | Nome em inglês | Tipo de arma | Nota dos tradutores |
 |---|---|---|---|---|
@@ -117,7 +117,7 @@ ordem: 2
 
 ## [icon:sword] Armas cortantes
 
-:caption: Armas cortantes (PT-PT vs EN)
+:caption: Armas com lâmina que cortam ou perfuram (ex.: facas, machados, katanas)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
 |---|---|---|---|
@@ -169,7 +169,7 @@ ordem: 2
 
 ### [icon:sword] Armas cortantes lendárias
 
-:caption: Armas cortantes lendárias (PT-PT vs EN)
+:caption: Versões raras das cortantes, com nomes especiais e efeitos únicos
 
 | # | Nome em português | Nome em inglês | Tipo de arma | Nota dos tradutores |
 |---|---|---|---|---|
@@ -184,7 +184,7 @@ ordem: 2
 
 ## [icon:pistol] Armas de fogo
 
-:caption: Armas de fogo (PT-PT vs EN)
+:caption: Armas que disparam projéteis usando munição (ex.: pistolas, espingardas)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
 |---|---|---|---|
@@ -217,7 +217,7 @@ ordem: 2
 
 ### [icon:pistol] Armas de fogo lendárias
 
-:caption: Armas de fogo lendárias (PT-PT vs EN)
+:caption: Versões raras das armas de fogo, com nomes especiais e efeitos únicos
 
 | # | Nome em português | Nome em inglês | Tipo de arma | Nota dos tradutores |
 |---|---|---|---|---|
@@ -228,7 +228,7 @@ ordem: 2
 
 ## [icon:boxing-glove] Armas de combate
 
-:caption: Armas de combate (PT-PT vs EN)
+:caption: Armas de curto alcance para luta corpo-a-corpo (ex.: soqueiras)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
 |---|---|---|---|
@@ -247,7 +247,7 @@ ordem: 2
 
 ### [icon:boxing-glove] Armas de combate lendárias
 
-:caption: Armas de combate lendárias (PT-PT vs EN)
+:caption: Versões raras das armas de combate, com nomes especiais e efeitos únicos
 
 | # | Nome em português | Nome em inglês | Tipo de arma | Nota dos tradutores |
 |---|---|---|---|---|
@@ -255,7 +255,7 @@ ordem: 2
 
 ## [icon:bomb] Armas de arremesso
 
-:caption: Armas de arremesso (PT-PT vs EN)
+:caption: Armas lançadas à distância (ex.: granadas, bombas)
 
 | # | Nome em português | Nome em inglês |
 |---|---|---|
