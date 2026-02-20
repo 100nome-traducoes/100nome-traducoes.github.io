@@ -2,11 +2,13 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const dataPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
 const templatePath = path.join(__dirname, '..', 'templates', 'home.html');
 const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputPath = path.join(__dirname, '..', 'index.html');
+const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -14,6 +16,12 @@ function readJson(filePath) {
 
 function readPartial(name) {
   return fs.readFileSync(path.join(partialsDir, name), 'utf8');
+}
+
+function getAssetVersion(relativePath) {
+  const fullPath = path.join(__dirname, '..', relativePath);
+  const content = fs.readFileSync(fullPath);
+  return crypto.createHash('sha1').update(content).digest('hex').slice(0, 10);
 }
 
 function limparTitulo(titulo) {
@@ -24,9 +32,25 @@ function limparTitulo(titulo) {
 }
 
 function truncarTexto(texto, maxLength) {
-  if (!texto) return '';
-  if (texto.length <= maxLength) return texto;
-  return texto.substring(0, maxLength).trim() + '...';
+  const t = String(texto || '');
+  if (t.length <= maxLength) return t;
+  return t.substring(0, maxLength).trim() + '...';
+}
+
+function getGameDate(jogo) {
+  return jogo.data || jogo.dataPublicacao || '';
+}
+
+function getGameVersion(jogo) {
+  return jogo.versao || jogo.informacoesTraducao?.versao || '1.0';
+}
+
+function getGameProvider(jogo) {
+  return jogo.fornecido_por || jogo.informacoesTraducao?.fornecidaPor || '100Nome';
+}
+
+function getGameSlug(jogo) {
+  return String(jogo?.slug || jogo?.guid || '').trim();
 }
 
 function formatarData(dataString) {
@@ -53,6 +77,13 @@ function extrairCategoriasPrincipais(categorias) {
     rpg: 'RPG',
     simulacao: 'Simulação',
     objetosescondidos: 'Objetos Escondidos',
+    indie: 'Indie',
+    mundoaberto: 'Mundo Aberto',
+    plataforma: 'Plataforma',
+    terror: 'Terror',
+    fisica: 'Física',
+    tabuleiro: 'Tabuleiro',
+    opensource: 'Open Source',
     'português-portugal': 'PT-PT',
     'pt-pt': 'Português',
     jogo: 'Jogo',
@@ -83,7 +114,7 @@ function getCategoriaIcone(categoriaId) {
 function criarCardDestaque(jogo) {
   const categoriasBadges = extrairCategoriasPrincipais(jogo.categorias);
   const descricaoCurta = truncarTexto(jogo.descricao, 120);
-  const linkJogo = `jogo/${jogo.guid}.html`;
+  const linkJogo = `jogo/${getGameSlug(jogo)}`;
 
   return `
   <div class="featured-card" data-guid="${jogo.guid}" data-link="${linkJogo}">
@@ -99,10 +130,10 @@ function criarCardDestaque(jogo) {
   <p class="featured-description">${descricaoCurta}</p>
   <div class="featured-info">
   <span class="tradutor-info">
-  <i class="fas fa-user-edit"></i> ${jogo.informacoesTraducao?.fornecidaPor || '100Nome'}
+  <i class="fas fa-user-edit"></i> ${getGameProvider(jogo)}
   </span>
   <span class="versao-info">
-  <i class="fas fa-code-branch"></i> v${jogo.informacoesTraducao?.versao || '1.0'}
+  <i class="fas fa-code-branch"></i> v${getGameVersion(jogo)}
   </span>
   </div>
   <a href="${linkJogo}" class="featured-link" rel="noopener">
@@ -117,11 +148,11 @@ function criarCardJogo(jogo, destaquesSet) {
   const isDestaque = destaquesSet.has(jogo.guid);
   const categoriasTags = extrairCategoriasPrincipais(jogo.categorias).slice(0, 2);
   const descricaoCurta = truncarTexto(jogo.descricao, 90);
-  const dataFormatada = formatarData(jogo.dataPublicacao);
-  const linkJogo = `jogo/${jogo.guid}.html`;
+  const dataFormatada = formatarData(getGameDate(jogo));
+  const linkJogo = `jogo/${getGameSlug(jogo)}`;
 
   const diasDesdePublicacao = Math.floor(
-    (new Date() - new Date(jogo.dataPublicacao)) / (1000 * 60 * 60 * 24)
+    (new Date() - new Date(getGameDate(jogo))) / (1000 * 60 * 60 * 24)
   );
   const isNovo = diasDesdePublicacao <= 30;
 
@@ -144,8 +175,8 @@ function criarCardJogo(jogo, destaquesSet) {
   <h3 class="game-title">${limparTitulo(jogo.titulo)}</h3>
   <p class="game-description">${descricaoCurta}</p>
   <div class="game-meta">
-  <span class="game-meta-item" title="${jogo.informacoesTraducao?.fornecidaPor || '100Nome'}">
-  <i class="fas fa-user-edit"></i> ${truncarTexto(jogo.informacoesTraducao?.fornecidaPor || '100Nome', 24)}
+  <span class="game-meta-item" title="${getGameProvider(jogo)}">
+  <i class="fas fa-user-edit"></i> ${truncarTexto(getGameProvider(jogo), 24)}
   </span>
   <span class="game-meta-item" title="Publicado em ${dataFormatada}">
   <i class="fas fa-calendar"></i> ${dataFormatada}
@@ -231,17 +262,70 @@ function buildCategories(data) {
   return sections || '';
 }
 
+function buildHomeClientData(data) {
+  const jogos = (data.jogos || []).map(jogo => ({
+    guid: jogo.guid,
+    slug: getGameSlug(jogo),
+    titulo: jogo.titulo,
+    capa: jogo.capa,
+    descricao: truncarTexto(jogo.descricao || '', 280),
+    categorias: jogo.categorias || [],
+    dataPublicacao: jogo.dataPublicacao || jogo.data || '',
+    versao: jogo.versao || jogo.informacoesTraducao?.versao || '',
+    fornecido_por: jogo.fornecido_por || jogo.informacoesTraducao?.fornecidaPor || '',
+    criador: jogo.criador || jogo.informacoesJogo?.criadoPor || '',
+    notas: jogo.notas || []
+  }));
+
+  return {
+    destaques: data.destaques || [],
+    categoriasPrincipais: data.categoriasPrincipais || [],
+    jogos
+  };
+}
+
 function main() {
   const data = readJson(dataPath);
   const template = fs.readFileSync(templatePath, 'utf8');
   const header = readPartial('header.html');
   const footer = readPartial('footer.html');
   const favicon = readPartial('favicon.html');
+  const assetVersions = {
+    homeCss: getAssetVersion('assets/css/pages/home.css'),
+    motionJs: getAssetVersion('assets/js/components/motion.js'),
+    homeJs: getAssetVersion('assets/js/pages/home.js')
+  };
 
   const featuredGrid = buildFeaturedGrid(data);
   const categoriesHtml = buildCategories(data);
+  const homeDataJson = JSON.stringify(buildHomeClientData(data)).replace(/<\//g, '<\\/');
+  const homeTitle = '100Nome Traduções [Jogos em PT-PT]';
+  const homeDescription = 'Traduções em PT-PT! O maior portal de traduções de jogos de Portugal, com traduções dos mais variados jogos em português de Portugal.';
+  const homeUrl = `${SITE_URL}/`;
+  const homeImage = `${SITE_URL}/data/site-assets/logo-image.png`;
+  const homeJsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: '100Nome Traduções',
+    url: homeUrl,
+    inLanguage: 'pt-PT',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${homeUrl}?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  });
 
-  let html = template
+  const html = template
+    .replace(/\{\{HOME_CSS_VERSION\}\}/g, assetVersions.homeCss)
+    .replace(/\{\{MOTION_JS_VERSION\}\}/g, assetVersions.motionJs)
+    .replace(/\{\{HOME_JS_VERSION\}\}/g, assetVersions.homeJs)
+    .replace(/\{\{HOME_TITLE\}\}/g, homeTitle)
+    .replace(/\{\{HOME_DESCRIPTION\}\}/g, homeDescription)
+    .replace(/\{\{HOME_URL\}\}/g, homeUrl)
+    .replace(/\{\{HOME_IMAGE\}\}/g, homeImage)
+    .replace(/\{\{HOME_JSON_LD\}\}/g, homeJsonLd)
+    .replace(/\{\{HOME_DATA_JSON\}\}/g, homeDataJson)
     .replace(/\{\{FAVICON\}\}/g, favicon)
     .replace(/\{\{HEADER\}\}/g, header)
     .replace(/\{\{FOOTER\}\}/g, footer)

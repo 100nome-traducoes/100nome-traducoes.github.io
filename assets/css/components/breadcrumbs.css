@@ -1,0 +1,49 @@
+/* Breadcrumbs (partilhado entre jogo e wiki) */
+.breadcrumbs {
+    background: rgba(0, 17, 29, 0.6);
+    padding: 1rem 2rem;
+    margin-top: var(--navbar-height);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumbs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.breadcrumb-link:hover {
+    color: var(--primary-color);
+}
+
+.breadcrumb-separator {
+    color: var(--text-dark);
+}
+
+.breadcrumb-current {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        padding: 0.8rem 1rem;
+    }
+
+    .breadcrumbs-container {
+        font-size: 0.8rem;
+    }
+}

@@ -22,6 +22,57 @@ function writeJson(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n', 'utf8');
 }
 
+function getGameSlug(jogo) {
+  return String(jogo?.slug || jogo?.guid || '').trim();
+}
+
+function pickMostRecentTimestamp(a, b) {
+  const aTime = Date.parse(a || '');
+  const bTime = Date.parse(b || '');
+  if (Number.isNaN(aTime)) return b || null;
+  if (Number.isNaN(bTime)) return a || null;
+  return aTime >= bTime ? a : b;
+}
+
+function mergeDownloadEntry(current = {}, incoming = {}) {
+  const currentDownloads = typeof current.downloads === 'number' ? current.downloads : null;
+  const incomingDownloads = typeof incoming.downloads === 'number' ? incoming.downloads : null;
+
+  let downloads = null;
+  if (currentDownloads !== null && incomingDownloads !== null) {
+    downloads = Math.max(currentDownloads, incomingDownloads);
+  } else {
+    downloads = currentDownloads ?? incomingDownloads;
+  }
+
+  return {
+    downloads,
+    downloadsUpdatedAt: pickMostRecentTimestamp(current.downloadsUpdatedAt, incoming.downloadsUpdatedAt)
+  };
+}
+
+function normalizeDownloadsBySlug(existingDownloads, jogosList) {
+  const guidToSlug = {};
+  const validSlugs = new Set();
+
+  for (const jogo of jogosList) {
+    const guid = String(jogo?.guid || '').trim();
+    const slug = getGameSlug(jogo);
+    if (!slug) continue;
+    validSlugs.add(slug);
+    if (guid) guidToSlug[guid] = slug;
+  }
+
+  const normalized = {};
+  for (const [key, value] of Object.entries(existingDownloads || {})) {
+    const slug = guidToSlug[key] || (validSlugs.has(key) ? key : null);
+    if (!slug) continue;
+    normalized[slug] = mergeDownloadEntry(normalized[slug], value || {});
+  }
+
+  return normalized;
+}
+
 function fetchRebrandlyLink(id) {
   const options = {
     hostname: 'api.rebrandly.com',
@@ -55,17 +106,19 @@ function fetchRebrandlyLink(id) {
 
 async function main() {
   const jogos = readJson(jogosPath);
-  const downloads = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
-
   const jogosList = jogos.jogos || [];
+  const existingDownloads = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
+  const downloads = normalizeDownloadsBySlug(existingDownloads, jogosList);
   let updated = 0;
 
   for (const jogo of jogosList) {
-    const guid = jogo.guid;
+    const guid = String(jogo.guid || '').trim();
+    const slug = getGameSlug(jogo);
     const rebrandlyId = (jogo.rebrandlyId || '').trim();
+    if (!slug) continue;
 
-    if (!downloads[guid]) {
-      downloads[guid] = { downloads: null, downloadsUpdatedAt: null };
+    if (!downloads[slug]) {
+      downloads[slug] = { downloads: null, downloadsUpdatedAt: null };
     }
 
     if (!rebrandlyId) {
@@ -74,15 +127,15 @@ async function main() {
 
     try {
       const info = await fetchRebrandlyLink(rebrandlyId);
-      downloads[guid].downloads = typeof info.clicks === 'number' ? info.clicks : null;
-      downloads[guid].downloadsUpdatedAt = new Date().toISOString();
+      downloads[slug].downloads = typeof info.clicks === 'number' ? info.clicks : null;
+      downloads[slug].downloadsUpdatedAt = new Date().toISOString();
       if (info.shortUrl) {
         jogo.downloadUrl = info.shortUrl.startsWith('http') ? info.shortUrl : `https://${info.shortUrl}`;
       }
       updated += 1;
-      console.log(`Atualizado: ${guid} -> ${downloads[guid].downloads}`);
+      console.log(`Atualizado: ${slug} (${guid}) -> ${downloads[slug].downloads}`);
     } catch (err) {
-      console.error(`Erro ao atualizar ${guid}: ${err.message}`);
+      console.error(`Erro ao atualizar ${slug} (${guid}): ${err.message}`);
     }
   }
 

@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>100Nome Traduções [Jogos em PT-PT]</title>
-    <meta name="description" content="Traduções em PT-PT! O maior portal de Traduções de Jogos de Portugal, com traduções dos mais variados jogos em português de Portugal. 100 Nome!">
+    <meta name="description" content="Traduções em PT-PT! O maior portal de traduções de jogos de Portugal, com traduções dos mais variados jogos em português de Portugal.">
+    <link rel="canonical" href="https://100nome-traducoes.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="100Nome">
+    <meta property="og:title" content="100Nome Traduções [Jogos em PT-PT]">
+    <meta property="og:description" content="Traduções em PT-PT! O maior portal de traduções de jogos de Portugal, com traduções dos mais variados jogos em português de Portugal.">
+    <meta property="og:url" content="https://100nome-traducoes.github.io/">
+    <meta property="og:image" content="https://100nome-traducoes.github.io/data/site-assets/logo-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="100Nome Traduções [Jogos em PT-PT]">
+    <meta name="twitter:description" content="Traduções em PT-PT! O maior portal de traduções de jogos de Portugal, com traduções dos mais variados jogos em português de Portugal.">
+    <meta name="twitter:image" content="https://100nome-traducoes.github.io/data/site-assets/logo-image.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -19,7 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Estilos principais -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/pages/home.css?v=1078b6d068">
 
     <!-- Favicon -->
     <link rel="icon" href="/data/site-assets/favicon.png" type="image/png">
@@ -33,6 +44,10 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-ZNRR1FVXYQ');
+    </script>
+
+    <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","name":"100Nome Traduções","url":"https://100nome-traducoes.github.io/","inLanguage":"pt-PT","potentialAction":{"@type":"SearchAction","target":"https://100nome-traducoes.github.io/?q={search_term_string}","query-input":"required name=search_term_string"}}
     </script>
 </head>
 <body>
@@ -126,9 +141,9 @@
 
 
     <!-- Cabeçalho Hero -->
-    <header class="hero">
+    <header class="hero" data-reveal>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="hero-content" data-reveal data-reveal-delay="60">
             <div class="hero-logo">
                 <img src="/data/site-assets/logo-image.png" alt="100Nome">
             </div>
@@ -136,7 +151,7 @@
             <br>Coloca os jogos em português!</p>
 
 
-            <div class="hero-cta">
+            <div class="hero-cta" data-reveal data-reveal-delay="120">
                 <a href="#destaques" class="hero-btn">
                     <i class="fas fa-gamepad"></i> Explorar Traduções
                 </a>
@@ -146,7 +161,7 @@
             </div>
         </div>
     </header>
-            <div class="hero-banner">
+            <div class="hero-banner" data-reveal>
                 <div class="banner-text">
                     <div class="scrolling-text">
                         <span>✦ Entra no <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">servidor do Discord</a> para notificações e novidades. ✦ Subscreve o <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">canal do YouTube</a> e ativa as notificações para vídeos de traduções! ♡ ✦</span>
@@ -154,7 +169,7 @@
                 </div>
             </div>
     <!-- Destaques Principais -->
-    <section class="featured-section" id="destaques">
+    <section class="featured-section" id="destaques" data-reveal>
         <div class="section-header">
             <h2 class="section-title">
                 <i class="fas fa-star"></i> Destaques
@@ -166,20 +181,20 @@
         </div>
     </section>
 
-    <!-- Controlo de Vista (Carrossel/Grelha) -->
-    <div class="view-control-wrapper">
+    <!-- Controlo de Vista (Por categorias/Mais recentes) -->
+    <div class="view-control-wrapper" data-reveal>
         <div class="view-control">
-            <button class="view-btn active" data-view="carousel" title="Vista em carrossel">
-                <i class="fas fa-grip-horizontal"></i> Carrossel
+            <button class="view-btn active" data-view="carousel" title="Explorar por categorias">
+                <i class="fas fa-layer-group"></i> Por categorias
             </button>
-            <button class="view-btn" data-view="grid" title="Vista em grelha">
-                <i class="fas fa-th"></i> Grelha
+            <button class="view-btn" data-view="grid" title="Ver jogos mais recentes">
+                <i class="fas fa-clock"></i> Mais recentes
             </button>
         </div>
     </div>
 
     <!-- Categorias Netflix-style -->
-    <main class="main-content" id="mainContent">
+    <main class="main-content" id="mainContent" data-reveal>
         <div id="categoriesContainer">
             
   <section class="category-section" id="acao">
@@ -187,7 +202,7 @@
   <h2 class="category-title">
   <i class="fas fa-fist-raised"></i>
   Ação / Sobrevivência
-  <span class="game-count">(7)</span>
+  <span class="game-count">(13)</span>
   </h2>
   <div class="category-nav">
   <button class="nav-btn prev" data-carousel="carousel-acao" aria-label="Anterior">
@@ -201,7 +216,38 @@
   <div class="carousel-container">
   <div class="carousel-track" id="carousel-acao">
   
-  <div class="game-card" data-guid="dead-island-pt-pt-tuga-definitive-34406" data-link="jogo/dead-island-pt-pt-tuga-definitive-34406.html">
+  <div class="game-card" data-guid="vampireville-traducao-em-portugues-48704" data-link="jogo/vampireville-portugues">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/vampireville-português.jpeg" alt="Vampireville - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Mistério</span>
+  </div>
+  <h3 class="game-title">Vampireville</h3>
+  <p class="game-description">O governo obterá em breve o direito de vender o Castelo de Malgrey, porque nenhum herdeiro...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="100Nome">
+  <i class="fas fa-user-edit"></i> 100Nome
+  </span>
+  <span class="game-meta-item" title="Publicado em 05/01/2025">
+  <i class="fas fa-calendar"></i> 05/01/2025
+  </span>
+  </div>
+  <a href="jogo/vampireville-portugues" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="dead-island-pt-pt-tuga-definitive-34406" data-link="jogo/dead-island-pt-pt">
   
   
   <div class="game-image-container">
@@ -214,7 +260,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Ação</span>
+  <span class="category-tag">Ação</span><span class="category-tag">Mundo Aberto</span>
   </div>
   <h3 class="game-title">Dead Island (todas as versões)</h3>
   <p class="game-description">O jogo que redefiniu o género zombie – totalmente remasterizado. O paraíso torna-se num in...</p>
@@ -226,13 +272,13 @@
   <i class="fas fa-calendar"></i> 08/04/2024
   </span>
   </div>
-  <a href="jogo/dead-island-pt-pt-tuga-definitive-34406.html" class="game-link" rel="noopener">
+  <a href="jogo/dead-island-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="traducao-gta-vice-city-pt-pt-31456" data-link="jogo/traducao-gta-vice-city-pt-pt-31456.html">
+  <div class="game-card" data-guid="traducao-gta-vice-city-pt-pt-31456" data-link="jogo/gta-vice-city-pt-pt">
   
   
   <div class="game-image-container">
@@ -245,7 +291,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Ação</span>
+  <span class="category-tag">Ação</span><span class="category-tag">Mundo Aberto</span>
   </div>
   <h3 class="game-title">GTA - Vice City</h3>
   <p class="game-description">Bem-vindo de volta a Vice City. Bem-vindo de volta aos anos 80. Da década do cabelo compri...</p>
@@ -257,17 +303,17 @@
   <i class="fas fa-calendar"></i> 13/02/2024
   </span>
   </div>
-  <a href="jogo/traducao-gta-vice-city-pt-pt-31456.html" class="game-link" rel="noopener">
+  <a href="jogo/gta-vice-city-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="transport-giant-down-under-portugues-pt-28855" data-link="jogo/transport-giant-down-under-portugues-pt-28855.html">
+  <div class="game-card" data-guid="dear-esther-querida-pt-pt-de-portugal-26427" data-link="jogo/dear-esther-pt-pt">
   
   
   <div class="game-image-container">
-  <img src="data/game-content/imgs/transport-giant-pt-pt.jpeg" alt="Transport Giant e expansão Down Under - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <img src="data/game-content/imgs/dear-esther-pt-pt.jpeg" alt="Querida Esther Edição Landmark - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
   <div class="game-overlay">
   <span class="game-link-text">
   <i class="fas fa-external-link-alt"></i> Ver Tradução
@@ -276,25 +322,25 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Estratégia</span><span class="category-tag">Ação</span>
+  <span class="category-tag">Mistério</span><span class="category-tag">Aventura</span>
   </div>
-  <h3 class="game-title">Transport Giant e expansão Down Under</h3>
-  <p class="game-description">É o ano de 1850: o mundo está a mudar. Uma nova era de produção e transporte em massa come...</p>
+  <h3 class="game-title">Querida Esther Edição Landmark</h3>
+  <p class="game-description">Querida Esther é um jogo em primeira pessoa em que, ao contrário dos jogos habituais, o pr...</p>
   <div class="game-meta">
-  <span class="game-meta-item" title="Portugalações">
-  <i class="fas fa-user-edit"></i> Portugalações
+  <span class="game-meta-item" title="particular e 100Nome">
+  <i class="fas fa-user-edit"></i> particular e 100Nome
   </span>
-  <span class="game-meta-item" title="Publicado em 04/02/2024">
-  <i class="fas fa-calendar"></i> 04/02/2024
+  <span class="game-meta-item" title="Publicado em 30/12/2021">
+  <i class="fas fa-calendar"></i> 30/12/2021
   </span>
   </div>
-  <a href="jogo/transport-giant-down-under-portugues-pt-28855.html" class="game-link" rel="noopener">
+  <a href="jogo/dear-esther-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="gta-3-pt-pt-em-portugues-portugal-25519" data-link="jogo/gta-3-pt-pt-em-portugues-portugal-25519.html">
+  <div class="game-card" data-guid="gta-3-pt-pt-em-portugues-portugal-25519" data-link="jogo/gta-3-pt-pt">
   
   
   <div class="game-image-container">
@@ -307,7 +353,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Ação</span>
+  <span class="category-tag">Ação</span><span class="category-tag">Mundo Aberto</span>
   </div>
   <h3 class="game-title">GTA 3</h3>
   <p class="game-description">O sucesso aclamado pela crítica Grand Theft Auto III traz para as três dimensões o sombrio...</p>
@@ -319,13 +365,13 @@
   <i class="fas fa-calendar"></i> 09/07/2016
   </span>
   </div>
-  <a href="jogo/gta-3-pt-pt-em-portugues-portugal-25519.html" class="game-link" rel="noopener">
+  <a href="jogo/gta-3-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="traducao-gta-san-andreas-pt-pt-25949" data-link="jogo/traducao-gta-san-andreas-pt-pt-25949.html">
+  <div class="game-card" data-guid="traducao-gta-san-andreas-pt-pt-25949" data-link="jogo/gta-san-andreas-pt-pt">
   
   
   <div class="game-image-container">
@@ -338,7 +384,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Ação</span>
+  <span class="category-tag">Ação</span><span class="category-tag">Mundo Aberto</span>
   </div>
   <h3 class="game-title">GTA - San Andreas</h3>
   <p class="game-description">Há cinco anos atrás, Carl Johnson escapou das pressões da vida em Los Santos, San Andreas....</p>
@@ -350,13 +396,44 @@
   <i class="fas fa-calendar"></i> 09/07/2016
   </span>
   </div>
-  <a href="jogo/traducao-gta-san-andreas-pt-pt-25949.html" class="game-link" rel="noopener">
+  <a href="jogo/gta-san-andreas-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-harry-potter-e-a-pedra-filosofal-6615" data-link="jogo/jogo-harry-potter-e-a-pedra-filosofal-6615.html">
+  <div class="game-card" data-guid="the-path-jogo-game-traducao-portugues-pt-32417" data-link="jogo/the-path-portugues">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/the-path-pt-pt.jpeg" alt="The Path - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Mistério</span><span class="category-tag">Aventura</span>
+  </div>
+  <h3 class="game-title">The Path</h3>
+  <p class="game-description">Parado num bosque nevado, é surpreendido por uma pitada de névoa e de repente está na Flor...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="Zero Online">
+  <i class="fas fa-user-edit"></i> Zero Online
+  </span>
+  <span class="game-meta-item" title="Publicado em 21/06/2016">
+  <i class="fas fa-calendar"></i> 21/06/2016
+  </span>
+  </div>
+  <a href="jogo/the-path-portugues" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="jogo-harry-potter-e-a-pedra-filosofal-6615" data-link="jogo/harry-potter-pedra-filosofal-pt-pt">
   
   
   <div class="game-image-container">
@@ -369,7 +446,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Aventura</span>
+  <span class="category-tag">Aventura</span><span class="category-tag">Ação</span>
   </div>
   <h3 class="game-title">Harry Potter e a Pedra Filosofal</h3>
   <p class="game-description">Quando Harry Potter soube que era um feiticeiro e um bilhete misterioso lhe chegou, ele fo...</p>
@@ -381,13 +458,13 @@
   <i class="fas fa-calendar"></i> 23/06/2015
   </span>
   </div>
-  <a href="jogo/jogo-harry-potter-e-a-pedra-filosofal-6615.html" class="game-link" rel="noopener">
+  <a href="jogo/harry-potter-pedra-filosofal-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-dont-starve-5538" data-link="jogo/jogo-dont-starve-5538.html">
+  <div class="game-card" data-guid="jogo-dont-starve-5538" data-link="jogo/dont-starve-pt-pt">
   
   
   <div class="game-image-container">
@@ -412,7 +489,131 @@
   <i class="fas fa-calendar"></i> 16/02/2015
   </span>
   </div>
-  <a href="jogo/jogo-dont-starve-5538.html" class="game-link" rel="noopener">
+  <a href="jogo/dont-starve-pt-pt" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="1687" data-link="jogo/dark-tales-crimes-rua-morgue-portugues">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg" alt="Dark Tales - Crimes da Rua Morgue - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Aventura</span>
+  </div>
+  <h3 class="game-title">Dark Tales - Crimes da Rua Morgue</h3>
+  <p class="game-description">Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="100Nome">
+  <i class="fas fa-user-edit"></i> 100Nome
+  </span>
+  <span class="game-meta-item" title="Publicado em 08/09/2014">
+  <i class="fas fa-calendar"></i> 08/09/2014
+  </span>
+  </div>
+  <a href="jogo/dark-tales-crimes-rua-morgue-portugues" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="jogo-gone-home-4673" data-link="jogo/gone-home-pt-pt">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/gone-home-pt-pt.png" alt="Gone Home - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Mistério</span><span class="category-tag">Aventura</span>
+  </div>
+  <h3 class="game-title">Gone Home</h3>
+  <p class="game-description">7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esper...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="Comunidade na Steam">
+  <i class="fas fa-user-edit"></i> Comunidade na Steam
+  </span>
+  <span class="game-meta-item" title="Publicado em 02/09/2014">
+  <i class="fas fa-calendar"></i> 02/09/2014
+  </span>
+  </div>
+  <a href="jogo/gone-home-pt-pt" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="jogo-cry-of-fear-3138" data-link="jogo/cry-of-fear-pt-pt">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/cry-of-fear-portugal-pt-pt.jpg" alt="Cry of Fear - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Terror</span><span class="category-tag">Mistério</span>
+  </div>
+  <h3 class="game-title">Cry of Fear</h3>
+  <p class="game-description">Em Cry of Fear, terás de explorar e navegar pela cidade decadente e abandonada e os seus m...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="100Nome">
+  <i class="fas fa-user-edit"></i> 100Nome
+  </span>
+  <span class="game-meta-item" title="Publicado em 09/08/2014">
+  <i class="fas fa-calendar"></i> 09/08/2014
+  </span>
+  </div>
+  <a href="jogo/cry-of-fear-pt-pt" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="jogo-limbo-2596" data-link="jogo/limbo-pt-pt">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/limbo-pt-pt.png" alt="Limbo - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Aventura</span>
+  </div>
+  <h3 class="game-title">Limbo</h3>
+  <p class="game-description">Atreves-te a entrar no mundo sombrio de LIMBO? Esta fantástica aventura dá-te o controlo d...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="[oficial]">
+  <i class="fas fa-user-edit"></i> [oficial]
+  </span>
+  <span class="game-meta-item" title="Publicado em 25/01/2014">
+  <i class="fas fa-calendar"></i> 25/01/2014
+  </span>
+  </div>
+  <a href="jogo/limbo-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
@@ -428,7 +629,7 @@
   <h2 class="category-title">
   <i class="fas fa-search"></i>
   Mistério
-  <span class="game-count">(14)</span>
+  <span class="game-count">(11)</span>
   </h2>
   <div class="category-nav">
   <button class="nav-btn prev" data-carousel="carousel-misterio" aria-label="Anterior">
@@ -442,7 +643,7 @@
   <div class="carousel-container">
   <div class="carousel-track" id="carousel-misterio">
   
-  <div class="game-card" data-guid="vampireville-traducao-em-portugues-48704" data-link="jogo/vampireville-traducao-em-portugues-48704.html">
+  <div class="game-card" data-guid="vampireville-traducao-em-portugues-48704" data-link="jogo/vampireville-portugues">
   
   
   <div class="game-image-container">
@@ -467,13 +668,13 @@
   <i class="fas fa-calendar"></i> 05/01/2025
   </span>
   </div>
-  <a href="jogo/vampireville-traducao-em-portugues-48704.html" class="game-link" rel="noopener">
+  <a href="jogo/vampireville-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="twisted-lands-origin-origem-pt-pt-37909" data-link="jogo/twisted-lands-origin-origem-pt-pt-37909.html">
+  <div class="game-card" data-guid="twisted-lands-origin-origem-pt-pt-37909" data-link="jogo/twisted-lands-a-origem-pt-pt">
   
   
   <div class="game-image-container">
@@ -486,7 +687,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span><span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Quebra-cabeças</span>
   </div>
   <h3 class="game-title">Twisted Lands - A Origem</h3>
   <p class="game-description">Em Twisted Lands: A Origem, assume o papel de um detetive talentoso que sempre confiou no...</p>
@@ -498,13 +699,13 @@
   <i class="fas fa-calendar"></i> 29/03/2024
   </span>
   </div>
-  <a href="jogo/twisted-lands-origin-origem-pt-pt-37909.html" class="game-link" rel="noopener">
+  <a href="jogo/twisted-lands-a-origem-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="doors-paradox-traducao-pt-pt-portugues-32933" data-link="jogo/doors-paradox-traducao-pt-pt-portugues-32933.html">
+  <div class="game-card" data-guid="doors-paradox-traducao-pt-pt-portugues-32933" data-link="jogo/doors-paradox-pt-pt">
   
   
   <div class="game-image-container">
@@ -517,7 +718,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span><span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Mistério</span>
   </div>
   <h3 class="game-title">Doors Paradox</h3>
   <p class="game-description">Tanto quanto nos é possível lembrar, temo-nos situado na linha ténue entre o caos e a orde...</p>
@@ -529,13 +730,13 @@
   <i class="fas fa-calendar"></i> 17/02/2024
   </span>
   </div>
-  <a href="jogo/doors-paradox-traducao-pt-pt-portugues-32933.html" class="game-link" rel="noopener">
+  <a href="jogo/doors-paradox-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="beneath-a-steel-sky-pt-pt-portugues-20354" data-link="jogo/beneath-a-steel-sky-pt-pt-portugues-20354.html">
+  <div class="game-card" data-guid="beneath-a-steel-sky-pt-pt-portugues-20354" data-link="jogo/beneath-a-steel-sky-pt-pt">
   
   
   <div class="game-image-container">
@@ -548,7 +749,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span>
+  <span class="category-tag">Mistério</span><span class="category-tag">Indie</span>
   </div>
   <h3 class="game-title">Beneath a Steel Sky</h3>
   <p class="game-description">Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares...</p>
@@ -560,13 +761,13 @@
   <i class="fas fa-calendar"></i> 21/07/2023
   </span>
   </div>
-  <a href="jogo/beneath-a-steel-sky-pt-pt-portugues-20354.html" class="game-link" rel="noopener">
+  <a href="jogo/beneath-a-steel-sky-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="a-pedra-de-anamara-portugues-traducao-21975" data-link="jogo/a-pedra-de-anamara-portugues-traducao-21975.html">
+  <div class="game-card" data-guid="a-pedra-de-anamara-portugues-traducao-21975" data-link="jogo/la-piedra-de-anamara-traducao">
   
   
   <div class="game-image-container">
@@ -591,13 +792,13 @@
   <i class="fas fa-calendar"></i> 05/05/2023
   </span>
   </div>
-  <a href="jogo/a-pedra-de-anamara-portugues-traducao-21975.html" class="game-link" rel="noopener">
+  <a href="jogo/la-piedra-de-anamara-traducao" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="twisted-lands-insomniac-pt-pt-portugues-24398" data-link="jogo/twisted-lands-insomniac-pt-pt-portugues-24398.html">
+  <div class="game-card" data-guid="twisted-lands-insomniac-pt-pt-portugues-24398" data-link="jogo/twisted-lands-insonias-pt-pt">
   
   
   <div class="game-image-container">
@@ -610,7 +811,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Mistério</span>
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Quebra-cabeças</span>
   </div>
   <h3 class="game-title">Twisted Lands - Insónias</h3>
   <p class="game-description">A saga continua na sequela do mais vendido jogo da temporada. Banhado de terror psicológic...</p>
@@ -622,13 +823,13 @@
   <i class="fas fa-calendar"></i> 17/01/2022
   </span>
   </div>
-  <a href="jogo/twisted-lands-insomniac-pt-pt-portugues-24398.html" class="game-link" rel="noopener">
+  <a href="jogo/twisted-lands-insonias-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="twisted-lands-shadow-town-pt-pt-24992" data-link="jogo/twisted-lands-shadow-town-pt-pt-24992.html">
+  <div class="game-card" data-guid="twisted-lands-shadow-town-pt-pt-24992" data-link="jogo/twisted-lands-ilha-sombria-pt-pt">
   
   
   <div class="game-image-container">
@@ -641,7 +842,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Mistério</span>
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Quebra-cabeças</span>
   </div>
   <h3 class="game-title">Twisted Lands - Ilha Sombria</h3>
   <p class="game-description">Bem-vindo à Ilha Sombria. Aqui vêem-se praias, mas representam um perigo para quem se apro...</p>
@@ -653,44 +854,13 @@
   <i class="fas fa-calendar"></i> 17/01/2022
   </span>
   </div>
-  <a href="jogo/twisted-lands-shadow-town-pt-pt-24992.html" class="game-link" rel="noopener">
+  <a href="jogo/twisted-lands-ilha-sombria-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-the-tiny-bang-story-11311" data-link="jogo/jogo-the-tiny-bang-story-11311.html">
-  
-  
-  <div class="game-image-container">
-  <img src="data/game-content/imgs/the-tiny-bang-story-pt-pt.png" alt="The Tiny Bang Story - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
-  <div class="game-overlay">
-  <span class="game-link-text">
-  <i class="fas fa-external-link-alt"></i> Ver Tradução
-  </span>
-  </div>
-  </div>
-  <div class="game-info">
-  <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Objetos Escondidos</span>
-  </div>
-  <h3 class="game-title">The Tiny Bang Story</h3>
-  <p class="game-description">A vida no Pequeno Planeta era tranquila e despreocupada até que ocorreu um grande desastre...</p>
-  <div class="game-meta">
-  <span class="game-meta-item" title="Portugalações">
-  <i class="fas fa-user-edit"></i> Portugalações
-  </span>
-  <span class="game-meta-item" title="Publicado em 17/01/2022">
-  <i class="fas fa-calendar"></i> 17/01/2022
-  </span>
-  </div>
-  <a href="jogo/jogo-the-tiny-bang-story-11311.html" class="game-link" rel="noopener">
-  <i class="fas fa-download"></i> Ver Tradução
-  </a>
-  </div>
-  </div>
-  
-  <div class="game-card" data-guid="dear-esther-querida-pt-pt-de-portugal-26427" data-link="jogo/dear-esther-querida-pt-pt-de-portugal-26427.html">
+  <div class="game-card" data-guid="dear-esther-querida-pt-pt-de-portugal-26427" data-link="jogo/dear-esther-pt-pt">
   
   
   <div class="game-image-container">
@@ -703,7 +873,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span>
+  <span class="category-tag">Mistério</span><span class="category-tag">Aventura</span>
   </div>
   <h3 class="game-title">Querida Esther Edição Landmark</h3>
   <p class="game-description">Querida Esther é um jogo em primeira pessoa em que, ao contrário dos jogos habituais, o pr...</p>
@@ -715,13 +885,13 @@
   <i class="fas fa-calendar"></i> 30/12/2021
   </span>
   </div>
-  <a href="jogo/dear-esther-querida-pt-pt-de-portugal-26427.html" class="game-link" rel="noopener">
+  <a href="jogo/dear-esther-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="the-path-jogo-game-traducao-portugues-pt-32417" data-link="jogo/the-path-jogo-game-traducao-portugues-pt-32417.html">
+  <div class="game-card" data-guid="the-path-jogo-game-traducao-portugues-pt-32417" data-link="jogo/the-path-portugues">
   
   
   <div class="game-image-container">
@@ -734,7 +904,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span>
+  <span class="category-tag">Mistério</span><span class="category-tag">Aventura</span>
   </div>
   <h3 class="game-title">The Path</h3>
   <p class="game-description">Parado num bosque nevado, é surpreendido por uma pitada de névoa e de repente está na Flor...</p>
@@ -746,75 +916,13 @@
   <i class="fas fa-calendar"></i> 21/06/2016
   </span>
   </div>
-  <a href="jogo/the-path-jogo-game-traducao-portugues-pt-32417.html" class="game-link" rel="noopener">
+  <a href="jogo/the-path-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-harry-potter-e-a-pedra-filosofal-6615" data-link="jogo/jogo-harry-potter-e-a-pedra-filosofal-6615.html">
-  
-  
-  <div class="game-image-container">
-  <img src="data/game-content/imgs/harry-potter-pedra-filosofal-pt-pt-português.png" alt="Harry Potter e a Pedra Filosofal - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
-  <div class="game-overlay">
-  <span class="game-link-text">
-  <i class="fas fa-external-link-alt"></i> Ver Tradução
-  </span>
-  </div>
-  </div>
-  <div class="game-info">
-  <div class="game-categories">
-  <span class="category-tag">Aventura</span>
-  </div>
-  <h3 class="game-title">Harry Potter e a Pedra Filosofal</h3>
-  <p class="game-description">Quando Harry Potter soube que era um feiticeiro e um bilhete misterioso lhe chegou, ele fo...</p>
-  <div class="game-meta">
-  <span class="game-meta-item" title="[oficial]">
-  <i class="fas fa-user-edit"></i> [oficial]
-  </span>
-  <span class="game-meta-item" title="Publicado em 23/06/2015">
-  <i class="fas fa-calendar"></i> 23/06/2015
-  </span>
-  </div>
-  <a href="jogo/jogo-harry-potter-e-a-pedra-filosofal-6615.html" class="game-link" rel="noopener">
-  <i class="fas fa-download"></i> Ver Tradução
-  </a>
-  </div>
-  </div>
-  
-  <div class="game-card" data-guid="1687" data-link="jogo/1687.html">
-  
-  
-  <div class="game-image-container">
-  <img src="data/game-content/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg" alt="Dark Tales - Crimes da Rua Morgue - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
-  <div class="game-overlay">
-  <span class="game-link-text">
-  <i class="fas fa-external-link-alt"></i> Ver Tradução
-  </span>
-  </div>
-  </div>
-  <div class="game-info">
-  <div class="game-categories">
-  <span class="category-tag">Objetos Escondidos</span>
-  </div>
-  <h3 class="game-title">Dark Tales - Crimes da Rua Morgue</h3>
-  <p class="game-description">Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino...</p>
-  <div class="game-meta">
-  <span class="game-meta-item" title="100Nome">
-  <i class="fas fa-user-edit"></i> 100Nome
-  </span>
-  <span class="game-meta-item" title="Publicado em 08/09/2014">
-  <i class="fas fa-calendar"></i> 08/09/2014
-  </span>
-  </div>
-  <a href="jogo/1687.html" class="game-link" rel="noopener">
-  <i class="fas fa-download"></i> Ver Tradução
-  </a>
-  </div>
-  </div>
-  
-  <div class="game-card" data-guid="jogo-gone-home-4673" data-link="jogo/jogo-gone-home-4673.html">
+  <div class="game-card" data-guid="jogo-gone-home-4673" data-link="jogo/gone-home-pt-pt">
   
   
   <div class="game-image-container">
@@ -827,7 +935,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span>
+  <span class="category-tag">Mistério</span><span class="category-tag">Aventura</span>
   </div>
   <h3 class="game-title">Gone Home</h3>
   <p class="game-description">7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esper...</p>
@@ -839,13 +947,13 @@
   <i class="fas fa-calendar"></i> 02/09/2014
   </span>
   </div>
-  <a href="jogo/jogo-gone-home-4673.html" class="game-link" rel="noopener">
+  <a href="jogo/gone-home-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-cry-of-fear-3138" data-link="jogo/jogo-cry-of-fear-3138.html">
+  <div class="game-card" data-guid="jogo-cry-of-fear-3138" data-link="jogo/cry-of-fear-pt-pt">
   
   
   <div class="game-image-container">
@@ -858,7 +966,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">terror</span><span class="category-tag">Mistério</span>
+  <span class="category-tag">Terror</span><span class="category-tag">Mistério</span>
   </div>
   <h3 class="game-title">Cry of Fear</h3>
   <p class="game-description">Em Cry of Fear, terás de explorar e navegar pela cidade decadente e abandonada e os seus m...</p>
@@ -870,7 +978,7 @@
   <i class="fas fa-calendar"></i> 09/08/2014
   </span>
   </div>
-  <a href="jogo/jogo-cry-of-fear-3138.html" class="game-link" rel="noopener">
+  <a href="jogo/cry-of-fear-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
@@ -886,7 +994,7 @@
   <h2 class="category-title">
   <i class="fas fa-puzzle-piece"></i>
   Quebra-cabeças
-  <span class="game-count">(16)</span>
+  <span class="game-count">(17)</span>
   </h2>
   <div class="category-nav">
   <button class="nav-btn prev" data-carousel="carousel-quebracabecas" aria-label="Anterior">
@@ -900,7 +1008,7 @@
   <div class="carousel-container">
   <div class="carousel-track" id="carousel-quebracabecas">
   
-  <div class="game-card" data-guid="the-ball-jogo-traduzido-portugues-30712" data-link="jogo/the-ball-jogo-traduzido-portugues-30712.html">
+  <div class="game-card" data-guid="the-ball-jogo-traduzido-portugues-30712" data-link="jogo/the-ball-pt-pt">
   
   
   <div class="game-image-container">
@@ -913,7 +1021,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Indie</span>
   </div>
   <h3 class="game-title">The Ball</h3>
   <p class="game-description">Enquanto intrépido arqueólogo que labora nas encostas de um vulcão adormecido algures no M...</p>
@@ -925,13 +1033,13 @@
   <i class="fas fa-calendar"></i> 02/06/2025
   </span>
   </div>
-  <a href="jogo/the-ball-jogo-traduzido-portugues-30712.html" class="game-link" rel="noopener">
+  <a href="jogo/the-ball-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="vampireville-traducao-em-portugues-48704" data-link="jogo/vampireville-traducao-em-portugues-48704.html">
+  <div class="game-card" data-guid="vampireville-traducao-em-portugues-48704" data-link="jogo/vampireville-portugues">
   
   
   <div class="game-image-container">
@@ -956,13 +1064,13 @@
   <i class="fas fa-calendar"></i> 05/01/2025
   </span>
   </div>
-  <a href="jogo/vampireville-traducao-em-portugues-48704.html" class="game-link" rel="noopener">
+  <a href="jogo/vampireville-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="twisted-lands-origin-origem-pt-pt-37909" data-link="jogo/twisted-lands-origin-origem-pt-pt-37909.html">
+  <div class="game-card" data-guid="twisted-lands-origin-origem-pt-pt-37909" data-link="jogo/twisted-lands-a-origem-pt-pt">
   
   
   <div class="game-image-container">
@@ -975,7 +1083,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span><span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Quebra-cabeças</span>
   </div>
   <h3 class="game-title">Twisted Lands - A Origem</h3>
   <p class="game-description">Em Twisted Lands: A Origem, assume o papel de um detetive talentoso que sempre confiou no...</p>
@@ -987,13 +1095,13 @@
   <i class="fas fa-calendar"></i> 29/03/2024
   </span>
   </div>
-  <a href="jogo/twisted-lands-origin-origem-pt-pt-37909.html" class="game-link" rel="noopener">
+  <a href="jogo/twisted-lands-a-origem-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="doors-paradox-traducao-pt-pt-portugues-32933" data-link="jogo/doors-paradox-traducao-pt-pt-portugues-32933.html">
+  <div class="game-card" data-guid="doors-paradox-traducao-pt-pt-portugues-32933" data-link="jogo/doors-paradox-pt-pt">
   
   
   <div class="game-image-container">
@@ -1006,7 +1114,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Mistério</span><span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Mistério</span>
   </div>
   <h3 class="game-title">Doors Paradox</h3>
   <p class="game-description">Tanto quanto nos é possível lembrar, temo-nos situado na linha ténue entre o caos e a orde...</p>
@@ -1018,13 +1126,13 @@
   <i class="fas fa-calendar"></i> 17/02/2024
   </span>
   </div>
-  <a href="jogo/doors-paradox-traducao-pt-pt-portugues-32933.html" class="game-link" rel="noopener">
+  <a href="jogo/doors-paradox-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="helltaker-pt-pt-portugues-portugal-19857" data-link="jogo/helltaker-pt-pt-portugues-portugal-19857.html">
+  <div class="game-card" data-guid="helltaker-pt-pt-portugues-portugal-19857" data-link="jogo/helltaker-pt-pt">
   
   
   <div class="game-image-container">
@@ -1037,7 +1145,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Indie</span>
   </div>
   <h3 class="game-title">Helltaker</h3>
   <p class="game-description">Acordas um dia com um sonho. Um harém cheio de raparigas demónio. Abres o portal na espera...</p>
@@ -1049,13 +1157,13 @@
   <i class="fas fa-calendar"></i> 10/07/2023
   </span>
   </div>
-  <a href="jogo/helltaker-pt-pt-portugues-portugal-19857.html" class="game-link" rel="noopener">
+  <a href="jogo/helltaker-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="a-pedra-de-anamara-portugues-traducao-21975" data-link="jogo/a-pedra-de-anamara-portugues-traducao-21975.html">
+  <div class="game-card" data-guid="a-pedra-de-anamara-portugues-traducao-21975" data-link="jogo/la-piedra-de-anamara-traducao">
   
   
   <div class="game-image-container">
@@ -1080,13 +1188,13 @@
   <i class="fas fa-calendar"></i> 05/05/2023
   </span>
   </div>
-  <a href="jogo/a-pedra-de-anamara-portugues-traducao-21975.html" class="game-link" rel="noopener">
+  <a href="jogo/la-piedra-de-anamara-traducao" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="neighbours-back-from-hell-em-portugues-22406" data-link="jogo/neighbours-back-from-hell-em-portugues-22406.html">
+  <div class="game-card" data-guid="neighbours-back-from-hell-em-portugues-22406" data-link="jogo/neighbours-back-from-hell-pt-pt">
   
   
   <div class="game-image-container">
@@ -1111,13 +1219,13 @@
   <i class="fas fa-calendar"></i> 05/02/2022
   </span>
   </div>
-  <a href="jogo/neighbours-back-from-hell-em-portugues-22406.html" class="game-link" rel="noopener">
+  <a href="jogo/neighbours-back-from-hell-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="vizinhos-do-inferno-2-em-ferias-pt-pt-22940" data-link="jogo/vizinhos-do-inferno-2-em-ferias-pt-pt-22940.html">
+  <div class="game-card" data-guid="vizinhos-do-inferno-2-em-ferias-pt-pt-22940" data-link="jogo/vizinhos-do-inferno-2-pt-pt">
   
   
   <div class="game-image-container">
@@ -1142,13 +1250,13 @@
   <i class="fas fa-calendar"></i> 05/02/2022
   </span>
   </div>
-  <a href="jogo/vizinhos-do-inferno-2-em-ferias-pt-pt-22940.html" class="game-link" rel="noopener">
+  <a href="jogo/vizinhos-do-inferno-2-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="vizinhos-do-inferno-traducao-portugues-23544" data-link="jogo/vizinhos-do-inferno-traducao-portugues-23544.html">
+  <div class="game-card" data-guid="vizinhos-do-inferno-traducao-portugues-23544" data-link="jogo/vizinhos-do-inferno-pt-pt">
   
   
   <div class="game-image-container">
@@ -1173,13 +1281,13 @@
   <i class="fas fa-calendar"></i> 03/02/2022
   </span>
   </div>
-  <a href="jogo/vizinhos-do-inferno-traducao-portugues-23544.html" class="game-link" rel="noopener">
+  <a href="jogo/vizinhos-do-inferno-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="twisted-lands-insomniac-pt-pt-portugues-24398" data-link="jogo/twisted-lands-insomniac-pt-pt-portugues-24398.html">
+  <div class="game-card" data-guid="twisted-lands-insomniac-pt-pt-portugues-24398" data-link="jogo/twisted-lands-insonias-pt-pt">
   
   
   <div class="game-image-container">
@@ -1192,7 +1300,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Mistério</span>
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Quebra-cabeças</span>
   </div>
   <h3 class="game-title">Twisted Lands - Insónias</h3>
   <p class="game-description">A saga continua na sequela do mais vendido jogo da temporada. Banhado de terror psicológic...</p>
@@ -1204,13 +1312,13 @@
   <i class="fas fa-calendar"></i> 17/01/2022
   </span>
   </div>
-  <a href="jogo/twisted-lands-insomniac-pt-pt-portugues-24398.html" class="game-link" rel="noopener">
+  <a href="jogo/twisted-lands-insonias-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="twisted-lands-shadow-town-pt-pt-24992" data-link="jogo/twisted-lands-shadow-town-pt-pt-24992.html">
+  <div class="game-card" data-guid="twisted-lands-shadow-town-pt-pt-24992" data-link="jogo/twisted-lands-ilha-sombria-pt-pt">
   
   
   <div class="game-image-container">
@@ -1223,7 +1331,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Mistério</span>
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Quebra-cabeças</span>
   </div>
   <h3 class="game-title">Twisted Lands - Ilha Sombria</h3>
   <p class="game-description">Bem-vindo à Ilha Sombria. Aqui vêem-se praias, mas representam um perigo para quem se apro...</p>
@@ -1235,13 +1343,13 @@
   <i class="fas fa-calendar"></i> 17/01/2022
   </span>
   </div>
-  <a href="jogo/twisted-lands-shadow-town-pt-pt-24992.html" class="game-link" rel="noopener">
+  <a href="jogo/twisted-lands-ilha-sombria-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-the-tiny-bang-story-11311" data-link="jogo/jogo-the-tiny-bang-story-11311.html">
+  <div class="game-card" data-guid="jogo-the-tiny-bang-story-11311" data-link="jogo/the-tiny-bang-story-portugues">
   
   
   <div class="game-image-container">
@@ -1266,13 +1374,13 @@
   <i class="fas fa-calendar"></i> 17/01/2022
   </span>
   </div>
-  <a href="jogo/jogo-the-tiny-bang-story-11311.html" class="game-link" rel="noopener">
+  <a href="jogo/the-tiny-bang-story-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="trine-jogo-pt-pt-portugues-de-portugal-27049" data-link="jogo/trine-jogo-pt-pt-portugues-de-portugal-27049.html">
+  <div class="game-card" data-guid="trine-jogo-pt-pt-portugues-de-portugal-27049" data-link="jogo/trine-pt-pt">
   
   
   <div class="game-image-container">
@@ -1285,7 +1393,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">plataforma</span>
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Plataforma</span>
   </div>
   <h3 class="game-title">Trine</h3>
   <p class="game-description">Trine acompanha três personagens ligadas pelo destino e um objecto mágico denominado Trine...</p>
@@ -1297,13 +1405,13 @@
   <i class="fas fa-calendar"></i> 11/07/2016
   </span>
   </div>
-  <a href="jogo/trine-jogo-pt-pt-portugues-de-portugal-27049.html" class="game-link" rel="noopener">
+  <a href="jogo/trine-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="world-of-goo-traducao-pt-pt-portugues-31909" data-link="jogo/world-of-goo-traducao-pt-pt-portugues-31909.html">
+  <div class="game-card" data-guid="world-of-goo-traducao-pt-pt-portugues-31909" data-link="jogo/world-of-goo-pt-pt">
   
   
   <div class="game-image-container">
@@ -1328,13 +1436,44 @@
   <i class="fas fa-calendar"></i> 09/04/2016
   </span>
   </div>
-  <a href="jogo/world-of-goo-traducao-pt-pt-portugues-31909.html" class="game-link" rel="noopener">
+  <a href="jogo/world-of-goo-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-limbo-2596" data-link="jogo/jogo-limbo-2596.html">
+  <div class="game-card" data-guid="1687" data-link="jogo/dark-tales-crimes-rua-morgue-portugues">
+  
+  
+  <div class="game-image-container">
+  <img src="data/game-content/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg" alt="Dark Tales - Crimes da Rua Morgue - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <div class="game-overlay">
+  <span class="game-link-text">
+  <i class="fas fa-external-link-alt"></i> Ver Tradução
+  </span>
+  </div>
+  </div>
+  <div class="game-info">
+  <div class="game-categories">
+  <span class="category-tag">Objetos Escondidos</span><span class="category-tag">Aventura</span>
+  </div>
+  <h3 class="game-title">Dark Tales - Crimes da Rua Morgue</h3>
+  <p class="game-description">Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino...</p>
+  <div class="game-meta">
+  <span class="game-meta-item" title="100Nome">
+  <i class="fas fa-user-edit"></i> 100Nome
+  </span>
+  <span class="game-meta-item" title="Publicado em 08/09/2014">
+  <i class="fas fa-calendar"></i> 08/09/2014
+  </span>
+  </div>
+  <a href="jogo/dark-tales-crimes-rua-morgue-portugues" class="game-link" rel="noopener">
+  <i class="fas fa-download"></i> Ver Tradução
+  </a>
+  </div>
+  </div>
+  
+  <div class="game-card" data-guid="jogo-limbo-2596" data-link="jogo/limbo-pt-pt">
   
   
   <div class="game-image-container">
@@ -1347,7 +1486,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Quebra-cabeças</span>
+  <span class="category-tag">Quebra-cabeças</span><span class="category-tag">Aventura</span>
   </div>
   <h3 class="game-title">Limbo</h3>
   <p class="game-description">Atreves-te a entrar no mundo sombrio de LIMBO? Esta fantástica aventura dá-te o controlo d...</p>
@@ -1359,13 +1498,13 @@
   <i class="fas fa-calendar"></i> 25/01/2014
   </span>
   </div>
-  <a href="jogo/jogo-limbo-2596.html" class="game-link" rel="noopener">
+  <a href="jogo/limbo-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="1003" data-link="jogo/1003.html">
+  <div class="game-card" data-guid="1003" data-link="jogo/age-of-japan-portugues">
   
   
   <div class="game-image-container">
@@ -1390,7 +1529,7 @@
   <i class="fas fa-calendar"></i> 01/01/2014
   </span>
   </div>
-  <a href="jogo/1003.html" class="game-link" rel="noopener">
+  <a href="jogo/age-of-japan-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
@@ -1420,7 +1559,7 @@
   <div class="carousel-container">
   <div class="carousel-track" id="carousel-corrida">
   
-  <div class="game-card" data-guid="extreme-tuxracer-pt-pt-19393" data-link="jogo/extreme-tuxracer-pt-pt-19393.html">
+  <div class="game-card" data-guid="extreme-tuxracer-pt-pt-19393" data-link="jogo/extreme-tux-racer-portugues">
   
   
   <div class="game-image-container">
@@ -1445,17 +1584,17 @@
   <i class="fas fa-calendar"></i> 09/07/2023
   </span>
   </div>
-  <a href="jogo/extreme-tuxracer-pt-pt-19393.html" class="game-link" rel="noopener">
+  <a href="jogo/extreme-tux-racer-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="supertuxkart-portugues-portugal-pt-pt-21485" data-link="jogo/supertuxkart-portugues-portugal-pt-pt-21485.html">
+  <div class="game-card" data-guid="supertuxkart-portugues-portugal-pt-pt-21485" data-link="jogo/supertuxkart-pt-pt">
   
   
   <div class="game-image-container">
-  <img src="data/game-content/imgs/supetuxkart-tradução-português.jpeg" alt="Super Tux Kart - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
+  <img src="data/game-content/imgs/supetuxkart-tradução-português.jpeg" alt="SuperTuxKart - Tradução PT-PT - 100Nome" class="game-image" loading="lazy">
   <div class="game-overlay">
   <span class="game-link-text">
   <i class="fas fa-external-link-alt"></i> Ver Tradução
@@ -1466,7 +1605,7 @@
   <div class="game-categories">
   <span class="category-tag">Corrida</span>
   </div>
-  <h3 class="game-title">Super Tux Kart</h3>
+  <h3 class="game-title">SuperTuxKart</h3>
   <p class="game-description">Mais que fazê-lo realista, queremo-lo divertido. Conhece o grande farol ou então traspassa...</p>
   <div class="game-meta">
   <span class="game-meta-item" title="comunidade e 100Nome">
@@ -1476,13 +1615,13 @@
   <i class="fas fa-calendar"></i> 06/05/2023
   </span>
   </div>
-  <a href="jogo/supertuxkart-portugues-portugal-pt-pt-21485.html" class="game-link" rel="noopener">
+  <a href="jogo/supertuxkart-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="blur-jogo-traducao-portugues-pt-pt-br-23886" data-link="jogo/blur-jogo-traducao-portugues-pt-pt-br-23886.html">
+  <div class="game-card" data-guid="blur-jogo-traducao-portugues-pt-pt-br-23886" data-link="jogo/blur-jogo-traducao-portugues-pt-pt-br-23886">
   
   
   <div class="game-image-container">
@@ -1507,13 +1646,13 @@
   <i class="fas fa-calendar"></i> 19/01/2021
   </span>
   </div>
-  <a href="jogo/blur-jogo-traducao-portugues-pt-pt-br-23886.html" class="game-link" rel="noopener">
+  <a href="jogo/blur-jogo-traducao-portugues-pt-pt-br-23886" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-trackmania-united-forever-6020" data-link="jogo/jogo-trackmania-united-forever-6020.html">
+  <div class="game-card" data-guid="jogo-trackmania-united-forever-6020" data-link="jogo/trackmania-united-forever-pt-pt">
   
   
   <div class="game-image-container">
@@ -1538,7 +1677,7 @@
   <i class="fas fa-calendar"></i> 23/05/2015
   </span>
   </div>
-  <a href="jogo/jogo-trackmania-united-forever-6020.html" class="game-link" rel="noopener">
+  <a href="jogo/trackmania-united-forever-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
@@ -1568,7 +1707,7 @@
   <div class="carousel-container">
   <div class="carousel-track" id="carousel-estrategia">
   
-  <div class="game-card" data-guid="transport-giant-down-under-portugues-pt-28855" data-link="jogo/transport-giant-down-under-portugues-pt-28855.html">
+  <div class="game-card" data-guid="transport-giant-down-under-portugues-pt-28855" data-link="jogo/transport-giant-portugues">
   
   
   <div class="game-image-container">
@@ -1581,7 +1720,7 @@
   </div>
   <div class="game-info">
   <div class="game-categories">
-  <span class="category-tag">Estratégia</span><span class="category-tag">Ação</span>
+  <span class="category-tag">Estratégia</span>
   </div>
   <h3 class="game-title">Transport Giant e expansão Down Under</h3>
   <p class="game-description">É o ano de 1850: o mundo está a mudar. Uma nova era de produção e transporte em massa come...</p>
@@ -1593,13 +1732,13 @@
   <i class="fas fa-calendar"></i> 04/02/2024
   </span>
   </div>
-  <a href="jogo/transport-giant-down-under-portugues-pt-28855.html" class="game-link" rel="noopener">
+  <a href="jogo/transport-giant-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="medieval-ii-total-war-pt-pt-portugues-20903" data-link="jogo/medieval-ii-total-war-pt-pt-portugues-20903.html">
+  <div class="game-card" data-guid="medieval-ii-total-war-pt-pt-portugues-20903" data-link="jogo/medieval-ii-total-war-pt-pt">
   
   
   <div class="game-image-container">
@@ -1624,13 +1763,13 @@
   <i class="fas fa-calendar"></i> 21/07/2023
   </span>
   </div>
-  <a href="jogo/medieval-ii-total-war-pt-pt-portugues-20903.html" class="game-link" rel="noopener">
+  <a href="jogo/medieval-ii-total-war-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-glest-13167" data-link="jogo/jogo-glest-13167.html">
+  <div class="game-card" data-guid="jogo-glest-13167" data-link="jogo/glest-portugues">
   
   
   <div class="game-image-container">
@@ -1655,13 +1794,13 @@
   <i class="fas fa-calendar"></i> 06/07/2016
   </span>
   </div>
-  <a href="jogo/jogo-glest-13167.html" class="game-link" rel="noopener">
+  <a href="jogo/glest-portugues" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
   </div>
   
-  <div class="game-card" data-guid="jogo-widelands-10962" data-link="jogo/jogo-widelands-10962.html">
+  <div class="game-card" data-guid="jogo-widelands-10962" data-link="jogo/widelands-pt-pt">
   
   
   <div class="game-image-container">
@@ -1686,7 +1825,7 @@
   <i class="fas fa-calendar"></i> 08/05/2016
   </span>
   </div>
-  <a href="jogo/jogo-widelands-10962.html" class="game-link" rel="noopener">
+  <a href="jogo/widelands-pt-pt" class="game-link" rel="noopener">
   <i class="fas fa-download"></i> Ver Tradução
   </a>
   </div>
@@ -1700,7 +1839,7 @@
     </main>
 
     <!-- Área de Apoio -->
-    <section class="support-section" id="apoio">
+    <section class="support-section" id="apoio" data-reveal>
         <div class="support-container">
             <h2><i class="fas fa-hands-helping"></i> Apoia o Projeto</h2>
             <p>O 100Nome é mantido por voluntários apaixonados por jogos e pela língua portuguesa. O teu apoio ajuda-nos a continuar este trabalho!</p>
@@ -1720,7 +1859,7 @@
     </section>
 
     <!-- Área Traduzir -->
-    <section class="translate-section" id="traduzir">
+    <section class="translate-section" id="traduzir" data-reveal>
         <div class="translate-container">
             <h2><i class="fas fa-language"></i> Queres Traduzir?</h2>
             <p>Junta-te à nossa comunidade de tradutores! Partilha o teu conhecimento e ajuda a trazer mais jogos para português.</p>
@@ -1796,7 +1935,8 @@
 
 
     <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="game-page-script.js"></script>
+    <script id="homeData" type="application/json">{"destaques":[],"categoriasPrincipais":[{"nome":"Ação / Sobrevivência","id":"acao","tags":["acao","sobrevivencia","aventura"]},{"nome":"Mistério","id":"misterio","tags":["misterio"]},{"nome":"Quebra-cabeças","id":"quebracabecas","tags":["quebracabecas","objetosescondidos","logica"]},{"nome":"Corrida","id":"corrida","tags":["corrida"]},{"nome":"Estratégia","id":"estrategia","tags":["estrategia"]}],"jogos":[{"guid":"the-ball-jogo-traduzido-portugues-30712","slug":"the-ball-pt-pt","titulo":"Tradução: The Ball PT-PT","capa":"data/game-content/imgs/the-ball-jogo-tradução-português.jpeg","descricao":"Enquanto intrépido arqueólogo que labora nas encostas de um vulcão adormecido algures no México, vês-te aprisionado numa caverna. Não tarda até que percebas que este recinto transcende a mera cavidade. Desvendarás antigas ruínas, ocultas de forasteiros por séculos, e depararás co...","categorias":["quebracabecas","indie"],"dataPublicacao":"Mon, 02 Jun 2025 15:24:00 GMT","versao":"1.0","fornecido_por":"","criador":"Teotl Studios","notas":["Wiki da Tradução disponível."]},{"guid":"vampireville-traducao-em-portugues-48704","slug":"vampireville-portugues","titulo":"Tradução: Vampireville PT-PT","capa":"data/game-content/imgs/vampireville-português.jpeg","descricao":"O governo obterá em breve o direito de vender o Castelo de Malgrey, porque nenhum herdeiro reclamou a propriedade nos últimos 100 anos. Todos os peritos avaliadores enviados pelo teu patrão enlouqueceram, incluindo um dos teus colegas mais próximos. É a tua oportunidade! Desvenda...","categorias":["objetosescondidos","misterio","quebracabecas","aventura"],"dataPublicacao":"Sun, 05 Jan 2025 16:32:00 GMT","versao":"1.0","fornecido_por":"","criador":"Nevosoft","notas":[]},{"guid":"dead-island-pt-pt-tuga-definitive-34406","slug":"dead-island-pt-pt","titulo":"Tradução: Dead Island (todas as versões) PT-PT","capa":"data/game-content/imgs/dead-island-pt-pt.jpg","descricao":"O jogo que redefiniu o género zombie – totalmente remasterizado. O paraíso torna-se num inferno! Vive o Apocalipse Zombie da tua vida – agora ainda mais bonito. Apanhado no centro duma epidemia de zombies na ilha tropical de Banoi, a única coisa em que pensas é sobreviver! A expe...","categorias":["acao","mundoaberto"],"dataPublicacao":"Mon, 08 Apr 2024 18:03:00 GMT","versao":"1.1","fornecido_por":"","criador":"Techland","notas":["Wiki da Tradução disponível.","Guia da Comunidade Steam disponível.","Para todas as versões antigas/originais ou Definitive Edition (inclui DLCs)."]},{"guid":"twisted-lands-origin-origem-pt-pt-37909","slug":"twisted-lands-a-origem-pt-pt","titulo":"Tradução: Twisted Lands - A Origem PT-PT","capa":"data/game-content/imgs/twisted-lands-origem-origin-português.jpeg","descricao":"Em Twisted Lands: A Origem, assume o papel de um detetive talentoso que sempre confiou no seu intelecto para resolver os casos mais difíceis. No entanto, o seu mais recente caso põe à prova os seus instintos de sobrevivência quando viaja para a misteriosa ilha de Tormento em busc...","categorias":["objetosescondidos","quebracabecas","misterio"],"dataPublicacao":"Fri, 29 Mar 2024 19:58:00 GMT","versao":"1.1","fornecido_por":"","criador":"Alawar Entertainment","notas":[]},{"guid":"doors-paradox-traducao-pt-pt-portugues-32933","slug":"doors-paradox-pt-pt","titulo":"Tradução: Doors Paradox PT-PT","capa":"data/game-content/imgs/doors-paradox-pt-pt.jpeg","descricao":"Tanto quanto nos é possível lembrar, temo-nos situado na linha ténue entre o caos e a ordem. Até que um dia um portal misterioso se abriu e o caos reinou. Agora cabe-te a ti trazer a ordem de volta... o que não será assim tão simples! Um relaxante quebra-cabeças de fuga! Abre cam...","categorias":["quebracabecas","misterio","indie"],"dataPublicacao":"Sat, 17 Feb 2024 07:27:00 GMT","versao":"1.0","fornecido_por":"","criador":"Big Loop Studios","notas":[]},{"guid":"traducao-gta-vice-city-pt-pt-31456","slug":"gta-vice-city-pt-pt","titulo":"Tradução: GTA - Vice City PT-PT","capa":"data/game-content/imgs/gta-vice-city-pt-pt.jpeg","descricao":"Bem-vindo de volta a Vice City. Bem-vindo de volta aos anos 80. Da década do cabelo comprido, excessos e fatos em tons pastel, nasce a história da ascensão de um homem ao topo da hierarquia criminosa. Vice City, um enorme subúrbio urbano, que se estende desde a praia até aos pânt...","categorias":["acao","mundoaberto"],"dataPublicacao":"Tue, 13 Feb 2024 12:16:00 GMT","versao":"1.7","fornecido_por":"Traduzir GTA","criador":"Rockstar Games","notas":[]},{"guid":"transport-giant-down-under-portugues-pt-28855","slug":"transport-giant-portugues","titulo":"Tradução: Transport Giant e expansão Down Under PT-PT","capa":"data/game-content/imgs/transport-giant-pt-pt.jpeg","descricao":"É o ano de 1850: o mundo está a mudar. Uma nova era de produção e transporte em massa começou. Para um empresário inteligente, há muitas oportunidades. Com um pouco de dinheiro e boas ideias, podes estabelecer um império empresarial.","categorias":["estrategia"],"dataPublicacao":"Sun, 04 Feb 2024 17:42:00 GMT","versao":"1.0","fornecido_por":"Portugalações","criador":"Fancy Bytes, Reactor, JoWooD","notas":[]},{"guid":"beneath-a-steel-sky-pt-pt-portugues-20354","slug":"beneath-a-steel-sky-pt-pt","titulo":"Tradução: Beneath a Steel Sky PT-PT","capa":"data/game-content/imgs/beneath-a-steel-sky-pt-pt.png","descricao":"Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares, Robert Foster encontra-se em Union City, uma vasta metrópole sob a tirania de uma IA fascista. Sozinho, acompanhado apenas do circuito impresso do seu melhor amigo, Foster terá de descobri...","categorias":["misterio","indie"],"dataPublicacao":"Fri, 21 Jul 2023 10:43:00 GMT","versao":"1.0","fornecido_por":"[oficial]","criador":"Revolution Software","notas":[]},{"guid":"medieval-ii-total-war-pt-pt-portugues-20903","slug":"medieval-ii-total-war-pt-pt","titulo":"Tradução: Medieval II - Total War PT-PT","capa":"data/game-content/imgs/medieval-2-total-war-pt-pt.jpg","descricao":"Gerirás o teu império com punho de ferro, tratando de tudo, desde a construção e melhoria de cidades até ao recrutamento e treino de exércitos. Usa a diplomacia para manipular aliados e inimigos, ultrapassar a temida Inquisição e influenciar o Papa. Lidera a luta nas Cruzadas e t...","categorias":["estrategia"],"dataPublicacao":"Fri, 21 Jul 2023 10:21:00 GMT","versao":"1.0","fornecido_por":"Traduzir Estratégia","criador":"Creative Assembly","notas":["Para a versão 1.2 do jogo. Não funciona bem na versão atual do Steam. O pacote será adaptado para a versão do Steam no futuro. Entra no Discord para novidades."]},{"guid":"helltaker-pt-pt-portugues-portugal-19857","slug":"helltaker-pt-pt","titulo":"Tradução: Helltaker PT-PT","capa":"data/game-content/imgs/helltaker-pt-pt-portugal.jpg","descricao":"Acordas um dia com um sonho. Um harém cheio de raparigas demónio. Abres o portal na esperança de realizar os teus desejos mais loucos. O fogo do inferno arde-te nos pulmões, a morte espera-te na próxima esquina e tudo parece saído de um jogo móvel fofinho. Estás no inferno.","categorias":["quebracabecas","indie"],"dataPublicacao":"Mon, 10 Jul 2023 14:12:00 GMT","versao":"4.5","fornecido_por":"comunidade e 100Nome","criador":"Łukasz Piskorz (vanripper)","notas":["O jogo é gratuito. Obtê-lo aqui.","Wiki da Tradução disponível.","Pacote de tradução inclui jogo completo + Capítulo Bónus (Examtaker)."]},{"guid":"extreme-tuxracer-pt-pt-19393","slug":"extreme-tux-racer-portugues","titulo":"Tradução: Extreme TuxRacer PT-PT","capa":"data/game-content/imgs/extreme-tux-kart-tradução-português.jpeg","descricao":"Extreme Tux Racer é um jogo de corrida em OpenGL que apresenta Tux, a mascote do Linux. O objetivo do jogo é deslizar por uma montanha coberta de neve e gelo o mais rapidamente possível, apanhando arenques pelo caminho. Ele é baseado na versão GPL de TuxRacer.","categorias":["corrida"],"dataPublicacao":"Sun, 09 Jul 2023 09:43:00 GMT","versao":"1.0","fornecido_por":"","criador":"Equipa de Desenvolvimento do Etracer","notas":["Tradução incluída oficialmente na versão 0.8.4 do jogo. Para versões anteriores, transferir pacote em baixo."]},{"guid":"supertuxkart-portugues-portugal-pt-pt-21485","slug":"supertuxkart-pt-pt","titulo":"Tradução: SuperTuxKart PT-PT","capa":"data/game-content/imgs/supetuxkart-tradução-português.jpeg","descricao":"Mais que fazê-lo realista, queremo-lo divertido. Conhece o grande farol ou então traspassa a areia e visita as pirâmides. Temos uma variedade de pistas com diferentes temas para os jogadores desfrutarem, desde corridas debaixo de água, quintas rurais, selvas e até no espaço! Dá o...","categorias":["corrida"],"dataPublicacao":"Sat, 06 May 2023 13:28:00 GMT","versao":"2.3","fornecido_por":"comunidade e 100Nome","criador":"Equipa de Desenvolvimento do STK","notas":["Tradução oficial. Para versões antigas do jogo, descarregar o pacote para uma tradução melhorada."]},{"guid":"a-pedra-de-anamara-portugues-traducao-21975","slug":"la-piedra-de-anamara-traducao","titulo":"Tradução: A Pedra de Anamara em português","capa":"data/game-content/imgs/a-pedra-de-anamara-português.jpeg","descricao":"A Pedra de Anamara, desenvolvido por Gabriel Rodríguez, o criador argentino, é um jogo flash de clicar no qual escapas da polícia, chegando a uma casa estranha, onde decides passar a noite. Tornou-se popular quando foi lançado em 2004, e ainda ganhou alguns prémios na altura! Dev...","categorias":["quebracabecas","misterio"],"dataPublicacao":"Fri, 05 May 2023 10:16:00 GMT","versao":"2.1","fornecido_por":"","criador":"Gabriel Rodríguez","notas":[]},{"guid":"neighbours-back-from-hell-em-portugues-22406","slug":"neighbours-back-from-hell-pt-pt","titulo":"Tradução: Vizinhos Voltam do Inferno (2020) PT-PT","capa":"data/game-content/imgs/neighbours-back-from-hell-novo-português.png","descricao":"Sabias que a palavra alemã \"Schadenfreude\" define o conceito de encontrar alegria na infelicidade de outra pessoa? É também esta a ideia por detrás de Vizinhos Voltam do Inferno, um programa de TV inteiro baseado em partidas cada vez mais ultrajantes pregadas ao teu vizinho resmu...","categorias":["quebracabecas"],"dataPublicacao":"Sat, 05 Feb 2022 17:16:00 GMT","versao":"1.0","fornecido_por":"","criador":"Farbworks","notas":[]},{"guid":"vizinhos-do-inferno-2-em-ferias-pt-pt-22940","slug":"vizinhos-do-inferno-2-pt-pt","titulo":"Tradução: Vizinhos do Inferno 2 PT-PT","capa":"data/game-content/imgs/neighbours-from-hell-2-pt-pt.png","descricao":"O Sr. Rotweiler precisava de uma pausa para respirar das partidas do Woody, por isso decidiu fazer uma viagem à volta do mundo para se afastar dele. O que não esperava era que o Woody o seguisse a bordo no cruzeiro com uma equipa de filmagens discreta. O teu objectivo é irritar o...","categorias":["quebracabecas"],"dataPublicacao":"Sat, 05 Feb 2022 17:14:00 GMT","versao":"2.2","fornecido_por":"","criador":"Jowood","notas":[]},{"guid":"vizinhos-do-inferno-traducao-portugues-23544","slug":"vizinhos-do-inferno-pt-pt","titulo":"Tradução: Vizinhos do Inferno PT-PT","capa":"data/game-content/imgs/neighbours-from-hell-português.png","descricao":"O teu vizinho do lado é deveras irritante. Está na hora da tua vingança! Cerca-lhe a casa e concebe os mais elaborados truques e armadilhas alguma vez vistos. Como estrela de um novo programa de televisão, as câmaras seguir-te-ão todos os movimentos filmando as tuas partidas. O t...","categorias":["quebracabecas"],"dataPublicacao":"Thu, 03 Feb 2022 15:39:00 GMT","versao":"3.0","fornecido_por":"","criador":"Jowood","notas":[]},{"guid":"twisted-lands-insomniac-pt-pt-portugues-24398","slug":"twisted-lands-insonias-pt-pt","titulo":"Tradução: Twisted Lands - Insónias PT-PT","capa":"data/game-content/imgs/twisted-lands-insomniac-insonias-português.jpg","descricao":"A saga continua na sequela do mais vendido jogo da temporada. Banhado de terror psicológico, Insónias segue Angel, a esposa da personagem central do jogo original, à medida que tenta escapar do hospital psiquiátrico em que está presa. O jogador vai explorar a barreira ténue entre...","categorias":["objetosescondidos","quebracabecas","misterio"],"dataPublicacao":"Mon, 17 Jan 2022 12:18:00 GMT","versao":"1.0","fornecido_por":"","criador":"Alawar Entertainment","notas":["Para versões normal e de colecionador."]},{"guid":"twisted-lands-shadow-town-pt-pt-24992","slug":"twisted-lands-ilha-sombria-pt-pt","titulo":"Tradução: Twisted Lands - Ilha Sombria PT-PT","capa":"data/game-content/imgs/twisted-lands-pt-pt.jpg","descricao":"Bem-vindo à Ilha Sombria. Aqui vêem-se praias, mas representam um perigo para quem se aproxima da água. Há floresta, mas quem lá entra jamais regressa. E uma povoação, contudo repleta de ruas vazias e nevoeiro suspenso no ar como por maldição. Aquilo que de facto aqui podes explo...","categorias":["objetosescondidos","quebracabecas","misterio"],"dataPublicacao":"Mon, 17 Jan 2022 12:17:00 GMT","versao":"1.3","fornecido_por":"","criador":"Alawar Entertainment","notas":["Para versões normal e de colecionador."]},{"guid":"jogo-the-tiny-bang-story-11311","slug":"the-tiny-bang-story-portugues","titulo":"Tradução: The Tiny Bang Story PT-PT","capa":"data/game-content/imgs/the-tiny-bang-story-pt-pt.png","descricao":"A vida no Pequeno Planeta era tranquila e despreocupada até que ocorreu um grande desastre - o planeta sofreu o impacto de um meteorito! O mundo desmoronou e agora o seu futuro depende apenas de ti! Utiliza a tua imaginação e criatividade: para restaurar o Pequeno Planeta e ajuda...","categorias":["quebracabecas","objetosescondidos"],"dataPublicacao":"Mon, 17 Jan 2022 12:16:00 GMT","versao":"1.0","fornecido_por":"Portugalações","criador":"Colibri Games","notas":[]},{"guid":"dear-esther-querida-pt-pt-de-portugal-26427","slug":"dear-esther-pt-pt","titulo":"Tradução: Querida Esther Edição Landmark PT-PT","capa":"data/game-content/imgs/dear-esther-pt-pt.jpeg","descricao":"Querida Esther é um jogo em primeira pessoa em que, ao contrário dos jogos habituais, o principal objetivo é explorar, desvendar o mistério da ilha, a fim de saberes quem és no jogo e o que fazes naquele sítio. As várias partes da história são aleatoriamente descobertas consoante...","categorias":["misterio","aventura"],"dataPublicacao":"Thu, 30 Dec 2021 14:57:00 GMT","versao":"2.0","fornecido_por":"particular e 100Nome","criador":"The Chinese Room","notas":["Para edições normal e Landmark."]},{"guid":"blur-jogo-traducao-portugues-pt-pt-br-23886","slug":"blur-jogo-traducao-portugues-pt-pt-br-23886","titulo":"Tradução: Blur (atualizado) PT-PT","capa":"data/game-content/imgs/blur-português-pt-pt.jpg","descricao":"Blur é um jogo de carros de corrida elegante em espaços realistas e 50 carros reais em luta com Ferramentas. Apresenta dano realista e é frequentemente descrito como combinação de Mario Kart com uma corrida arcada. Mais facilmente confundido com o jogo de corridas Wipeout que qua...","categorias":["corrida"],"dataPublicacao":"Tue, 19 Jan 2021 20:00:00 GMT","versao":"1.4","fornecido_por":"","criador":"Bizarre Creations","notas":["Wiki da Tradução disponível."]},{"guid":"trine-jogo-pt-pt-portugues-de-portugal-27049","slug":"trine-pt-pt","titulo":"Tradução: Trine PT-PT","capa":"data/game-content/imgs/trine-pt-pt.jpg","descricao":"Trine acompanha três personagens ligadas pelo destino e um objecto mágico denominado Trine. Atraídos pelo artefacto, Pontius (o cavaleiro), Amadeus (o feiticeiro) e Zoya (a ladra) vêem-se confinados ao mesmo espaço, sendo-lhes impossível separarem-se. Podendo controlar qualquer u...","categorias":["quebracabecas","plataforma"],"dataPublicacao":"Mon, 11 Jul 2016 13:22:00 GMT","versao":"1.0","fornecido_por":"Portugalações","criador":"Frozenbyte","notas":["Para versão original. Aplicar em Trine ou em Trine - Edição Encantada."]},{"guid":"gta-3-pt-pt-em-portugues-portugal-25519","slug":"gta-3-pt-pt","titulo":"Tradução: GTA 3 PT-PT","capa":"data/game-content/imgs/gta-3-pt-pt.jpg","descricao":"O sucesso aclamado pela crítica Grand Theft Auto III traz para as três dimensões o sombrio e decadente submundo da Cidade de Liberty. Com a liberdade de ir aonde quiseres com quem quiseres, Grand Theft Auto III põe-te o negro, intrigante e implacável mundo do crime nas tuas mãos,...","categorias":["acao","mundoaberto"],"dataPublicacao":"Sat, 09 Jul 2016 18:17:00 GMT","versao":"2.0","fornecido_por":"Traduzir GTA","criador":"Rockstar Games","notas":[]},{"guid":"traducao-gta-san-andreas-pt-pt-25949","slug":"gta-san-andreas-pt-pt","titulo":"Tradução: GTA - San Andreas PT-PT","capa":"data/game-content/imgs/gta-san-andreas-pt-pt.jpg","descricao":"Há cinco anos atrás, Carl Johnson escapou das pressões da vida em Los Santos, San Andreas... uma cidade em declínio com problemas de gangues, drogas e corrupção, onde estrelas do cinema e milionários fazem os possíveis para evitar os traficantes e membros dos bandos. Agora é o in...","categorias":["acao","mundoaberto"],"dataPublicacao":"Sat, 09 Jul 2016 18:16:00 GMT","versao":"1.5","fornecido_por":"Traduzir GTA","criador":"Rockstar Games","notas":[]},{"guid":"jogo-glest-13167","slug":"glest-portugues","titulo":"Tradução: Glest PT-PT","capa":"data/game-content/imgs/glest-pt-pt.png","descricao":"Glest é um gratuito jogo 3D de estratégia em tempo real, no qual controlas os exércitos de duas diferentes fações: Tec, essencialmente composta por guerreiros e dispositivos mecânicos, e Magia, que prefere chamar magos e criaturas para o campo de batalha.","categorias":["estrategia"],"dataPublicacao":"Wed, 06 Jul 2016 14:15:00 GMT","versao":"1.0","fornecido_por":"","criador":"Equipa de Desenvolvimento do Glest","notas":[]},{"guid":"the-path-jogo-game-traducao-portugues-pt-32417","slug":"the-path-portugues","titulo":"Tradução: The Path PT-PT","capa":"data/game-content/imgs/the-path-pt-pt.jpeg","descricao":"Parado num bosque nevado, é surpreendido por uma pitada de névoa e de repente está na Floresta, onde todos os contos de fadas têm raiz. A caminho da avó, a menina não segue o caminho, deixando-a livre para explorar a Floresta. A rapariga vai aprender uma valiosa lição com a sua v...","categorias":["misterio","aventura"],"dataPublicacao":"Tue, 21 Jun 2016 00:00:00 GMT","versao":"1.0","fornecido_por":"Zero Online","criador":"Tale of Tales","notas":["Esta tradução é válida apenas para a versão original do jogo, não funciona na Steam."]},{"guid":"jogo-widelands-10962","slug":"widelands-pt-pt","titulo":"Tradução: Widelands PT-PT","capa":"data/game-content/imgs/widelands-pt-pt.png","descricao":"Widelands é um jogo de estratégia em tempo real com focos em economia e construção. Constrói as tuas habitações e desenvolve a economia do teu reino para produzir recursos necessários para conquistar novas áreas e derrotar os teus inimigos.","categorias":["estrategia"],"dataPublicacao":"Sun, 08 May 2016 00:00:00 GMT","versao":"1.0","fornecido_por":"Comunidade","criador":"Widelands Development Team","notas":["Tradução já incluída no jogo. Descarregar o jogo no site oficial."]},{"guid":"world-of-goo-traducao-pt-pt-portugues-31909","slug":"world-of-goo-pt-pt","titulo":"Tradução: World of Goo PT-PT","capa":"data/game-content/imgs/world-of-goo-pt-pt.png","descricao":"World of Goo é um jogo de quebra-cabeças baseado na física. A grande maioria dos níveis envolve a construção de uma torre usando as bolas de goo que vivem na área, para alcançar a tubulação que os vai salvá-los.","categorias":["quebracabecas"],"dataPublicacao":"Sat, 09 Apr 2016 00:00:00 GMT","versao":"1.0","fornecido_por":"C64","criador":"2D Boy","notas":["Esta tradução é válida apenas para a versão original do jogo, não funciona na Steam."]},{"guid":"jogo-harry-potter-e-a-pedra-filosofal-6615","slug":"harry-potter-pedra-filosofal-pt-pt","titulo":"Tradução: Harry Potter e a Pedra Filosofal PT-PT","capa":"data/game-content/imgs/harry-potter-pedra-filosofal-pt-pt-português.png","descricao":"Quando Harry Potter soube que era um feiticeiro e um bilhete misterioso lhe chegou, ele foi investigar. Agora podes finalmente entrar na sua pele como ele avança pela sua grande aventura. Descobre Hogwarts, resolve enigmas mágicos, aprende feitiços e luta contra adversários desaf...","categorias":["aventura","acao"],"dataPublicacao":"Tue, 23 Jun 2015 00:00:00 GMT","versao":"1.0","fornecido_por":"[oficial]","criador":"KnowWonder, Electronic Arts","notas":["Esta tradução é válida apenas para a versão original do jogo."]},{"guid":"jogo-trackmania-united-forever-6020","slug":"trackmania-united-forever-pt-pt","titulo":"Tradução: Trackmania United Forever PT-PT","capa":"data/game-content/imgs/trackmania-pt-pt.jpg","descricao":"Trackmania é o jogo de corridas de carros de maior entretenimento de sempre. Milhões de jogadores jogam-no a solo ou em multijogador. Trackmania United Forever é a edição definitiva graças às numerosas adições e inovações que tem para oferecer. Esta versão traz todos os ambientes...","categorias":["corrida"],"dataPublicacao":"Sat, 23 May 2015 00:00:00 GMT","versao":"1.0","fornecido_por":"[oficial]","criador":"Nadeo","notas":[]},{"guid":"jogo-dont-starve-5538","slug":"dont-starve-pt-pt","titulo":"Tradução: Don't Starve PT-PT","capa":"data/game-content/imgs/dont-starve-pt-pt.jpg","descricao":"Não deixes a escuridão levar-te. Don't Starve é um jogo de sobrevivência na selva com ciência e magia. Entra no papel do cientista cavalheiro Wilson, que se encontra preso num mundo misterioso e selvagem. Wilson deve aprender a explorar o seu ambiente e habitantes, se quiser algu...","categorias":["sobrevivencia"],"dataPublicacao":"Mon, 16 Feb 2015 00:00:00 GMT","versao":"1.1","fornecido_por":"","criador":"Klei Entertainment","notas":["Esta tradução não foi testada na versão GOG."]},{"guid":"1687","slug":"dark-tales-crimes-rua-morgue-portugues","titulo":"Tradução: Dark Tales - Crimes da Rua Morgue PT-PT","capa":"data/game-content/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg","descricao":"Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino aterrorizou Paris e só tu, o detetive Dupin, podes parar esta sangrenta rampage.","categorias":["objetosescondidos","aventura"],"dataPublicacao":"Mon, 08 Sep 2014 00:00:00 GMT","versao":"1.0","fornecido_por":"","criador":"Big Fish Games","notas":["Wiki da Tradução disponível.","O jogo necessita da ativação de uma chave no site da Big Fish Games."]},{"guid":"jogo-gone-home-4673","slug":"gone-home-pt-pt","titulo":"Tradução: Gone Home PT-PT","capa":"data/game-content/imgs/gone-home-pt-pt.png","descricao":"7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esperas uma festa por parte da tua família, mas dás-te de caras com a casa vazia. Qualquer coisa não está bem. Onde andam todos? O que terá acontecido aqui? Desvenda o mistério em Gone Home, um j...","categorias":["misterio","aventura"],"dataPublicacao":"Tue, 02 Sep 2014 00:00:00 GMT","versao":"1.0","fornecido_por":"Comunidade na Steam","criador":"The Fullbright Company","notas":[]},{"guid":"jogo-cry-of-fear-3138","slug":"cry-of-fear-pt-pt","titulo":"Tradução: Cry of Fear PT-PT","capa":"data/game-content/imgs/cry-of-fear-portugal-pt-pt.jpg","descricao":"Em Cry of Fear, terás de explorar e navegar pela cidade decadente e abandonada e os seus misteriosos arredores. Jogas como Simon, um jovem que um dia acordou numa rua desconhecida e mal reconhece a sua própria cidade.","categorias":["terror","misterio","acao"],"dataPublicacao":"Sat, 09 Aug 2014 00:00:00 GMT","versao":"1.0","fornecido_por":"","criador":"Team Psykskallar","notas":["A tradução PT-PT não é compatível com o modo co-op."]},{"guid":"jogo-limbo-2596","slug":"limbo-pt-pt","titulo":"Tradução: Limbo PT-PT","capa":"data/game-content/imgs/limbo-pt-pt.png","descricao":"Atreves-te a entrar no mundo sombrio de LIMBO? Esta fantástica aventura dá-te o controlo de um rapazinho sem nome que anda à procura da sua irmã. Com visuais maravilhosos e encantadores, a utilização brilhante de luz, escuridão e sombra em LIMBO projecta uma atmosfera envolvente...","categorias":["quebracabecas","aventura"],"dataPublicacao":"Sat, 25 Jan 2014 00:00:00 GMT","versao":"1.0","fornecido_por":"[oficial]","criador":"Playdead","notas":[]},{"guid":"1003","slug":"age-of-japan-portugues","titulo":"Tradução: Idade do Japão PT-PT","capa":"data/game-content/imgs/age-of-japan.png","descricao":"Se pensas que viste todos os jogos de troca de mosaicos é porque não jogaste Idade do Japão! Este é um atraente jogo que inclui 40 níveis no estilo japonês com bons gráficos e uma banda sonora calma.","categorias":["quebracabecas"],"dataPublicacao":"Wed, 01 Jan 2014 00:00:00 GMT","versao":"1.1","fornecido_por":"","criador":"Zylom","notas":[]}]}</script>
+    <script src="assets/js/components/motion.js?v=e66ec2a484"></script>
+    <script src="assets/js/pages/home.js?v=809bd6b522"></script>
 </body>
 </html>

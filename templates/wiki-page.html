@@ -2,8 +2,19 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <title>{{TITULO}} - Wiki {{JOGO_NOME}} - 100Nome</title>
+    <title>{{PAGE_TITLE}}</title>
     <meta name="description" content="{{DESCRICAO}}">
+    <link rel="canonical" href="{{PAGE_URL}}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="100Nome">
+    <meta property="og:title" content="{{PAGE_TITLE}}">
+    <meta property="og:description" content="{{DESCRICAO}}">
+    <meta property="og:url" content="{{PAGE_URL}}">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{PAGE_TITLE}}">
+    <meta name="twitter:description" content="{{DESCRICAO}}">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,11 +22,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../../wiki.css">
+    <link rel="stylesheet" href="/assets/css/pages/wiki.css?v={{WIKI_CSS_VERSION}}">
     {{FAVICON}}
+
+    <script type="application/ld+json">
+        {{WIKI_JSON_LD}}
+    </script>
 </head>
-<body>
+<body data-wiki-base="{{WIKI_BASE_PATH}}">
     {{HEADER}}
 
     <!-- Breadcrumbs -->
@@ -23,26 +37,21 @@
         <div class="breadcrumbs-container">
             <a href="/" class="breadcrumb-link"><i class="mdi mdi-home"></i> Início</a>
             <span class="breadcrumb-separator">/</span>
-            <a href="../../jogo/{{JOGO_ID}}.html" class="breadcrumb-link">{{JOGO_NOME}}</a>
-            <span class="breadcrumb-separator">/</span>
-            <a href="index.html" class="breadcrumb-link">Wiki</a>
-            <span class="breadcrumb-separator">/</span>
-            <span class="breadcrumb-current">{{TITULO}}</span>
+            <a href="/jogo/{{JOGO_SLUG}}" class="breadcrumb-link">{{JOGO_NOME}}</a>
+            {{WIKI_BREADCRUMB_NODE}}
+            {{PAGE_BREADCRUMB_NODE}}
         </div>
     </nav>
+    
+    <div data-reveal>
+        {{WIKI_TRANSLATION_BANNER}}
+    </div>
 
     <!-- Conteúdo Principal -->
     <main class="wiki-container">
         <!-- Sidebar -->
-        <aside class="wiki-sidebar">
-            <div class="wiki-nav">
-                <h3 class="wiki-nav-title"><i class="mdi mdi-format-list-bulleted"></i> Conteúdos</h3>
-                <ul class="wiki-nav-list">
-                    {{SIDEBAR_NAV}}
-                </ul>
-            </div>
-
-            <div class="wiki-search">
+        <aside class="wiki-sidebar" data-reveal>
+            <div class="wiki-search" data-reveal data-reveal-delay="40">
                 <h3 class="wiki-nav-title"><i class="mdi mdi-book-search"></i> Pesquisa na Wiki</h3>
                 <div class="wiki-search-box">
                     <input type="text" id="wikiSearchInput" placeholder="Pesquisar nesta wiki..." aria-label="Pesquisar nesta wiki">
@@ -51,12 +60,23 @@
                 <div class="wiki-search-results" id="wikiSearchResults"></div>
             </div>
 
+            <div class="wiki-nav" data-reveal data-reveal-delay="80">
+                <h3 class="wiki-nav-title"><i class="mdi mdi-format-list-bulleted"></i> Conteúdos</h3>
+                <ul class="wiki-nav-list">
+                    {{SIDEBAR_NAV}}
+                </ul>
+            </div>
+            
+            <div data-reveal data-reveal-delay="120">
+                {{WIKI_TRANSLATION_STATUS}}
+            </div>
+
             <!-- Voltar ao jogo -->
-            <div class="wiki-back-link">
-                <a href="../../jogo/{{JOGO_ID}}.html" class="back-btn">
+            <div class="wiki-back-link" data-reveal data-reveal-delay="160">
+                <a href="/jogo/{{JOGO_SLUG}}" class="back-btn">
                     <i class="mdi mdi-arrow-left"></i> Voltar ao Jogo
                 </a>
-                <a href="../../jogo/{{JOGO_ID}}.html" class="wiki-game-card">
+                <a href="/jogo/{{JOGO_SLUG}}" class="wiki-game-card">
                     <img src="{{JOGO_CAPA}}" alt="{{JOGO_TITULO}}">
                     <div class="wiki-game-card-info">
                         <span class="wiki-game-card-label">Tradução</span>
@@ -69,7 +89,7 @@
         <!-- Conteúdo Wiki -->
         <div class="wiki-content">
             <!-- Cabeçalho da Página -->
-            <div class="wiki-page-header">
+            <div class="wiki-page-header" data-reveal>
                 <div class="page-icon">
                     <i class="mdi mdi-{{ICONE}}"></i>
                 </div>
@@ -92,109 +112,8 @@
 
     {{FOOTER}}
 
-    <script>
-        $(document).ready(function() {
-            const $backToTop = $('#backToTop');
-            const $wikiSearchInput = $('#wikiSearchInput');
-            const $wikiSearchResults = $('#wikiSearchResults');
-            let wikiIndex = null;
-            const $globalSearchForm = $('#search-form');
-            const $globalSearchInput = $('#search-input');
-            const $globalMobileSearchForm = $('#mobile-search-form');
-            const $globalMobileSearchInput = $('#mobile-search-input');
-
-            $(window).on('scroll', function() {
-                if ($(this).scrollTop() > 300) {
-                    $backToTop.addClass('visible');
-                } else {
-                    $backToTop.removeClass('visible');
-                }
-            });
-
-            $backToTop.on('click', function() {
-                $('html, body').animate({ scrollTop: 0 }, 500);
-            });
-
-            $('#menuToggle').on('click', function() {
-                $('#mobileMenu').toggleClass('active');
-            });
-
-            $('#mobileCategories').on('click', function(e) {
-                e.preventDefault();
-                $('#mobileSubmenu').toggleClass('active');
-            });
-
-            function getHomeUrl() {
-                const parts = window.location.pathname.split('/').filter(Boolean);
-                if (parts.length > 0 && !['wiki', 'jogo'].includes(parts[0]) && !parts[0].endsWith('.html')) {
-                    return '/' + parts[0] + '/';
-                }
-                return '/';
-            }
-
-            const homeUrl = getHomeUrl();
-            $globalSearchForm.attr('action', homeUrl);
-            $globalMobileSearchForm.attr('action', homeUrl);
-
-            $globalSearchForm.on('submit', function(e) {
-                e.preventDefault();
-                const q = ($globalSearchInput.val() || '').trim();
-                if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
-            });
-
-            $globalMobileSearchForm.on('submit', function(e) {
-                e.preventDefault();
-                const q = ($globalMobileSearchInput.val() || '').trim();
-                if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
-            });
-
-            if ($wikiSearchInput.length) {
-                fetch('./search-index.json')
-                    .then(res => res.json())
-                    .then(data => { wikiIndex = data; })
-                    .catch(() => { wikiIndex = []; });
-
-                $wikiSearchInput.on('input', function() {
-                    const query = $(this).val().trim().toLowerCase();
-                    if (!query) {
-                        $wikiSearchResults.empty();
-                        return;
-                    }
-
-                    if (!wikiIndex) return;
-
-                    const results = wikiIndex.filter(item => {
-                        const haystack = `${item.title} ${item.headings.join(' ')} ${item.text}`.toLowerCase();
-                        return haystack.includes(query);
-                    }).slice(0, 10);
-
-                    if (!results.length) {
-                        $wikiSearchResults.html('<div class="wiki-search-empty">Sem resultados</div>');
-                        return;
-                    }
-
-                    const html = results.map(r => `
-                        <a class="wiki-search-item" href="${r.filename}">
-                            <strong>${r.title}</strong>
-                            <span>${r.headings.slice(0, 3).join(' · ')}</span>
-                        </a>
-                    `).join('');
-
-                    $wikiSearchResults.html(html);
-                });
-            }
-
-            // Scroll suave para âncoras internas
-            $('a[href^="#"]').on('click', function(e) {
-                const target = $(this.getAttribute('href'));
-                if (target.length) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 80
-                    }, 600);
-                }
-            });
-        });
-    </script>
+    <script src="/assets/js/components/motion.js?v={{MOTION_JS_VERSION}}"></script>
+    <script src="/assets/js/components/site-shell.js?v={{SITE_SHELL_JS_VERSION}}"></script>
+    <script src="/assets/js/pages/wiki-page.js?v={{WIKI_PAGE_JS_VERSION}}"></script>
 </body>
 </html>

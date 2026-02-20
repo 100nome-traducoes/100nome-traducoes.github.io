@@ -27,7 +27,10 @@ Sistema simples para criar wikis de traduções usando **Markdown** e gerar HTML
 │       └── ...
 ├── scripts/
 │   └── build-wiki.js
-└── wiki.css
+└── assets/
+    └── css/
+        ├── pages/wiki.css
+        └── wiki/wiki-content.css
 ```
 
 ---
@@ -79,13 +82,38 @@ Fica com `id="brancas"` para usar em âncoras.
 :::grid
 - [icon:skull] Zombies (zombies.html)
 - [icon:gun] Armas (armas.html)
-- [icon:map-marker-alt] Lugares (lugares.html)
+- [icon:map-marker] Lugares (lugares.html)
+:::
+```
+
+#### Grelha de botões em destaque
+```markdown
+:::grid-featured
+- [icon:star] Visão Geral (index.html)
+- [icon:trophy] Conquistas (conquistas.html)
 :::
 ```
 
 #### YouTube (embed simples)
 ```markdown
 :::youtube wQsys-tXpME
+:::
+```
+
+#### YouTube em grupo (grelha responsiva)
+```markdown
+:::youtube-group
+wQsys-tXpME
+uUD_lAYPF-c
+ZkfhPKVXiVQ
+:::
+```
+
+Também aceita URL e título opcional por linha:
+```markdown
+:::youtube-group
+https://youtu.be/wQsys-tXpME | Trailer principal
+https://www.youtube.com/watch?v=uUD_lAYPF-c | Comparação
 :::
 ```
 
@@ -135,6 +163,9 @@ O build converte automaticamente para `/data/wiki-content/<jogo>/imgs/...`.
 - **Highlight:** `==texto==`
 - **Títulos com ícones:** `## [icon:skull] ...`
 - **Grelha de botões:** `:::grid ... :::`
+- **Grelha em destaque:** `:::grid-featured ... :::`
+- **YouTube simples:** `:::youtube VIDEO_ID :::`
+- **YouTube em grupo:** `:::youtube-group ... :::`
 - **Caption de tabela:** `:caption: ...`
 - **Cabeçalho lateral de tabelas:** `^`
 - **Imagens locais:** `imgs/...`
@@ -163,7 +194,8 @@ npm run build:all
 ## 🔧 Personalização
 
 - **Template:** `templates/wiki-page.html`
-- **CSS:** `wiki.css`
+- **CSS de página:** `assets/css/pages/wiki.css`
+- **CSS da wiki:** `assets/css/wiki/wiki-content.css`
 - **Build:** `scripts/build-wiki.js`
 
 ---

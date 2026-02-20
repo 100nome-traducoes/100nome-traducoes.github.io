@@ -9,6 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const marked = require('marked'); // npm install marked
 
 // Configuração
@@ -18,6 +19,34 @@ const CONFIG = {
     templateFile: '../templates/wiki-page.html',
     dataFile: '../data/game-content/jogos.json'
 };
+const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
+const ASSET_VERSIONS = {
+    wikiCss: getAssetVersion('assets/css/pages/wiki.css'),
+    motionJs: getAssetVersion('assets/js/components/motion.js'),
+    siteShellJs: getAssetVersion('assets/js/components/site-shell.js'),
+    wikiPageJs: getAssetVersion('assets/js/pages/wiki-page.js')
+};
+
+function getAssetVersion(relativePath) {
+    const fullPath = path.join(__dirname, '..', relativePath);
+    const content = fs.readFileSync(fullPath);
+    return crypto.createHash('sha1').update(content).digest('hex').slice(0, 10);
+}
+
+function escapeHtml(text) {
+    return String(text ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function truncateText(text, maxLen = 170) {
+    const t = String(text || '').replace(/\s+/g, ' ').trim();
+    if (t.length <= maxLen) return t;
+    return `${t.slice(0, maxLen - 1).trim()}…`;
+}
 
 // Parser de frontmatter YAML
 function parseFrontmatter(content) {
@@ -113,22 +142,76 @@ function convertButtonGrids(markdown) {
 // Converter embed de YouTube via sintaxe:
 // :::youtube VIDEO_ID
 // :::
-function convertYouTubeEmbeds(markdown) {
-    const ytRegex = /:::youtube\s+([\w-]+)\s*:::/gi;
-    return markdown.replace(ytRegex, (match, videoId) => {
-        return `
+function extractYouTubeId(value) {
+    const input = String(value || '').trim();
+    if (!input) return '';
+
+    if (/^[\w-]{8,}$/.test(input)) return input;
+
+    const shortMatch = input.match(/youtu\.be\/([\w-]{8,})/i);
+    if (shortMatch) return shortMatch[1];
+
+    const watchMatch = input.match(/[?&]v=([\w-]{8,})/i);
+    if (watchMatch) return watchMatch[1];
+
+    const embedMatch = input.match(/youtube\.com\/embed\/([\w-]{8,})/i);
+    if (embedMatch) return embedMatch[1];
+
+    return '';
+}
+
+function buildYouTubeIframe(videoId, title = 'Vídeo YouTube') {
+    return `
 <div class="wiki-video">
   <iframe
-    width="100%"
-    height="400"
     src="https://www.youtube.com/embed/${videoId}"
-    title="Vídeo YouTube"
+    title="${title}"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
 </div>
 `;
+}
+
+// Converter grupo de vídeos via sintaxe:
+// :::youtube-group
+// VIDEO_ID ou URL
+// VIDEO_ID ou URL | Título opcional
+// :::
+function convertYouTubeGroups(markdown) {
+    const groupRegex = /:::youtube-group\s*([\s\S]*?)\s*:::/gi;
+    return markdown.replace(groupRegex, (match, body) => {
+        const lines = body.split('\n').map(line => line.trim()).filter(Boolean);
+        const items = [];
+
+        lines.forEach(line => {
+            const cleanLine = line.replace(/^-+\s*/, '').trim();
+            if (!cleanLine) return;
+
+            const [videoRaw, titleRaw] = cleanLine.split('|').map(part => part.trim());
+            const videoId = extractYouTubeId(videoRaw);
+            if (!videoId) return;
+
+            items.push({
+                videoId,
+                title: titleRaw || 'Vídeo YouTube'
+            });
+        });
+
+        if (!items.length) return match;
+
+        const videosHtml = items.map(item => buildYouTubeIframe(item.videoId, item.title)).join('');
+        return `<div class="wiki-video-group">${videosHtml}</div>`;
+    });
+}
+
+function convertYouTubeEmbeds(markdown) {
+    const ytRegex = /:::youtube\s+([\w-]+)\s*:::/gi;
+    return markdown.replace(ytRegex, (match, videoInput) => {
+        const videoId = extractYouTubeId(videoInput);
+        if (!videoId) return match;
+        return buildYouTubeIframe(videoId);
     });
 }
 
@@ -289,15 +372,87 @@ function formatDatePt(date) {
 }
 
 function cleanGameTitle(jogoData, fallbackTitle) {
-    if (jogoData?.informacoesJogo?.nome) {
-        return jogoData.informacoesJogo.nome;
-    }
+    const fromNome = String(jogoData?.nome || '').trim();
+    if (fromNome) return fromNome;
+    const rawTitle = jogoData?.titulo || fallbackTitle || '';
+    return String(rawTitle)
+        .replace(/^Tradução:\s*/i, '')
+        .replace(/\s*PT-PT\s*$/i, '')
+        .trim() || fallbackTitle || '';
+}
 
-    let title = fallbackTitle || '';
-    title = title.replace(/^tradu[cç][aã]o:\s*/i, '');
-    title = title.replace(/\s*\((pt-pt|pt\/pt|pt pt)\)\s*/i, ' ');
-    title = title.replace(/\s*(pt-pt|portugu[eê]s(?:\s*de\s*portugal)?|tuga)\s*$/i, '');
-    return title.trim() || fallbackTitle || '';
+function buildWikiMetaDescription(metadataDescription, gameTitle) {
+    const base = String(metadataDescription || '').trim();
+    const suffix = `Tradução PT-PT disponível para ${gameTitle} no 100Nome.`;
+    const combined = base ? `${base} ${suffix}` : suffix;
+    return truncateText(combined, 170);
+}
+
+function getWikiPagePath(gameSlug, filename) {
+    const base = `/wiki/${encodeURIComponent(gameSlug)}`;
+    if (!filename || filename === 'index') return base;
+    return `${base}/${encodeURIComponent(filename)}`;
+}
+
+function buildWikiPromoBanner(jogoSlug, gameTitle) {
+    return `
+        <section class="wiki-translation-banner">
+            <div class="wiki-translation-banner-content">
+                <p class="wiki-translation-banner-label"><i class="mdi mdi-translate"></i> Tradução PT-PT disponível</p>
+                <p class="wiki-translation-banner-title">Joga <strong>${escapeHtml(gameTitle)}</strong> em português de Portugal</p>
+                <p>Esta wiki faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
+            </div>
+            <div class="wiki-translation-banner-actions">
+                <a href="/jogo/${encodeURIComponent(jogoSlug)}#download" class="wiki-cta-btn wiki-cta-btn--primary">
+                    <i class="mdi mdi-download"></i> Descarregar Tradução
+                </a>
+                <a href="/jogo/${encodeURIComponent(jogoSlug)}#comentarios" class="wiki-cta-btn wiki-cta-btn--ghost">
+                    <i class="mdi mdi-comment-text-outline"></i> Comentários
+                </a>
+            </div>
+        </section>
+    `;
+}
+
+function buildWikiTranslationStatus(jogoData, jogoSlug, gameTitle) {
+    const version = String(jogoData?.versao || '1.0').trim();
+    const dateRaw = jogoData?.data || jogoData?.dataPublicacao;
+    const date = dateRaw ? formatDatePt(new Date(dateRaw)) : 'n/d';
+
+    return `
+        <section class="wiki-translation-status">
+            <h3 class="wiki-nav-title"><i class="mdi mdi-clipboard-check-outline"></i> Estado da tradução</h3>
+            <ul class="wiki-status-list">
+                <li><span>Versão</span><strong>v${escapeHtml(version)}</strong></li>
+                <li><span>Última atualização</span><strong>${escapeHtml(date)}</strong></li>
+            </ul>
+            <a class="wiki-status-link" href="/jogo/${encodeURIComponent(jogoSlug)}">
+                <i class="mdi mdi-open-in-new"></i> Abrir página da tradução
+            </a>
+        </section>
+    `;
+}
+
+function injectWikiContentCta(html, jogoSlug, gameTitle) {
+    const ctaHtml = `
+<div class="wiki-inline-cta">
+    <div class="wiki-inline-cta-content">
+        <strong>Gostas de ${escapeHtml(gameTitle)}?</strong>
+        <span>Podes jogar com tradução PT-PT completa.</span>
+    </div>
+    <a href="/jogo/${encodeURIComponent(jogoSlug)}#download" class="wiki-cta-btn wiki-cta-btn--primary">
+        <i class="mdi mdi-download"></i> Descarregar
+    </a>
+</div>`;
+
+    let injected = false;
+    const withFirstH2 = html.replace(/<h2\b[^>]*>[\s\S]*?<\/h2>/i, (match) => {
+        injected = true;
+        return `${match}\n${ctaHtml}`;
+    });
+
+    if (injected) return withFirstH2;
+    return `${ctaHtml}\n${html}`;
 }
 
 // Converter imagens em tabelas
@@ -361,6 +516,9 @@ function processMarkdown(content, wikiBasePath) {
     // Grelha de botões (tipo-markdown)
     content = convertButtonGrids(content);
 
+    // Grupos de vídeos YouTube (tipo-markdown)
+    content = convertYouTubeGroups(content);
+
     // YouTube (tipo-markdown)
     content = convertYouTubeEmbeds(content);
 
@@ -403,14 +561,14 @@ function processMarkdown(content, wikiBasePath) {
 }
 
 // Construir navegação da sidebar
-function buildSidebarNav(jogoId, currentPage, wikiPages) {
+function buildSidebarNav(gameSlug, currentPage, wikiPages) {
     const pages = [...wikiPages]
         .sort((a, b) => (a.metadata.ordem || 999) - (b.metadata.ordem || 999))
         .map(page => {
             const isActive = page.filename === currentPage;
             const icon = page.metadata.icone || 'file-document';
             const isIndex = page.filename === 'index';
-            const href = isIndex ? './' : `${page.filename}.html`;
+            const href = getWikiPagePath(gameSlug, page.filename);
             const label = isIndex ? 'Visão Geral' : page.metadata.titulo;
             
             return `
@@ -425,20 +583,20 @@ function buildSidebarNav(jogoId, currentPage, wikiPages) {
     return pages;
 }
 
-function buildRelatedLinks(currentPage, wikiPages) {
+function buildRelatedLinks(currentPage, wikiPages, gameSlug) {
     const pages = [...wikiPages].sort((a, b) => (a.metadata.ordem || 999) - (b.metadata.ordem || 999));
     const currentIndex = pages.findIndex(p => p.filename === currentPage);
     const links = [];
 
     const indexPage = pages.find(p => p.filename === 'index');
     if (indexPage && currentPage !== 'index') {
-        links.push({ label: 'Visão Geral', href: './' });
+        links.push({ label: 'Visão Geral', href: getWikiPagePath(gameSlug, 'index') });
     }
 
     if (currentIndex > 0) {
         const prev = pages[currentIndex - 1];
         if (prev) {
-            const href = prev.filename === 'index' ? './' : `${prev.filename}.html`;
+            const href = getWikiPagePath(gameSlug, prev.filename);
             links.push({ label: `Anterior: ${prev.metadata.titulo || 'Página'}`, href });
         }
     }
@@ -446,7 +604,7 @@ function buildRelatedLinks(currentPage, wikiPages) {
     if (currentIndex >= 0 && currentIndex < pages.length - 1) {
         const next = pages[currentIndex + 1];
         if (next) {
-            const href = next.filename === 'index' ? './' : `${next.filename}.html`;
+            const href = getWikiPagePath(gameSlug, next.filename);
             links.push({ label: `Seguinte: ${next.metadata.titulo || 'Página'}`, href });
         }
     }
@@ -476,7 +634,7 @@ function loadPartial(name) {
 }
 
 // Processar um ficheiro wiki
-function processWikiFile(filePath, jogoId, allWikiPages, jogoData) {
+function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
     console.log(`📄 Processando: ${path.basename(filePath)}`);
     
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -496,39 +654,92 @@ function processWikiFile(filePath, jogoId, allWikiPages, jogoData) {
     
     // Construir navegação
     const filename = path.basename(filePath, '.wikimd');
-    const sidebarNav = buildSidebarNav(jogoId, filename, allWikiPages);
-    const relatedLinks = buildRelatedLinks(filename, allWikiPages);
+    const sidebarNav = buildSidebarNav(gameSlug, filename, allWikiPages);
+    const relatedLinks = buildRelatedLinks(filename, allWikiPages, gameSlug);
+    const indexPage = allWikiPages.find(p => p.filename === 'index');
+    const wikiHomeTitle = (indexPage?.metadata?.titulo || 'Wiki').trim();
+    const isWikiHomePage = filename === 'index';
     
     // Substituir placeholders
-    const gameCover = jogoData?.capa ? `/${jogoData.capa.replace(/^\/+/, '')}` : '';
     const fallbackTitle = jogoData?.titulo || jogoId.replace(/-/g, ' ').toUpperCase();
     const gameTitle = cleanGameTitle(jogoData, fallbackTitle);
+    const jogoSlug = String(gameSlug || jogoData?.slug || jogoId).trim();
+    const htmlContentWithCta = injectWikiContentCta(htmlContent, jogoSlug, gameTitle);
+    const gameCover = jogoData?.capa ? `/${jogoData.capa.replace(/^\/+/, '')}` : '';
+    const ogImage = gameCover ? `${SITE_URL}${gameCover}` : `${SITE_URL}/data/site-assets/logo-image.png`;
+    const pageDescription = buildWikiMetaDescription(metadata.descricao, gameTitle);
+    const promoBanner = buildWikiPromoBanner(jogoSlug, gameTitle);
+    const translationStatus = buildWikiTranslationStatus(jogoData, jogoSlug, gameTitle);
+    const pageUrl = `${SITE_URL}${getWikiPagePath(jogoSlug, filename)}`;
+    const pageTitle = `${metadata.titulo || 'Wiki'} - Wiki ${gameTitle} - 100Nome`;
+    const wikiJsonLd = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: metadata.titulo || 'Wiki',
+        description: pageDescription,
+        inLanguage: 'pt-PT',
+        url: pageUrl,
+        image: ogImage,
+        isPartOf: {
+            '@type': 'WebSite',
+            name: '100Nome Traduções',
+            url: SITE_URL
+        },
+        about: {
+            '@type': 'VideoGame',
+            name: gameTitle
+        },
+        author: {
+            '@type': 'Organization',
+            name: '100Nome'
+        }
+    });
 
     const termoMeta = termCount > 0
         ? `<span><i class="mdi mdi-format-list-bulleted"></i> ${termCount} termos</span>`
         : '';
     const dataMeta = `<span><i class="mdi mdi-clock-outline"></i> Atualizado em ${updatedAt}</span>`;
+    const wikiBreadcrumbNode = isWikiHomePage
+        ? `<span class="breadcrumb-separator">/</span><span class="breadcrumb-current">${wikiHomeTitle}</span>`
+        : `<span class="breadcrumb-separator">/</span><a href="${getWikiPagePath(jogoSlug, 'index')}" class="breadcrumb-link">${wikiHomeTitle}</a>`;
+    const pageBreadcrumbNode = isWikiHomePage
+        ? ''
+        : `<span class="breadcrumb-separator">/</span><span class="breadcrumb-current">${metadata.titulo || 'Página'}</span>`;
 
     template = template
+        .replace(/\{\{WIKI_CSS_VERSION\}\}/g, ASSET_VERSIONS.wikiCss)
+        .replace(/\{\{MOTION_JS_VERSION\}\}/g, ASSET_VERSIONS.motionJs)
+        .replace(/\{\{SITE_SHELL_JS_VERSION\}\}/g, ASSET_VERSIONS.siteShellJs)
+        .replace(/\{\{WIKI_PAGE_JS_VERSION\}\}/g, ASSET_VERSIONS.wikiPageJs)
         .replace(/\{\{FAVICON\}\}/g, favicon)
         .replace(/\{\{HEADER\}\}/g, header)
         .replace(/\{\{FOOTER\}\}/g, footer)
+        .replace(/\{\{PAGE_TITLE\}\}/g, pageTitle)
         .replace(/\{\{TITULO\}\}/g, metadata.titulo || 'Wiki')
-        .replace(/\{\{DESCRICAO\}\}/g, metadata.descricao || '')
-        .replace(/\{\{JOGO_NOME\}\}/g, jogoId.replace(/-/g, ' ').toUpperCase())
+        .replace(/\{\{DESCRICAO\}\}/g, pageDescription)
+        .replace(/\{\{PAGE_URL\}\}/g, pageUrl)
+        .replace(/\{\{OG_IMAGE\}\}/g, ogImage)
+        .replace(/\{\{WIKI_JSON_LD\}\}/g, wikiJsonLd)
+        .replace(/\{\{JOGO_NOME\}\}/g, gameTitle)
         .replace(/\{\{JOGO_ID\}\}/g, jogoId)
-        .replace(/\{\{CONTEUDO\}\}/g, htmlContent)
+        .replace(/\{\{JOGO_SLUG\}\}/g, jogoSlug)
+        .replace(/\{\{WIKI_BASE_PATH\}\}/g, getWikiPagePath(jogoSlug, 'index'))
+        .replace(/\{\{CONTEUDO\}\}/g, htmlContentWithCta)
         .replace(/\{\{RELATED_LINKS\}\}/g, relatedLinks)
         .replace(/\{\{SIDEBAR_NAV\}\}/g, sidebarNav)
+        .replace(/\{\{WIKI_TRANSLATION_BANNER\}\}/g, promoBanner)
+        .replace(/\{\{WIKI_TRANSLATION_STATUS\}\}/g, translationStatus)
         .replace(/\{\{ICONE\}\}/g, metadata.icone || 'book')
         .replace(/\{\{PAGE_SUBTITLE\}\}/g, metadata.descricao || '')
         .replace(/\{\{TERMOS_META\}\}/g, termoMeta)
         .replace(/\{\{DATA_META\}\}/g, dataMeta)
         .replace(/\{\{JOGO_CAPA\}\}/g, gameCover)
-        .replace(/\{\{JOGO_TITULO\}\}/g, gameTitle);
+        .replace(/\{\{JOGO_TITULO\}\}/g, gameTitle)
+        .replace(/\{\{WIKI_BREADCRUMB_NODE\}\}/g, wikiBreadcrumbNode)
+        .replace(/\{\{PAGE_BREADCRUMB_NODE\}\}/g, pageBreadcrumbNode);
     
     return {
-        filename: filename + '.html',
+        filename,
         html: template,
         metadata,
         markdown: markdownContent
@@ -572,19 +783,27 @@ function processGameWiki(jogoId, jogosData) {
     }
     
     // Criar diretório de output
-    const outputDir = path.join(__dirname, CONFIG.outputDir, `${jogoId}`);
-    if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
-    }
-    
-    // Processar cada ficheiro
     const jogoData = jogosData?.jogos?.find(j => j.guid === jogoId);
+    const gameSlug = String(jogoData?.slug || jogoId).trim();
+    const outputDir = path.join(__dirname, CONFIG.outputDir, `${gameSlug}`);
+    fs.rmSync(outputDir, { recursive: true, force: true });
+    fs.mkdirSync(outputDir, { recursive: true });
+
+    const legacyOutputDir = path.join(__dirname, CONFIG.outputDir, `${jogoId}`);
+    if (legacyOutputDir !== outputDir && fs.existsSync(legacyOutputDir)) {
+        fs.rmSync(legacyOutputDir, { recursive: true, force: true });
+    }
+
+    // Processar cada ficheiro
     const searchIndex = [];
 
     wikiFiles.forEach(wikiFile => {
-        const result = processWikiFile(wikiFile.filePath, jogoId, wikiFiles, jogoData);
-        
-        const outputPath = path.join(outputDir, result.filename);
+        const result = processWikiFile(wikiFile.filePath, jogoId, gameSlug, wikiFiles, jogoData);
+
+        const outputPath = result.filename === 'index'
+            ? path.join(outputDir, 'index.html')
+            : path.join(outputDir, result.filename, 'index.html');
+        fs.mkdirSync(path.dirname(outputPath), { recursive: true });
         fs.writeFileSync(outputPath, result.html, 'utf-8');
 
         const headings = [];
@@ -623,13 +842,13 @@ function processGameWiki(jogoId, jogosData) {
             .trim();
 
         searchIndex.push({
-            title: result.metadata.titulo || result.filename.replace('.html', ''),
-            filename: result.filename,
+            title: result.metadata.titulo || result.filename,
+            filename: getWikiPagePath(gameSlug, result.filename),
             headings,
             text
         });
         
-        console.log(`   ✅ ${result.filename}`);
+        console.log(`   ✅ ${result.filename === 'index' ? 'index.html' : `${result.filename}/index.html`}`);
     });
 
     const searchIndexPath = path.join(outputDir, 'search-index.json');

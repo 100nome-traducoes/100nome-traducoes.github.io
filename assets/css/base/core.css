@@ -1,0 +1,63 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #e39e44;
+    --primary-dark: #c6893a;
+    --secondary-color: #00111D;
+    --secondary-light: #001a2a;
+    --accent-color: #153a50;
+    --accent-light: #1b466c;
+    --text-color: #d8d8d8;
+    --text-light: #ffffff;
+    --text-dark: #a0a0a0;
+    --background-dark: #040404;
+    --background-medium: #1a1a1a;
+    --card-bg: #0a1929;
+    --card-hover: #0e3046;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-radius: 10px;
+    --border-radius-sm: 6px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --navbar-height: 70px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(180deg, var(--background-dark) 0%, var(--secondary-color) 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}

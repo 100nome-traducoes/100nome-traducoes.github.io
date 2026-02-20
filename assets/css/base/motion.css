@@ -1,0 +1,34 @@
+/* Motion tokens + simple reveal utilities */
+:root {
+    --motion-fast: 140ms;
+    --motion-base: 220ms;
+    --motion-slow: 320ms;
+    --motion-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --motion-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal] {
+    --reveal-distance: 14px;
+    --reveal-delay: 0ms;
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+    transition:
+        opacity var(--motion-base) var(--motion-ease-standard),
+        transform var(--motion-slow) var(--motion-ease-emphasized);
+    transition-delay: var(--reveal-delay);
+    will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+

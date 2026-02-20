@@ -5,27 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{PAGE_TITLE}}</title>
     <meta name="description" content="{{META_DESCRIPTION}}">
+    <link rel="canonical" href="{{PAGE_URL}}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="100Nome">
+    <meta property="og:title" content="{{PAGE_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:url" content="{{PAGE_URL}}">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{PAGE_TITLE}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
-    <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Estilos principais -->
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../game-page.css">
-
-    <!-- Favicon -->
+    <link rel="stylesheet" href="../../assets/css/pages/game.css?v={{GAME_CSS_VERSION}}">
     {{FAVICON}}
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNRR1FVXYQ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -33,11 +33,15 @@
         gtag('js', new Date());
         gtag('config', 'G-ZNRR1FVXYQ');
     </script>
+
+    <script type="application/ld+json">
+        {{GAME_JSON_LD}}
+    </script>
+    <script src="/assets/js/components/download-counter.js?v={{DOWNLOAD_COUNTER_JS_VERSION}}"></script>
 </head>
-<body data-guid="{{GUID}}">
+<body data-slug="{{SLUG}}">
     {{HEADER}}
 
-    <!-- Breadcrumbs -->
     <nav class="breadcrumbs" aria-label="Breadcrumb">
         <div class="breadcrumbs-container">
             <a href="/" class="breadcrumb-link">
@@ -52,30 +56,24 @@
         </div>
     </nav>
 
-    <!-- Página do Jogo -->
     <main class="game-page">
-        <!-- Cabeçalho do Jogo -->
-        <section class="game-header">
+        <section class="game-header" data-reveal>
             <div class="game-header-bg"></div>
             <div class="game-header-container">
                 <div class="game-cover-wrapper">
-                    <img src="../{{COVER_IMAGE}}" alt="{{COVER_ALT}}" class="game-cover">
+                    <img src="../../{{COVER_IMAGE}}" alt="{{COVER_ALT}}" class="game-cover">
                     <div class="game-badges-top">
                         {{BADGES_HTML}}
                     </div>
                 </div>
                 <div class="game-header-info">
                     <h1 class="game-page-title">{{GAME_TITLE}}</h1>
-                    <p class="game-subtitle">{{GAME_SUBTITLE}}</p>
+                    {{GAME_SUBTITLE_HTML}}
 
                     <div class="game-meta-row">
                         <div class="meta-item">
                             <i class="fas fa-calendar-alt"></i>
                             <span>{{META_DATE}}</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-user-edit"></i>
-                            <span>{{META_TRADUTORES}}</span>
                         </div>
                         <div class="meta-item">
                             <i class="fas fa-code-branch"></i>
@@ -85,11 +83,11 @@
 
                     <div class="game-actions">
                         <a href="#download" class="btn btn-primary">
-                            <i class="fas fa-arrow-down"></i> Ver Descarga
+                            <i class="fas fa-arrow-down"></i> Descarregar
                         </a>
                         {{WIKI_BUTTON}}
                         <button class="btn btn-secondary" onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Partilha não suportada')">
-                            <i class="fas fa-share-alt"></i> Partilhar
+                            <i class="fas fa-share-alt"></i>
                         </button>
                     </div>
                 </div>
@@ -98,41 +96,47 @@
 
         <div class="game-content-wrapper">
             <div class="game-main-content">
-                <!-- Descrição -->
-                <section class="game-section">
-                    <h2 class="section-title"><i class="fas fa-book-open"></i> Sobre o Jogo</h2>
-                    <div class="section-content">
-                        {{DESCRIPTION_PARAGRAPHS}}
+                <section class="game-section gp-about" data-reveal>
+                    <div class="gp-description-wrap">
+                        <p class="gp-description" id="gpDesc">{{DESCRIPTION_TEXT}}</p>
+                        <button class="gp-read-more" id="gpReadMore" aria-expanded="false">Ler mais <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="gp-info-row">
+                        <div class="gp-info-item">
+                            <i class="fas fa-gamepad"></i>
+                            <div>
+                                <span class="gp-info-name">{{GAME_NAME}}</span>
+                                {{GAME_ORIGINAL_HTML}}
+                            </div>
+                        </div>
+                        <div class="gp-info-item">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <span class="gp-info-label">Criador</span>
+                                <span class="gp-info-value">{{GAME_CREATOR}}</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
-                <!-- Informações do Jogo -->
-                <section class="game-section">
-                    <h2 class="section-title"><i class="fas fa-gamepad"></i> Informações do Jogo</h2>
-                    <div class="section-content">
-                        <dl class="info-list">
-                            {{INFO_JOGO_ROWS}}
-                        </dl>
-                    </div>
-                </section>
-
-                <!-- Informações da Tradução -->
-                <section class="game-section">
-                    <h2 class="section-title"><i class="fas fa-language"></i> Informações da Tradução</h2>
-                    <div class="section-content">
-                        <dl class="info-list">
-                            {{INFO_TRADUCAO_ROWS}}
-                        </dl>
-                    </div>
-                </section>
+                {{TRANSLATION_SECTION}}
 
                 {{DOWNLOAD_SECTION}}
+
+                <div class="gp-support-nudge" data-reveal>
+                    <i class="fas fa-coffee"></i>
+                    <div>
+                        <strong>Gostaste da tradução?</strong> O 100Nome é mantido por voluntários. Se puderes, considera fazer um donativo.
+                    </div>
+                    <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">Apoiar</a>
+                </div>
+
                 {{COMMENTS_SECTION}}
             </div>
 
-            <!-- Sidebar -->
-            <aside class="game-sidebar">
-                <div class="sidebar-section">
+            <aside class="game-sidebar" data-reveal>
+                <div class="sidebar-section" data-reveal data-reveal-delay="40">
                     <h3><i class="fas fa-heart"></i> Apoia o Projeto</h3>
                     <p>Gostaste desta tradução? Apoia o 100Nome!</p>
                     <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">
@@ -140,7 +144,7 @@
                     </a>
                 </div>
 
-                <div class="sidebar-section">
+                <div class="sidebar-section" data-reveal data-reveal-delay="80">
                     <h3><i class="fas fa-users"></i> Comunidade</h3>
                     <div class="community-links">
                         <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
@@ -152,11 +156,10 @@
                     </div>
                 </div>
 
-                <div class="sidebar-section">
+                <div class="sidebar-section" data-reveal data-reveal-delay="120">
                     <h3><i class="fas fa-gamepad"></i> Jogos Relacionados</h3>
                     <div class="related-games">
-                        <!-- Será preenchido via JavaScript -->
-                        <p class="loading-text">A carregar sugestões...</p>
+                        {{RELATED_GAMES_HTML}}
                     </div>
                 </div>
             </aside>
@@ -165,73 +168,8 @@
 
     {{FOOTER}}
 
-    <script>
-        // Back to top
-        $(document).ready(function() {
-            const $backToTop = $('#backToTop');
-            const $globalSearchForm = $('#search-form');
-            const $globalSearchInput = $('#search-input');
-            const $globalMobileSearchForm = $('#mobile-search-form');
-            const $globalMobileSearchInput = $('#mobile-search-input');
-
-            $(window).on('scroll', function() {
-                if ($(this).scrollTop() > 300) {
-                    $backToTop.addClass('visible');
-                } else {
-                    $backToTop.removeClass('visible');
-                }
-            });
-
-            $backToTop.on('click', function() {
-                $('html, body').animate({ scrollTop: 0 }, 500);
-            });
-
-            // Menu mobile
-            $('#menuToggle').on('click', function() {
-                $('#mobileMenu').toggleClass('active');
-            });
-
-            $('#mobileCategories').on('click', function(e) {
-                e.preventDefault();
-                $('#mobileSubmenu').toggleClass('active');
-            });
-
-            // Scroll suave para âncoras internas
-            $('a[href^="#"]').on('click', function(e) {
-                const target = $(this.getAttribute('href'));
-                if (target.length) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 80
-                    }, 600);
-                }
-            });
-
-            function getHomeUrl() {
-                const parts = window.location.pathname.split('/').filter(Boolean);
-                if (parts.length > 0 && !['wiki', 'jogo'].includes(parts[0]) && !parts[0].endsWith('.html')) {
-                    return '/' + parts[0] + '/';
-                }
-                return '/';
-            }
-
-            const homeUrl = getHomeUrl();
-            $globalSearchForm.attr('action', homeUrl);
-            $globalMobileSearchForm.attr('action', homeUrl);
-
-            $globalSearchForm.on('submit', function(e) {
-                e.preventDefault();
-                const q = ($globalSearchInput.val() || '').trim();
-                if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
-            });
-
-            $globalMobileSearchForm.on('submit', function(e) {
-                e.preventDefault();
-                const q = ($globalMobileSearchInput.val() || '').trim();
-                if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
-            });
-        });
-    </script>
-    <script src="../game-page-script.js"></script>
+    <script src="../../assets/js/components/motion.js?v={{MOTION_JS_VERSION}}"></script>
+    <script src="../../assets/js/components/site-shell.js?v={{SITE_SHELL_JS_VERSION}}"></script>
+    <script src="../../assets/js/pages/game-page.js?v={{GAME_PAGE_JS_VERSION}}"></script>
 </body>
 </html>
