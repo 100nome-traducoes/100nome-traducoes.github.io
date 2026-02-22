@@ -29,6 +29,10 @@ ordem: 2
 
 ## [icon:hammer] Armas contundentes
 
+:::grid
+- [icon:star] Lendárias (#armas-contundentes-lendarias)
+:::
+
 :caption: Armas de impacto que causam dano por pancada (ex.: paus, martelos, bastões)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
@@ -117,6 +121,10 @@ ordem: 2
 
 ## [icon:sword] Armas cortantes
 
+:::grid
+- [icon:star] Lendárias (#armas-cortantes-lendarias)
+:::
+
 :caption: Armas com lâmina que cortam ou perfuram (ex.: facas, machados, katanas)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
@@ -184,6 +192,10 @@ ordem: 2
 
 ## [icon:pistol] Armas de fogo
 
+:::grid
+- [icon:star] Lendárias (#armas-de-fogo-lendarias)
+:::
+
 :caption: Armas que disparam projéteis usando munição (ex.: pistolas, espingardas)
 
 | # | Nome em português | Nome em inglês | Tipo de arma |
@@ -227,6 +239,10 @@ ordem: 2
 | 4 | 9mm do McCall | McCall's 9mm | Pistola | Referência a Ben McCall, do jogo Call of Juarez. |
 
 ## [icon:boxing-glove] Armas de combate
+
+:::grid
+- [icon:star] Lendárias (#armas-de-combate-lendarias)
+:::
 
 :caption: Armas de curto alcance para luta corpo-a-corpo (ex.: soqueiras)
 
@@ -275,4 +291,4 @@ ordem: 2
 
 > **João Frade**: A tradução das armas privilegiou a clareza e a familiaridade para jogadores portugueses. 
 > 
-> ==Escolha chave:== Para as armas lendárias, optámos por traduções criativas que mantêm referências culturais e trocadilhos, como "Machado de Assis" para "Banisher" ou "Chiave Italiana" para "Italian Plumber", garantindo que o humor e a intenção originais são preservados em PT-PT.
+>==Escolha-chave:== Para as armas lendárias, optámos por traduções criativas que mantêm referências culturais e trocadilhos, como "Machado de Assis" para "Banisher" ou "Chiave Italiana" para "Italian Plumber", garantindo que o humor e a intenção originais são preservados em PT-PT. “Deo Bomb” foi adaptado para “Desodo-bomba”, uma bomba improvisada feita a partir de um desodorizante, mantendo o jogo de palavras e a ideia irreverente da versão original.

@@ -31,6 +31,7 @@
         "indie"
       ],
       "link": "https://100nome.blogs.sapo.pt/the-ball-jogo-traduzido-portugues-30712",
+      "linkWiki": "/wiki/the-ball-pt-pt",
       "notas": [
         "Wiki da Tradução disponível."
       ],
@@ -190,7 +191,8 @@
       "titulo": "Tradução: GTA - Vice City PT-PT",
       "capa": "data/game-content/imgs/gta-vice-city-pt-pt.jpeg",
       "descricao": "Bem-vindo de volta a Vice City. Bem-vindo de volta aos anos 80. Da década do cabelo comprido, excessos e fatos em tons pastel, nasce a história da ascensão de um homem ao topo da hierarquia criminosa. Vice City, um enorme subúrbio urbano, que se estende desde a praia até aos pântanos e do luxo ao gueto, foi uma das cidades digitais mais variada, completa e dinâmica alguma vez criada. Combinando jogabilidade em mundo aberto com uma narrativa focada nas personagens, chegas a uma cidade a transbordar de prazeres e degradação que poderás conquistar como quiseres.",
-      "nome": "Grand Theft Auto - Vice City",
+      "nome": "GTA Vice City",
+      "nome_original": "Grand Theft Auto - Vice City",
       "criador": "Rockstar Games",
       "versao": "1.7",
       "data": "Tue, 13 Feb 2024 12:16:00 GMT",
@@ -344,6 +346,7 @@
         "indie"
       ],
       "link": "https://100nome.blogs.sapo.pt/helltaker-pt-pt-portugues-portugal-19857",
+      "linkWiki": "/wiki/helltaker-pt-pt",
       "notas": [
         "O jogo é gratuito. Obtê-lo aqui.",
         "Wiki da Tradução disponível.",
@@ -789,7 +792,7 @@
       ],
       "rebrandlyId": "6a3ff9fd8b4e49beae5209fdd934b62d",
       "downloadUrl": "https://rebrand.ly/blurzip704749",
-      "slug": "blur-jogo-traducao-portugues-pt-pt-br-23886",
+      "slug": "blur-jogo-pt-pt",
       "lingua_display": "PT-PT"
     },
     {
@@ -833,7 +836,8 @@
       "titulo": "Tradução: GTA 3 PT-PT",
       "capa": "data/game-content/imgs/gta-3-pt-pt.jpg",
       "descricao": "O sucesso aclamado pela crítica Grand Theft Auto III traz para as três dimensões o sombrio e decadente submundo da Cidade de Liberty. Com a liberdade de ir aonde quiseres com quem quiseres, Grand Theft Auto III põe-te o negro, intrigante e implacável mundo do crime nas tuas mãos, se, claro, tiveres suficiente coragem para o enfrentar.",
-      "nome": "Grand Theft Auto 3",
+      "nome": "GTA 3",
+      "nome_original": "Grand Theft Auto 3",
       "criador": "Rockstar Games",
       "versao": "2.0",
       "data": "Sat, 09 Jul 2016 18:17:00 GMT",
@@ -865,7 +869,8 @@
       "titulo": "Tradução: GTA - San Andreas PT-PT",
       "capa": "data/game-content/imgs/gta-san-andreas-pt-pt.jpg",
       "descricao": "Há cinco anos atrás, Carl Johnson escapou das pressões da vida em Los Santos, San Andreas... uma cidade em declínio com problemas de gangues, drogas e corrupção, onde estrelas do cinema e milionários fazem os possíveis para evitar os traficantes e membros dos bandos. Agora é o início dos anos 90, Carl tem que voltar à sua casa.",
-      "nome": "Grand Theft Auto - San Andreas",
+      "nome": "GTA San Andreas",
+      "nome_original": "Grand Theft Auto - San Andreas",
       "criador": "Rockstar Games",
       "versao": "1.5",
       "data": "Sat, 09 Jul 2016 18:16:00 GMT",
@@ -1059,7 +1064,7 @@
     {
       "guid": "jogo-trackmania-united-forever-6020",
       "titulo": "Tradução: Trackmania United Forever PT-PT",
-      "capa": "data/game-content/imgs/trackmania-pt-pt.jpg",
+      "capa": "data/game-content/imgs/trackmania-united-forever-pt-pt.jpg",
       "descricao": "Trackmania é o jogo de corridas de carros de maior entretenimento de sempre. Milhões de jogadores jogam-no a solo ou em multijogador. Trackmania United Forever é a edição definitiva graças às numerosas adições e inovações que tem para oferecer. Esta versão traz todos os ambientes da série e está acompanhada de uma campanha a solo, enorme e enriquecida, incluindo 4 diferentes modos e 420 percursos progressivamente mais difíceis.",
       "nome": "Trackmania United Forever",
       "criador": "Nadeo",
@@ -1116,8 +1121,8 @@
       "capa": "data/game-content/imgs/dark-tales-murderers-in-the-rue-morgue-português.jpg",
       "descricao": "Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino aterrorizou Paris e só tu, o detetive Dupin, podes parar esta sangrenta rampage.",
       "nome": "Dark Tales - Crimes da Rua Morgue",
-      "nome_original": "Dark Tales - Edgar Allan Poe's The Murders in the Rue Morgue",
-      "criador": "Big Fish Games",
+      "nome_original": "Dark Tales - Murders in the Rue Morgue",
+      "criador": "ERS Games | Big Fish Games",
       "versao": "1.0",
       "data": "Mon, 08 Sep 2014 00:00:00 GMT",
       "atributos": [
@@ -1248,7 +1253,7 @@
     {
       "guid": "1003",
       "titulo": "Tradução: Idade do Japão PT-PT",
-      "capa": "data/game-content/imgs/age-of-japan.png",
+      "capa": "data/game-content/imgs/age-of-japan.jpeg",
       "descricao": "Se pensas que viste todos os jogos de troca de mosaicos é porque não jogaste Idade do Japão! Este é um atraente jogo que inclui 40 níveis no estilo japonês com bons gráficos e uma banda sonora calma.",
       "nome": "Idade do Japão",
       "nome_original": "Age of Japan",

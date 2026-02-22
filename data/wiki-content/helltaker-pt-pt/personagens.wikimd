@@ -1,0 +1,62 @@
+---
+titulo: Personagens
+descricao: Guia de tradução para os nomes e títulos das demónias em Helltaker e Examtaker, com contexto original e notas de localização.
+icone: emoticon-devil-outline
+ordem: 1
+---
+
+> [intro] Esta página documenta as opções de tradução para PT-PT dos nomes e títulos das personagens de *Helltaker* e do capítulo extra *Examtaker*. Cada entrada inclui o contexto original da personagem e a justificação para a escolha de localização.
+
+:::grid
+- [icon:emoticon-devil-outline] Helltaker (#helltaker)
+- [icon:skull-scan-outline] Examtaker (#examtaker)
+:::
+
+---
+
+## [icon:emoticon-devil-outline] As demónias de Helltaker {#helltaker}
+
+As escolhas para o jogo base privilegiam a manutenção do tom cómico e irreverente do original, utilizando um registo coloquial sempre que adequado.
+
+| ^ | Original | Notas |
+|---|---|---|
+| **Pandemónica**<br><small>A Demónia Cansada</small> | **Pandemonica**<br><small>The Tired Demon</small> | Tradução direta. A personagem apresenta-se inicialmente como exausta devido ao vício em café. |
+| **Pandemónica**<br><small>A Demónia Sádica</small> | **Pandemonica**<br><small>The Sadistic Demon</small> | Tradução direta. Após beber café, a personalidade muda completamente, revelando o seu lado sádico. |
+| **Modeus**<br><small>A Demónia Tarada</small> | **Modeus**<br><small>The Lustful Demon</small> | **Escolha-chave:** "Tarada" é uma opção coloquial e cómica em PT-PT, mais adequada à personagem do que "luxuriosa". Captura a obsessão sexual de Modeus, cujo nome deriva de Asmodeus, o demónio da luxúria. |
+| **Cérbera**<br><small>A Demónia Tripla</small> | **Cerberus**<br><small>The Triple Demon</small> | "Cérbera" é a adaptação portuguesa de Cerberus, o cão de três cabeças da mitologia. O cognome é tradução direta, já que são três corpos com uma só mente. |
+| **Malina**<br><small>A Demónia Enjoada</small> | **Malina**<br><small>The Sour Demon</small> | **Escolha-chave:** "Enjoada" tem o duplo sentido perfeito: "enjoar" (azedar) e "ser enjoada" (irritante, mal-humorada). A personagem é inspirada em estereótipos eslavos — adora vodka, é nostálgica e resmungona. O nome "Malina" significa "framboesa" em eslavo, uma fruta ácida. |
+| **Zdrada**<br><small>A Demónia Vadia</small> | **Zdrada**<br><small>The Bitch Demon</small> | "Vadia" mantém a agressividade do original. Zdrada (que significa "traição" em polaco) é uma masoquista que provoca para receber reações negativas. O tom de insulto é adequado à personagem. |
+| **Azazel**<br><small>A Anjo Curiosa</small> | **Azazel**<br><small>The Curious Angel</small> | "Anjo" é invariável em género, marcado pelo artigo "a". "Curiosa" reflete a natureza inquisitiva e ingénua da personagem, que a levará a tornar-se noutra coisa no capítulo extra. |
+| **Justiça**<br><small>A Demónia Bacana</small> | **Justice**<br><small>The Awesome Demon</small> | **Escolha-chave:** "Bacana" captura o espírito descontraído, positivo e carismático da personagem. Justice é a única que aposta no Helltaker, goza com a Lúcifer e revela a sua cegueira com naturalidade. O nome foi traduzido como "Justiça", seguindo o padrão de nomes-concepto. |
+| **Lúcifer**<br><small>A Presidente Executiva do Inferno</small> | **Lucifer**<br><small>CEO of Hell</small> | "Lúcifer" é a forma portuguesa. "Presidente Executiva" mantém o tom corporativo moderno do original, criando o contraste cómico entre a pompa do título e a pouca autoridade real que demonstra. |
+| **Sentença**<br><small>A Procuradora de Justiça</small> | **Judgement**<br><small>The High Prosecutor</small> | "Sentença" segue o padrão de nomes-concepto (como "Justiça"). "Procuradora de Justiça" utiliza o título oficial português para magistrados do Ministério Público, mantendo o tom jurídico e solene. |
+| **Belzebu**<br><small>A Grande Mosca</small> | **Beelzebub**<br><small>The Great Fly</small> | "Belzebu" é a forma portuguesa tradicional. O cognome é tradução literal, mantendo a referência bíblica ao "Senhor das Moscas". |
+
+---
+
+## [icon:skull-scan-outline] O capítulo Examtaker {#examtaker}
+
+No capítulo extra, as personagens surgem com novos títulos que refletem a inversão de poder e o tom mais sombrio da narrativa.
+
+| ^ | Original | Notas |
+|---|---|---|
+| **Sapiência**<br><small>A Demónia Cientista</small> | **Loremaster**<br><small>The Science Demon</small> | **Escolha-chave:** "Sapiência" é um conceito personificado, seguindo o padrão de "Justiça" e "Sentença". A antiga Azazel não é apenas sábia — é a própria sabedoria em estado puro, um título auto-atribuído que reflete a sua arrogância após usurpar o Inferno. O cognome "A Demónia Cientista" mantém a referência à sua abordagem experimental. |
+| **Lúcifer**<br><small>A Demónia Criada</small> | **Lucifer**<br><small>The Maid Demon</small> | Após ser destronada pela Sapiência, a antiga CEO do Inferno é reduzida a criada pessoal, usando avental e executando tarefas domésticas. "Criada" captura a ironia cruel da inversão de papéis: a que mandava passou a servir. |
+| **Sujeito 67** | **Subject 67** | Mantém-se o original, já que "Subject" é deliberadamente clínico e genérico — é apenas mais uma cobaia nas experiências da Sapiência. |
+| **Justiça**<br><small>A Demónia das Tartes de Maçã</small> | **Justice**<br><small>The Apple Pie Demon</small> | No contexto do Examtaker, Justice mantém a sua personalidade descontraída. O cognome brinca com o facto de agora também fazer tartes, possivelmente para a Sapiência ou simplesmente porque sim. |
+
+---
+
+## [icon:library-books] Sobre as escolhas de tradução
+
+### Critérios gerais
+
+1. **Tom cómico:** Sempre que possível, privilegiou-se uma tradução que mantivesse o humor irreverente do original, utilizando registo coloquial (ex.: "tarada", "bacana").
+2. **Duplos sentidos:** Foram aproveitados sempre que existia uma correspondência natural em português (ex.: "enjoada" para Malina).
+3. **Nomes-concepto:** Personagens como Justice, Judgement e Loremaster foram traduzidas como conceitos ("Justiça", "Sentença", "Sapiência") para manter a coerência com a forma como se apresentam.
+4. **Títulos formais:** Onde o original usava títulos pomposos ou jurídicos, procuraram-se equivalentes portugueses igualmente formais (ex.: "Procuradora de Justiça", "Presidente Executiva").
+
+### Recursos utilizados
+
+- [Análise oficial do criador (Vanripper) sobre as personagens](https://www.reddit.com/r/Helltaker/comments/jn0u5c/i_analysed_every_helltaker_character_according/)
+- [Helltaker Wiki | Fandom](https://helltaker.fandom.com/wiki/Helltaker_Wiki)

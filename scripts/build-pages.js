@@ -54,11 +54,11 @@ function stripPtPt(titulo) {
 }
 
 function getGameSlug(jogo) {
-  return String(jogo?.slug || jogo?.guid || '').trim();
+  return String(jogo?.slug || '').trim();
 }
 
 function getGameName(jogo) {
-  return String(jogo?.nome || stripPtPt(jogo?.titulo || jogo?.guid || '')).trim();
+  return String(jogo?.nome || stripPtPt(jogo?.titulo || getGameSlug(jogo) || '')).trim();
 }
 
 function getLinguaDisplay(jogo) {
@@ -178,7 +178,7 @@ function buildBadgesHtml(jogo) {
 
 function normalizeInfoJogo(jogo) {
   const old = jogo.informacoesJogo || {};
-  const nome = jogo.nome || old.nome || stripPtPt(jogo.titulo || jogo.guid);
+  const nome = jogo.nome || old.nome || stripPtPt(jogo.titulo || getGameSlug(jogo));
   const nomeOriginal = jogo.nome_original || old.nomeOriginal || '';
   const criador = jogo.criador || old.criadoPor || 'n/d';
 
@@ -296,7 +296,7 @@ function buildDownloadSection(jogo, downloadsData) {
     <h2 class="section-title"><i class="fas fa-download"></i> Descargas e Avisos</h2>
     <div class="section-content">
       <div class="download-actions">
-        <a href="${escapeHtml(jogo.downloadUrl || jogo.link || '#')}" class="btn btn-primary download-btn" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(downloadLabel)}">
+        <a href="#" class="btn btn-primary download-btn" data-game-id="${escapeHtml(slug)}" aria-label="${escapeHtml(downloadLabel)}">
           <i class="fas ${downloadIcon}"></i>
           <div class="download-btn-text">
             <div>${escapeHtml(downloadLabel)}</div>
@@ -321,7 +321,7 @@ function buildDownloadSection(jogo, downloadsData) {
 }
 
 function buildCommentsSection(jogo) {
-  const title = stripPtPt(jogo.titulo || jogo.guid || 'Comentários');
+  const title = stripPtPt(jogo.titulo || getGameSlug(jogo) || 'Comentários');
 
   return `
   <section class="game-section comments-section" id="comentarios">
@@ -393,7 +393,9 @@ function resolveImageList(jogo) {
       .filter(item => item.src);
   }
 
-  const folder = path.join(__dirname, '..', 'data', 'game-content', jogo.guid, 'translation');
+  const gameSlug = getGameSlug(jogo);
+  if (!gameSlug) return [];
+  const folder = path.join(__dirname, '..', 'data', 'game-content', gameSlug, 'translation');
   if (!fs.existsSync(folder)) return [];
 
   const files = fs.readdirSync(folder)
@@ -401,7 +403,7 @@ function resolveImageList(jogo) {
     .sort((a, b) => a.localeCompare(b, 'pt', { numeric: true }));
 
   return files.map((file) => ({
-    src: `/data/game-content/${jogo.guid}/translation/${file}`
+    src: `/data/game-content/${gameSlug}/translation/${file}`
   }));
 }
 
@@ -529,7 +531,7 @@ function computeRelatedGames(jogoAtual, allGames, quantidade = 4) {
   const creatorAtual = String(getGameCreator(jogoAtual) || '').trim().toLowerCase();
 
   return allGames
-    .filter(jogo => jogo.guid !== jogoAtual.guid)
+    .filter(jogo => getGameSlug(jogo) !== getGameSlug(jogoAtual))
     .map(jogo => {
       let similaridade = 0;
 
@@ -618,6 +620,7 @@ function getBreadcrumbCategoria(jogoCategorias, categoriasPrincipais) {
 
 function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloadsData, header, footer, favicon) {
   const nome = getGameName(jogo);
+  const titulo = stripPtPt(jogo.titulo) || nome;
   const linguaDisplay = getLinguaDisplay(jogo);
   const gameSlug = getGameSlug(jogo);
   const breadcrumbTitulo = nome;
@@ -660,7 +663,7 @@ function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloads
     '{{SITE_SHELL_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.siteShellJs),
     '{{GAME_PAGE_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.gamePageJs),
     '{{DOWNLOAD_COUNTER_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.downloadCounterJs),
-    '{{PAGE_TITLE}}': escapeHtml(`${nome} — Tradução ${linguaDisplay} | 100Nome Traduções`),
+    '{{PAGE_TITLE}}': escapeHtml(`${titulo} — Tradução ${linguaDisplay} | 100Nome Traduções`),
     '{{META_DESCRIPTION}}': escapeHtml(metaDescription),
     '{{PAGE_URL}}': escapeHtml(pageUrl),
     '{{OG_IMAGE}}': escapeHtml(ogImage),
@@ -672,7 +675,7 @@ function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloads
     '{{BREADCRUMB_CATEGORY_ICON}}': escapeHtml(breadcrumbCategoria.icon),
     '{{COVER_IMAGE}}': escapeHtml(jogo.capa || ''),
     '{{COVER_ALT}}': escapeHtml(`${nome} - Tradução ${linguaDisplay} - 100Nome`),
-    '{{GAME_TITLE}}': escapeHtml(`${nome} — Tradução ${linguaDisplay}`),
+    '{{GAME_TITLE}}': escapeHtml(`${titulo} — Tradução ${linguaDisplay}`),
     '{{GAME_SUBTITLE_HTML}}': '',
     '{{META_DATE}}': escapeHtml(formatDatePt(dateRaw)),
     '{{META_VERSION}}': escapeHtml(`v${traducao.versao || '1.0'}`),
@@ -696,26 +699,54 @@ function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloads
   return html;
 }
 
-function main() {
+async function fetchDownloadsData(slugs) {
+  const API_BASE = process.env.DOWNLOADS_API_URL || 'https://100nome-api.netlify.app/.netlify/functions';
+  const downloadsData = {};
+
+  await Promise.all(slugs.map(async (slug) => {
+    try {
+      const res = await fetch(`${API_BASE}/count?id=${slug}`);
+      if (res.ok) {
+        const data = await res.json();
+        downloadsData[slug] = { downloads: data.downloads ?? null };
+      }
+    } catch (err) {
+      console.warn(`[downloads] Falha ao obter contador para ${slug}:`, err.message);
+    }
+  }));
+
+  return downloadsData;
+}
+
+async function main() {
   if (!fs.existsSync(templatePath)) {
     console.error('Template não encontrado:', templatePath);
     process.exit(1);
   }
 
   const data = readJson(jogosPath);
-  const downloadsData = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
   const template = fs.readFileSync(templatePath, 'utf8');
   const header = readPartial('header.html');
   const footer = readPartial('footer.html');
   const favicon = readPartial('favicon.html');
   const categoriasPrincipais = data.categoriasPrincipais || [];
-  const allGames = data.jogos || [];
+  const allGames = (data.jogos || []).filter(jogo => getGameSlug(jogo));
+
+  // Buscar contadores ao Netlify (com fallback para downloads.json local)
+  let downloadsData = {};
+  try {
+    const slugs = allGames.map(getGameSlug);
+    downloadsData = await fetchDownloadsData(slugs);
+    console.log('[downloads] Contadores obtidos do Netlify');
+  } catch (err) {
+    console.warn('[downloads] Falha ao obter contadores, a usar ficheiro local:', err.message);
+    downloadsData = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
+  }
 
   const legacyNames = new Set();
   for (const jogo of allGames) {
     const slug = getGameSlug(jogo);
     if (slug) legacyNames.add(`${slug}.html`);
-    if (jogo.guid) legacyNames.add(`${jogo.guid}.html`);
   }
   for (const name of legacyNames) {
     const legacyFile = path.join(outputDir, name);

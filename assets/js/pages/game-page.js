@@ -77,6 +77,7 @@ $(document).ready(function() {
 
         function resetAuto() {
             clearInterval(autoTimer);
+            autoTimer = setInterval(() => goTo(current + 1), 5500);
         }
 
         if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));

@@ -783,7 +783,7 @@ function processGameWiki(jogoId, jogosData) {
     }
     
     // Criar diretório de output
-    const jogoData = jogosData?.jogos?.find(j => j.guid === jogoId);
+    const jogoData = jogosData?.jogos?.find(j => j.slug === jogoId);
     const gameSlug = String(jogoData?.slug || jogoId).trim();
     const outputDir = path.join(__dirname, CONFIG.outputDir, `${gameSlug}`);
     fs.rmSync(outputDir, { recursive: true, force: true });
