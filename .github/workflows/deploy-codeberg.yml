@@ -1,0 +1,98 @@
+name: Deploy Site to Codeberg
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CODEBERG_REPO: ${{ secrets.CODEBERG_REPO }}
+      CODEBERG_USERNAME: ${{ secrets.CODEBERG_USERNAME }}
+      CODEBERG_TOKEN: ${{ secrets.CODEBERG_TOKEN }}
+      CODEBERG_BRANCH: ${{ secrets.CODEBERG_BRANCH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate required secrets
+        run: |
+          if [ -z "${CODEBERG_REPO}" ]; then
+            echo "Secret em falta: CODEBERG_REPO (formato: owner/repo)."
+            exit 1
+          fi
+          if [ -z "${CODEBERG_USERNAME}" ]; then
+            echo "Secret em falta: CODEBERG_USERNAME."
+            exit 1
+          fi
+          if [ -z "${CODEBERG_TOKEN}" ]; then
+            echo "Secret em falta: CODEBERG_TOKEN."
+            exit 1
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build site
+        run: npm run build:all
+
+      - name: Prepare publish directory
+        run: |
+          rm -rf .publish
+          mkdir -p .publish
+
+          # Copiar tudo o que é necessário para runtime estático.
+          rsync -a \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude "node_modules/" \
+            --exclude "scripts/" \
+            --exclude "templates/" \
+            --exclude "package.json" \
+            --exclude "package-lock.json" \
+            --exclude "README.md" \
+            ./ .publish/
+
+          # Remover fontes privadas pedidas.
+          rm -f .publish/data/game-content/jogos.json
+          find .publish/data/wiki-content -type f -name "*.wikimd" -delete || true
+
+      - name: Publish to Codeberg
+        run: |
+          set -euo pipefail
+
+          TARGET_BRANCH="${CODEBERG_BRANCH:-main}"
+          REMOTE_URL="https://${CODEBERG_USERNAME}:${CODEBERG_TOKEN}@codeberg.org/${CODEBERG_REPO}.git"
+
+          rm -rf .codeberg-target
+          git clone --depth 1 --branch "${TARGET_BRANCH}" "${REMOTE_URL}" .codeberg-target \
+            || (git clone --depth 1 "${REMOTE_URL}" .codeberg-target && cd .codeberg-target && git checkout -b "${TARGET_BRANCH}")
+
+          rsync -a --delete \
+            --exclude ".git/" \
+            .publish/ .codeberg-target/
+
+          cd .codeberg-target
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "Sem alterações para publicar."
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "chore: deploy estático a partir de GitHub Actions"
+          git push origin "${TARGET_BRANCH}"
