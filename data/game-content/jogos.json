@@ -1,15 +1,13 @@
 {
-  "destaques": [],
   "jogos": [
     {
+      "nome": "The Ball",
+      "slug": "the-ball-pt-pt",
       "guid": "the-ball-jogo-traduzido-portugues-30712",
       "titulo": "Tradução: The Ball PT-PT",
       "capa": "data/game-content/imgs/the-ball-jogo-tradução-português.jpeg",
       "descricao": "Enquanto intrépido arqueólogo que labora nas encostas de um vulcão adormecido algures no México, vês-te aprisionado numa caverna. Não tarda até que percebas que este recinto transcende a mera cavidade. Desvendarás antigas ruínas, ocultas de forasteiros por séculos, e depararás com um enigmático artefacto, uma Bola revestida de ouro e metal. À medida que avanças na resolução do enigma deste lugar surpreendente, é imperativo desvelar os segredos da Bola e dominar a arte de controlar este artefacto ancestral. Adentrando mais no vulcão, revelarás alguns dos mais grandiosos segredos da humanidade, defrontando, não apenas enigmas e armadilhas, mas também diversas criaturas singulares - os guardiões deste mistério. Precisarás de derrotar estas criaturas, valendo-te unicamente do poder da Bola.",
-      "nome": "The Ball",
       "criador": "Teotl Studios",
-      "versao": "1.0",
-      "data": "Mon, 02 Jun 2025 15:24:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -31,13 +29,7 @@
         "indie"
       ],
       "link": "https://100nome.blogs.sapo.pt/the-ball-jogo-traduzido-portugues-30712",
-      "linkWiki": "/wiki/the-ball-pt-pt",
-      "notas": [
-        "Wiki da Tradução disponível."
-      ],
-      "rebrandlyId": "70991adff2d647e7b1cfb428f70faeb7",
-      "downloadUrl": "https://rebrand.ly/ballzipd0c3c6",
-      "slug": "the-ball-pt-pt"
+      "dataPublicacao": "Mon, 02 Jun 2025 15:24:00 GMT"
     },
     {
       "guid": "vampireville-traducao-em-portugues-48704",
@@ -46,8 +38,6 @@
       "descricao": "O governo obterá em breve o direito de vender o Castelo de Malgrey, porque nenhum herdeiro reclamou a propriedade nos últimos 100 anos. Todos os peritos avaliadores enviados pelo teu patrão enlouqueceram, incluindo um dos teus colegas mais próximos. É a tua oportunidade! Desvenda os segredos desta propriedade usando os teus talentos de caça a objetos escondidos. Avalia este velho imóvel e descobre o que levou os outros agentes imobiliários a enlouquecerem em Vampireville!",
       "nome": "Vampireville",
       "criador": "Nevosoft",
-      "versao": "1.0",
-      "data": "Sun, 05 Jan 2025 16:32:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -67,9 +57,8 @@
         "aventura"
       ],
       "link": "https://100nome.blogs.sapo.pt/vampireville-traducao-em-portugues-48704",
-      "rebrandlyId": "9003f5d83b4a40aca709afbd19de144f",
-      "downloadUrl": "https://rebrand.ly/vampirevillezipbd936f",
-      "slug": "vampireville-portugues"
+      "slug": "vampireville-portugues",
+      "dataPublicacao": "Sun, 05 Jan 2025 16:32:00 GMT"
     },
     {
       "guid": "dead-island-pt-pt-tuga-definitive-34406",
@@ -79,8 +68,6 @@
       "nome": "Dead Island Edição Definitiva",
       "nome_original": "Dead Island Definitive Edition",
       "criador": "Techland",
-      "versao": "1.1",
-      "data": "Mon, 08 Apr 2024 18:03:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -105,18 +92,14 @@
         "mundoaberto"
       ],
       "link": "https://100nome.blogs.sapo.pt/dead-island-pt-pt-tuga-definitive-34406",
-      "linkWiki": "/wiki/dead-island-pt-pt",
       "avisos": [
         "Linguagem agressiva."
       ],
       "notas": [
-        "Wiki da Tradução disponível.",
-        "Guia da Comunidade Steam disponível.",
         "Para todas as versões antigas/originais ou Definitive Edition (inclui DLCs)."
       ],
-      "rebrandlyId": "81bb8a639a3f493190c9593a75614c96",
-      "downloadUrl": "https://rebrand.ly/deadislande38fe7",
-      "slug": "dead-island-pt-pt"
+      "slug": "dead-island-pt-pt",
+      "dataPublicacao": "Mon, 08 Apr 2024 18:03:00 GMT"
     },
     {
       "guid": "twisted-lands-origin-origem-pt-pt-37909",
@@ -126,8 +109,6 @@
       "nome": "Twisted Lands - A Origem",
       "nome_original": "Twisted Lands - Origin",
       "criador": "Alawar Entertainment",
-      "versao": "1.1",
-      "data": "Fri, 29 Mar 2024 19:58:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -151,9 +132,8 @@
         "misterio"
       ],
       "link": "https://100nome.blogs.sapo.pt/twisted-lands-origin-origem-pt-pt-37909",
-      "rebrandlyId": "2987ba26afbe46f28281841ec0b206c9",
-      "downloadUrl": "https://rebrand.ly/twistedlands225ab7",
-      "slug": "twisted-lands-a-origem-pt-pt"
+      "slug": "twisted-lands-a-origem-pt-pt",
+      "dataPublicacao": "Fri, 29 Mar 2024 19:58:00 GMT"
     },
     {
       "guid": "doors-paradox-traducao-pt-pt-portugues-32933",
@@ -162,8 +142,6 @@
       "descricao": "Tanto quanto nos é possível lembrar, temo-nos situado na linha ténue entre o caos e a ordem. Até que um dia um portal misterioso se abriu e o caos reinou. Agora cabe-te a ti trazer a ordem de volta... o que não será assim tão simples! Um relaxante quebra-cabeças de fuga! Abre caminho para uma série de dioramas 3D feitos à mão, procura objetos úteis, encontra pistas ocultas e resolve enigmas divertidos! Desvenda esta misteriosa aventura sobre o caos, a ordem e o surreal.",
       "nome": "Doors: Paradox",
       "criador": "Big Loop Studios",
-      "versao": "1.0",
-      "data": "Sat, 17 Feb 2024 07:27:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -182,9 +160,8 @@
         "indie"
       ],
       "link": "https://100nome.blogs.sapo.pt/doors-paradox-traducao-pt-pt-portugues-32933",
-      "rebrandlyId": "107592dfed384270b8922d079689297c",
-      "downloadUrl": "https://rebrand.ly/doorsparadox6a8a4c",
-      "slug": "doors-paradox-pt-pt"
+      "slug": "doors-paradox-pt-pt",
+      "dataPublicacao": "Sat, 17 Feb 2024 07:27:00 GMT"
     },
     {
       "guid": "traducao-gta-vice-city-pt-pt-31456",
@@ -194,8 +171,6 @@
       "nome": "GTA Vice City",
       "nome_original": "Grand Theft Auto - Vice City",
       "criador": "Rockstar Games",
-      "versao": "1.7",
-      "data": "Tue, 13 Feb 2024 12:16:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -215,9 +190,8 @@
       "avisos": [
         "Linguagem agressiva."
       ],
-      "rebrandlyId": "68de868ca83a40698222ecccd002652d",
-      "downloadUrl": "https://rebrand.ly/gtavice8d6e7f",
-      "slug": "gta-vice-city-pt-pt"
+      "slug": "gta-vice-city-pt-pt",
+      "dataPublicacao": "Tue, 13 Feb 2024 12:16:00 GMT"
     },
     {
       "guid": "transport-giant-down-under-portugues-pt-28855",
@@ -226,8 +200,6 @@
       "descricao": "É o ano de 1850: o mundo está a mudar. Uma nova era de produção e transporte em massa começou. Para um empresário inteligente, há muitas oportunidades. Com um pouco de dinheiro e boas ideias, podes estabelecer um império empresarial.",
       "nome": "Transport Giant",
       "criador": "Fancy Bytes, Reactor, JoWooD",
-      "versao": "1.0",
-      "data": "Sun, 04 Feb 2024 17:42:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -252,9 +224,8 @@
         "estrategia"
       ],
       "link": "https://100nome.blogs.sapo.pt/transport-giant-down-under-portugues-pt-28855",
-      "rebrandlyId": "7cb27108082e4e3e8cb9a6a51c2ee470",
-      "downloadUrl": "https://rebrand.ly/transportgiant14d35b",
-      "slug": "transport-giant-portugues"
+      "slug": "transport-giant-portugues",
+      "dataPublicacao": "Sun, 04 Feb 2024 17:42:00 GMT"
     },
     {
       "guid": "beneath-a-steel-sky-pt-pt-portugues-20354",
@@ -263,8 +234,6 @@
       "descricao": "Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares, Robert Foster encontra-se em Union City, uma vasta metrópole sob a tirania de uma IA fascista. Sozinho, acompanhado apenas do circuito impresso do seu melhor amigo, Foster terá de descobrir a verdade sinistra e a razão pela qual é particularmente perseguido.",
       "nome": "Beneath a Steel Sky",
       "criador": "Revolution Software",
-      "versao": "1.0",
-      "data": "Fri, 21 Jul 2023 10:43:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -276,9 +245,8 @@
         "indie"
       ],
       "link": "https://100nome.blogs.sapo.pt/beneath-a-steel-sky-pt-pt-portugues-20354",
-      "rebrandlyId": "239eac28783948f890ea3adf380d77ab",
-      "downloadUrl": "https://rebrand.ly/beneathsteel724442",
-      "slug": "beneath-a-steel-sky-pt-pt"
+      "slug": "beneath-a-steel-sky-pt-pt",
+      "dataPublicacao": "Fri, 21 Jul 2023 10:43:00 GMT"
     },
     {
       "guid": "medieval-ii-total-war-pt-pt-portugues-20903",
@@ -287,8 +255,6 @@
       "descricao": "Gerirás o teu império com punho de ferro, tratando de tudo, desde a construção e melhoria de cidades até ao recrutamento e treino de exércitos. Usa a diplomacia para manipular aliados e inimigos, ultrapassar a temida Inquisição e influenciar o Papa. Lidera a luta nas Cruzadas e traz a vitória ao Islão ou ao Cristianismo na Guerra Santa. Reescreve a história e conquista o mundo. Total War é a guerra total!",
       "nome": "Medieval II - Total War",
       "criador": "Creative Assembly",
-      "versao": "1.0",
-      "data": "Fri, 21 Jul 2023 10:21:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -307,9 +273,8 @@
       "notas": [
         "Para a versão 1.2 do jogo. Não funciona bem na versão atual do Steam. O pacote será adaptado para a versão do Steam no futuro. Entra no Discord para novidades."
       ],
-      "rebrandlyId": "94cd536fa6794d5cb8fb95ea1708c34b",
-      "downloadUrl": "https://rebrand.ly/medievaltotal796acf",
-      "slug": "medieval-ii-total-war-pt-pt"
+      "slug": "medieval-ii-total-war-pt-pt",
+      "dataPublicacao": "Fri, 21 Jul 2023 10:21:00 GMT"
     },
     {
       "guid": "helltaker-pt-pt-portugues-portugal-19857",
@@ -318,8 +283,6 @@
       "descricao": "Acordas um dia com um sonho. Um harém cheio de raparigas demónio. Abres o portal na esperança de realizar os teus desejos mais loucos. O fogo do inferno arde-te nos pulmões, a morte espera-te na próxima esquina e tudo parece saído de um jogo móvel fofinho. Estás no inferno.",
       "nome": "Helltaker",
       "criador": "Łukasz Piskorz (vanripper)",
-      "versao": "4.5",
-      "data": "Mon, 10 Jul 2023 14:12:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -346,15 +309,12 @@
         "indie"
       ],
       "link": "https://100nome.blogs.sapo.pt/helltaker-pt-pt-portugues-portugal-19857",
-      "linkWiki": "/wiki/helltaker-pt-pt",
       "notas": [
         "O jogo é gratuito. Obtê-lo aqui.",
-        "Wiki da Tradução disponível.",
         "Pacote de tradução inclui jogo completo + Capítulo Bónus (Examtaker)."
       ],
-      "rebrandlyId": "436078036a4e466695e670589094338a",
-      "downloadUrl": "https://rebrand.ly/helltakerzipe312f8",
-      "slug": "helltaker-pt-pt"
+      "slug": "helltaker-pt-pt",
+      "dataPublicacao": "Mon, 10 Jul 2023 14:12:00 GMT"
     },
     {
       "guid": "extreme-tuxracer-pt-pt-19393",
@@ -363,8 +323,6 @@
       "descricao": "Extreme Tux Racer é um jogo de corrida em OpenGL que apresenta Tux, a mascote do Linux. O objetivo do jogo é deslizar por uma montanha coberta de neve e gelo o mais rapidamente possível, apanhando arenques pelo caminho. Ele é baseado na versão GPL de TuxRacer.",
       "nome": "Extreme Tux Racer",
       "criador": "Equipa de Desenvolvimento do Etracer",
-      "versao": "1.0",
-      "data": "Sun, 09 Jul 2023 09:43:00 GMT",
       "atributos": [
         "ao90",
         "menus",
@@ -383,9 +341,8 @@
       "notas": [
         "Tradução incluída oficialmente na versão 0.8.4 do jogo. Para versões anteriores, transferir pacote em baixo."
       ],
-      "rebrandlyId": "67984d1189c549079486428f4604275e",
-      "downloadUrl": "https://rebrand.ly/extremetux69acae",
-      "slug": "extreme-tux-racer-portugues"
+      "slug": "extreme-tux-racer-portugues",
+      "dataPublicacao": "Sun, 09 Jul 2023 09:43:00 GMT"
     },
     {
       "guid": "supertuxkart-portugues-portugal-pt-pt-21485",
@@ -394,8 +351,6 @@
       "descricao": "Mais que fazê-lo realista, queremo-lo divertido. Conhece o grande farol ou então traspassa a areia e visita as pirâmides. Temos uma variedade de pistas com diferentes temas para os jogadores desfrutarem, desde corridas debaixo de água, quintas rurais, selvas e até no espaço! Dá o teu melhor a desviar-te de outros karts à medida que (possivelmente) te ultrapassam, só não comas as bananas! Cuidado com bolas de bólingue, desentupidores, pastilhas elásticas e bolos atirados pelos teus adversários. Podes fazer uma corrida contra outros karts, competir num Campeonato, tentar bater o recorde em Contrarrelógio por ti mesmo, jogar no modo Batalha contra o computador ou amigos teus, e mais! Para um desafio maior, joga online, conhece jogadores de todo o mundo e prova de que és feito!",
       "nome": "SuperTuxKart",
       "criador": "Equipa de Desenvolvimento do STK",
-      "versao": "2.3",
-      "data": "Sat, 06 May 2023 13:28:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -444,9 +399,8 @@
       "notas": [
         "Tradução oficial. Para versões antigas do jogo, descarregar o pacote para uma tradução melhorada."
       ],
-      "rebrandlyId": "482abffe599940d1b64f11ed264b6d7c",
-      "downloadUrl": "https://rebrand.ly/supertuxkartzip4c4e5d",
-      "slug": "supertuxkart-pt-pt"
+      "slug": "supertuxkart-pt-pt",
+      "dataPublicacao": "Sat, 06 May 2023 13:28:00 GMT"
     },
     {
       "guid": "a-pedra-de-anamara-portugues-traducao-21975",
@@ -456,8 +410,6 @@
       "nome": "A Pedra de Anamara",
       "nome_original": "La Piedra de Anamara",
       "criador": "Gabriel Rodríguez",
-      "versao": "2.1",
-      "data": "Fri, 05 May 2023 10:16:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -477,7 +429,10 @@
       ],
       "link": "https://100nome.blogs.sapo.pt/a-pedra-de-anamara-portugues-traducao-21975",
       "slug": "la-piedra-de-anamara-traducao",
-      "lingua_display": "Português"
+      "lingua_display": "Português",
+      "primaryActionType": "play",
+      "primaryActionUrl": "https://anamara3d.rf.gd/pt/la-piedra-de-anamara/",
+      "dataPublicacao": "Fri, 05 May 2023 10:16:00 GMT"
     },
     {
       "guid": "neighbours-back-from-hell-em-portugues-22406",
@@ -487,8 +442,6 @@
       "nome": "Vizinhos Voltam do Inferno",
       "nome_original": "Neighbours Back From Hell",
       "criador": "Farbworks",
-      "versao": "1.0",
-      "data": "Sat, 05 Feb 2022 17:16:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -509,9 +462,8 @@
         "quebracabecas"
       ],
       "link": "https://100nome.blogs.sapo.pt/neighbours-back-from-hell-em-portugues-22406",
-      "rebrandlyId": "93d0ef5f5405419b8539e678d51455fa",
-      "downloadUrl": "https://rebrand.ly/vizinhosvoltam8759e0",
-      "slug": "neighbours-back-from-hell-pt-pt"
+      "slug": "neighbours-back-from-hell-pt-pt",
+      "dataPublicacao": "Sat, 05 Feb 2022 17:16:00 GMT"
     },
     {
       "guid": "vizinhos-do-inferno-2-em-ferias-pt-pt-22940",
@@ -521,8 +473,6 @@
       "nome": "Vizinhos do Inferno 2 - Em Férias",
       "nome_original": "Neighbors From Hell 2 - On Vacation",
       "criador": "Jowood",
-      "versao": "2.2",
-      "data": "Sat, 05 Feb 2022 17:14:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -543,9 +493,8 @@
         "quebracabecas"
       ],
       "link": "https://100nome.blogs.sapo.pt/vizinhos-do-inferno-2-em-ferias-pt-pt-22940",
-      "rebrandlyId": "4cf8ac890bef464dbf697ac0894e6a8d",
-      "downloadUrl": "https://rebrand.ly/vizinhosinferno1d1be3",
-      "slug": "vizinhos-do-inferno-2-pt-pt"
+      "slug": "vizinhos-do-inferno-2-pt-pt",
+      "dataPublicacao": "Sat, 05 Feb 2022 17:14:00 GMT"
     },
     {
       "guid": "vizinhos-do-inferno-traducao-portugues-23544",
@@ -555,8 +504,6 @@
       "nome": "Vizinhos do Inferno - A Vingança Serve-se Fria",
       "nome_original": "Neighbours From Hell - Revenge Is A Sweet Game",
       "criador": "Jowood",
-      "versao": "3.0",
-      "data": "Thu, 03 Feb 2022 15:39:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -573,9 +520,8 @@
         "quebracabecas"
       ],
       "link": "https://100nome.blogs.sapo.pt/vizinhos-do-inferno-traducao-portugues-23544",
-      "rebrandlyId": "c8babf2873df4dc898fa942340e9951f",
-      "downloadUrl": "https://rebrand.ly/vizinhosinfernodadd01",
-      "slug": "vizinhos-do-inferno-pt-pt"
+      "slug": "vizinhos-do-inferno-pt-pt",
+      "dataPublicacao": "Thu, 03 Feb 2022 15:39:00 GMT"
     },
     {
       "guid": "twisted-lands-insomniac-pt-pt-portugues-24398",
@@ -585,8 +531,6 @@
       "nome": "Twisted Lands - Insónias",
       "nome_original": "Twisted Lands - Insomniac",
       "criador": "Alawar Entertainment",
-      "versao": "1.0",
-      "data": "Mon, 17 Jan 2022 12:18:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -633,9 +577,8 @@
       "notas": [
         "Para versões normal e de colecionador."
       ],
-      "rebrandlyId": "8ad9ccd67ab548069d6efdf8037c229c",
-      "downloadUrl": "https://rebrand.ly/twistedlands2c3853",
-      "slug": "twisted-lands-insonias-pt-pt"
+      "slug": "twisted-lands-insonias-pt-pt",
+      "dataPublicacao": "Mon, 17 Jan 2022 12:18:00 GMT"
     },
     {
       "guid": "twisted-lands-shadow-town-pt-pt-24992",
@@ -645,8 +588,6 @@
       "nome": "Twisted Lands - Ilha Sombria",
       "nome_original": "Twisted Lands - Shadow Town",
       "criador": "Alawar Entertainment",
-      "versao": "1.3",
-      "data": "Mon, 17 Jan 2022 12:17:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -668,9 +609,8 @@
       "notas": [
         "Para versões normal e de colecionador."
       ],
-      "rebrandlyId": "7bcf1d44fc324ca48b02e0599f5dd065",
-      "downloadUrl": "https://rebrand.ly/twistedlands065b77",
-      "slug": "twisted-lands-ilha-sombria-pt-pt"
+      "slug": "twisted-lands-ilha-sombria-pt-pt",
+      "dataPublicacao": "Mon, 17 Jan 2022 12:17:00 GMT"
     },
     {
       "guid": "jogo-the-tiny-bang-story-11311",
@@ -679,8 +619,6 @@
       "descricao": "A vida no Pequeno Planeta era tranquila e despreocupada até que ocorreu um grande desastre - o planeta sofreu o impacto de um meteorito! O mundo desmoronou e agora o seu futuro depende apenas de ti! Utiliza a tua imaginação e criatividade: para restaurar o Pequeno Planeta e ajudar os seus habitantes terás que reparar uma variedade de máquinas e mecanismos assim como resolver quebra-cabeças em cada um dos cinco capítulos deste jogo. A navegação é simples e intuitiva. Não te distrai dos enigmas desafiadores e poderás viver por completo a atmosfera única do jogo.",
       "nome": "The Tiny Bang Story",
       "criador": "Colibri Games",
-      "versao": "1.0",
-      "data": "Mon, 17 Jan 2022 12:16:00 GMT",
       "atributos": [
         "ao90",
         "menus"
@@ -697,9 +635,8 @@
         "objetosescondidos"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-the-tiny-bang-story-11311",
-      "rebrandlyId": "fba18119d8164c30a1d7ebde61138c86",
-      "downloadUrl": "https://rebrand.ly/tinybangd12ff0",
-      "slug": "the-tiny-bang-story-portugues"
+      "slug": "the-tiny-bang-story-portugues",
+      "dataPublicacao": "Mon, 17 Jan 2022 12:16:00 GMT"
     },
     {
       "guid": "dear-esther-querida-pt-pt-de-portugal-26427",
@@ -709,8 +646,6 @@
       "nome": "Querida Esther - Edição Landmark",
       "nome_original": "Dear Esther - Landmark Edition",
       "criador": "The Chinese Room",
-      "versao": "2.0",
-      "data": "Thu, 30 Dec 2021 14:57:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -735,9 +670,8 @@
       "notas": [
         "Para edições normal e Landmark."
       ],
-      "rebrandlyId": "4e1bcab54ceb41b0a6ce2963ff11533f",
-      "downloadUrl": "https://rebrand.ly/queridaesther587679",
-      "slug": "dear-esther-pt-pt"
+      "slug": "dear-esther-pt-pt",
+      "dataPublicacao": "Thu, 30 Dec 2021 14:57:00 GMT"
     },
     {
       "guid": "blur-jogo-traducao-portugues-pt-pt-br-23886",
@@ -746,8 +680,6 @@
       "descricao": "Blur é um jogo de carros de corrida elegante em espaços realistas e 50 carros reais em luta com Ferramentas. Apresenta dano realista e é frequentemente descrito como combinação de Mario Kart com uma corrida arcada. Mais facilmente confundido com o jogo de corridas Wipeout que qualquer simulação para verdadeiros corredores como Forza. Diferente de outros jogos de Ferramentas, Blur depende fortemente da sua física realista e, como se diz por aí: \"Blur não se trata de Ferramentas, mas da tua habilidade de condução por elas ampliada.\"",
       "nome": "Blur",
       "criador": "Bizarre Creations",
-      "versao": "1.4",
-      "data": "Tue, 19 Jan 2021 20:00:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -787,13 +719,9 @@
       "avisos": [
         "Seguir atentamente as instruções incluídas."
       ],
-      "notas": [
-        "Wiki da Tradução disponível."
-      ],
-      "rebrandlyId": "6a3ff9fd8b4e49beae5209fdd934b62d",
-      "downloadUrl": "https://rebrand.ly/blurzip704749",
       "slug": "blur-jogo-pt-pt",
-      "lingua_display": "PT-PT"
+      "lingua_display": "PT-PT",
+      "dataPublicacao": "Tue, 19 Jan 2021 20:00:00 GMT"
     },
     {
       "guid": "trine-jogo-pt-pt-portugues-de-portugal-27049",
@@ -802,8 +730,6 @@
       "descricao": "Trine acompanha três personagens ligadas pelo destino e um objecto mágico denominado Trine. Atraídos pelo artefacto, Pontius (o cavaleiro), Amadeus (o feiticeiro) e Zoya (a ladra) vêem-se confinados ao mesmo espaço, sendo-lhes impossível separarem-se. Podendo controlar qualquer um dos heróis e alternar facilmente entre eles, conduzirás a equipa à reconquista da sua individualidade - uma tarefa nada negligenciável. Corrompido pelo Mal, o seu reino é dominado por uma legião de mortos-vivos e esqueletos reanimados vagueiam pelo cenário. A colaboração entre a ladra egoísta, o feiticeiro mulherengo e o cavaleiro desastrado é essencial para a sobrevivência de todos...",
       "nome": "Trine",
       "criador": "Frozenbyte",
-      "versao": "1.0",
-      "data": "Mon, 11 Jul 2016 13:22:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -827,9 +753,8 @@
       "notas": [
         "Para versão original. Aplicar em Trine ou em Trine - Edição Encantada."
       ],
-      "rebrandlyId": "094e30f7a9b24cd6a01d2603a661599b",
-      "downloadUrl": "https://rebrand.ly/trinezip436cdc",
-      "slug": "trine-pt-pt"
+      "slug": "trine-pt-pt",
+      "dataPublicacao": "Mon, 11 Jul 2016 13:22:00 GMT"
     },
     {
       "guid": "gta-3-pt-pt-em-portugues-portugal-25519",
@@ -839,8 +764,6 @@
       "nome": "GTA 3",
       "nome_original": "Grand Theft Auto 3",
       "criador": "Rockstar Games",
-      "versao": "2.0",
-      "data": "Sat, 09 Jul 2016 18:17:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -860,9 +783,8 @@
       "avisos": [
         "Linguagem agressiva."
       ],
-      "rebrandlyId": "98e8e31ca40f470f9852a50f3d2b5646",
-      "downloadUrl": "https://rebrand.ly/gtazip721fab",
-      "slug": "gta-3-pt-pt"
+      "slug": "gta-3-pt-pt",
+      "dataPublicacao": "Sat, 09 Jul 2016 18:17:00 GMT"
     },
     {
       "guid": "traducao-gta-san-andreas-pt-pt-25949",
@@ -872,8 +794,6 @@
       "nome": "GTA San Andreas",
       "nome_original": "Grand Theft Auto - San Andreas",
       "criador": "Rockstar Games",
-      "versao": "1.5",
-      "data": "Sat, 09 Jul 2016 18:16:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -893,9 +813,8 @@
       "avisos": [
         "Linguagem agressiva."
       ],
-      "rebrandlyId": "a87fccf9fe5e4a5a89c312c0e2a6eeef",
-      "downloadUrl": "https://rebrand.ly/gtasan3c2261",
-      "slug": "gta-san-andreas-pt-pt"
+      "slug": "gta-san-andreas-pt-pt",
+      "dataPublicacao": "Sat, 09 Jul 2016 18:16:00 GMT"
     },
     {
       "guid": "jogo-glest-13167",
@@ -904,8 +823,6 @@
       "descricao": "Glest é um gratuito jogo 3D de estratégia em tempo real, no qual controlas os exércitos de duas diferentes fações: Tec, essencialmente composta por guerreiros e dispositivos mecânicos, e Magia, que prefere chamar magos e criaturas para o campo de batalha.",
       "nome": "Glest",
       "criador": "Equipa de Desenvolvimento do Glest",
-      "versao": "1.0",
-      "data": "Wed, 06 Jul 2016 14:15:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -922,9 +839,8 @@
         "estrategia"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-glest-13167",
-      "rebrandlyId": "038cc50219374288bb7ad7e1221036fe",
-      "downloadUrl": "https://rebrand.ly/glestzipa7435c",
-      "slug": "glest-portugues"
+      "slug": "glest-portugues",
+      "dataPublicacao": "Wed, 06 Jul 2016 14:15:00 GMT"
     },
     {
       "guid": "the-path-jogo-game-traducao-portugues-pt-32417",
@@ -933,8 +849,6 @@
       "descricao": "Parado num bosque nevado, é surpreendido por uma pitada de névoa e de repente está na Floresta, onde todos os contos de fadas têm raiz. A caminho da avó, a menina não segue o caminho, deixando-a livre para explorar a Floresta. A rapariga vai aprender uma valiosa lição com a sua visita ao Bosque? Ou será que as coisas não são como parecem? Podes ler o conto clássico? Dirige-a às tentações, corta caminho até à casa da avó, ou enfrenta o mal que está lá dentro?",
       "nome": "The Path",
       "criador": "Tale of Tales",
-      "versao": "1.0",
-      "data": "Tue, 21 Jun 2016 00:00:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -962,9 +876,8 @@
       "notas": [
         "Esta tradução é válida apenas para a versão original do jogo, não funciona na Steam."
       ],
-      "rebrandlyId": "39bff60f5ff74b90ba2d735d37a865cc",
-      "downloadUrl": "https://rebrand.ly/pathzip81d3da",
-      "slug": "the-path-portugues"
+      "slug": "the-path-portugues",
+      "dataPublicacao": "Tue, 21 Jun 2016 00:00:00 GMT"
     },
     {
       "guid": "jogo-widelands-10962",
@@ -973,8 +886,6 @@
       "descricao": "Widelands é um jogo de estratégia em tempo real com focos em economia e construção. Constrói as tuas habitações e desenvolve a economia do teu reino para produzir recursos necessários para conquistar novas áreas e derrotar os teus inimigos.",
       "nome": "Widelands",
       "criador": "Widelands Development Team",
-      "versao": "1.0",
-      "data": "Sun, 08 May 2016 00:00:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -994,7 +905,10 @@
       "notas": [
         "Tradução já incluída no jogo. Descarregar o jogo no site oficial."
       ],
-      "slug": "widelands-pt-pt"
+      "slug": "widelands-pt-pt",
+      "primaryActionType": "play",
+      "primaryActionUrl": "https://www.widelands.org/",
+      "dataPublicacao": "Sun, 08 May 2016 00:00:00 GMT"
     },
     {
       "guid": "world-of-goo-traducao-pt-pt-portugues-31909",
@@ -1003,8 +917,6 @@
       "descricao": "World of Goo é um jogo de quebra-cabeças baseado na física. A grande maioria dos níveis envolve a construção de uma torre usando as bolas de goo que vivem na área, para alcançar a tubulação que os vai salvá-los.",
       "nome": "World of Goo",
       "criador": "2D Boy",
-      "versao": "1.0",
-      "data": "Sat, 09 Apr 2016 00:00:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -1023,9 +935,8 @@
       "notas": [
         "Esta tradução é válida apenas para a versão original do jogo, não funciona na Steam."
       ],
-      "rebrandlyId": "43c7f65f3780476a9a09ba9523b35ead",
-      "downloadUrl": "https://rebrand.ly/mundogoof39321",
-      "slug": "world-of-goo-pt-pt"
+      "slug": "world-of-goo-pt-pt",
+      "dataPublicacao": "Sat, 09 Apr 2016 00:00:00 GMT"
     },
     {
       "guid": "jogo-harry-potter-e-a-pedra-filosofal-6615",
@@ -1035,8 +946,6 @@
       "nome": "Harry Potter e a Pedra Filosofal",
       "nome_original": "Harry Potter and the Philosopher's Stone",
       "criador": "KnowWonder, Electronic Arts",
-      "versao": "1.0",
-      "data": "Tue, 23 Jun 2015 00:00:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -1057,9 +966,8 @@
       "notas": [
         "Esta tradução é válida apenas para a versão original do jogo."
       ],
-      "rebrandlyId": "06322b5a96044c53837d0aa8b17fb7ee",
-      "downloadUrl": "https://rebrand.ly/harrypotter82d026",
-      "slug": "harry-potter-pedra-filosofal-pt-pt"
+      "slug": "harry-potter-pedra-filosofal-pt-pt",
+      "dataPublicacao": "Tue, 23 Jun 2015 00:00:00 GMT"
     },
     {
       "guid": "jogo-trackmania-united-forever-6020",
@@ -1068,8 +976,6 @@
       "descricao": "Trackmania é o jogo de corridas de carros de maior entretenimento de sempre. Milhões de jogadores jogam-no a solo ou em multijogador. Trackmania United Forever é a edição definitiva graças às numerosas adições e inovações que tem para oferecer. Esta versão traz todos os ambientes da série e está acompanhada de uma campanha a solo, enorme e enriquecida, incluindo 4 diferentes modos e 420 percursos progressivamente mais difíceis.",
       "nome": "Trackmania United Forever",
       "criador": "Nadeo",
-      "versao": "1.0",
-      "data": "Sat, 23 May 2015 00:00:00 GMT",
       "atributos": [
         "textos",
         "menus"
@@ -1079,9 +985,8 @@
         "corrida"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-trackmania-united-forever-6020",
-      "rebrandlyId": "c3c241bb951f4e2193e8ce9c21a7b4a4",
-      "downloadUrl": "https://rebrand.ly/trackmaniaunitedf8110f",
-      "slug": "trackmania-united-forever-pt-pt"
+      "slug": "trackmania-united-forever-pt-pt",
+      "dataPublicacao": "Sat, 23 May 2015 00:00:00 GMT"
     },
     {
       "guid": "jogo-dont-starve-5538",
@@ -1090,8 +995,6 @@
       "descricao": "Não deixes a escuridão levar-te. Don't Starve é um jogo de sobrevivência na selva com ciência e magia. Entra no papel do cientista cavalheiro Wilson, que se encontra preso num mundo misterioso e selvagem. Wilson deve aprender a explorar o seu ambiente e habitantes, se quiser alguma esperança de escapar e voltar para casa.",
       "nome": "Don't Starve",
       "criador": "Klei Entertainment",
-      "versao": "1.1",
-      "data": "Mon, 16 Feb 2015 00:00:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -1111,9 +1014,8 @@
       "notas": [
         "Esta tradução não foi testada na versão GOG."
       ],
-      "rebrandlyId": "9a8d281f087a414eb3192043f21d2a9b",
-      "downloadUrl": "https://rebrand.ly/donapos3779c3",
-      "slug": "dont-starve-pt-pt"
+      "slug": "dont-starve-pt-pt",
+      "dataPublicacao": "Mon, 16 Feb 2015 00:00:00 GMT"
     },
     {
       "guid": "1687",
@@ -1123,8 +1025,6 @@
       "nome": "Dark Tales - Crimes da Rua Morgue",
       "nome_original": "Dark Tales - Murders in the Rue Morgue",
       "criador": "ERS Games | Big Fish Games",
-      "versao": "1.0",
-      "data": "Mon, 08 Sep 2014 00:00:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -1143,12 +1043,10 @@
       ],
       "link": "https://100nome.blogs.sapo.pt/1687.html",
       "notas": [
-        "Wiki da Tradução disponível.",
         "O jogo necessita da ativação de uma chave no site da Big Fish Games."
       ],
-      "rebrandlyId": "d39dc890f72e4243ab949ec1fd85d1e6",
-      "downloadUrl": "https://rebrand.ly/darktales7b3342",
-      "slug": "dark-tales-crimes-rua-morgue-portugues"
+      "slug": "dark-tales-crimes-rua-morgue-portugues",
+      "dataPublicacao": "Mon, 08 Sep 2014 00:00:00 GMT"
     },
     {
       "guid": "jogo-gone-home-4673",
@@ -1157,8 +1055,6 @@
       "descricao": "7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esperas uma festa por parte da tua família, mas dás-te de caras com a casa vazia. Qualquer coisa não está bem. Onde andam todos? O que terá acontecido aqui? Desvenda o mistério em Gone Home, um jogo de história e exploração da The Fullbright Company.",
       "nome": "Gone Home",
       "criador": "The Fullbright Company",
-      "versao": "1.0",
-      "data": "Tue, 02 Sep 2014 00:00:00 GMT",
       "atributos": [
         "textos",
         "menus",
@@ -1188,7 +1084,10 @@
         "aventura"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-gone-home-4673",
-      "slug": "gone-home-pt-pt"
+      "slug": "gone-home-pt-pt",
+      "primaryActionType": "error",
+      "primaryActionMessage": "Ups, parece que não há um link ainda. Verifica a última atualização sobre este jogo no Discord.",
+      "dataPublicacao": "Tue, 02 Sep 2014 00:00:00 GMT"
     },
     {
       "guid": "jogo-cry-of-fear-3138",
@@ -1197,8 +1096,6 @@
       "descricao": "Em Cry of Fear, terás de explorar e navegar pela cidade decadente e abandonada e os seus misteriosos arredores. Jogas como Simon, um jovem que um dia acordou numa rua desconhecida e mal reconhece a sua própria cidade.",
       "nome": "Cry of Fear",
       "criador": "Team Psykskallar",
-      "versao": "1.0",
-      "data": "Sat, 09 Aug 2014 00:00:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -1223,9 +1120,8 @@
       "notas": [
         "A tradução PT-PT não é compatível com o modo co-op."
       ],
-      "rebrandlyId": "b46951811c6e461eaa79e6ca0031a1f2",
-      "downloadUrl": "https://rebrand.ly/cryfear18549f",
-      "slug": "cry-of-fear-pt-pt"
+      "slug": "cry-of-fear-pt-pt",
+      "dataPublicacao": "Sat, 09 Aug 2014 00:00:00 GMT"
     },
     {
       "guid": "jogo-limbo-2596",
@@ -1234,8 +1130,6 @@
       "descricao": "Atreves-te a entrar no mundo sombrio de LIMBO? Esta fantástica aventura dá-te o controlo de um rapazinho sem nome que anda à procura da sua irmã. Com visuais maravilhosos e encantadores, a utilização brilhante de luz, escuridão e sombra em LIMBO projecta uma atmosfera envolvente que é tão fascinante quanto assustadora. Pirilampos dançam no crepúsculo da floresta nos níveis de abertura do jogo, enquanto que um simples vislumbre da pata de uma aranha gigante é suficiente para provocar-te um arrepio na espinha. Neste mundo de fantasia, cada criatura mexe-se com um sentido de peso e estilo convincente, tornando os muitos perigos ainda mais horripilantes quando surgem no ecrã. A utilização eficaz dos sons dá um toque final de perfeição à apresentação de LIMBO. Assustadoramente minimalista, és obrigado a estar atento a todos os ruídos, pois uma simples imprudência pode causar um sem fim de destinos sangrentos. LIMBO capta o estilo de um conto de fadas dos irmãos Grimm e dá-lhe um acabamento perturbador, que te vai hipnotizar do princípio ao fim.",
       "nome": "Limbo",
       "criador": "Playdead",
-      "versao": "1.0",
-      "data": "Sat, 25 Jan 2014 00:00:00 GMT",
       "atributos": [
         "ao90",
         "menus"
@@ -1246,9 +1140,8 @@
         "aventura"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-limbo-2596",
-      "rebrandlyId": "d084b3975a0149eba9e7e790694bc544",
-      "downloadUrl": "https://rebrand.ly/limbozip73b5a1",
-      "slug": "limbo-pt-pt"
+      "slug": "limbo-pt-pt",
+      "dataPublicacao": "Sat, 25 Jan 2014 00:00:00 GMT"
     },
     {
       "guid": "1003",
@@ -1258,8 +1151,6 @@
       "nome": "Idade do Japão",
       "nome_original": "Age of Japan",
       "criador": "Zylom",
-      "versao": "1.1",
-      "data": "Wed, 01 Jan 2014 00:00:00 GMT",
       "atributos": [
         "ao90",
         "textos",
@@ -1277,9 +1168,8 @@
         "quebracabecas"
       ],
       "link": "https://100nome.blogs.sapo.pt/1003.html",
-      "rebrandlyId": "7db286548b85481e8e1c7ad2cd850b06",
-      "downloadUrl": "https://rebrand.ly/idadejap943901",
-      "slug": "age-of-japan-portugues"
+      "slug": "age-of-japan-portugues",
+      "dataPublicacao": "Wed, 01 Jan 2014 00:00:00 GMT"
     }
   ],
   "categoriasPrincipais": [

@@ -39,7 +39,7 @@
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"VideoGame","name":"Glest","description":"Glest é um gratuito jogo 3D de estratégia em tempo real, no qual controlas os exércitos de duas diferentes fações: Tec, e… Tradução PT-PT de Glest para PC.","url":"https://100nome-traducoes.github.io/jogo/glest-portugues","image":"https://100nome-traducoes.github.io/data/game-content/imgs/glest-pt-pt.png","inLanguage":"pt-PT","author":{"@type":"Organization","name":"100Nome"}}
     </script>
-    <script src="/assets/js/components/download-counter.js?v=0db3e2872d"></script>
+    <script src="/assets/js/components/download-counter.js?v=ee42af25fa"></script>
 </head>
 <body data-slug="glest-portugues">
     <nav class="navbar">
@@ -271,6 +271,13 @@
           </div>
 
           
+          <div class="gp-info-item">
+        <i class="fas fa-box-archive"></i>
+        <div>
+          <span class="gp-info-label">Pacote</span>
+          <span class="gp-info-value">7.47 KB · 25 Julho 2023</span>
+        </div>
+      </div>
           
         </div>
       </div>
@@ -282,13 +289,22 @@
     <h2 class="section-title"><i class="fas fa-download"></i> Descargas e Avisos</h2>
     <div class="section-content">
       <div class="download-actions">
-        <a href="#" class="btn btn-primary download-btn" data-game-id="glest-portugues" aria-label="Descarregar Tradução">
+        <a href="#" class="btn btn-primary download-btn"
+          data-game-id="glest-portugues"
+          data-action-type="download"
+          data-action-url=""
+          data-action-via-api="true"
+          data-counter-label="descargas"
+          data-action-message="Esta ação está temporariamente indisponível. Contacta a equipa no Discord para apoio."
+          data-action-help-url="https://discord.gg/Xv7ax2VkEp"
+          aria-label="Descarregar Tradução">
           <i class="fas fa-download"></i>
           <div class="download-btn-text">
             <div>Descarregar Tradução</div>
-            <div class="download-stats-number" aria-hidden="true">31 descargas</div>
+            <div class="download-stats-number" aria-hidden="true" style="display:none"></div>
           </div>
         </a>
+        
         <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           <i class="fas fa-folder-open"></i> Licenças
         </a>
@@ -317,7 +333,26 @@
   <section class="game-section comments-section" id="comentarios">
     <h2 class="section-title"><i class="fas fa-comments"></i> Comentários</h2>
     <div class="section-content">
-      <p class="comments-intro">Partilha a tua experiência com esta tradução. Se encontraste algum erro, diz-nos aqui.</p>
+      <div class="comments-nudge" data-comments-nudge aria-live="polite">
+        <p class="comments-empty-note" data-comments-empty-note>
+          <strong>Se esta discussão ainda estiver vazia,</strong> o teu feedback pode definir a próxima atualização.
+        </p>
+        <div class="comment-prompt-list">
+          
+        <button type="button" class="comment-prompt-chip" data-copy-comment="Testado em: [versão do jogo/sistema]">
+          <i class="fas fa-copy"></i> Testado em: [versão do jogo/sistema]
+        </button>
+      
+        <button type="button" class="comment-prompt-chip" data-copy-comment="Problema encontrado: [texto/menu/contexto]">
+          <i class="fas fa-copy"></i> Problema encontrado: [texto/menu/contexto]
+        </button>
+      
+        <button type="button" class="comment-prompt-chip" data-copy-comment="Sugestão de melhoria: [explicação curta]">
+          <i class="fas fa-copy"></i> Sugestão de melhoria: [explicação curta]
+        </button>
+      
+        </div>
+      </div>
       <div class="giscus-wrap">
         <div class="giscus" data-giscus-title="Glest"></div>
       </div>
@@ -330,7 +365,7 @@
         data-term="Glest"
         data-strict="0"
         data-reactions-enabled="1"
-        data-emit-metadata="0"
+        data-emit-metadata="1"
         data-input-position="bottom"
         data-theme="/assets/css/components/giscus-theme.css?v=4ba1a7d953"
         data-lang="pt"
@@ -343,26 +378,6 @@
 
             <aside class="game-sidebar" data-reveal>
                 <div class="sidebar-section" data-reveal data-reveal-delay="40">
-                    <h3><i class="fas fa-heart"></i> Apoia o Projeto</h3>
-                    <p>Gostaste desta tradução? Apoia o 100Nome!</p>
-                    <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-coffee"></i> Fazer Donativo
-                    </a>
-                </div>
-
-                <div class="sidebar-section" data-reveal data-reveal-delay="80">
-                    <h3><i class="fas fa-users"></i> Comunidade</h3>
-                    <div class="community-links">
-                        <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-discord"></i> Discord
-                        </a>
-                        <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-youtube"></i> YouTube
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sidebar-section" data-reveal data-reveal-delay="120">
                     <h3><i class="fas fa-gamepad"></i> Jogos Relacionados</h3>
                     <div class="related-games">
                         
@@ -404,6 +419,26 @@
       </a>
                     </div>
                 </div>
+
+                <div class="sidebar-section" data-reveal data-reveal-delay="80">
+                    <h3><i class="fas fa-users"></i> Comunidade</h3>
+                    <div class="community-links">
+                        <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-discord"></i> Discord
+                        </a>
+                        <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section" data-reveal data-reveal-delay="120">
+                    <h3><i class="fas fa-heart"></i> Apoia o Projeto</h3>
+                    <p>Gostaste desta tradução? Apoia o 100Nome!</p>
+                    <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-coffee"></i> Fazer Donativo
+                    </a>
+                </div>
             </aside>
         </div>
     </main>
@@ -421,6 +456,12 @@
 
         <div class="footer-section">
             <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="/#apoio">
+                <i class="fas fa-heart"></i> Apoiar o Projeto
+            </a>
+            <a href="/#traduzir">
+                <i class="fas fa-language"></i> Quero Traduzir
+            </a>
             <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-discord"></i> Servidor Discord
             </a>
@@ -429,9 +470,6 @@
             </a>
             <a href="mailto:100nome.portugal@gmail.com">
                 <i class="fas fa-envelope"></i> Contactar (e-mail)
-            </a>
-            <a href="/arquivo">
-                <i class="fas fa-archive"></i> Arquivo
             </a>
         </div>
 
@@ -473,8 +511,9 @@
 </button>
 
 
+    <script src="../../assets/js/components/site-analytics.js?v=dd4c5ad720"></script>
     <script src="../../assets/js/components/motion.js?v=e66ec2a484"></script>
-    <script src="../../assets/js/components/site-shell.js?v=fc1cc19360"></script>
-    <script src="../../assets/js/pages/game-page.js?v=eb920021f5"></script>
+    <script src="../../assets/js/components/site-shell.js?v=586ec2c793"></script>
+    <script src="../../assets/js/pages/game-page.js?v=63866665d6"></script>
 </body>
 </html>

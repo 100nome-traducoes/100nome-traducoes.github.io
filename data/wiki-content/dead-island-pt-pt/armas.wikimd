@@ -3,6 +3,8 @@ titulo: Armas
 descricao: Lista completa das armas do Dead Island com tradução PT-PT vs EN, incluindo armas contundentes, cortantes, de fogo, de combate e de arremesso.
 icone: sword-cross
 ordem: 2
+categoria: Combate
+categoria_ordem: 2
 ---
 
 # Armas

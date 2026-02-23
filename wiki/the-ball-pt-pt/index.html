@@ -141,7 +141,7 @@
                 <p>Esta wiki faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
             </div>
             <div class="wiki-translation-banner-actions">
-                <a href="/jogo/the-ball-pt-pt#download" class="wiki-cta-btn wiki-cta-btn--primary">
+                <a href="/jogo/the-ball-pt-pt" class="wiki-cta-btn wiki-cta-btn--primary">
                     <i class="mdi mdi-download"></i> Descarregar Tradução
                 </a>
                 <a href="/jogo/the-ball-pt-pt#comentarios" class="wiki-cta-btn wiki-cta-btn--ghost">
@@ -167,27 +167,32 @@
 
             <div class="wiki-nav" data-reveal data-reveal-delay="80">
                 <h3 class="wiki-nav-title"><i class="mdi mdi-format-list-bulleted"></i> Conteúdos</h3>
-                <ul class="wiki-nav-list">
+                <button type="button" class="wiki-nav-expand-all" data-wiki-nav-expand-all aria-expanded="false">
+                    Mostrar tudo
+                </button>
+                <div class="wiki-nav-groups">
                     
-                <li class="wiki-nav-item active">
-                    <a href="/wiki/the-ball-pt-pt">
-                        <i class="mdi mdi-information"></i> Visão Geral
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/the-ball-pt-pt/conquistas">
-                        <i class="mdi mdi-trophy"></i> Conquistas
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/the-ball-pt-pt/segredos">
-                        <i class="mdi mdi-script-text"></i> Segredos
-                    </a>
-                </li>
-            
+                <ul class="wiki-nav-list wiki-nav-list--overview">
+                    <li class="wiki-nav-item active">
+                        <a href="/wiki/the-ball-pt-pt">
+                            <i class="mdi mdi-information"></i> Visão Geral
+                        </a>
+                    </li>
                 </ul>
+            <ul class="wiki-nav-list wiki-nav-list--flat">
+            <li class="wiki-nav-item ">
+                <a href="/wiki/the-ball-pt-pt/conquistas">
+                    <i class="mdi mdi-trophy"></i> Conquistas
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/the-ball-pt-pt/segredos">
+                    <i class="mdi mdi-script-text"></i> Segredos
+                </a>
+            </li>
+        </ul>
+                </div>
             </div>
             
             <div data-reveal data-reveal-delay="120">
@@ -232,7 +237,7 @@
                     <p class="page-subtitle">Wiki completa da tradução PT-PT de The Ball. Consulta termos, conquistas, segredos e muito mais.</p>
                     <div class="page-meta">
                         
-                        <span><i class="mdi mdi-clock-outline"></i> Atualizado em 22 Fev 2026</span>
+                        <span><i class="mdi mdi-clock-outline"></i> Atualizado em 23 Fev 2026</span>
                     </div>
                 </div>
             </div>
@@ -248,17 +253,21 @@
         <strong>Gostas de The Ball?</strong>
         <span>Podes jogar com tradução PT-PT completa.</span>
     </div>
-    <a href="/jogo/the-ball-pt-pt#download" class="wiki-cta-btn wiki-cta-btn--primary">
+    <a href="/jogo/the-ball-pt-pt" class="wiki-cta-btn wiki-cta-btn--primary">
         <i class="mdi mdi-download"></i> Descarregar
     </a>
 </div>
 <div class="wiki-button-grid"><a class="wiki-button" href="conquistas"><i class="mdi mdi-trophy"></i><span>Conquistas</span></a><a class="wiki-button" href="segredos"><i class="mdi mdi-script-text"></i><span>Segredos</span></a></div>
 
+<div class="info-box">
+<p>Dica: usa a pesquisa na barra lateral para encontrar páginas e termos mais depressa.</p>
+</div>
 <h2 class="wiki-section-title" id="como-usar-esta-wiki">Como usar esta Wiki</h2>
 <ol>
-<li>Usa a barra lateral para navegar entre categorias.</li>
-<li>Cada página tem secções com títulos claros e ligação direta.</li>
-<li>Se não encontrares algo, usa a pesquisa na própria wiki.</li>
+<li>Começa pela <strong>Visão Geral</strong> para entenderes a estrutura da wiki.</li>
+<li>Usa a barra lateral para navegar pelas páginas disponíveis.</li>
+<li>Usa a pesquisa da wiki para encontrar termos, páginas e secções mais depressa.</li>
+<li>No fim das páginas, usa os links <strong>Relacionados</strong> para continuar a exploração.</li>
 </ol>
 <div class="info-box">
 <p>Esta wiki é atualizada conforme a tradução evolui ou é melhorada. Se encontrares algo em falta, deixa sugestão nos comentários do jogo.</p>
@@ -269,7 +278,7 @@
         <div class="wiki-related">
             <h3 class="wiki-related-title"><i class="mdi mdi-link-variant"></i> Relacionado</h3>
             <div class="wiki-related-links">
-                <a href="/wiki/the-ball-pt-pt/conquistas">Seguinte: Conquistas</a>
+                <a class="wiki-related-link" href="/wiki/the-ball-pt-pt/conquistas">Seguinte: Conquistas</a>
             </div>
         </div>
     
@@ -289,6 +298,12 @@
 
         <div class="footer-section">
             <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="/#apoio">
+                <i class="fas fa-heart"></i> Apoiar o Projeto
+            </a>
+            <a href="/#traduzir">
+                <i class="fas fa-language"></i> Quero Traduzir
+            </a>
             <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-discord"></i> Servidor Discord
             </a>
@@ -297,9 +312,6 @@
             </a>
             <a href="mailto:100nome.portugal@gmail.com">
                 <i class="fas fa-envelope"></i> Contactar (e-mail)
-            </a>
-            <a href="/arquivo">
-                <i class="fas fa-archive"></i> Arquivo
             </a>
         </div>
 
@@ -341,8 +353,9 @@
 </button>
 
 
+    <script src="/assets/js/components/site-analytics.js?v=dd4c5ad720"></script>
     <script src="/assets/js/components/motion.js?v=e66ec2a484"></script>
-    <script src="/assets/js/components/site-shell.js?v=fc1cc19360"></script>
-    <script src="/assets/js/pages/wiki-page.js?v=ed23a9d186"></script>
+    <script src="/assets/js/components/site-shell.js?v=586ec2c793"></script>
+    <script src="/assets/js/pages/wiki-page.js?v=734120fb6c"></script>
 </body>
 </html>

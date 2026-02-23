@@ -1,47 +1,30 @@
-# 📚 Sistema Wiki - 100Nome
+# Sistema Wiki - 100Nome
 
 ## Visão Geral
-Sistema simples para criar wikis de traduções usando **Markdown** e gerar HTML consistente.
+Sistema para escrever conteúdo em `.wikimd` e gerar páginas wiki HTML com navegação, pesquisa, SEO e componentes visuais consistentes.
 
----
-
-## 📁 Estrutura Atual
-
-```
+## Estrutura
+```text
 100nome-traducoes.github.io/
 ├── data/
-│   └── wiki-content/                 # Conteúdo wiki (.wikimd)
-│       └── dead-island-pt-pt-tuga-definitive-34406/
+│   └── wiki-content/
+│       └── <slug-do-jogo>/
 │           ├── index.wikimd
-│           ├── zombies.wikimd
+│           ├── pagina-1.wikimd
 │           └── ...
 ├── templates/
-│   ├── wiki-page.html                 # Template principal da wiki
-│   └── partials/
-│       ├── header.html
-│       └── footer.html
-├── wiki/                              # Output gerado
-│   └── dead-island-pt-pt-tuga-definitive-34406/
-│       ├── index.html
-│       ├── zombies.html
-│       └── ...
+│   └── wiki-page.html
+├── assets/
+│   ├── css/pages/wiki.css
+│   ├── css/wiki/wiki-content.css
+│   └── js/pages/wiki-page.js
 ├── scripts/
 │   └── build-wiki.js
-└── assets/
-    └── css/
-        ├── pages/wiki.css
-        └── wiki/wiki-content.css
+└── wiki/                              # output gerado
 ```
 
----
-
-## ✍️ Como Escrever uma Wiki
-
-### 1) Criar ficheiro `.wikimd`
-Cria um ficheiro em:
-`data/wiki-content/[id-do-jogo]/[pagina].wikimd`
-
-### 2) Frontmatter obrigatório
+## Frontmatter
+Exemplo mínimo por página:
 
 ```yaml
 ---
@@ -52,80 +35,98 @@ ordem: 1
 ---
 ```
 
-### 3) Markdown normal + extensões
+Campos suportados:
+- `titulo`: título da página.
+- `descricao`: descrição curta para header/meta.
+- `icone`: ícone MDI (sem prefixo `mdi-`).
+- `ordem`: ordem da página na navegação.
+- `categoria` (opcional): grupo da sidebar.
+- `categoria_ordem` (opcional): ordem dos grupos na sidebar.
+- `home_nav` (opcional): `highlight`, `normal` (default) ou `hidden` para a secção automática "Explorar a Wiki".
+- `home_nav_ordem` (opcional): ordem específica no "Explorar a Wiki".
+- `home_nav_limite` (opcional, no `index.wikimd`): número máximo de botões no "Explorar a Wiki" (default `6`).
+- `usage_hidden` (opcional, no `index.wikimd`): `true` para ocultar a secção automática "Como usar esta Wiki".
 
-#### Intro destacada (tipo `>`)
+## Convenções de conteúdo
+- `index.wikimd` é a home da wiki.
+- As outras páginas devem ter ficheiros com slug simples, por exemplo `armas.wikimd`, `conquistas.wikimd`.
+- Imagens locais usam `imgs/...` dentro da pasta da própria wiki.
+
+## Blocos automáticos na home (`index.wikimd`)
+Para gerar automaticamente o menu principal da home:
+
 ```markdown
-> [intro] Texto introdutório da página.
+:::wiki-home-nav:::
 ```
 
-#### Highlight inline
+O build injeta automaticamente:
+- secção `Explorar a Wiki` com botões.
+- dica para usar `Mostrar tudo` na sidebar.
+- secção padrão `Como usar esta Wiki` (salvo `usage_hidden: true`).
+
+## Navegação gerada automaticamente
+- Sidebar sempre com `Visão Geral` fixa e visível.
+- Restantes páginas agrupadas por `categoria` em grupos colapsáveis.
+- Botão `Mostrar tudo / Recolher` na sidebar.
+- Links `Relacionado` no fim de cada página (anterior, seguinte, visão geral).
+- Pesquisa na wiki por título, headings e texto.
+
+## Sintaxe suportada no `.wikimd`
+
+Intro destacada:
 ```markdown
-==Escolha chave==
+> [intro] Texto introdutório.
 ```
 
-#### Títulos com ícones (Pictogrammers / MDI)
+Highlight inline:
 ```markdown
-## [icon:skull] Zombies principais
-### [icon:star] Zombies especiais
+==Escolha-chave==
 ```
-Usa nomes de ícones da biblioteca MDI (sem o prefixo `mdi-`).
 
-#### IDs manuais em títulos
+Heading com ícone:
 ```markdown
-## Armas brancas {#brancas}
+## [icon:skull] Tipos de zombie
 ```
-Fica com `id="brancas"` para usar em âncoras.
 
-#### Grelha de botões (para tópicos)
+Heading com ID manual:
+```markdown
+## Armas contundentes {#armas-contundentes}
+```
+
+Grelha de botões:
 ```markdown
 :::grid
-- [icon:skull] Zombies (zombies.html)
-- [icon:gun] Armas (armas.html)
-- [icon:map-marker] Lugares (lugares.html)
+- [icon:trophy] Conquistas (conquistas)
+- [icon:script-text] Segredos (segredos)
 :::
 ```
 
-#### Grelha de botões em destaque
+Grelha de destaque:
 ```markdown
 :::grid-featured
-- [icon:star] Visão Geral (index.html)
-- [icon:trophy] Conquistas (conquistas.html)
+- [icon:flash] Modificadores (modificadores-de-armas)
 :::
 ```
 
-#### YouTube (embed simples)
+YouTube simples:
 ```markdown
-:::youtube wQsys-tXpME
-:::
+:::youtube wQsys-tXpME:::
 ```
 
-#### YouTube em grupo (grelha responsiva)
+YouTube em grupo:
 ```markdown
 :::youtube-group
 wQsys-tXpME
-uUD_lAYPF-c
-ZkfhPKVXiVQ
+uUD_lAYPF-c | Comparação
 :::
 ```
 
-Também aceita URL e título opcional por linha:
-```markdown
-:::youtube-group
-https://youtu.be/wQsys-tXpME | Trailer principal
-https://www.youtube.com/watch?v=uUD_lAYPF-c | Comparação
-:::
-```
-
-#### Captions de tabelas
-Coloca antes da tabela:
+Legenda de tabela:
 ```markdown
 :caption: Zombies principais (PT-PT vs EN)
-| ... |
 ```
 
-#### Tabelas com cabeçalho lateral (vertical)
-Ativa com `^` na primeira célula do header:
+Tabela com cabeçalho lateral (vertical):
 ```markdown
 | ^ | Caminhante | Infetado |
 |---|---|---|
@@ -133,84 +134,29 @@ Ativa com `^` na primeira célula do header:
 | Nome EN | Walker | Infected |
 ```
 
-Se o primeiro header for só `^`, o `thead` é removido (só cabeçalhos laterais):
-```markdown
-| ^ | A | B |
-|---|---|---|
-| Nome PT | ... | ... |
-```
-
-#### Imagens
-- Usa caminhos curtos para imagens locais:
+Imagem local:
 ```markdown
 ![Capa](imgs/capa.jpg)
 ```
-O build converte automaticamente para `/data/wiki-content/<jogo>/imgs/...`.
 
-- URLs externas também funcionam.
-
-#### Links
-```markdown
-[Texto do link](armas.html)
-[Link externo](https://example.com)
-```
-
----
-
-## 🎨 Elementos Disponíveis (Resumo)
-
-- **Intro destacada:** `> [intro] ...`
-- **Highlight:** `==texto==`
-- **Títulos com ícones:** `## [icon:skull] ...`
-- **Grelha de botões:** `:::grid ... :::`
-- **Grelha em destaque:** `:::grid-featured ... :::`
-- **YouTube simples:** `:::youtube VIDEO_ID :::`
-- **YouTube em grupo:** `:::youtube-group ... :::`
-- **Caption de tabela:** `:caption: ...`
-- **Cabeçalho lateral de tabelas:** `^`
-- **Imagens locais:** `imgs/...`
-
----
-
-## 🚀 Build
-
-### Instalação
+## Build
+Instalar dependências:
 ```bash
 npm install
 ```
 
-### Gerar a wiki
+Gerar wiki:
 ```bash
 npm run build:wiki
 ```
 
-### Build completo (site)
+Gerar site completo:
 ```bash
 npm run build:all
 ```
 
----
-
-## 🔧 Personalização
-
-- **Template:** `templates/wiki-page.html`
-- **CSS de página:** `assets/css/pages/wiki.css`
-- **CSS da wiki:** `assets/css/wiki/wiki-content.css`
-- **Build:** `scripts/build-wiki.js`
-
----
-
-## 🐛 Troubleshooting
-
-**Imagens não aparecem**
-- Confirma que usaste `imgs/...` ou URL completa
-
-**Tabelas não formatam**
-- Verifica os `|` e a linha de separação `---`
-
-**Sidebar vazia**
-- Confirma frontmatter e `ordem`
-
----
-
-Feito para manter a wiki rápida, consistente e fácil de editar.
+## Troubleshooting
+- Imagens não aparecem: confirma caminho `imgs/...` e ficheiro existente.
+- Página fora da sidebar: confirma `ordem` e frontmatter válido.
+- Grupo errado na sidebar: confirma `categoria` e `categoria_ordem`.
+- Home sem botões: confirma `:::wiki-home-nav:::` no `index.wikimd` e páginas não `hidden`.

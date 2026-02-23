@@ -20,8 +20,16 @@ const CONFIG = {
     dataFile: '../data/game-content/jogos.json'
 };
 const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
+const SITE_HOST = (() => {
+    try {
+        return new URL(SITE_URL).hostname.replace(/^www\./i, '');
+    } catch {
+        return '';
+    }
+})();
 const ASSET_VERSIONS = {
     wikiCss: getAssetVersion('assets/css/pages/wiki.css'),
+    siteAnalyticsJs: getAssetVersion('assets/js/components/site-analytics.js'),
     motionJs: getAssetVersion('assets/js/components/motion.js'),
     siteShellJs: getAssetVersion('assets/js/components/site-shell.js'),
     wikiPageJs: getAssetVersion('assets/js/pages/wiki-page.js')
@@ -46,6 +54,46 @@ function truncateText(text, maxLen = 170) {
     const t = String(text || '').replace(/\s+/g, ' ').trim();
     if (t.length <= maxLen) return t;
     return `${t.slice(0, maxLen - 1).trim()}…`;
+}
+
+function isExternalHttpUrl(href) {
+    try {
+        const parsed = new URL(String(href || '').trim(), SITE_URL);
+        if (!/^https?:$/i.test(parsed.protocol)) return false;
+        const hrefHost = parsed.hostname.replace(/^www\./i, '');
+        if (!hrefHost || !SITE_HOST) return false;
+        return hrefHost !== SITE_HOST;
+    } catch {
+        return false;
+    }
+}
+
+function addExternalLinkAttributes(html) {
+    return html.replace(/<a\b([^>]*?)>/gi, (fullMatch, attrs) => {
+        const hrefMatch = attrs.match(/\bhref\s*=\s*(['"])(.*?)\1/i);
+        if (!hrefMatch) return fullMatch;
+
+        const href = hrefMatch[2].trim();
+        if (!isExternalHttpUrl(href)) return fullMatch;
+
+        let updatedAttrs = attrs;
+        if (!/\btarget\s*=/i.test(updatedAttrs)) {
+            updatedAttrs += ' target="_blank"';
+        }
+
+        if (/\brel\s*=/i.test(updatedAttrs)) {
+            updatedAttrs = updatedAttrs.replace(/\brel\s*=\s*(['"])(.*?)\1/i, (relMatch, quote, relValue) => {
+                const relTokens = new Set(String(relValue || '').split(/\s+/).filter(Boolean));
+                relTokens.add('noopener');
+                relTokens.add('noreferrer');
+                return `rel=${quote}${[...relTokens].join(' ')}${quote}`;
+            });
+        } else {
+            updatedAttrs += ' rel="noopener noreferrer"';
+        }
+
+        return `<a${updatedAttrs}>`;
+    });
 }
 
 // Parser de frontmatter YAML
@@ -76,15 +124,19 @@ function parseFrontmatter(content) {
 // Converter tabela markdown em HTML com classes bonitas
 function convertTablesToHTML(html) {
     // Encontrar todas as tabelas
-    const tableRegex = /<table>([\s\S]*?)<\/table>/g;
+    const tableRegex = /<table([^>]*)>([\s\S]*?)<\/table>/g;
     
-    return html.replace(tableRegex, (match, tableContent) => {
+    return html.replace(tableRegex, (match, tableAttrs = '', tableContent) => {
         // Verificar se tem coluna de imagens
         const hasImages = tableContent.includes('<img') || tableContent.toLowerCase().includes('imagem');
+        const isVerticalHeader = /data-vertical-header=["']?true["']?/i.test(tableAttrs);
         
         let classes = 'translation-table';
         if (hasImages) {
             classes += ' has-images';
+        }
+        if (isVerticalHeader) {
+            classes += ' vertical-header-table';
         }
         
         // Adicionar wrapper e classes
@@ -258,7 +310,7 @@ function convertVerticalHeaderTables(html) {
             return `<tbody>${updatedBody}</tbody>`;
         });
 
-        return `<table>${newTableContent}</table>`;
+        return `<table data-vertical-header="true">${newTableContent}</table>`;
     });
 }
 
@@ -403,7 +455,7 @@ function buildWikiPromoBanner(jogoSlug, gameTitle) {
                 <p>Esta wiki faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
             </div>
             <div class="wiki-translation-banner-actions">
-                <a href="/jogo/${encodeURIComponent(jogoSlug)}#download" class="wiki-cta-btn wiki-cta-btn--primary">
+                <a href="/jogo/${encodeURIComponent(jogoSlug)}" class="wiki-cta-btn wiki-cta-btn--primary">
                     <i class="mdi mdi-download"></i> Descarregar Tradução
                 </a>
                 <a href="/jogo/${encodeURIComponent(jogoSlug)}#comentarios" class="wiki-cta-btn wiki-cta-btn--ghost">
@@ -416,7 +468,7 @@ function buildWikiPromoBanner(jogoSlug, gameTitle) {
 
 function buildWikiTranslationStatus(jogoData, jogoSlug, gameTitle) {
     const version = String(jogoData?.versao || '1.0').trim();
-    const dateRaw = jogoData?.data || jogoData?.dataPublicacao;
+    const dateRaw = jogoData?.dataPublicacao;
     const date = dateRaw ? formatDatePt(new Date(dateRaw)) : 'n/d';
 
     return `
@@ -440,7 +492,7 @@ function injectWikiContentCta(html, jogoSlug, gameTitle) {
         <strong>Gostas de ${escapeHtml(gameTitle)}?</strong>
         <span>Podes jogar com tradução PT-PT completa.</span>
     </div>
-    <a href="/jogo/${encodeURIComponent(jogoSlug)}#download" class="wiki-cta-btn wiki-cta-btn--primary">
+    <a href="/jogo/${encodeURIComponent(jogoSlug)}" class="wiki-cta-btn wiki-cta-btn--primary">
         <i class="mdi mdi-download"></i> Descarregar
     </a>
 </div>`;
@@ -556,31 +608,117 @@ function processMarkdown(content, wikiBasePath) {
     html = convertTablesToHTML(html);
     html = processTableImages(html);
     html = convertBlockquotes(html);
+    html = addExternalLinkAttributes(html);
     
     return html;
 }
 
 // Construir navegação da sidebar
 function buildSidebarNav(gameSlug, currentPage, wikiPages) {
-    const pages = [...wikiPages]
-        .sort((a, b) => (a.metadata.ordem || 999) - (b.metadata.ordem || 999))
-        .map(page => {
-            const isActive = page.filename === currentPage;
-            const icon = page.metadata.icone || 'file-document';
-            const isIndex = page.filename === 'index';
-            const href = getWikiPagePath(gameSlug, page.filename);
-            const label = isIndex ? 'Visão Geral' : page.metadata.titulo;
-            
+    const pages = [...wikiPages].sort((a, b) => (a.metadata.ordem || 999) - (b.metadata.ordem || 999));
+    const indexPage = pages.find(page => page.filename === 'index');
+    const contentPages = pages.filter(page => page.filename !== 'index');
+    const hasCategories = contentPages.some(page => String(page.metadata.categoria || '').trim().length > 0);
+
+    const renderNavItems = (pagesToRender) => pagesToRender.map(page => {
+        const isActive = page.filename === currentPage;
+        const icon = page.metadata.icone || 'file-document';
+        const href = getWikiPagePath(gameSlug, page.filename);
+        const label = page.metadata.titulo;
+
+        return `
+            <li class="wiki-nav-item ${isActive ? 'active' : ''}">
+                <a href="${href}">
+                    <i class="mdi mdi-${icon}"></i> ${label}
+                </a>
+            </li>
+        `;
+    }).join('');
+
+    const groups = hasCategories
+        ? (() => {
+            const grouped = new Map();
+            const groupMeta = new Map();
+
+            contentPages.forEach(page => {
+                const label = String(page.metadata.categoria || 'Conteúdos').trim() || 'Conteúdos';
+                const categoryOrderRaw = Number(page.metadata.categoria_ordem);
+                const categoryOrder = Number.isFinite(categoryOrderRaw) ? categoryOrderRaw : 999;
+                const pageOrderRaw = Number(page.metadata.ordem);
+                const pageOrder = Number.isFinite(pageOrderRaw) ? pageOrderRaw : 999;
+
+                if (!grouped.has(label)) {
+                    grouped.set(label, []);
+                }
+                grouped.get(label).push(page);
+
+                if (!groupMeta.has(label)) {
+                    groupMeta.set(label, { categoryOrder, firstPageOrder: pageOrder });
+                } else {
+                    const current = groupMeta.get(label);
+                    current.categoryOrder = Math.min(current.categoryOrder, categoryOrder);
+                    current.firstPageOrder = Math.min(current.firstPageOrder, pageOrder);
+                }
+            });
+
+            return [...grouped.entries()]
+                .sort((a, b) => {
+                    const aMeta = groupMeta.get(a[0]);
+                    const bMeta = groupMeta.get(b[0]);
+                    if (aMeta.categoryOrder !== bMeta.categoryOrder) {
+                        return aMeta.categoryOrder - bMeta.categoryOrder;
+                    }
+                    if (aMeta.firstPageOrder !== bMeta.firstPageOrder) {
+                        return aMeta.firstPageOrder - bMeta.firstPageOrder;
+                    }
+                    return a[0].localeCompare(b[0], 'pt-PT');
+                })
+                .map(([label, groupedPages]) => ({ label, pages: groupedPages }));
+        })()
+        : [];
+
+    const overviewHtml = indexPage
+        ? (() => {
+            const icon = indexPage.metadata.icone || 'information';
+            const href = getWikiPagePath(gameSlug, 'index');
+            const isActive = currentPage === 'index';
             return `
-                <li class="wiki-nav-item ${isActive ? 'active' : ''}">
-                    <a href="${href}">
-                        <i class="mdi mdi-${icon}"></i> ${label}
-                    </a>
-                </li>
+                <ul class="wiki-nav-list wiki-nav-list--overview">
+                    <li class="wiki-nav-item ${isActive ? 'active' : ''}">
+                        <a href="${href}">
+                            <i class="mdi mdi-${icon}"></i> Visão Geral
+                        </a>
+                    </li>
+                </ul>
+            `;
+        })()
+        : '';
+
+    const groupedNavHtml = groups
+        .filter(group => group.pages.length > 0)
+        .map(group => {
+            const hasActive = group.pages.some(page => page.filename === currentPage);
+            const itemsHtml = renderNavItems(group.pages);
+
+            return `
+                <section class="wiki-nav-group ${hasActive ? 'is-open' : ''}" data-nav-group>
+                    <button type="button" class="wiki-nav-group-toggle" aria-expanded="${hasActive ? 'true' : 'false'}">
+                        <span class="wiki-nav-group-title">${escapeHtml(group.label)}</span>
+                        <span class="wiki-nav-group-count">${group.pages.length}</span>
+                        <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="wiki-nav-list" ${hasActive ? '' : 'hidden'}>
+                        ${itemsHtml}
+                    </ul>
+                </section>
             `;
         }).join('');
 
-    return pages;
+    const flatNavHtml = !hasCategories && contentPages.length
+        ? `<ul class="wiki-nav-list wiki-nav-list--flat">${renderNavItems(contentPages)}</ul>`
+        : '';
+
+    return `${overviewHtml}${flatNavHtml}${groupedNavHtml}`;
 }
 
 function buildRelatedLinks(currentPage, wikiPages, gameSlug) {
@@ -611,7 +749,7 @@ function buildRelatedLinks(currentPage, wikiPages, gameSlug) {
 
     if (!links.length) return '';
 
-    const linksHtml = links.map(l => `<a href="${l.href}">${l.label}</a>`).join('');
+    const linksHtml = links.map(l => `<a class="wiki-related-link" href="${l.href}">${l.label}</a>`).join('');
     return `
         <div class="wiki-related">
             <h3 class="wiki-related-title"><i class="mdi mdi-link-variant"></i> Relacionado</h3>
@@ -620,6 +758,89 @@ function buildRelatedLinks(currentPage, wikiPages, gameSlug) {
             </div>
         </div>
     `;
+}
+
+function buildWikiHomeNavSectionMarkdown(wikiPages, limit = 6, hasGroupedSidebar = false) {
+    const maxItems = Number.isFinite(limit) && limit > 0 ? limit : 6;
+    const pages = [...wikiPages]
+        .filter(page => page.filename !== 'index')
+        .map(page => {
+            const mode = String(page.metadata.home_nav || 'normal').trim().toLowerCase();
+            const hidden = mode === 'hidden';
+            const priority = mode === 'highlight' ? 0 : 1;
+            const orderRaw = Number(page.metadata.home_nav_ordem);
+            const homeOrder = Number.isFinite(orderRaw) ? orderRaw : (Number(page.metadata.ordem) || 999);
+            return { page, hidden, priority, homeOrder };
+        })
+        .filter(item => !item.hidden)
+        .sort((a, b) => {
+            if (a.priority !== b.priority) return a.priority - b.priority;
+            if (a.homeOrder !== b.homeOrder) return a.homeOrder - b.homeOrder;
+            const aTitle = String(a.page.metadata.titulo || a.page.filename);
+            const bTitle = String(b.page.metadata.titulo || b.page.filename);
+            return aTitle.localeCompare(bTitle, 'pt-PT');
+        })
+        .slice(0, maxItems)
+        .map(item => item.page);
+
+    if (!pages.length) return '';
+
+    const gridLines = pages.map(page => {
+        const icon = page.metadata.icone || 'file-document';
+        const title = String(page.metadata.titulo || page.filename).trim();
+        return `- [icon:${icon}] ${title} (${page.filename})`;
+    }).join('\n');
+
+    const hintLine = hasGroupedSidebar
+        ? '> Dica: para veres todas as categorias, usa "Mostrar tudo" na barra lateral.'
+        : '> Dica: usa a pesquisa na barra lateral para encontrar páginas e termos mais depressa.';
+
+    return [
+        '## Explorar a Wiki',
+        '',
+        ':::grid',
+        gridLines,
+        ':::',
+        '',
+        hintLine,
+        ''
+    ].join('\n');
+}
+
+function buildWikiUsageSectionMarkdown(hasGroupedSidebar = false) {
+    const navigationLine = hasGroupedSidebar
+        ? '2. Usa a barra lateral para navegar por categorias e o botão **Mostrar tudo** para abrir todas as secções.'
+        : '2. Usa a barra lateral para navegar pelas páginas disponíveis.';
+
+    return [
+        '## Como usar esta Wiki',
+        '',
+        '1. Começa pela **Visão Geral** para entenderes a estrutura da wiki.',
+        navigationLine,
+        '3. Usa a pesquisa da wiki para encontrar termos, páginas e secções mais depressa.',
+        '4. No fim das páginas, usa os links **Relacionados** para continuar a exploração.',
+        '',
+        '> Esta wiki é atualizada conforme a tradução evolui ou é melhorada. Se encontrares algo em falta, deixa sugestão nos comentários do jogo.',
+        ''
+    ].join('\n');
+}
+
+function stripManualWikiUsageSection(markdownContent) {
+    return markdownContent
+        .replace(/\n##\s+Como usar esta Wiki[\s\S]*?(?=\n##\s+|\n#\s+|$)/i, '\n')
+        .replace(/\n{3,}/g, '\n\n');
+}
+
+function injectWikiHomeNav(markdownContent, wikiPages, pageMetadata) {
+    const withoutManualUsage = stripManualWikiUsageSection(markdownContent);
+    if (!/:::\s*wiki-home-nav\s*:::/i.test(withoutManualUsage)) {
+        return withoutManualUsage;
+    }
+
+    const configuredLimit = Number(pageMetadata?.home_nav_limite);
+    const hasGroupedSidebar = wikiPages.some(page => page.filename !== 'index' && String(page.metadata?.categoria || '').trim().length > 0);
+    const navSectionMarkdown = buildWikiHomeNavSectionMarkdown(wikiPages, configuredLimit, hasGroupedSidebar);
+    return withoutManualUsage.replace(/:::\s*wiki-home-nav\s*:::/gi, navSectionMarkdown || '');
 }
 
 // Carregar template HTML
@@ -640,9 +861,22 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
     const content = fs.readFileSync(filePath, 'utf-8');
     const { metadata, content: markdownContent } = parseFrontmatter(content);
     
+    const filename = path.basename(filePath, '.wikimd');
+    const isWikiHomePage = filename === 'index';
+    let markdownForRender = isWikiHomePage
+        ? injectWikiHomeNav(markdownContent, allWikiPages, metadata)
+        : markdownContent;
+    if (isWikiHomePage) {
+        const usageHidden = String(metadata?.usage_hidden || '').trim().toLowerCase() === 'true';
+        if (!usageHidden) {
+            const hasGroupedSidebar = allWikiPages.some(page => page.filename !== 'index' && String(page.metadata?.categoria || '').trim().length > 0);
+            markdownForRender = `${markdownForRender.trim()}\n\n${buildWikiUsageSectionMarkdown(hasGroupedSidebar)}`;
+        }
+    }
+
     // Converter markdown para HTML
-    const wikiBasePath = `/data/wiki-content/${jogoId}`;
-    const htmlContent = processMarkdown(markdownContent, wikiBasePath);
+    const wikiBasePath = `/data/wiki-content/${gameSlug}`;
+    const htmlContent = processMarkdown(markdownForRender, wikiBasePath);
     const termCount = countTermsFromMarkdown(markdownContent);
     const updatedAt = formatDatePt(fs.statSync(filePath).mtime);
     
@@ -653,12 +887,10 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
     const favicon = loadPartial('favicon.html');
     
     // Construir navegação
-    const filename = path.basename(filePath, '.wikimd');
     const sidebarNav = buildSidebarNav(gameSlug, filename, allWikiPages);
     const relatedLinks = buildRelatedLinks(filename, allWikiPages, gameSlug);
     const indexPage = allWikiPages.find(p => p.filename === 'index');
     const wikiHomeTitle = (indexPage?.metadata?.titulo || 'Wiki').trim();
-    const isWikiHomePage = filename === 'index';
     
     // Substituir placeholders
     const fallbackTitle = jogoData?.titulo || jogoId.replace(/-/g, ' ').toUpperCase();
@@ -708,6 +940,7 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
 
     template = template
         .replace(/\{\{WIKI_CSS_VERSION\}\}/g, ASSET_VERSIONS.wikiCss)
+        .replace(/\{\{SITE_ANALYTICS_JS_VERSION\}\}/g, ASSET_VERSIONS.siteAnalyticsJs)
         .replace(/\{\{MOTION_JS_VERSION\}\}/g, ASSET_VERSIONS.motionJs)
         .replace(/\{\{SITE_SHELL_JS_VERSION\}\}/g, ASSET_VERSIONS.siteShellJs)
         .replace(/\{\{WIKI_PAGE_JS_VERSION\}\}/g, ASSET_VERSIONS.wikiPageJs)
@@ -721,7 +954,6 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
         .replace(/\{\{OG_IMAGE\}\}/g, ogImage)
         .replace(/\{\{WIKI_JSON_LD\}\}/g, wikiJsonLd)
         .replace(/\{\{JOGO_NOME\}\}/g, gameTitle)
-        .replace(/\{\{JOGO_ID\}\}/g, jogoId)
         .replace(/\{\{JOGO_SLUG\}\}/g, jogoSlug)
         .replace(/\{\{WIKI_BASE_PATH\}\}/g, getWikiPagePath(jogoSlug, 'index'))
         .replace(/\{\{CONTEUDO\}\}/g, htmlContentWithCta)

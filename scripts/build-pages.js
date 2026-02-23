@@ -6,12 +6,15 @@ const crypto = require('crypto');
 
 const jogosPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
 const downloadsPath = path.join(__dirname, '..', 'data', 'game-content', 'downloads.json');
+const packagesMetadataPath = path.join(__dirname, '..', 'data', 'game-content', 'packages-metadata.json');
+const wikiContentDir = path.join(__dirname, '..', 'data', 'wiki-content');
 const templatePath = path.join(__dirname, '..', 'templates', 'game-page.html');
 const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputDir = path.join(__dirname, '..', 'jogo');
 const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
 const ASSET_VERSIONS = {
   gameCss: getAssetVersion('assets/css/pages/game.css'),
+  siteAnalyticsJs: getAssetVersion('assets/js/components/site-analytics.js'),
   motionJs: getAssetVersion('assets/js/components/motion.js'),
   siteShellJs: getAssetVersion('assets/js/components/site-shell.js'),
   gamePageJs: getAssetVersion('assets/js/pages/game-page.js'),
@@ -57,6 +60,45 @@ function getGameSlug(jogo) {
   return String(jogo?.slug || '').trim();
 }
 
+function getAvailableWikiSlugs() {
+  if (!fs.existsSync(wikiContentDir)) return new Set();
+  return new Set(
+    fs.readdirSync(wikiContentDir, { withFileTypes: true })
+      .filter(entry => entry.isDirectory())
+      .map(entry => entry.name.trim())
+      .filter(Boolean)
+  );
+}
+
+const AVAILABLE_WIKI_SLUGS = getAvailableWikiSlugs();
+
+function encodeWikiPath(pathValue) {
+  return String(pathValue || '')
+    .split('/')
+    .map(part => encodeURIComponent(part.trim()))
+    .filter(Boolean)
+    .join('/');
+}
+
+function resolveGuideLink(jogo) {
+  const wikiSlugRaw = String(jogo?.wikiSlug || getGameSlug(jogo) || '').trim();
+  if (!wikiSlugRaw) return '';
+  if (!AVAILABLE_WIKI_SLUGS.has(wikiSlugRaw)) return '';
+  const wikiSlug = encodeWikiPath(wikiSlugRaw);
+  if (!wikiSlug) return '';
+
+  const wikiEntryRaw = String(jogo?.wikiEntry || 'index').trim().replace(/^\/+|\/+$/g, '');
+  const wikiEntry = encodeWikiPath(wikiEntryRaw || 'index');
+
+  const anchorRaw = String(jogo?.wikiAnchor || '').trim().replace(/^#/, '');
+  const anchor = anchorRaw ? `#${encodeURIComponent(anchorRaw)}` : '';
+
+  if (!wikiEntry || wikiEntry.toLowerCase() === 'index') {
+    return `/wiki/${wikiSlug}${anchor}`;
+  }
+  return `/wiki/${wikiSlug}/${wikiEntry}${anchor}`;
+}
+
 function getGameName(jogo) {
   return String(jogo?.nome || stripPtPt(jogo?.titulo || getGameSlug(jogo) || '')).trim();
 }
@@ -73,6 +115,33 @@ function splitList(value) {
     .split(/[,;]+/)
     .map(v => v.trim())
     .filter(Boolean);
+}
+
+function readPackagesMetadata() {
+  if (!fs.existsSync(packagesMetadataPath)) return {};
+  try {
+    const raw = readJson(packagesMetadataPath);
+    if (!raw || typeof raw !== 'object') return {};
+    if (!raw.packages || typeof raw.packages !== 'object') return {};
+    return raw.packages;
+  } catch {
+    return {};
+  }
+}
+
+function mergePackageMetadata(jogo, packagesMap) {
+  const slug = getGameSlug(jogo);
+  const meta = packagesMap?.[slug];
+  if (!meta || typeof meta !== 'object') return jogo;
+
+  return {
+    ...jogo,
+    packageVersion: String(meta.packageVersion || '').trim() || null,
+    packageLastModified: String(meta.packageLastModified || '').trim() || null,
+    packageSizeBytes: Number.isFinite(Number(meta.packageSizeBytes)) ? Number(meta.packageSizeBytes) : null,
+    packageChecksum: String(meta.packageChecksum || '').trim() || null,
+    packageFilename: String(meta.packageFilename || '').trim() || null
+  };
 }
 
 function formatDatePt(dateString) {
@@ -211,7 +280,7 @@ function normalizeTraducao(jogo) {
     : splitList(jogo.agradecimentos || old.agradecimentos);
 
   return {
-    versao: jogo.versao || old.versao || '1.0',
+    versao: jogo.packageVersion || old.versao || '1.0',
     atributos: Array.isArray(jogo.atributos) ? jogo.atributos : (old.atributos || []),
     autores: normalizeAutores(jogo),
     fornecidoPor,
@@ -233,11 +302,12 @@ function isExternalProvider(provider) {
 }
 
 function buildWikiButton(jogo) {
-  if (!jogo.linkWiki) return '';
+  const guideLink = resolveGuideLink(jogo);
+  if (!guideLink) return '';
 
   return `
-  <a href="${escapeHtml(jogo.linkWiki)}" class="btn btn-secondary btn-wiki-primary">
-  <i class="fas fa-book"></i> Wiki
+  <a href="${escapeHtml(guideLink)}" class="btn btn-secondary btn-guide-primary" title="Consultar termos e notas da tradução" aria-label="Guia da Tradução: termos e notas">
+  <i class="fas fa-book-open"></i> Guia da Tradução
   </a>`;
 }
 
@@ -251,6 +321,8 @@ function buildNotesSection(avisos = [], notas = []) {
     .join('');
 
   const notasHtml = (notas || [])
+    .map(nota => String(nota || '').trim())
+    .filter(Boolean)
     .map(nota => `
       <div class="note-item">
         <i class="fas fa-check-circle"></i>
@@ -265,22 +337,72 @@ function formatNumberPt(value) {
   return new Intl.NumberFormat('pt-PT').format(value);
 }
 
+function formatBytes(bytes) {
+  const value = Number(bytes);
+  if (!Number.isFinite(value) || value < 0) return '';
+  if (value < 1024) return `${value} B`;
+
+  const units = ['KB', 'MB', 'GB', 'TB'];
+  let size = value / 1024;
+  let unit = 0;
+  while (size >= 1024 && unit < units.length - 1) {
+    size /= 1024;
+    unit += 1;
+  }
+  const decimals = size >= 10 ? 1 : 2;
+  return `${size.toFixed(decimals)} ${units[unit]}`;
+}
+
+function resolvePrimaryAction(jogo) {
+  const rawType = String(jogo?.primaryActionType || '').trim().toLowerCase();
+  const type = rawType || 'download';
+
+  if (!type) return null;
+
+  const explicitUrl = String(jogo?.primaryActionUrl || '').trim();
+  const fallbackUrl = String(jogo?.linkJogo || '').trim();
+  const url = explicitUrl || fallbackUrl || '';
+  const viaApiDefault = type === 'download';
+  const viaApi = typeof jogo?.primaryActionViaApi === 'boolean'
+    ? jogo.primaryActionViaApi
+    : viaApiDefault;
+
+  const label = String(jogo?.primaryActionLabel || '').trim()
+    || (type === 'play' ? 'Jogar Agora' : type === 'error' ? 'Link Indisponível' : 'Descarregar Tradução');
+
+  const message = String(jogo?.primaryActionMessage || '').trim()
+    || 'Esta ação está temporariamente indisponível. Contacta a equipa no Discord para apoio.';
+  const helpUrl = String(jogo?.primaryActionHelpUrl || 'https://discord.gg/Xv7ax2VkEp').trim();
+
+  if (type === 'play' && !viaApi && !url) return null;
+  if (type !== 'download' && type !== 'play' && type !== 'error') return null;
+
+  return {
+    type,
+    label,
+    url,
+    viaApi,
+    message,
+    helpUrl,
+    icon: type === 'play' ? 'fa-gamepad' : type === 'error' ? 'fa-triangle-exclamation' : 'fa-download',
+    counterLabel: type === 'play' ? 'acessos' : 'descargas'
+  };
+}
+
 function buildDownloadSection(jogo, downloadsData) {
   const { avisoHtml, notasHtml } = buildNotesSection(jogo.avisos, jogo.notas);
-  const downloadLabel = jogo.rebrandlyId ? 'Descarregar Tradução' : 'Abrir Página';
-  const downloadIcon = jogo.rebrandlyId ? 'fa-download' : 'fa-external-link-alt';
+  const primaryAction = resolvePrimaryAction(jogo);
   const slug = getGameSlug(jogo);
   const downloads = downloadsData?.[slug]?.downloads;
-  const downloadsText = typeof downloads === 'number'
-    ? `${formatNumberPt(downloads)} descargas`
+  const showCounter = !!primaryAction && primaryAction.type !== 'error';
+  const counterLabel = primaryAction?.counterLabel || 'descargas';
+  const downloadsText = showCounter && typeof downloads === 'number'
+    ? `${formatNumberPt(downloads)} ${counterLabel}`
     : '';
   const downloadsStatStyle = downloadsText ? '' : ' style="display:none"';
   const links = [];
   if (jogo.linkJogo) {
     links.push({ label: 'Página do Jogo', icon: 'fa-gamepad', url: jogo.linkJogo });
-  }
-  if (jogo.linkWiki) {
-    links.push({ label: 'Wiki da Tradução', icon: 'fa-book', url: jogo.linkWiki });
   }
   const linksHtml = links.length
     ? `<div class="download-links">
@@ -290,19 +412,37 @@ function buildDownloadSection(jogo, downloadsData) {
           </a>`).join('')}
       </div>`
     : '';
+  const guideLink = resolveGuideLink(jogo);
+  const guideActionHtml = guideLink
+    ? `<a href="${escapeHtml(guideLink)}" class="btn btn-secondary btn-guide-inline" title="Consultar termos e notas da tradução" aria-label="Guia da Tradução: termos e notas">
+          <i class="fas fa-book-open"></i> Guia da Tradução
+        </a>`
+    : '';
+  const primaryActionHtml = primaryAction
+    ? `<a href="${escapeHtml(primaryAction.url || '#')}" class="btn btn-primary download-btn"
+          data-game-id="${escapeHtml(slug)}"
+          data-action-type="${escapeHtml(primaryAction.type)}"
+          data-action-url="${escapeHtml(primaryAction.url)}"
+          data-action-via-api="${primaryAction.viaApi ? 'true' : 'false'}"
+          data-counter-label="${escapeHtml(primaryAction.counterLabel)}"
+          data-action-message="${escapeHtml(primaryAction.message)}"
+          data-action-help-url="${escapeHtml(primaryAction.helpUrl)}"
+          aria-label="${escapeHtml(primaryAction.label)}">
+          <i class="fas ${primaryAction.icon}"></i>
+          <div class="download-btn-text">
+            <div>${escapeHtml(primaryAction.label)}</div>
+            <div class="download-stats-number" aria-hidden="true"${downloadsStatStyle}>${escapeHtml(downloadsText)}</div>
+          </div>
+        </a>`
+    : '';
 
   return `
   <section class="game-section download-section" id="download">
     <h2 class="section-title"><i class="fas fa-download"></i> Descargas e Avisos</h2>
     <div class="section-content">
       <div class="download-actions">
-        <a href="#" class="btn btn-primary download-btn" data-game-id="${escapeHtml(slug)}" aria-label="${escapeHtml(downloadLabel)}">
-          <i class="fas ${downloadIcon}"></i>
-          <div class="download-btn-text">
-            <div>${escapeHtml(downloadLabel)}</div>
-            <div class="download-stats-number" aria-hidden="true"${downloadsStatStyle}>${escapeHtml(downloadsText)}</div>
-          </div>
-        </a>
+        ${primaryActionHtml}
+        ${guideActionHtml}
         <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           <i class="fas fa-folder-open"></i> Licenças
         </a>
@@ -322,12 +462,29 @@ function buildDownloadSection(jogo, downloadsData) {
 
 function buildCommentsSection(jogo) {
   const title = stripPtPt(jogo.titulo || getGameSlug(jogo) || 'Comentários');
+  const prompts = [
+    'Testado em: [versão do jogo/sistema]',
+    'Problema encontrado: [texto/menu/contexto]',
+    'Sugestão de melhoria: [explicação curta]'
+  ];
+  const promptButtonsHtml = prompts.map(prompt => `
+        <button type="button" class="comment-prompt-chip" data-copy-comment="${escapeHtml(prompt)}">
+          <i class="fas fa-copy"></i> ${escapeHtml(prompt)}
+        </button>
+      `).join('');
 
   return `
   <section class="game-section comments-section" id="comentarios">
     <h2 class="section-title"><i class="fas fa-comments"></i> Comentários</h2>
     <div class="section-content">
-      <p class="comments-intro">Partilha a tua experiência com esta tradução. Se encontraste algum erro, diz-nos aqui.</p>
+      <div class="comments-nudge" data-comments-nudge aria-live="polite">
+        <p class="comments-empty-note" data-comments-empty-note>
+          <strong>Se esta discussão ainda estiver vazia,</strong> o teu feedback pode definir a próxima atualização.
+        </p>
+        <div class="comment-prompt-list">
+          ${promptButtonsHtml}
+        </div>
+      </div>
       <div class="giscus-wrap">
         <div class="giscus" data-giscus-title="${escapeHtml(title)}"></div>
       </div>
@@ -340,7 +497,7 @@ function buildCommentsSection(jogo) {
         data-term="${escapeHtml(title)}"
         data-strict="0"
         data-reactions-enabled="1"
-        data-emit-metadata="0"
+        data-emit-metadata="1"
         data-input-position="bottom"
         data-theme="/assets/css/components/giscus-theme.css?v=${escapeHtml(ASSET_VERSIONS.giscusThemeCss)}"
         data-lang="pt"
@@ -453,6 +610,18 @@ function buildTranslationSection(jogo) {
         </div>
       </div>`
     : '';
+  const packageSizeText = formatBytes(jogo.packageSizeBytes);
+  const packageLastModifiedText = jogo.packageLastModified ? formatDatePt(jogo.packageLastModified) : '';
+  const packageInfoText = [packageSizeText, packageLastModifiedText].filter(Boolean).join(' · ');
+  const packageInfoHtml = packageInfoText
+    ? `<div class="gp-info-item">
+        <i class="fas fa-box-archive"></i>
+        <div>
+          <span class="gp-info-label">Pacote</span>
+          <span class="gp-info-value">${escapeHtml(packageInfoText)}</span>
+        </div>
+      </div>`
+    : '';
 
   const carouselColHtml = hasImages
     ? `<div class="gp-carousel-col">
@@ -505,6 +674,7 @@ function buildTranslationSection(jogo) {
           </div>` : ''}
 
           ${providerHtml}
+          ${packageInfoHtml}
           ${thanksHtml}
         </div>
       </div>
@@ -513,7 +683,7 @@ function buildTranslationSection(jogo) {
 }
 
 function getGameDate(jogo) {
-  return jogo.data || jogo.dataPublicacao || '';
+  return jogo.dataPublicacao || '';
 }
 
 function getGameProvider(jogo) {
@@ -627,7 +797,7 @@ function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloads
   const infoJogo = normalizeInfoJogo(jogo);
   const traducao = normalizeTraducao(jogo);
 
-  const dateRaw = jogo.data || jogo.dataPublicacao;
+  const dateRaw = jogo.dataPublicacao;
   const descriptionText = String(jogo.descricao || 'Sem descrição disponível.').replace(/\s+/g, ' ').trim();
   const metaSuffix = ` Tradução ${linguaDisplay} de ${nome} para PC.`;
   const descMax = Math.max(24, 155 - metaSuffix.length);
@@ -659,6 +829,7 @@ function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloads
     '{{HEADER}}': header || '',
     '{{FOOTER}}': footer || '',
     '{{GAME_CSS_VERSION}}': escapeHtml(ASSET_VERSIONS.gameCss),
+    '{{SITE_ANALYTICS_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.siteAnalyticsJs),
     '{{MOTION_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.motionJs),
     '{{SITE_SHELL_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.siteShellJs),
     '{{GAME_PAGE_JS_VERSION}}': escapeHtml(ASSET_VERSIONS.gamePageJs),
@@ -730,7 +901,10 @@ async function main() {
   const footer = readPartial('footer.html');
   const favicon = readPartial('favicon.html');
   const categoriasPrincipais = data.categoriasPrincipais || [];
-  const allGames = (data.jogos || []).filter(jogo => getGameSlug(jogo));
+  const packagesMap = readPackagesMetadata();
+  const allGames = (data.jogos || [])
+    .filter(jogo => getGameSlug(jogo))
+    .map(jogo => mergePackageMetadata(jogo, packagesMap));
 
   // Buscar contadores ao Netlify (com fallback para downloads.json local)
   let downloadsData = {};

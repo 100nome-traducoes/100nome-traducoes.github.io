@@ -4,6 +4,8 @@ titulo: Mods
 descricao: Todas as modificações (mods) e projetos de armas do Dead Island, organizados por tipo de arma e efeito.
 icone: wrench
 ordem: 4
+categoria: Combate
+categoria_ordem: 2
 ---
 
 # Modificações e Projetos
@@ -194,4 +196,4 @@ Armas de fogo dividem-se em **categorias de efeitos**:
 
 > **Equipa de Tradução**: Mantivemos "Mod." como abreviação consistente para "Modificação". Os nomes foram adaptados para serem descritivos em PT-PT, mantendo o espírito dos originais.
 
-==Escolha chave:== "Pick-and-ohm Mod" tornou-se "Mod. Choca-e-Pica" - uma solução criativa que mantém o trocadilho elétrico ("ohm" como unidade de resistência) enquanto soa natural em português.
+==Escolha-chave:=="Pick-and-ohm Mod" tornou-se "Mod. Choca-e-Pica" - uma solução criativa que mantém o trocadilho elétrico ("ohm" como unidade de resistência) enquanto soa natural em português.

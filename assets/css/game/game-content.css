@@ -267,8 +267,207 @@
     color: var(--text-light);
 }
 
-.btn-wiki-primary {
+.btn-guide-primary {
     border: 1px dashed rgba(227, 158, 68, 0.6);
+}
+
+.btn-guide-inline {
+    border-style: solid;
+    border-color: rgba(227, 158, 68, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.75rem 1rem;
+}
+
+.btn-guide-inline:hover {
+    border-color: rgba(227, 158, 68, 0.65);
+    background: rgba(227, 158, 68, 0.13);
+}
+
+.btn-discord-primary {
+    border-color: rgba(88, 101, 242, 0.55);
+}
+
+.btn-discord-primary:hover {
+    border-color: #5865f2;
+    background: rgba(88, 101, 242, 0.16);
+}
+
+.download-choice-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(7, 7, 10, 0.74);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity var(--motion-slow, 320ms) var(--motion-ease-standard, ease);
+}
+
+.download-choice-dialog {
+    width: min(520px, 100%);
+    background: #17171d;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 1.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    --modal-dialog-duration: 280ms;
+    transition:
+        opacity var(--modal-dialog-duration) var(--motion-ease-standard, ease),
+        transform var(--modal-dialog-duration) var(--motion-ease-emphasized, ease);
+}
+
+.download-choice-overlay.is-open {
+    opacity: 1;
+}
+
+.download-choice-overlay.is-open .download-choice-dialog {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.download-choice-overlay.is-closing {
+    opacity: 0;
+}
+
+.download-choice-overlay.is-closing .download-choice-dialog {
+    opacity: 0;
+    transform: translateY(14px) scale(0.975);
+}
+
+.download-choice-title {
+    margin: 0 0 0.55rem;
+    color: var(--text-light);
+    font-size: 1.25rem;
+}
+
+.download-choice-text {
+    margin: 0 0 1rem;
+    color: var(--text-color);
+    line-height: 1.65;
+}
+
+.download-choice-actions {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 0.7rem;
+    justify-content: start;
+}
+
+.download-choice-actions .btn {
+    width: auto;
+    padding: 0.68rem 1rem;
+    min-height: 44px;
+    justify-content: center;
+    justify-self: start;
+}
+
+.download-choice-actions .btn-primary {
+    padding: 0.72rem 1.08rem;
+}
+
+.download-choice-actions .btn-discord-primary {
+    padding: 0.62rem 0.92rem;
+    min-height: 42px;
+    font-size: 0.95rem;
+}
+
+.download-choice-close {
+    margin-top: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-dark);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.download-choice-close:hover {
+    color: var(--text-light);
+}
+
+.download-post-nudge {
+    position: fixed;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 2100;
+    width: min(440px, calc(100vw - 2rem));
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    transition:
+        opacity var(--motion-normal, 220ms) var(--motion-ease-standard, ease),
+        transform var(--motion-normal, 220ms) var(--motion-ease-standard, ease);
+    pointer-events: none;
+}
+
+.download-post-nudge.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.download-post-nudge.is-hiding {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    pointer-events: none;
+}
+
+.download-post-nudge-content {
+    background: rgba(18, 18, 24, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--border-radius);
+    padding: 0.95rem;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+}
+
+.download-post-nudge-content p {
+    margin: 0 0 0.7rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 0.93rem;
+}
+
+.download-post-nudge-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.download-post-nudge-actions .btn {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.download-post-nudge-close {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 0.35rem;
+}
+
+.download-post-nudge-close:hover {
+    color: var(--text-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .download-choice-overlay,
+    .download-choice-dialog,
+    .download-post-nudge {
+        transition: none;
+    }
+
+    .download-choice-dialog,
+    .download-post-nudge {
+        transform: none;
+    }
 }
 
 .wiki-inline-section {
@@ -301,9 +500,63 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.comments-intro {
-    color: var(--text-color);
-    margin-bottom: 1rem;
+.comments-nudge {
+    margin: 0 0 1.15rem;
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(227, 158, 68, 0.26);
+    background: rgba(227, 158, 68, 0.08);
+}
+
+.comments-nudge.has-comments {
+    padding: 0.75rem 0.9rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.comments-empty-note {
+    margin: 0 0 0.8rem;
+    color: var(--text-light);
+    line-height: 1.55;
+}
+
+.comments-nudge.has-comments .comments-empty-note {
+    margin-bottom: 0;
+}
+
+.comment-prompt-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 0.85rem;
+}
+
+.comment-prompt-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(227, 158, 68, 0.35);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-light);
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.comment-prompt-chip:hover {
+    background: rgba(227, 158, 68, 0.14);
+    border-color: rgba(227, 158, 68, 0.55);
+}
+
+.comment-prompt-chip.is-copied {
+    background: rgba(77, 182, 172, 0.18);
+    border-color: rgba(77, 182, 172, 0.6);
+}
+
+.comments-nudge.has-comments .comment-prompt-list {
+    display: none;
 }
 
 .giscus-wrap {
@@ -333,6 +586,10 @@
     border-radius: var(--border-radius);
     padding: 2rem;
     border: 1px solid var(--border-color);
+}
+
+.game-section[id] {
+    scroll-margin-top: 7.5rem;
 }
 
 .section-title {
@@ -450,20 +707,7 @@
     gap: 2rem;
     position: sticky;
     top: calc(var(--navbar-height) + 18px);
-    max-height: calc(100vh - (var(--navbar-height) + 38px));
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(227, 158, 68, 0.3) transparent;
     align-self: start;
-}
-
-.game-sidebar::-webkit-scrollbar {
-    width: 4px;
-}
-
-.game-sidebar::-webkit-scrollbar-thumb {
-    background: rgba(227, 158, 68, 0.3);
-    border-radius: 2px;
 }
 
 .sidebar-section {
@@ -550,12 +794,14 @@
     transition: all 0.3s ease;
     cursor: pointer;
     border: 1px solid transparent;
+    text-decoration: none;
 }
 
 .related-game-card:hover {
     background: rgba(227, 158, 68, 0.1);
     border-color: var(--primary-color);
     transform: translateX(5px);
+    text-decoration: none;
 }
 
 .related-game-image {
@@ -681,6 +927,19 @@
 
     .related-games {
         grid-template-columns: 1fr;
+    }
+
+    .download-post-nudge {
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .download-choice-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .download-choice-actions .btn {
+        width: 100%;
     }
 }
 

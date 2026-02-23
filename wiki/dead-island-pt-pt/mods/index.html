@@ -141,7 +141,7 @@
                 <p>Esta wiki faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
             </div>
             <div class="wiki-translation-banner-actions">
-                <a href="/jogo/dead-island-pt-pt#download" class="wiki-cta-btn wiki-cta-btn--primary">
+                <a href="/jogo/dead-island-pt-pt" class="wiki-cta-btn wiki-cta-btn--primary">
                     <i class="mdi mdi-download"></i> Descarregar Tradução
                 </a>
                 <a href="/jogo/dead-island-pt-pt#comentarios" class="wiki-cta-btn wiki-cta-btn--ghost">
@@ -167,81 +167,130 @@
 
             <div class="wiki-nav" data-reveal data-reveal-delay="80">
                 <h3 class="wiki-nav-title"><i class="mdi mdi-format-list-bulleted"></i> Conteúdos</h3>
-                <ul class="wiki-nav-list">
+                <button type="button" class="wiki-nav-expand-all" data-wiki-nav-expand-all aria-expanded="false">
+                    Mostrar tudo
+                </button>
+                <div class="wiki-nav-groups">
                     
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt">
-                        <i class="mdi mdi-information"></i> Visão Geral
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/zombies">
-                        <i class="mdi mdi-skull"></i> Zombies
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/armas">
-                        <i class="mdi mdi-sword-cross"></i> Armas
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/modificadores-de-armas">
-                        <i class="mdi mdi-flash"></i> Modificadores
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/lugares">
-                        <i class="mdi mdi-map-marker"></i> Lugares
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item active">
-                    <a href="/wiki/dead-island-pt-pt/mods">
-                        <i class="mdi mdi-wrench"></i> Mods
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/desafios">
-                        <i class="mdi mdi-timer"></i> Desafios
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/conquistas">
-                        <i class="mdi mdi-trophy"></i> Conquistas
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/missoes">
-                        <i class="mdi mdi-map"></i> Missões
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/capitulos">
-                        <i class="mdi mdi-book"></i> Capítulos
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/segredos">
-                        <i class="mdi mdi-lock"></i> Segredos
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/dead-island-pt-pt/habilidades">
-                        <i class="mdi mdi-account-box"></i> Habilidades
-                    </a>
-                </li>
-            
+                <ul class="wiki-nav-list wiki-nav-list--overview">
+                    <li class="wiki-nav-item ">
+                        <a href="/wiki/dead-island-pt-pt">
+                            <i class="mdi mdi-information"></i> Visão Geral
+                        </a>
+                    </li>
                 </ul>
+            
+                <section class="wiki-nav-group is-open" data-nav-group>
+                    <button type="button" class="wiki-nav-group-toggle" aria-expanded="true">
+                        <span class="wiki-nav-group-title">Combate</span>
+                        <span class="wiki-nav-group-count">5</span>
+                        <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="wiki-nav-list" >
+                        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/zombies">
+                    <i class="mdi mdi-skull"></i> Zombies
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/armas">
+                    <i class="mdi mdi-sword-cross"></i> Armas
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/modificadores-de-armas">
+                    <i class="mdi mdi-flash"></i> Modificadores
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item active">
+                <a href="/wiki/dead-island-pt-pt/mods">
+                    <i class="mdi mdi-wrench"></i> Mods
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/habilidades">
+                    <i class="mdi mdi-account-box"></i> Habilidades
+                </a>
+            </li>
+        
+                    </ul>
+                </section>
+            
+                <section class="wiki-nav-group " data-nav-group>
+                    <button type="button" class="wiki-nav-group-toggle" aria-expanded="false">
+                        <span class="wiki-nav-group-title">Mundo e Missões</span>
+                        <span class="wiki-nav-group-count">3</span>
+                        <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="wiki-nav-list" hidden>
+                        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/lugares">
+                    <i class="mdi mdi-map-marker"></i> Lugares
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/missoes">
+                    <i class="mdi mdi-map"></i> Missões
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/capitulos">
+                    <i class="mdi mdi-book"></i> Capítulos
+                </a>
+            </li>
+        
+                    </ul>
+                </section>
+            
+                <section class="wiki-nav-group " data-nav-group>
+                    <button type="button" class="wiki-nav-group-toggle" aria-expanded="false">
+                        <span class="wiki-nav-group-title">Progressão</span>
+                        <span class="wiki-nav-group-count">2</span>
+                        <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="wiki-nav-list" hidden>
+                        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/desafios">
+                    <i class="mdi mdi-timer"></i> Desafios
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/conquistas">
+                    <i class="mdi mdi-trophy"></i> Conquistas
+                </a>
+            </li>
+        
+                    </ul>
+                </section>
+            
+                <section class="wiki-nav-group " data-nav-group>
+                    <button type="button" class="wiki-nav-group-toggle" aria-expanded="false">
+                        <span class="wiki-nav-group-title">Extras</span>
+                        <span class="wiki-nav-group-count">1</span>
+                        <i class="mdi mdi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="wiki-nav-list" hidden>
+                        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/dead-island-pt-pt/segredos">
+                    <i class="mdi mdi-lock"></i> Segredos
+                </a>
+            </li>
+        
+                    </ul>
+                </section>
+            
+                </div>
             </div>
             
             <div data-reveal data-reveal-delay="120">
@@ -249,7 +298,7 @@
         <section class="wiki-translation-status">
             <h3 class="wiki-nav-title"><i class="mdi mdi-clipboard-check-outline"></i> Estado da tradução</h3>
             <ul class="wiki-status-list">
-                <li><span>Versão</span><strong>v1.1</strong></li>
+                <li><span>Versão</span><strong>v1.0</strong></li>
                 <li><span>Última atualização</span><strong>08 Abr 2024</strong></li>
             </ul>
             <a class="wiki-status-link" href="/jogo/dead-island-pt-pt">
@@ -286,7 +335,7 @@
                     <p class="page-subtitle">Todas as modificações (mods) e projetos de armas do Dead Island, organizados por tipo de arma e efeito.</p>
                     <div class="page-meta">
                         <span><i class="mdi mdi-format-list-bulleted"></i> 63 termos</span>
-                        <span><i class="mdi mdi-clock-outline"></i> Atualizado em 09 Fev 2026</span>
+                        <span><i class="mdi mdi-clock-outline"></i> Atualizado em 22 Fev 2026</span>
                     </div>
                 </div>
             </div>
@@ -301,7 +350,7 @@
         <strong>Gostas de Dead Island Edição Definitiva?</strong>
         <span>Podes jogar com tradução PT-PT completa.</span>
     </div>
-    <a href="/jogo/dead-island-pt-pt#download" class="wiki-cta-btn wiki-cta-btn--primary">
+    <a href="/jogo/dead-island-pt-pt" class="wiki-cta-btn wiki-cta-btn--primary">
         <i class="mdi mdi-download"></i> Descarregar
     </a>
 </div>
@@ -318,7 +367,7 @@
 <h3 class="wiki-subsection-title" id="sangramento"><i class="mdi mdi-water"></i> Sangramento</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações que causam sangramento</caption>
 
 <tbody><tr>
@@ -341,7 +390,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -364,7 +413,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -387,7 +436,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -405,7 +454,7 @@
 <h3 class="wiki-subsection-title" id="critico"><i class="mdi mdi-bullseye"></i> Crítico</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações que aumentam dano crítico</caption>
 
 <tbody><tr>
@@ -429,7 +478,7 @@
 <h3 class="wiki-subsection-title" id="chamas"><i class="mdi mdi-fire"></i> Chamas</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações com efeito de fogo</caption>
 
 <tbody><tr>
@@ -453,7 +502,7 @@
 <h3 class="wiki-subsection-title" id="impacto"><i class="mdi mdi-flash"></i> Impacto</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações com alto impacto/choque</caption>
 
 <tbody><tr>
@@ -476,7 +525,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -499,7 +548,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -519,7 +568,7 @@
 <h3 class="wiki-subsection-title" id="veneno"><i class="mdi mdi-skull"></i> Veneno</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações com efeito venenoso</caption>
 
 <tbody><tr>
@@ -542,7 +591,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -560,7 +609,7 @@
 <h3 class="wiki-subsection-title" id="choque"><i class="mdi mdi-lightning-bolt"></i> Choque</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações com efeito elétrico</caption>
 
 <tbody><tr>
@@ -583,7 +632,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -609,7 +658,7 @@
 <h3 class="wiki-subsection-title" id="fogo-explosao"><i class="mdi mdi-bomb"></i> Explosão</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações explosivas para armas de fogo</caption>
 
 <tbody><tr>
@@ -631,7 +680,7 @@
 <h3 class="wiki-subsection-title" id="fogo-chamas"><i class="mdi mdi-fire"></i> Chamas</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações incendiárias para armas de fogo</caption>
 
 <tbody><tr>
@@ -653,7 +702,7 @@
 <h3 class="wiki-subsection-title" id="fogo-veneno"><i class="mdi mdi-skull"></i> Veneno</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações tóxicas para armas de fogo</caption>
 
 <tbody><tr>
@@ -675,7 +724,7 @@
 <h3 class="wiki-subsection-title" id="fogo-choque"><i class="mdi mdi-lightning-bolt"></i> Choque</h3>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Modificações elétricas para armas de fogo</caption>
 
 <tbody><tr>
@@ -698,7 +747,7 @@
 <h2 class="wiki-section-title" id="armas-a-distancia">🎯 Armas à Distância</h2>
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     <caption>Projetos para armas arremessáveis e à distância</caption>
 
 <tbody><tr>
@@ -721,7 +770,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -744,7 +793,7 @@
         
 
             <div class="translation-table-wrapper">
-                <table class="translation-table">
+                <table class="translation-table vertical-header-table">
                     
 
 <tbody><tr>
@@ -769,14 +818,14 @@
 </div>
                 </div>
             
-<p><span class="highlight-note">Escolha chave:</span> &quot;Pick-and-ohm Mod&quot; tornou-se &quot;Mod. Choca-e-Pica&quot; - uma solução criativa que mantém o trocadilho elétrico (&quot;ohm&quot; como unidade de resistência) enquanto soa natural em português.</p>
+<p><span class="highlight-note">Escolha-chave:</span>&quot;Pick-and-ohm Mod&quot; tornou-se &quot;Mod. Choca-e-Pica&quot; - uma solução criativa que mantém o trocadilho elétrico (&quot;ohm&quot; como unidade de resistência) enquanto soa natural em português.</p>
 
 
             
         <div class="wiki-related">
             <h3 class="wiki-related-title"><i class="mdi mdi-link-variant"></i> Relacionado</h3>
             <div class="wiki-related-links">
-                <a href="/wiki/dead-island-pt-pt">Visão Geral</a><a href="/wiki/dead-island-pt-pt/lugares">Anterior: Lugares</a><a href="/wiki/dead-island-pt-pt/desafios">Seguinte: Desafios</a>
+                <a class="wiki-related-link" href="/wiki/dead-island-pt-pt">Visão Geral</a><a class="wiki-related-link" href="/wiki/dead-island-pt-pt/lugares">Anterior: Lugares</a><a class="wiki-related-link" href="/wiki/dead-island-pt-pt/desafios">Seguinte: Desafios</a>
             </div>
         </div>
     
@@ -796,6 +845,12 @@
 
         <div class="footer-section">
             <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="/#apoio">
+                <i class="fas fa-heart"></i> Apoiar o Projeto
+            </a>
+            <a href="/#traduzir">
+                <i class="fas fa-language"></i> Quero Traduzir
+            </a>
             <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-discord"></i> Servidor Discord
             </a>
@@ -804,9 +859,6 @@
             </a>
             <a href="mailto:100nome.portugal@gmail.com">
                 <i class="fas fa-envelope"></i> Contactar (e-mail)
-            </a>
-            <a href="/arquivo">
-                <i class="fas fa-archive"></i> Arquivo
             </a>
         </div>
 
@@ -848,8 +900,9 @@
 </button>
 
 
+    <script src="/assets/js/components/site-analytics.js?v=dd4c5ad720"></script>
     <script src="/assets/js/components/motion.js?v=e66ec2a484"></script>
-    <script src="/assets/js/components/site-shell.js?v=fc1cc19360"></script>
-    <script src="/assets/js/pages/wiki-page.js?v=ed23a9d186"></script>
+    <script src="/assets/js/components/site-shell.js?v=586ec2c793"></script>
+    <script src="/assets/js/pages/wiki-page.js?v=734120fb6c"></script>
 </body>
 </html>

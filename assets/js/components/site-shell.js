@@ -1,6 +1,12 @@
 (function(window, $) {
     'use strict';
 
+    const track = (eventName, params = {}) => {
+        if (window.SiteAnalytics && typeof window.SiteAnalytics.track === 'function') {
+            window.SiteAnalytics.track(eventName, params);
+        }
+    };
+
     function getHomeUrl() {
         const parts = window.location.pathname.split('/').filter(Boolean);
         if (parts.length > 0 && !['wiki', 'jogo'].includes(parts[0]) && !parts[0].endsWith('.html')) {
@@ -125,7 +131,13 @@
                 .on('submit.siteShellSearch', function(e) {
                     e.preventDefault();
                     const q = ($globalSearchInput.val() || '').trim();
-                    if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
+                    if (q) {
+                        track('search_global_submit', {
+                            query_length: q.length,
+                            search_origin: 'header_desktop'
+                        });
+                        window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
+                    }
                 });
 
             $globalMobileSearchForm
@@ -133,7 +145,13 @@
                 .on('submit.siteShellMobileSearch', function(e) {
                     e.preventDefault();
                     const q = ($globalMobileSearchInput.val() || '').trim();
-                    if (q) window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
+                    if (q) {
+                        track('search_global_submit', {
+                            query_length: q.length,
+                            search_origin: 'header_mobile'
+                        });
+                        window.location.href = `${homeUrl}?q=${encodeURIComponent(q)}`;
+                    }
                 });
         }
 

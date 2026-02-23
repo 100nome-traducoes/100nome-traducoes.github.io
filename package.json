@@ -4,6 +4,7 @@
   "description": "Site de traduções de jogos 100Nome",
   "scripts": {
     "build:home": "node scripts/build-home.js",
+    "sync:packages": "node scripts/sync-package-metadata.js",
     "build:wiki": "node scripts/build-wiki.js",
     "build:pages": "node scripts/build-pages.js",
     "build:sitemap": "node scripts/build-sitemap.js",

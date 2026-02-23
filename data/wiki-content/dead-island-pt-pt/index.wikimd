@@ -3,6 +3,8 @@ titulo: Wiki de Tradução
 descricao: Wiki completa da tradução PT-PT de Dead Island. Consulta termos, zombies, armas, locais, conquistas e muito mais.
 icone: information
 ordem: 1
+categoria: Começar
+categoria_ordem: 1
 ---
 
 # Wiki do Dead Island em Português
@@ -19,26 +21,4 @@ uUD_lAYPF-c
 ZkfhPKVXiVQ
 :::
 
-## Explorar a Wiki
-
-:::grid
-- [icon:skull] Zombies (zombies)
-- [icon:sword-cross] Armas (armas)
-- [icon:flash] Modificadores (modificadores-de-armas)
-- [icon:map-marker] Lugares (lugares)
-- [icon:wrench] Mods (mods)
-- [icon:timer] Desafios (desafios)
-- [icon:trophy] Conquistas (conquistas)
-- [icon:map] Missões (missoes)
-- [icon:book] Capítulos (capitulos)
-- [icon:lock] Segredos (segredos)
-- [icon:account-box] Habilidades (habilidades)
-:::
-
-## Como usar esta Wiki
-
-1. Usa a barra lateral para navegar entre categorias.
-2. Cada página tem secções com títulos claros e ligação direta.
-3. Se não encontrares algo, usa a pesquisa na própria wiki.
-
-> Esta wiki é atualizada conforme a tradução evolui ou é melhorada. Se encontrares algo em falta, deixa sugestão nos comentários do jogo.
+:::wiki-home-nav:::

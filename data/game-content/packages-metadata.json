@@ -1,0 +1,239 @@
+{
+  "source": "google-sheets",
+  "syncedAt": "2026-02-23T17:57:45.080Z",
+  "lastUpdated": "2026-02-23T17:57:44.123Z",
+  "totalFiles": 34,
+  "packages": {
+    "beneath-a-steel-sky-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T16:13:00.236Z",
+      "packageSizeBytes": 3980,
+      "packageChecksum": "d51f8f248eac92a09558901da8b6a134",
+      "packageFilename": "Beneath a Steel Sky PT-EU.zip"
+    },
+    "blur-jogo-pt-pt": {
+      "packageVersion": "1.4",
+      "packageLastModified": "2024-11-03T14:21:26.715Z",
+      "packageSizeBytes": 22253971,
+      "packageChecksum": "d38cc4a4e6835c29aba5e362abc144db",
+      "packageFilename": "Blur PT-EU.zip"
+    },
+    "cry-of-fear-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2024-02-17T10:40:00.735Z",
+      "packageSizeBytes": 819016,
+      "packageChecksum": "c676ec7538221f239a65663c80eddaf2",
+      "packageFilename": "Cry of Fear PT-EU.zip"
+    },
+    "dark-tales-crimes-rua-morgue-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:02:08.460Z",
+      "packageSizeBytes": 9385303,
+      "packageChecksum": "709b27507481ab03fde5a8baabbd585b",
+      "packageFilename": "Dark Tales Crimes da Rua Morgue PT-EU.zip"
+    },
+    "dead-island-pt-pt": {
+      "packageVersion": "1.1",
+      "packageLastModified": "2024-11-10T22:16:42.831Z",
+      "packageSizeBytes": 6791603,
+      "packageChecksum": "4ca1348c65f255f8e7d237b52be8ada6",
+      "packageFilename": "Dead Island PT-EU.zip"
+    },
+    "dont-starve-pt-pt": {
+      "packageVersion": "1.1",
+      "packageLastModified": "2023-07-25T14:03:11.355Z",
+      "packageSizeBytes": 462680,
+      "packageChecksum": "842457aaaa1527e6cd32b3725df8722b",
+      "packageFilename": "Don't Starve PT-EU.zip"
+    },
+    "doors-paradox-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2024-02-17T07:26:27.273Z",
+      "packageSizeBytes": 1577776782,
+      "packageChecksum": "ed36267b47152577d9c2d613df02ff50",
+      "packageFilename": "Doors Paradox PT-EU.zip"
+    },
+    "extreme-tux-racer-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:30.177Z",
+      "packageSizeBytes": 5299,
+      "packageChecksum": "59cef2fec366c55abb449102dabb336d",
+      "packageFilename": "Extreme Tux Racer PT-EU.zip"
+    },
+    "glest-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:30.212Z",
+      "packageSizeBytes": 7652,
+      "packageChecksum": "a143e78004dadaf28e945c859a3256a2",
+      "packageFilename": "Glest PT-EU.zip"
+    },
+    "gta-3-pt-pt": {
+      "packageVersion": "2.0",
+      "packageLastModified": "2023-07-25T14:01:32.107Z",
+      "packageSizeBytes": 461465,
+      "packageChecksum": "9ca7d8362f4bace31f62d3745aff514b",
+      "packageFilename": "GTA 3 PT-EU.zip"
+    },
+    "gta-san-andreas-pt-pt": {
+      "packageVersion": "1.5",
+      "packageLastModified": "2023-07-25T14:01:32.306Z",
+      "packageSizeBytes": 399641,
+      "packageChecksum": "e4f04905c17ca48a812047cb4d2b5115",
+      "packageFilename": "GTA San Andreas PT-EU.zip"
+    },
+    "gta-vice-city-pt-pt": {
+      "packageVersion": "1.7",
+      "packageLastModified": "2024-02-07T16:21:37.335Z",
+      "packageSizeBytes": 137558,
+      "packageChecksum": "5388ec8d69d1c810f778b6479c0eced9",
+      "packageFilename": "GTA Vice City PT-EU.zip"
+    },
+    "harry-potter-pedra-filosofal-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:32.263Z",
+      "packageSizeBytes": 51513,
+      "packageChecksum": "df9d5256cbb26f2b46c302c7e9b058de",
+      "packageFilename": "Harry Potter e a Pedra Filosofal PT-EU.zip"
+    },
+    "helltaker-pt-pt": {
+      "packageVersion": "4.5",
+      "packageLastModified": "2024-12-06T13:42:02.003Z",
+      "packageSizeBytes": 58120,
+      "packageChecksum": "58c9a9fe02026983bff863d10fda5710",
+      "packageFilename": "Helltaker PT-EU.zip"
+    },
+    "age-of-japan-portugues": {
+      "packageVersion": "1.1",
+      "packageLastModified": "2026-02-14T17:22:27.299Z",
+      "packageSizeBytes": 356102,
+      "packageChecksum": "194cad1c446ce48eb066e38c92aaf774",
+      "packageFilename": "Idade do Japão PT-EU.zip"
+    },
+    "limbo-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:32.480Z",
+      "packageSizeBytes": 6557,
+      "packageChecksum": "6ce399664fb31820b6b207cfe215fae5",
+      "packageFilename": "Limbo PT-EU.zip"
+    },
+    "medieval-ii-total-war-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T16:13:21.260Z",
+      "packageSizeBytes": 1526218,
+      "packageChecksum": "fe444ee4b740f07781f6e714a10af56c",
+      "packageFilename": "Medieval II - Total War PT-EU.zip"
+    },
+    "world-of-goo-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:32.636Z",
+      "packageSizeBytes": 597096,
+      "packageChecksum": "9b95c2fdc5a146f0c139a86550dd7918",
+      "packageFilename": "Mundo de Goo PT-EU.zip"
+    },
+    "dear-esther-pt-pt": {
+      "packageVersion": "2.0",
+      "packageLastModified": "2024-03-05T15:47:24.806Z",
+      "packageSizeBytes": 624560,
+      "packageChecksum": "90e7a291d9078ca36a7511cc9dfcd544",
+      "packageFilename": "Querida Esther PT-EU.zip"
+    },
+    "supertuxkart-pt-pt": {
+      "packageVersion": "2.3",
+      "packageLastModified": "2024-08-14T09:11:34.242Z",
+      "packageSizeBytes": 69926,
+      "packageChecksum": "cde143022694d7e9fba03b6349c88a53",
+      "packageFilename": "SuperTuxKart PT-EU.zip"
+    },
+    "the-ball-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2025-07-11T21:10:10.196Z",
+      "packageSizeBytes": 408519,
+      "packageChecksum": "79da32531294b1d1f48bf3b99fc5ee42",
+      "packageFilename": "The Ball PT-EU.zip"
+    },
+    "the-path-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:30.268Z",
+      "packageSizeBytes": 861163,
+      "packageChecksum": "c2dfc322b4787a6c389530c1aec24029",
+      "packageFilename": "The Path PT-EU.zip"
+    },
+    "the-tiny-bang-story-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:30.122Z",
+      "packageSizeBytes": 4017,
+      "packageChecksum": "e293ad566ff0645b77f3b6f0cbe7e7e4",
+      "packageFilename": "The Tiny Bang Story PT-EU.zip"
+    },
+    "trackmania-united-forever-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2024-02-09T21:48:25.998Z",
+      "packageSizeBytes": 70284,
+      "packageChecksum": "5808d5f722e58fca27f3eca89a388c51",
+      "packageFilename": "Trackmania United Forever PT-EU.zip"
+    },
+    "transport-giant-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2024-02-04T17:27:21.486Z",
+      "packageSizeBytes": 24895,
+      "packageChecksum": "b47589aedab3621b135c86628bf4f6b1",
+      "packageFilename": "Transport Giant PT-EU.zip"
+    },
+    "trine-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:30.215Z",
+      "packageSizeBytes": 160748,
+      "packageChecksum": "05a0ef33ec7fb5979d1b21cf0e28d511",
+      "packageFilename": "Trine PT-EU.zip"
+    },
+    "twisted-lands-a-origem-pt-pt": {
+      "packageVersion": "1.1",
+      "packageLastModified": "2024-04-14T20:34:29.715Z",
+      "packageSizeBytes": 194291,
+      "packageChecksum": "f70aabd5034042b56426f256232f1acc",
+      "packageFilename": "Twisted Lands A Origem PT-EU.zip"
+    },
+    "twisted-lands-ilha-sombria-pt-pt": {
+      "packageVersion": "1.3",
+      "packageLastModified": "2023-08-29T15:25:29.262Z",
+      "packageSizeBytes": 843215,
+      "packageChecksum": "2516c011c974fb58c27ac6974dc6e36f",
+      "packageFilename": "Twisted Lands Ilha Sombria PT-EU.zip"
+    },
+    "twisted-lands-insonias-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2023-07-25T14:01:33.121Z",
+      "packageSizeBytes": 729376,
+      "packageChecksum": "8064684be376f980492db204571fa997",
+      "packageFilename": "Twisted Lands Insónias PT-EU.zip"
+    },
+    "vampireville-portugues": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2025-01-06T11:14:14.666Z",
+      "packageSizeBytes": 205360,
+      "packageChecksum": "e21648e2228d417b2469a45c517c262f",
+      "packageFilename": "Vampireville PT-EU.zip"
+    },
+    "vizinhos-do-inferno-pt-pt": {
+      "packageVersion": "3.0",
+      "packageLastModified": "2023-07-25T14:01:46.559Z",
+      "packageSizeBytes": 126149358,
+      "packageChecksum": "46c1cdb2ee4a28fbf5c9b41b845d87b2",
+      "packageFilename": "Vizinhos do Inferno 2 PT-EU.zip"
+    },
+    "vizinhos-do-inferno-2-pt-pt": {
+      "packageVersion": "2.2",
+      "packageLastModified": "2023-07-25T14:01:55.482Z",
+      "packageSizeBytes": 53320983,
+      "packageChecksum": "c48a7639e63a815416a7e07a59422e6e",
+      "packageFilename": "Vizinhos do Inferno PT-EU.zip"
+    },
+    "neighbours-back-from-hell-pt-pt": {
+      "packageVersion": "1.0",
+      "packageLastModified": "2024-08-10T08:42:22.780Z",
+      "packageSizeBytes": 35184046,
+      "packageChecksum": "4f81767b215eb981ebc6d7de75dd765d",
+      "packageFilename": "Vizinhos Voltam do Inferno PT-EU.zip"
+    }
+  }
+}

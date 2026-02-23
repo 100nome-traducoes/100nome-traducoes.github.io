@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    const track = (eventName, params = {}) => {
+        if (window.SiteAnalytics && typeof window.SiteAnalytics.track === 'function') {
+            window.SiteAnalytics.track(eventName, params);
+        }
+    };
+
     if (window.SiteShell) {
         window.SiteShell.init();
     }
@@ -6,6 +12,12 @@ $(document).ready(function() {
     initDescricaoReadMore();
     initCarousel();
     atualizarDownloadsEmTempoReal();
+    initCommentPrompts();
+    initCommentsNudgeState();
+
+    track('view_game', {
+        game_slug: obterSlugJogoAtual()
+    });
 
 
     function initDescricaoReadMore() {
@@ -187,5 +199,93 @@ $(document).ready(function() {
             }
         });
     }
+
+    function initCommentPrompts() {
+        const chips = document.querySelectorAll('[data-copy-comment]');
+        if (!chips.length) return;
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', async () => {
+                const text = chip.getAttribute('data-copy-comment') || '';
+                if (!text) return;
+
+                try {
+                    await navigator.clipboard.writeText(text);
+                    chip.classList.add('is-copied');
+                    const original = chip.innerHTML;
+                    chip.innerHTML = '<i class="fas fa-check"></i> Copiado';
+                    window.setTimeout(() => {
+                        chip.classList.remove('is-copied');
+                        chip.innerHTML = original;
+                    }, 1400);
+                    track('click_game_comment_prompt_copy', {
+                        game_slug: obterSlugJogoAtual()
+                    });
+                } catch {
+                    // fallback silencioso
+                }
+            });
+        });
+    }
+
+    function initCommentsNudgeState() {
+        const nudge = document.querySelector('[data-comments-nudge]');
+        const note = document.querySelector('[data-comments-empty-note]');
+        const firstCommentCta = document.querySelector('[data-first-comment-cta]');
+        if (!nudge || !note) return;
+
+        const markDiscussionActive = () => {
+            nudge.classList.add('has-comments');
+            note.innerHTML = '<strong>Discussão ativa.</strong> Partilha também o teu feedback para ajudar nas próximas melhorias.';
+            if (firstCommentCta) {
+                firstCommentCta.textContent = 'Adicionar comentário';
+            }
+        };
+
+        const getCountFromDiscussion = (discussion) => {
+            if (!discussion || typeof discussion !== 'object') return null;
+            const countCandidate = discussion.totalCommentCount ?? discussion.commentCount ?? discussion.commentsCount;
+            return typeof countCandidate === 'number' ? countCandidate : null;
+        };
+
+        window.addEventListener('message', (event) => {
+            if (event.origin !== 'https://giscus.app') return;
+            const payload = event.data;
+            if (!payload || typeof payload !== 'object' || !payload.giscus) return;
+
+            const discussion = payload.giscus.discussion;
+            if (!discussion) return;
+
+            const count = getCountFromDiscussion(discussion);
+            if (count === null) {
+                if (discussion.id || discussion.url) {
+                    markDiscussionActive();
+                }
+                return;
+            }
+
+            if (count > 0) {
+                markDiscussionActive();
+                track('discussion_active_detected', {
+                    game_slug: obterSlugJogoAtual(),
+                    comments_count: count
+                });
+            }
+        });
+    }
+
+    $(document).on('click', '.btn-guide-primary, .btn-guide-inline', function() {
+        track('click_game_guide', {
+            game_slug: obterSlugJogoAtual(),
+            cta_location: $(this).hasClass('btn-guide-primary') ? 'header' : 'download_section'
+        });
+    });
+
+    $(document).on('click', '.game-sidebar a[href*="discord.gg"]', function() {
+        track('click_game_discord', {
+            game_slug: obterSlugJogoAtual(),
+            cta_location: 'sidebar'
+        });
+    });
 
 });

@@ -4,6 +4,8 @@ titulo: Lugares
 descricao: Todos os lugares, zonas e áreas do Dead Island traduzidos para português de Portugal.
 icone: map-marker
 ordem: 3
+categoria: Mundo e Missões
+categoria_ordem: 3
 ---
 
 # Lugares

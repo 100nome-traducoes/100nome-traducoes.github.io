@@ -4,6 +4,8 @@ titulo: Habilidades
 descricao: Todas as árvores de habilidades (Fúria, Combate, Sobrevivência) dos quatro protagonistas do Dead Island, com os nomes traduzidos para PT-PT.
 icone: account-box
 ordem: 10
+categoria: Combate
+categoria_ordem: 2
 ---
 
 # Habilidades das Personagens

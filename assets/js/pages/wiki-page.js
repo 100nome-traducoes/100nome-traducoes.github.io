@@ -1,7 +1,73 @@
 $(document).ready(function() {
+    const track = (eventName, params = {}) => {
+        if (window.SiteAnalytics && typeof window.SiteAnalytics.track === 'function') {
+            window.SiteAnalytics.track(eventName, params);
+        }
+    };
+
     if (window.SiteShell) {
         window.SiteShell.init();
     }
+
+    track('view_guide', {});
+
+    function initWikiNavGroups() {
+        const $groups = $('.wiki-nav-group[data-nav-group]');
+        const $expandAllBtn = $('[data-wiki-nav-expand-all]');
+
+        if ($groups.length < 2) {
+            $expandAllBtn.hide();
+        }
+        if (!$groups.length) return;
+
+        const setGroupState = ($group, isOpen) => {
+            const $toggle = $group.find('.wiki-nav-group-toggle').first();
+            const $list = $group.children('.wiki-nav-list').first();
+
+            $group.toggleClass('is-open', isOpen);
+            $toggle.attr('aria-expanded', String(isOpen));
+            if (isOpen) {
+                $list.removeAttr('hidden');
+            } else {
+                $list.attr('hidden', 'hidden');
+            }
+        };
+
+        const updateExpandAllLabel = () => {
+            if (!$expandAllBtn.length) return;
+            const totalGroups = $groups.length;
+            const openGroups = $groups.filter('.is-open').length;
+            const allOpen = totalGroups > 0 && openGroups === totalGroups;
+            $expandAllBtn.text(allOpen ? 'Recolher' : 'Mostrar tudo');
+            $expandAllBtn.attr('aria-expanded', String(allOpen));
+        };
+
+        $groups.each(function() {
+            const $group = $(this);
+            const $toggle = $group.find('.wiki-nav-group-toggle').first();
+            const isOpen = $group.hasClass('is-open') || $toggle.attr('aria-expanded') === 'true';
+
+            setGroupState($group, isOpen);
+
+            $toggle.on('click', function() {
+                const nextOpen = !$group.hasClass('is-open');
+                setGroupState($group, nextOpen);
+                updateExpandAllLabel();
+            });
+        });
+
+        $expandAllBtn.on('click', function() {
+            const allOpen = $groups.filter('.is-open').length === $groups.length;
+            $groups.each(function() {
+                setGroupState($(this), !allOpen);
+            });
+            updateExpandAllLabel();
+        });
+
+        updateExpandAllLabel();
+    }
+
+    initWikiNavGroups();
 
     const $wikiSearchInput = $('#wikiSearchInput');
     const $wikiSearchResults = $('#wikiSearchResults');
@@ -50,5 +116,26 @@ $(document).ready(function() {
             .join('');
 
         $wikiSearchResults.html(html);
+
+        if (query.length >= 2) {
+            track('search_guide_input', {
+                query_length: query.length,
+                results_count: results.length
+            });
+        }
+    });
+
+    $(document).on('click', '.wiki-cta-btn', function() {
+        const href = String($(this).attr('href') || '').trim();
+        const isComments = href.includes('#comentarios');
+        track(isComments ? 'click_guide_cta_comments' : 'click_guide_cta_game', {
+            cta_location: $(this).closest('.wiki-translation-banner').length ? 'banner' : 'inline'
+        });
+    });
+
+    $(document).on('click', '.wiki-search-item', function() {
+        track('click_guide_search_result', {
+            query_length: String($wikiSearchInput.val() || '').trim().length
+        });
     });
 });

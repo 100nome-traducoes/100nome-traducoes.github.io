@@ -137,11 +137,10 @@
 
             <aside class="game-sidebar" data-reveal>
                 <div class="sidebar-section" data-reveal data-reveal-delay="40">
-                    <h3><i class="fas fa-heart"></i> Apoia o Projeto</h3>
-                    <p>Gostaste desta tradução? Apoia o 100Nome!</p>
-                    <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-coffee"></i> Fazer Donativo
-                    </a>
+                    <h3><i class="fas fa-gamepad"></i> Jogos Relacionados</h3>
+                    <div class="related-games">
+                        {{RELATED_GAMES_HTML}}
+                    </div>
                 </div>
 
                 <div class="sidebar-section" data-reveal data-reveal-delay="80">
@@ -157,10 +156,11 @@
                 </div>
 
                 <div class="sidebar-section" data-reveal data-reveal-delay="120">
-                    <h3><i class="fas fa-gamepad"></i> Jogos Relacionados</h3>
-                    <div class="related-games">
-                        {{RELATED_GAMES_HTML}}
-                    </div>
+                    <h3><i class="fas fa-heart"></i> Apoia o Projeto</h3>
+                    <p>Gostaste desta tradução? Apoia o 100Nome!</p>
+                    <a href="https://ko-fi.com/100nometraducoes" class="btn btn-support" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-coffee"></i> Fazer Donativo
+                    </a>
                 </div>
             </aside>
         </div>
@@ -168,6 +168,7 @@
 
     {{FOOTER}}
 
+    <script src="../../assets/js/components/site-analytics.js?v={{SITE_ANALYTICS_JS_VERSION}}"></script>
     <script src="../../assets/js/components/motion.js?v={{MOTION_JS_VERSION}}"></script>
     <script src="../../assets/js/components/site-shell.js?v={{SITE_SHELL_JS_VERSION}}"></script>
     <script src="../../assets/js/pages/game-page.js?v={{GAME_PAGE_JS_VERSION}}"></script>

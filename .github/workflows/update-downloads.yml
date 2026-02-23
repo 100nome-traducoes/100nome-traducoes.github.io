@@ -1,0 +1,43 @@
+name: Atualizar Downloads
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-downloads:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Update downloads data
+        run: node scripts/update-downloads.js
+        env:
+          DOWNLOADS_API_URL: https://100nome-api.netlify.app/.netlify/functions
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- data/game-content/downloads.json; then
+            echo "Sem alterações."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/game-content/downloads.json
+          git commit -m "chore: atualizar contagens de downloads"
+          git push

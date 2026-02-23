@@ -4,6 +4,8 @@ titulo: Zombies
 descricao: Nomes dos zombies em PT-PT, com o original ao lado.
 icone: skull
 ordem: 1
+categoria: Combate
+categoria_ordem: 2
 ---
 
 # Zombies
@@ -22,4 +24,4 @@ ordem: 1
 
 > **João Frade**: A maioria dos nomes foi traduzida de forma literal, privilegiando a clareza.
 >
-> ==Escolha chave:== "Thug" foi um caso interessante — "Arruaceiro" soa mais natural em PT-PT do que "Bandido" ou "Rufia".
+> ==Escolha-chave:=="Thug" foi um caso interessante — "Arruaceiro" soa mais natural em PT-PT do que "Bandido" ou "Rufia".

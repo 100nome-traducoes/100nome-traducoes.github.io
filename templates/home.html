@@ -70,22 +70,41 @@
                     <i class="fab fa-discord"></i> Junta-te à Comunidade
                 </a>
             </div>
+
+            <div class="hero-live-banner" data-reveal data-reveal-delay="180">
+                <div class="hero-live-header">
+                    <span class="hero-live-dot" aria-hidden="true"></span>
+                    <strong>Projeto ativo</strong>
+                    <span class="hero-live-updated" id="heroLastUpdateMini">A preparar novidades...</span>
+                </div>
+                <div class="hero-live-metrics">
+                    <span class="hero-live-metric">
+                        <i class="fas fa-gamepad" aria-hidden="true"></i>
+                        <strong id="heroMetricTotal">--</strong> traduções
+                    </span>
+                    <span class="hero-live-metric">
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        <strong id="heroMetricDownloads">--</strong> descargas totais
+                    </span>
+                    <span class="hero-live-metric">
+                        <i class="fas fa-book-open" aria-hidden="true"></i>
+                        <strong id="heroMetricGuides">--</strong> guias disponíveis
+                    </span>
+                </div>
+                <p class="hero-live-ticker is-visible" id="heroLiveTicker" aria-live="polite">
+                    Entra no <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">Discord</a> para receber avisos das próximas traduções.
+                </p>
+            </div>
         </div>
     </header>
-            <div class="hero-banner" data-reveal>
-                <div class="banner-text">
-                    <div class="scrolling-text">
-                        <span>✦ Entra no <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">servidor do Discord</a> para notificações e novidades. ✦ Subscreve o <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">canal do YouTube</a> e ativa as notificações para vídeos de traduções! ♡ ✦</span>
-                    </div>
-                </div>
-            </div>
+
     <!-- Destaques Principais -->
     <section class="featured-section" id="destaques" data-reveal>
         <div class="section-header">
             <h2 class="section-title">
                 <i class="fas fa-star"></i> Destaques
             </h2>
-            <p class="section-subtitle">As traduções mais recentes e populares</p>
+            <p class="section-subtitle">Seleção diária baseada em relevância e interesse da comunidade</p>
         </div>
         <div class="featured-grid" id="featuredGrid">
             {{FEATURED_GRID}}
@@ -146,6 +165,7 @@
 
     <!-- Scripts -->
     <script id="homeData" type="application/json">{{HOME_DATA_JSON}}</script>
+    <script src="assets/js/components/site-analytics.js?v={{SITE_ANALYTICS_JS_VERSION}}"></script>
     <script src="assets/js/components/motion.js?v={{MOTION_JS_VERSION}}"></script>
     <script src="assets/js/pages/home.js?v={{HOME_JS_VERSION}}"></script>
 </body>

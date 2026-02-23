@@ -141,7 +141,7 @@
                 <p>Esta wiki faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
             </div>
             <div class="wiki-translation-banner-actions">
-                <a href="/jogo/the-ball-pt-pt#download" class="wiki-cta-btn wiki-cta-btn--primary">
+                <a href="/jogo/the-ball-pt-pt" class="wiki-cta-btn wiki-cta-btn--primary">
                     <i class="mdi mdi-download"></i> Descarregar Tradução
                 </a>
                 <a href="/jogo/the-ball-pt-pt#comentarios" class="wiki-cta-btn wiki-cta-btn--ghost">
@@ -167,27 +167,32 @@
 
             <div class="wiki-nav" data-reveal data-reveal-delay="80">
                 <h3 class="wiki-nav-title"><i class="mdi mdi-format-list-bulleted"></i> Conteúdos</h3>
-                <ul class="wiki-nav-list">
+                <button type="button" class="wiki-nav-expand-all" data-wiki-nav-expand-all aria-expanded="false">
+                    Mostrar tudo
+                </button>
+                <div class="wiki-nav-groups">
                     
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/the-ball-pt-pt">
-                        <i class="mdi mdi-information"></i> Visão Geral
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item active">
-                    <a href="/wiki/the-ball-pt-pt/conquistas">
-                        <i class="mdi mdi-trophy"></i> Conquistas
-                    </a>
-                </li>
-            
-                <li class="wiki-nav-item ">
-                    <a href="/wiki/the-ball-pt-pt/segredos">
-                        <i class="mdi mdi-script-text"></i> Segredos
-                    </a>
-                </li>
-            
+                <ul class="wiki-nav-list wiki-nav-list--overview">
+                    <li class="wiki-nav-item ">
+                        <a href="/wiki/the-ball-pt-pt">
+                            <i class="mdi mdi-information"></i> Visão Geral
+                        </a>
+                    </li>
                 </ul>
+            <ul class="wiki-nav-list wiki-nav-list--flat">
+            <li class="wiki-nav-item active">
+                <a href="/wiki/the-ball-pt-pt/conquistas">
+                    <i class="mdi mdi-trophy"></i> Conquistas
+                </a>
+            </li>
+        
+            <li class="wiki-nav-item ">
+                <a href="/wiki/the-ball-pt-pt/segredos">
+                    <i class="mdi mdi-script-text"></i> Segredos
+                </a>
+            </li>
+        </ul>
+                </div>
             </div>
             
             <div data-reveal data-reveal-delay="120">
@@ -247,7 +252,7 @@
         <strong>Gostas de The Ball?</strong>
         <span>Podes jogar com tradução PT-PT completa.</span>
     </div>
-    <a href="/jogo/the-ball-pt-pt#download" class="wiki-cta-btn wiki-cta-btn--primary">
+    <a href="/jogo/the-ball-pt-pt" class="wiki-cta-btn wiki-cta-btn--primary">
         <i class="mdi mdi-download"></i> Descarregar
     </a>
 </div>
@@ -410,7 +415,7 @@
         <div class="wiki-related">
             <h3 class="wiki-related-title"><i class="mdi mdi-link-variant"></i> Relacionado</h3>
             <div class="wiki-related-links">
-                <a href="/wiki/the-ball-pt-pt">Visão Geral</a><a href="/wiki/the-ball-pt-pt">Anterior: Wiki de Tradução</a><a href="/wiki/the-ball-pt-pt/segredos">Seguinte: Segredos</a>
+                <a class="wiki-related-link" href="/wiki/the-ball-pt-pt">Visão Geral</a><a class="wiki-related-link" href="/wiki/the-ball-pt-pt">Anterior: Wiki de Tradução</a><a class="wiki-related-link" href="/wiki/the-ball-pt-pt/segredos">Seguinte: Segredos</a>
             </div>
         </div>
     
@@ -430,6 +435,12 @@
 
         <div class="footer-section">
             <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="/#apoio">
+                <i class="fas fa-heart"></i> Apoiar o Projeto
+            </a>
+            <a href="/#traduzir">
+                <i class="fas fa-language"></i> Quero Traduzir
+            </a>
             <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-discord"></i> Servidor Discord
             </a>
@@ -438,9 +449,6 @@
             </a>
             <a href="mailto:100nome.portugal@gmail.com">
                 <i class="fas fa-envelope"></i> Contactar (e-mail)
-            </a>
-            <a href="/arquivo">
-                <i class="fas fa-archive"></i> Arquivo
             </a>
         </div>
 
@@ -482,8 +490,9 @@
 </button>
 
 
+    <script src="/assets/js/components/site-analytics.js?v=dd4c5ad720"></script>
     <script src="/assets/js/components/motion.js?v=e66ec2a484"></script>
-    <script src="/assets/js/components/site-shell.js?v=fc1cc19360"></script>
-    <script src="/assets/js/pages/wiki-page.js?v=ed23a9d186"></script>
+    <script src="/assets/js/components/site-shell.js?v=586ec2c793"></script>
+    <script src="/assets/js/pages/wiki-page.js?v=734120fb6c"></script>
 </body>
 </html>

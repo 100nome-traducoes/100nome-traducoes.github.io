@@ -1,0 +1,52 @@
+name: Sync Package Metadata
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "13 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Validate secret
+        run: |
+          if [ -z "${SHEETS_METADATA_URL}" ]; then
+            echo "SHEETS_METADATA_URL não está definido nos secrets do repositório."
+            exit 1
+          fi
+        env:
+          SHEETS_METADATA_URL: ${{ secrets.SHEETS_METADATA_URL }}
+
+      - name: Sync metadata from Sheets
+        run: node scripts/sync-package-metadata.js
+        env:
+          SHEETS_METADATA_URL: ${{ secrets.SHEETS_METADATA_URL }}
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- data/game-content/packages-metadata.json; then
+            echo "Sem alterações."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/game-content/packages-metadata.json
+          git commit -m "chore: sincronizar metadata de pacotes"
+          git push

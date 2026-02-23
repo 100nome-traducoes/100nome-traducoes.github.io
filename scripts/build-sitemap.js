@@ -64,7 +64,7 @@ function buildSitemap() {
   if (fs.existsSync(JOGOS_PATH)) {
     const jogosData = JSON.parse(fs.readFileSync(JOGOS_PATH, 'utf8'));
     for (const jogo of (jogosData.jogos || [])) {
-      const slug = String(jogo.slug || jogo.guid || '').trim();
+      const slug = String(jogo.slug || '').trim();
       if (!slug) continue;
       const gameFile = path.join(ROOT, 'jogo', slug, 'index.html');
       const lastmod = fs.existsSync(gameFile) ? lastmodFor(gameFile) : new Date().toISOString().split('T')[0];

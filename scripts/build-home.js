@@ -5,9 +5,12 @@ const path = require('path');
 const crypto = require('crypto');
 
 const dataPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
+const downloadsPath = path.join(__dirname, '..', 'data', 'game-content', 'downloads.json');
+const packagesMetadataPath = path.join(__dirname, '..', 'data', 'game-content', 'packages-metadata.json');
 const templatePath = path.join(__dirname, '..', 'templates', 'home.html');
 const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputPath = path.join(__dirname, '..', 'index.html');
+const wikiContentDir = path.join(__dirname, '..', 'data', 'wiki-content');
 const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
 
 function readJson(filePath) {
@@ -38,11 +41,11 @@ function truncarTexto(texto, maxLength) {
 }
 
 function getGameDate(jogo) {
-  return jogo.data || jogo.dataPublicacao || '';
+  return jogo.dataPublicacao || '';
 }
 
 function getGameVersion(jogo) {
-  return jogo.versao || jogo.informacoesTraducao?.versao || '1.0';
+  return jogo.packageVersion || jogo.versao || jogo.informacoesTraducao?.versao || '1.0';
 }
 
 function getGameProvider(jogo) {
@@ -50,7 +53,71 @@ function getGameProvider(jogo) {
 }
 
 function getGameSlug(jogo) {
-  return String(jogo?.slug || jogo?.guid || '').trim();
+  return String(jogo?.slug || '').trim();
+}
+
+function getAvailableWikiSlugs() {
+  if (!fs.existsSync(wikiContentDir)) return new Set();
+  return new Set(
+    fs.readdirSync(wikiContentDir, { withFileTypes: true })
+      .filter(entry => entry.isDirectory())
+      .map(entry => entry.name.trim())
+      .filter(Boolean)
+  );
+}
+
+const AVAILABLE_WIKI_SLUGS = getAvailableWikiSlugs();
+
+function encodeWikiPath(pathValue) {
+  return String(pathValue || '')
+    .split('/')
+    .map(part => encodeURIComponent(part.trim()))
+    .filter(Boolean)
+    .join('/');
+}
+
+function resolveGuideLink(jogo) {
+  const wikiSlugRaw = String(jogo?.wikiSlug || getGameSlug(jogo) || '').trim();
+  if (!wikiSlugRaw) return '';
+  if (!AVAILABLE_WIKI_SLUGS.has(wikiSlugRaw)) return '';
+  const wikiSlug = encodeWikiPath(wikiSlugRaw);
+  if (!wikiSlug) return '';
+
+  const wikiEntryRaw = String(jogo?.wikiEntry || 'index').trim().replace(/^\/+|\/+$/g, '');
+  const wikiEntry = encodeWikiPath(wikiEntryRaw || 'index');
+
+  const anchorRaw = String(jogo?.wikiAnchor || '').trim().replace(/^#/, '');
+  const anchor = anchorRaw ? `#${encodeURIComponent(anchorRaw)}` : '';
+
+  if (!wikiEntry || wikiEntry.toLowerCase() === 'index') {
+    return `/wiki/${wikiSlug}${anchor}`;
+  }
+  return `/wiki/${wikiSlug}/${wikiEntry}${anchor}`;
+}
+
+function readPackagesMetadata() {
+  if (!fs.existsSync(packagesMetadataPath)) return {};
+  try {
+    const raw = readJson(packagesMetadataPath);
+    if (!raw || typeof raw !== 'object') return {};
+    if (!raw.packages || typeof raw.packages !== 'object') return {};
+    return raw.packages;
+  } catch {
+    return {};
+  }
+}
+
+function mergePackageMetadata(jogo, packagesMap) {
+  const slug = getGameSlug(jogo);
+  const meta = packagesMap?.[slug];
+  if (!meta || typeof meta !== 'object') return jogo;
+
+  return {
+    ...jogo,
+    packageVersion: String(meta.packageVersion || '').trim() || null,
+    packageLastModified: String(meta.packageLastModified || '').trim() || null,
+    packageSizeBytes: Number.isFinite(Number(meta.packageSizeBytes)) ? Number(meta.packageSizeBytes) : null
+  };
 }
 
 function formatarData(dataString) {
@@ -117,7 +184,7 @@ function criarCardDestaque(jogo) {
   const linkJogo = `jogo/${getGameSlug(jogo)}`;
 
   return `
-  <div class="featured-card" data-guid="${jogo.guid}" data-link="${linkJogo}">
+  <div class="featured-card" data-game-id="${getGameSlug(jogo)}" data-link="${linkJogo}">
   <div class="featured-badge">
   <i class="fas fa-star"></i> Destaque
   </div>
@@ -145,7 +212,7 @@ function criarCardDestaque(jogo) {
 }
 
 function criarCardJogo(jogo, destaquesSet) {
-  const isDestaque = destaquesSet.has(jogo.guid);
+  const isDestaque = destaquesSet.has(getGameSlug(jogo));
   const categoriasTags = extrairCategoriasPrincipais(jogo.categorias).slice(0, 2);
   const descricaoCurta = truncarTexto(jogo.descricao, 90);
   const dataFormatada = formatarData(getGameDate(jogo));
@@ -157,7 +224,7 @@ function criarCardJogo(jogo, destaquesSet) {
   const isNovo = diasDesdePublicacao <= 30;
 
   return `
-  <div class="game-card" data-guid="${jogo.guid}" data-link="${linkJogo}">
+  <div class="game-card" data-game-id="${getGameSlug(jogo)}" data-link="${linkJogo}">
   ${isNovo ? '<span class="new-badge">NOVO!</span>' : ''}
   ${isDestaque ? '<div class="destaque-badge"><i class="fas fa-star"></i></div>' : ''}
   <div class="game-image-container">
@@ -226,10 +293,13 @@ function filtrarJogosPorCategoria(jogos, categoria) {
 }
 
 function buildFeaturedGrid(data) {
-  const destaques = data.destaques || [];
   const jogos = data.jogos || [];
+  const jogosPorSlug = new Map(jogos.map(j => [getGameSlug(j), j]));
+  const destaques = (data.destaques || [])
+    .map(v => String(v || '').trim())
+    .filter(slug => jogosPorSlug.has(slug));
   const jogosDestaque = destaques
-    .map(guid => jogos.find(j => j.guid === guid))
+    .map(slug => jogosPorSlug.get(String(slug || '').trim()))
     .filter(Boolean);
 
   if (jogosDestaque.length === 0) return '';
@@ -239,7 +309,11 @@ function buildFeaturedGrid(data) {
 function buildCategories(data) {
   const categorias = data.categoriasPrincipais || [];
   const jogos = data.jogos || [];
-  const destaquesSet = new Set(data.destaques || []);
+  const destaquesSet = new Set(
+    (data.destaques || [])
+      .map(v => String(v || '').trim())
+      .filter(Boolean)
+  );
 
   if (categorias.length === 0) {
     return `
@@ -262,43 +336,81 @@ function buildCategories(data) {
   return sections || '';
 }
 
-function buildHomeClientData(data) {
-  const jogos = (data.jogos || []).map(jogo => ({
-    guid: jogo.guid,
+function buildHomeClientData(data, metadataStats) {
+  const downloadsData = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
+
+  const jogos = (data.jogos || [])
+    .map(jogo => ({
     slug: getGameSlug(jogo),
     titulo: jogo.titulo,
     capa: jogo.capa,
     descricao: truncarTexto(jogo.descricao || '', 280),
     categorias: jogo.categorias || [],
-    dataPublicacao: jogo.dataPublicacao || jogo.data || '',
-    versao: jogo.versao || jogo.informacoesTraducao?.versao || '',
+    dataPublicacao: jogo.dataPublicacao || '',
+    versao: jogo.packageVersion || jogo.versao || jogo.informacoesTraducao?.versao || '',
+    packageLastModified: jogo.packageLastModified || '',
     fornecido_por: jogo.fornecido_por || jogo.informacoesTraducao?.fornecidaPor || '',
     criador: jogo.criador || jogo.informacoesJogo?.criadoPor || '',
-    notas: jogo.notas || []
-  }));
+    notas: jogo.notas || [],
+    guideLink: resolveGuideLink(jogo),
+    downloads: typeof downloadsData?.[getGameSlug(jogo)]?.downloads === 'number'
+      ? downloadsData[getGameSlug(jogo)].downloads
+      : 0
+  }))
+    .filter(jogo => jogo.slug);
+
+  const validSlugs = new Set(jogos.map(j => j.slug));
+  const totalDownloads = Array.from(validSlugs).reduce((acc, slug) => {
+    const value = downloadsData?.[slug]?.downloads;
+    return acc + (typeof value === 'number' ? value : 0);
+  }, 0);
 
   return {
-    destaques: data.destaques || [],
+    destaques: (data.destaques || [])
+      .map(v => String(v || '').trim())
+      .filter(slug => validSlugs.has(slug)),
     categoriasPrincipais: data.categoriasPrincipais || [],
-    jogos
+    jogos,
+    stats: {
+      totalDownloads,
+      latestPackageUpdate: metadataStats?.latestPackageUpdate || ''
+    }
   };
 }
 
 function main() {
-  const data = readJson(dataPath);
+  const rawData = readJson(dataPath);
+  const packagesMap = readPackagesMetadata();
+  const data = {
+    ...rawData,
+    jogos: (rawData.jogos || []).map(jogo => mergePackageMetadata(jogo, packagesMap))
+  };
+
+  const packageDates = Object.values(packagesMap)
+    .map(meta => String(meta?.packageLastModified || '').trim())
+    .filter(value => value && !Number.isNaN(Date.parse(value)))
+    .map(value => new Date(value).toISOString());
+
+  const metadataStats = {
+    latestPackageUpdate: packageDates.length
+      ? packageDates.sort((a, b) => new Date(b) - new Date(a))[0]
+      : ''
+  };
+
   const template = fs.readFileSync(templatePath, 'utf8');
   const header = readPartial('header.html');
   const footer = readPartial('footer.html');
   const favicon = readPartial('favicon.html');
   const assetVersions = {
     homeCss: getAssetVersion('assets/css/pages/home.css'),
+    siteAnalyticsJs: getAssetVersion('assets/js/components/site-analytics.js'),
     motionJs: getAssetVersion('assets/js/components/motion.js'),
     homeJs: getAssetVersion('assets/js/pages/home.js')
   };
 
   const featuredGrid = buildFeaturedGrid(data);
   const categoriesHtml = buildCategories(data);
-  const homeDataJson = JSON.stringify(buildHomeClientData(data)).replace(/<\//g, '<\\/');
+  const homeDataJson = JSON.stringify(buildHomeClientData(data, metadataStats)).replace(/<\//g, '<\\/');
   const homeTitle = '100Nome Traduções [Jogos em PT-PT]';
   const homeDescription = 'Traduções em PT-PT! O maior portal de traduções de jogos de Portugal, com traduções dos mais variados jogos em português de Portugal.';
   const homeUrl = `${SITE_URL}/`;
@@ -318,6 +430,7 @@ function main() {
 
   const html = template
     .replace(/\{\{HOME_CSS_VERSION\}\}/g, assetVersions.homeCss)
+    .replace(/\{\{SITE_ANALYTICS_JS_VERSION\}\}/g, assetVersions.siteAnalyticsJs)
     .replace(/\{\{MOTION_JS_VERSION\}\}/g, assetVersions.motionJs)
     .replace(/\{\{HOME_JS_VERSION\}\}/g, assetVersions.homeJs)
     .replace(/\{\{HOME_TITLE\}\}/g, homeTitle)

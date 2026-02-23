@@ -62,9 +62,12 @@
 
             <div class="wiki-nav" data-reveal data-reveal-delay="80">
                 <h3 class="wiki-nav-title"><i class="mdi mdi-format-list-bulleted"></i> Conteúdos</h3>
-                <ul class="wiki-nav-list">
+                <button type="button" class="wiki-nav-expand-all" data-wiki-nav-expand-all aria-expanded="false">
+                    Mostrar tudo
+                </button>
+                <div class="wiki-nav-groups">
                     {{SIDEBAR_NAV}}
-                </ul>
+                </div>
             </div>
             
             <div data-reveal data-reveal-delay="120">
@@ -112,6 +115,7 @@
 
     {{FOOTER}}
 
+    <script src="/assets/js/components/site-analytics.js?v={{SITE_ANALYTICS_JS_VERSION}}"></script>
     <script src="/assets/js/components/motion.js?v={{MOTION_JS_VERSION}}"></script>
     <script src="/assets/js/components/site-shell.js?v={{SITE_SHELL_JS_VERSION}}"></script>
     <script src="/assets/js/pages/wiki-page.js?v={{WIKI_PAGE_JS_VERSION}}"></script>

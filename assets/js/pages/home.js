@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    const track = (eventName, params = {}) => {
+        if (window.SiteAnalytics && typeof window.SiteAnalytics.track === 'function') {
+            window.SiteAnalytics.track(eventName, params);
+        }
+    };
+
     function splitList(value) {
         if (!value) return [];
         if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean);
@@ -10,7 +16,9 @@ $(document).ready(function() {
         const infoJogo = game.informacoesJogo || {};
         const infoTraducao = game.informacoesTraducao || {};
 
-        game.dataPublicacao = game.dataPublicacao || game.data || '';
+        game.dataPublicacao = game.dataPublicacao || '';
+        game.packageLastModified = game.packageLastModified || '';
+        game.downloads = Number.isFinite(Number(game.downloads)) ? Number(game.downloads) : 0;
         game.informacoesJogo = {
             nome: game.nome || infoJogo.nome || '',
             nomeOriginal: game.nome_original || infoJogo.nomeOriginal || '',
@@ -38,7 +46,7 @@ $(document).ready(function() {
         game.notas = Array.isArray(game.notas) ? game.notas : splitList(game.notas);
         game.categorias = Array.isArray(game.categorias) ? game.categorias : [];
         game.tradutorDescricao = game.tradutorDescricao || game.informacoesTraducao.fornecidaPor;
-        game.slug = game.slug || game.guid;
+        game.slug = String(game.slug || '').trim();
 
         return game;
     }
@@ -56,6 +64,11 @@ $(document).ready(function() {
     const $totalCategorias = $('#totalCategorias');
     const $searchForm = $('#search-form');
     const $searchInput = $('#search-input');
+    const $heroMetricTotal = $('#heroMetricTotal');
+    const $heroMetricDownloads = $('#heroMetricDownloads');
+    const $heroMetricGuides = $('#heroMetricGuides');
+    const $heroLastUpdateMini = $('#heroLastUpdateMini');
+    const $heroLiveTicker = $('#heroLiveTicker');
 
     // Dados globais
     let dadosJogos = {
@@ -65,10 +78,13 @@ $(document).ready(function() {
     };
 
     // Cache para procurar jogos rapidamente
-    let jogosPorGuid = {};
+    let jogosPorSlug = {};
     let todasCategorias = new Set();
+    let destaqueSlugsEfetivos = new Set();
     let currentView = 'carousel';
     let isCarouselDragging = false;
+    let heroTickerTimer = null;
+    let heroTickerIndex = 0;
     const initialQuery = new URLSearchParams(window.location.search).get('q');
     const initialHash = window.location.hash;
     const categoryHashes = ['#acao', '#misterio', '#quebracabecas', '#corrida', '#estrategia'];
@@ -90,6 +106,11 @@ $(document).ready(function() {
                 processarDadosRecebidos(data);
                 carregarDestaques();
                 atualizarEstatisticas();
+                atualizarHeroAtividade();
+                track('view_home', {
+                    total_translations: dadosJogos.jogos.length,
+                    total_categories: todasCategorias.size
+                });
 
                 const savedView = localStorage.getItem('viewMode');
                 aplicarVista(savedView || 'carousel');
@@ -131,15 +152,22 @@ $(document).ready(function() {
     function processarDadosRecebidos(data) {
         dadosJogos = {
             ...data,
-            jogos: (data.jogos || []).map(hydrateGameData)
+            jogos: (data.jogos || []).map(hydrateGameData).filter(jogo => jogo.slug)
         };
 
+        const slugsValidos = new Set(dadosJogos.jogos.map(jogo => jogo.slug));
+        dadosJogos.destaques = (data.destaques || [])
+            .map(v => String(v || '').trim())
+            .filter(slug => slugsValidos.has(slug));
+
         // Criar cache para procura rápida
-        jogosPorGuid = {};
+        jogosPorSlug = {};
         todasCategorias.clear();
 
         dadosJogos.jogos.forEach(jogo => {
-            jogosPorGuid[jogo.guid] = jogo;
+            if (jogo.slug) {
+                jogosPorSlug[jogo.slug] = jogo;
+            }
 
             // Coletar todas as categorias únicas
             jogo.categorias.forEach(categoria => {
@@ -157,25 +185,99 @@ $(document).ready(function() {
         $totalCategorias.text(todasCategorias.size);
     }
 
+    function atualizarHeroAtividade() {
+        if (!$heroLiveTicker.length || !dadosJogos.jogos.length) return;
+
+        const jogosOrdenados = [...dadosJogos.jogos]
+            .filter(j => obterDataAtividade(j))
+            .sort((a, b) => new Date(obterDataAtividade(b)) - new Date(obterDataAtividade(a)));
+
+        if (!jogosOrdenados.length) return;
+
+        const jogoAtividadeRecente = jogosOrdenados[0];
+        const totalDownloads = Number(dadosJogos?.stats?.totalDownloads) || 0;
+        const totalGuias = dadosJogos.jogos.filter(jogo => String(jogo.guideLink || '').trim()).length;
+        const dataAtividadeRecente = dadosJogos?.stats?.latestPackageUpdate || obterDataAtividade(jogoAtividadeRecente);
+
+        $heroMetricTotal.text(dadosJogos.jogos.length);
+        $heroMetricDownloads.text(formatarNumero(totalDownloads));
+        $heroMetricGuides.text(formatarNumero(totalGuias));
+        $heroLastUpdateMini.text(`Último pacote atualizado: ${formatarData(dataAtividadeRecente)}`);
+
+        const tituloRecente = limparTitulo(jogoAtividadeRecente.titulo);
+        const mensagens = [
+            `Último pacote atualizado: <a href="jogo/${jogoAtividadeRecente.slug}">${tituloRecente}</a>.`,
+            `${formatarNumero(totalDownloads)} descargas totais no projeto.`,
+            `${totalGuias} traduções já têm <a href="#destaques">guia de termos</a> para consulta rápida.`,
+            `Encontraste um erro? Deixa comentário na página do jogo.`,
+            `Consulta o guia da tradução para termos e notas.`,
+            `No <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">Discord</a> recebes avisos de novas traduções.`,
+            `No Discord podes encontrar jogadores, tradutores e apoio.`,
+            `Sugere a próxima tradução no Discord.`
+        ];
+
+        iniciarHeroTicker(mensagens);
+    }
+
+    function iniciarHeroTicker(mensagens) {
+        if (!$heroLiveTicker.length) return;
+
+        if (heroTickerTimer) {
+            clearInterval(heroTickerTimer);
+            heroTickerTimer = null;
+        }
+
+        const validas = (mensagens || []).filter(Boolean);
+        if (!validas.length) return;
+
+        heroTickerIndex = 0;
+
+        const render = () => {
+            $heroLiveTicker.removeClass('is-visible');
+            window.setTimeout(() => {
+                $heroLiveTicker.html(validas[heroTickerIndex]);
+                $heroLiveTicker.addClass('is-visible');
+                heroTickerIndex = (heroTickerIndex + 1) % validas.length;
+            }, 120);
+        };
+
+        render();
+
+        if (validas.length > 1) {
+            heroTickerTimer = window.setInterval(render, 5600);
+        }
+    }
+
+    function getCardPlacement($card) {
+        if ($card.closest('#featuredGrid').length) return 'featured';
+        if ($card.closest('.search-results').length) return 'search';
+        return currentView === 'grid' ? 'grid' : 'carousel';
+    }
+
     // Carregar jogos em destaque
     function carregarDestaques() {
         $featuredGrid.empty();
 
         let jogosDestaque = [];
+        const slugsSelecionados = new Set();
 
         // Tentar usar destaques manuais primeiro
         if (dadosJogos.destaques && dadosJogos.destaques.length > 0) {
             jogosDestaque = dadosJogos.destaques
-                .map(guid => jogosPorGuid[guid])
+                .map(slug => jogosPorSlug[slug])
                 .filter(jogo => jogo)
                 .slice(0, 3);
+            jogosDestaque.forEach(jogo => slugsSelecionados.add(jogo.slug));
         }
 
         // Se não houver destaques manuais suficientes, descobrir automaticamente
         if (jogosDestaque.length < 3) {
-            const jogosAutomaticos = descobrirDestaquesAutomaticos(3 - jogosDestaque.length);
+            const jogosAutomaticos = descobrirDestaquesAutomaticos(3 - jogosDestaque.length, slugsSelecionados);
             jogosDestaque = [...jogosDestaque, ...jogosAutomaticos];
+            jogosAutomaticos.forEach(jogo => slugsSelecionados.add(jogo.slug));
         }
+
+        destaqueSlugsEfetivos = new Set(jogosDestaque.map(jogo => jogo.slug));
 
         if (jogosDestaque.length === 0) {
             $featuredGrid.html(`
@@ -194,66 +296,77 @@ $(document).ready(function() {
     }
 
     // Descobrir destaques automaticamente baseado em critérios inteligentes
-    function descobrirDestaquesAutomaticos(quantidade = 3) {
-        // Calcular pontuação para cada jogo
-        const jogosComPontuacao = dadosJogos.jogos.map(jogo => {
-            let pontuacao = 0;
+    function descobrirDestaquesAutomaticos(quantidade = 3, slugsExcluidos = new Set()) {
+        const candidatos = dadosJogos.jogos.filter(jogo => jogo?.slug && !slugsExcluidos.has(jogo.slug));
+        if (!candidatos.length) return [];
 
-            // 1. Recência (jogos mais recentes têm prioridade)
-            const diasDesdePublicacao = Math.floor(
-                (new Date() - new Date(jogo.dataPublicacao)) / (1000 * 60 * 60 * 24)
-            );
-            if (diasDesdePublicacao <= 30) {
-                pontuacao += 50; // Muito recente
-            } else if (diasDesdePublicacao <= 90) {
-                pontuacao += 30; // Recente
-            } else if (diasDesdePublicacao <= 180) {
-                pontuacao += 15; // Relativamente recente
-            }
+        const downloadsValores = candidatos
+            .map(jogo => Number(jogo.downloads) || 0)
+            .sort((a, b) => a - b);
+        const p95 = calcularPercentil(downloadsValores, 95) || 1;
+        const maxLogDownloads = Math.log1p(p95);
 
-            // 2. Qualidade da tradução (versão mais alta = mais madura)
+        const jogosComScore = candidatos.map((jogo) => {
+            const dataAtividade = obterDataAtividade(jogo);
+            const ts = new Date(dataAtividade).getTime();
+            const dias = Number.isFinite(ts) ? Math.max(0, (Date.now() - ts) / (1000 * 60 * 60 * 24)) : 3650;
+
+            // Recência com decaimento suave (meia-vida ~ 18 meses)
+            const recencia = Math.exp(-dias / 540);
+
+            // Qualidade editorial da ficha
             const versao = parseFloat(jogo.informacoesTraducao?.versao || '1.0');
-            pontuacao += Math.min(versao * 10, 20); // Máximo 20 pontos
+            const qualidade = limitar(
+                (jogo.descricao?.length > 100 ? 0.24 : 0.1) +
+                (jogo.informacoesJogo?.nome ? 0.14 : 0) +
+                (jogo.informacoesJogo?.criadoPor ? 0.12 : 0) +
+                (jogo.tradutorDescricao ? 0.12 : 0) +
+                ((jogo.notas?.length || 0) > 0 ? 0.1 : 0) +
+                (String(jogo.guideLink || '').trim() ? 0.12 : 0) +
+                limitar((versao - 1) / 3) * 0.16,
+                0,
+                1
+            );
 
-            // 3. Completude das informações
-            if (jogo.descricao && jogo.descricao.length > 100) pontuacao += 10;
-            if (jogo.informacoesJogo?.nome) pontuacao += 5;
-            if (jogo.informacoesJogo?.criadoPor) pontuacao += 5;
-            if (jogo.tradutorDescricao) pontuacao += 5;
+            // Popularidade com proteção anti-monopólio
+            const downloadsCap = Math.min(Number(jogo.downloads) || 0, p95);
+            const popularidade = maxLogDownloads > 0 ? (Math.log1p(downloadsCap) / maxLogDownloads) : 0;
 
-            // 4. Tem notas especiais (wiki, guias, etc)
-            if (jogo.notas && jogo.notas.length > 0) pontuacao += 10;
+            const score = (0.45 * recencia) + (0.35 * qualidade) + (0.20 * popularidade);
+            return {
+                jogo,
+                score: Math.max(score, 0.01)
+            };
+        }).sort((a, b) => b.score - a.score);
 
-            // 5. Revisão feita
-            if (jogo.informacoesTraducao?.revisores) pontuacao += 10;
+        const escolhidos = [];
+        const usados = new Set();
+        const categoriasUsadas = new Set();
+        const seedDia = new Date().toISOString().slice(0, 10);
+        const seedExcluidos = Array.from(slugsExcluidos).sort().join('|');
+        const rng = criarRngDeterministico(`${seedDia}|${quantidade}|${seedExcluidos}`);
 
-            // 6. Tem vários tradutores (projeto colaborativo)
-            if (jogo.informacoesTraducao?.tradutores) {
-                const numTradutores = jogo.informacoesTraducao.tradutores.split(',').length;
-                pontuacao += Math.min(numTradutores * 3, 10);
+        while (escolhidos.length < quantidade && usados.size < jogosComScore.length) {
+            let pool = jogosComScore.filter(item => !usados.has(item.jogo.slug));
+            const semCategoriaRepetida = pool.filter(item => {
+                const cat = (item.jogo.categorias || [])[0] || '';
+                return !cat || !categoriasUsadas.has(cat);
+            });
+
+            if (semCategoriaRepetida.length > 0 && (quantidade - escolhidos.length) > 1) {
+                pool = semCategoriaRepetida;
             }
 
-            // 7. Categorias populares (ação, aventura, etc)
-            const categoriasPopulares = ['acao', 'aventura', 'rpg', 'estrategia'];
-            const temCategoriaPopular = jogo.categorias.some(cat => 
-                categoriasPopulares.some(popular => cat.includes(popular))
-            );
-            if (temCategoriaPopular) pontuacao += 15;
+            const escolhido = selecionarPonderado(pool, rng);
+            if (!escolhido) break;
 
-            // 8. Tem imagem de capa válida
-            if (jogo.capa && jogo.capa.includes('imgur.com')) pontuacao += 5;
+            escolhidos.push(escolhido.jogo);
+            usados.add(escolhido.jogo.slug);
+            const catPrincipal = (escolhido.jogo.categorias || [])[0] || '';
+            if (catPrincipal) categoriasUsadas.add(catPrincipal);
+        }
 
-            return {
-                jogo: jogo,
-                pontuacao: pontuacao
-            };
-        });
-
-        // Ordenar por pontuação e pegar os melhores
-        return jogosComPontuacao
-            .sort((a, b) => b.pontuacao - a.pontuacao)
-            .slice(0, quantidade)
-            .map(item => item.jogo);
+        return escolhidos;
     }
 
     // Descobrir jogos relacionados baseado em similaridade
@@ -261,7 +374,7 @@ $(document).ready(function() {
         if (!jogoAtual) return [];
 
         const jogosComSimilaridade = dadosJogos.jogos
-            .filter(jogo => jogo.guid !== jogoAtual.guid) // Excluir o jogo atual
+            .filter(jogo => jogo.slug !== jogoAtual.slug) // Excluir o jogo atual
             .map(jogo => {
                 let similaridade = 0;
 
@@ -304,17 +417,17 @@ $(document).ready(function() {
 
     // Expor funções globalmente para uso em páginas de jogos individuais
     window.descobrirJogosRelacionados = descobrirJogosRelacionados;
-    window.jogosPorGuid = jogosPorGuid;
+    window.jogosPorSlug = jogosPorSlug;
 
     // Criar card de destaque
     function criarCardDestaque(jogo) {
         const categoriasBadges = extrairCategoriasPrincipais(jogo.categorias);
         const descricaoCurta = truncarTexto(jogo.descricao, 120);
 
-        const linkJogo = `jogo/${jogo.slug || jogo.guid}`;
+        const linkJogo = `jogo/${jogo.slug}`;
 
         return `
-        <div class="featured-card" data-guid="${jogo.guid}" data-link="${linkJogo}">
+        <div class="featured-card" data-game-id="${jogo.slug}" data-link="${linkJogo}">
         <div class="featured-badge">
         <i class="fas fa-star"></i> Destaque
         </div>
@@ -498,12 +611,12 @@ $(document).ready(function() {
 
     // Criar card de jogo individual
     function criarCardJogo(jogo) {
-        const isDestaque = dadosJogos.destaques.includes(jogo.guid);
+        const isDestaque = destaqueSlugsEfetivos.has(jogo.slug);
         const categoriasTags = extrairCategoriasPrincipais(jogo.categorias).slice(0, 2);
         const descricaoCurta = truncarTexto(jogo.descricao, 90);
         const dataFormatada = formatarData(jogo.dataPublicacao);
 
-        const linkJogo = `jogo/${jogo.slug || jogo.guid}`;
+        const linkJogo = `jogo/${jogo.slug}`;
 
         // Verificar se é novo (menos de 30 dias)
         const diasDesdePublicacao = Math.floor(
@@ -512,7 +625,7 @@ $(document).ready(function() {
         const isNovo = diasDesdePublicacao <= 30;
 
         return `
-        <div class="game-card" data-guid="${jogo.guid}" data-link="${linkJogo}">
+        <div class="game-card" data-game-id="${jogo.slug}" data-link="${linkJogo}">
         ${isNovo ? '<span class="new-badge">NOVO!</span>' : ''}
         ${isDestaque ? '<div class="destaque-badge"><i class="fas fa-star"></i></div>' : ''}
         <div class="game-image-container">
@@ -589,6 +702,54 @@ $(document).ready(function() {
         if (!texto) return '';
         if (texto.length <= maxLength) return texto;
         return texto.substring(0, maxLength).trim() + '...';
+    }
+
+    function limitar(valor, min = 0, max = 1) {
+        return Math.max(min, Math.min(max, Number(valor) || 0));
+    }
+
+    function calcularPercentil(valoresOrdenados, percentil) {
+        if (!Array.isArray(valoresOrdenados) || valoresOrdenados.length === 0) return 0;
+        const p = limitar(percentil / 100, 0, 1);
+        const idx = Math.floor((valoresOrdenados.length - 1) * p);
+        return Number(valoresOrdenados[idx]) || 0;
+    }
+
+    function criarRngDeterministico(seedTexto) {
+        let h = 2166136261 >>> 0;
+        const texto = String(seedTexto || '');
+        for (let i = 0; i < texto.length; i++) {
+            h ^= texto.charCodeAt(i);
+            h = Math.imul(h, 16777619);
+        }
+        return function rng() {
+            h += 0x6D2B79F5;
+            let t = h;
+            t = Math.imul(t ^ (t >>> 15), t | 1);
+            t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
+
+    function selecionarPonderado(itens, rng) {
+        if (!Array.isArray(itens) || itens.length === 0) return null;
+        const total = itens.reduce((acc, item) => acc + Math.max(0, Number(item.score) || 0), 0);
+        if (total <= 0) return itens[0];
+
+        let alvo = rng() * total;
+        for (const item of itens) {
+            alvo -= Math.max(0, Number(item.score) || 0);
+            if (alvo <= 0) return item;
+        }
+        return itens[itens.length - 1];
+    }
+
+    function obterDataAtividade(jogo) {
+        return jogo?.packageLastModified || jogo?.dataPublicacao || '';
+    }
+
+    function formatarNumero(numero) {
+        return Number(numero || 0).toLocaleString('pt-PT');
     }
 
     function formatarData(dataString) {
@@ -776,7 +937,12 @@ $(document).ready(function() {
                 const url = new URL(window.location.href);
                 url.searchParams.set('q', query);
                 window.history.replaceState({}, '', url);
-                pesquisarTraducoes(query);
+                const resultados = pesquisarTraducoes(query);
+                track('search_home_submit', {
+                    query_length: query.length,
+                    results_count: resultados.length,
+                    search_origin: 'desktop'
+                });
             } else {
                 const url = new URL(window.location.href);
                 url.searchParams.delete('q');
@@ -794,7 +960,12 @@ $(document).ready(function() {
                 const url = new URL(window.location.href);
                 url.searchParams.set('q', query);
                 window.history.replaceState({}, '', url);
-                pesquisarTraducoes(query);
+                const resultados = pesquisarTraducoes(query);
+                track('search_home_submit', {
+                    query_length: query.length,
+                    results_count: resultados.length,
+                    search_origin: 'mobile'
+                });
                 // Fechar menu mobile após pesquisa
                 $mobileMenu.removeClass('active');
                 $mobileSubmenu.slideUp();
@@ -815,9 +986,36 @@ $(document).ready(function() {
             if (!$(e.target).closest('a, button').length) {
                 const link = $(this).data('link');
                 if (link) {
+                    const slug = String($(this).data('game-id') || '').trim();
+                    track('click_home_game_card', {
+                        game_slug: slug,
+                        placement: getCardPlacement($(this))
+                    });
                     window.open(link, '_self', 'noopener,noreferrer');
                 }
             }
+        });
+
+        $(document).on('click', '.featured-card a, .game-card a', function() {
+            const $card = $(this).closest('.featured-card, .game-card');
+            const slug = String($card.data('game-id') || '').trim();
+            track('click_home_game_link', {
+                game_slug: slug,
+                placement: getCardPlacement($card)
+            });
+        });
+
+        $('.hero-btn').on('click', function() {
+            const isDiscord = $(this).hasClass('hero-btn-secondary');
+            track(isDiscord ? 'click_home_hero_discord' : 'click_home_hero_explore', {
+                cta_location: 'hero'
+            });
+        });
+
+        $heroLiveTicker.on('click', 'a', function() {
+            track('click_home_ticker_link', {
+                destination_url: String($(this).attr('href') || '').trim()
+            });
         });
 
         // Smooth scroll para âncoras (inclui /#categoria)
@@ -915,6 +1113,7 @@ $(document).ready(function() {
         // Mostrar resultados
         mostrarResultadosPesquisa(resultados, query);
         scrollToResults();
+        return resultados;
     }
 
     // Mostrar resultados da pesquisa

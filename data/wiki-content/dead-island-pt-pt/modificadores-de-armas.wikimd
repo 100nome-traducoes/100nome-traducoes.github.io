@@ -4,6 +4,8 @@ titulo: Modificadores
 descricao: Prefixos e sufixos das armas do Dead Island, traduzidos e organizados por categoria.
 icone: flash
 ordem: 2
+categoria: Combate
+categoria_ordem: 2
 ---
 
 # Modificadores de Armas
@@ -12,7 +14,7 @@ ordem: 2
 
 ## [icon:wrench] Modificadores Especiais
 
-:caption: Modificadores que alteram o nome da arma quando ela possui uma [Modificação](/wiki/dead-island-pt-pt-tuga-definitive-34406/mods.html) aplicada
+:caption: Modificadores que alteram o nome da arma quando ela possui uma [Modificação](../mods) aplicada
 
 | ^ | Farpeado | Explosivo | Hemorragia | Aparafusado | Halterado | Peso Pesado |
 |---|---|---|---|---|---|---|
