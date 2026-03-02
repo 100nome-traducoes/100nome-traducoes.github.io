@@ -870,21 +870,46 @@ function buildPageHtml(template, jogo, allGames, categoriasPrincipais, downloads
   return html;
 }
 
-async function fetchDownloadsData(slugs) {
+async function fetchDownloadsData(slugs, existingData = {}) {
   const API_BASE = process.env.DOWNLOADS_API_URL || 'https://100nome-api.netlify.app/.netlify/functions';
-  const downloadsData = {};
+  const downloadsData = { ...(existingData || {}) };
+  let updatedCount = 0;
+  let failedCount = 0;
 
-  await Promise.all(slugs.map(async (slug) => {
-    try {
-      const res = await fetch(`${API_BASE}/count?id=${slug}`);
-      if (res.ok) {
+  async function fetchCountWithRetry(slug, retries = 1) {
+    let lastError = null;
+
+    for (let attempt = 0; attempt <= retries; attempt += 1) {
+      try {
+        const res = await fetch(`${API_BASE}/count?id=${encodeURIComponent(slug)}`);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
         const data = await res.json();
-        downloadsData[slug] = { downloads: data.downloads ?? null };
+        return { downloads: data.downloads ?? null };
+      } catch (err) {
+        lastError = err;
       }
-    } catch (err) {
-      console.warn(`[downloads] Falha ao obter contador para ${slug}:`, err.message);
     }
-  }));
+
+    throw lastError || new Error('Falha desconhecida');
+  }
+
+  for (const slug of slugs) {
+    try {
+      downloadsData[slug] = await fetchCountWithRetry(slug, 1);
+      updatedCount += 1;
+    } catch (err) {
+      failedCount += 1;
+      // Mantém o valor já existente no ficheiro local quando a API falha.
+      if (!downloadsData[slug]) {
+        downloadsData[slug] = { downloads: null };
+      }
+      console.warn(`[downloads] Falha ao obter contador para ${slug}: ${err.message}`);
+    }
+  }
+
+  console.log(`[downloads] API atualizou ${updatedCount}/${slugs.length} contadores (${failedCount} falhas).`);
 
   return downloadsData;
 }
@@ -907,15 +932,9 @@ async function main() {
     .map(jogo => mergePackageMetadata(jogo, packagesMap));
 
   // Buscar contadores ao Netlify (com fallback para downloads.json local)
-  let downloadsData = {};
-  try {
-    const slugs = allGames.map(getGameSlug);
-    downloadsData = await fetchDownloadsData(slugs);
-    console.log('[downloads] Contadores obtidos do Netlify');
-  } catch (err) {
-    console.warn('[downloads] Falha ao obter contadores, a usar ficheiro local:', err.message);
-    downloadsData = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
-  }
+  const localDownloadsData = fs.existsSync(downloadsPath) ? readJson(downloadsPath) : {};
+  const slugs = allGames.map(getGameSlug);
+  const downloadsData = await fetchDownloadsData(slugs, localDownloadsData);
 
   const legacyNames = new Set();
   for (const jogo of allGames) {
