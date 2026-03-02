@@ -33,6 +33,21 @@
         gtag('js', new Date());
         gtag('config', 'G-ZNRR1FVXYQ');
     </script>
+    <script>
+        (() => {
+            const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
+            const fallbackHref = `${window.location.origin}${window.location.pathname}`;
+            const shareUrl = canonicalHref || fallbackHref;
+
+            window.shareCurrentGamePage = () => {
+                if (!navigator.share) {
+                    alert('Partilha não suportada');
+                    return;
+                }
+                navigator.share({ title: document.title, url: shareUrl });
+            };
+        })();
+    </script>
 
     <script type="application/ld+json">
         {{GAME_JSON_LD}}
@@ -73,11 +88,11 @@
                     <div class="game-meta-row">
                         <div class="meta-item">
                             <i class="fas fa-calendar-alt"></i>
-                            <span>{{META_DATE}}</span>
+                            <span data-package-last-modified>{{META_DATE}}</span>
                         </div>
                         <div class="meta-item">
                             <i class="fas fa-code-branch"></i>
-                            <span>{{META_VERSION}}</span>
+                            <span data-package-version>{{META_VERSION}}</span>
                         </div>
                     </div>
 
@@ -86,7 +101,7 @@
                             <i class="fas fa-arrow-down"></i> Descarregar
                         </a>
                         {{WIKI_BUTTON}}
-                        <button class="btn btn-secondary" onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Partilha não suportada')">
+                        <button class="btn btn-secondary" onclick="shareCurrentGamePage()">
                             <i class="fas fa-share-alt"></i>
                         </button>
                     </div>
@@ -146,7 +161,7 @@
                 <div class="sidebar-section" data-reveal data-reveal-delay="80">
                     <h3><i class="fas fa-users"></i> Comunidade</h3>
                     <div class="community-links">
-                        <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                        <a href="https://discord.gg/FAsYZURnFW" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-discord"></i> Discord
                         </a>
                         <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">

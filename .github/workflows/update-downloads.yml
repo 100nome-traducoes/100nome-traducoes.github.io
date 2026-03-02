@@ -2,11 +2,6 @@ name: Atualizar Downloads
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 * * * *"
-
-permissions:
-  contents: write
 
 jobs:
   update-downloads:
@@ -29,15 +24,5 @@ jobs:
         env:
           DOWNLOADS_API_URL: https://100nome-api.netlify.app/.netlify/functions
 
-      - name: Commit changes
-        run: |
-          if git diff --quiet -- data/game-content/downloads.json; then
-            echo "Sem alterações."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/game-content/downloads.json
-          git commit -m "chore: atualizar contagens de downloads"
-          git push
+      - name: Mostrar diff local
+        run: git diff -- data/game-content/downloads.json || true

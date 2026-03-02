@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    const HOME_SCROLL_DURATION = 700;
+    const HOME_ANCHOR_EXTRA_OFFSET = 20;
+    const HOME_CATEGORY_HASHES = new Set(['#acao', '#misterio', '#quebracabecas', '#corrida', '#estrategia']);
+
     const track = (eventName, params = {}) => {
         if (window.SiteAnalytics && typeof window.SiteAnalytics.track === 'function') {
             window.SiteAnalytics.track(eventName, params);
@@ -87,12 +91,60 @@ $(document).ready(function() {
     let heroTickerIndex = 0;
     const initialQuery = new URLSearchParams(window.location.search).get('q');
     const initialHash = window.location.hash;
-    const categoryHashes = ['#acao', '#misterio', '#quebracabecas', '#corrida', '#estrategia'];
 
     // Inicialização
     function init() {
         setupEventListeners();
         carregarDadosJSON();
+    }
+
+    function getHomeAnchorOffset() {
+        const cssValue = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue('--navbar-height'),
+            10
+        );
+        const navbarHeight = Number.isFinite(cssValue) && cssValue > 0
+            ? cssValue
+            : Math.ceil($('.navbar').outerHeight() || 70);
+        return navbarHeight + HOME_ANCHOR_EXTRA_OFFSET;
+    }
+
+    function scrollToTopWithOffset(targetTop, duration = HOME_SCROLL_DURATION) {
+        if (!Number.isFinite(targetTop)) return;
+        $('html, body').stop(true).animate({
+            scrollTop: Math.max(0, targetTop - getHomeAnchorOffset())
+        }, duration);
+    }
+
+    function ensureHashTargetVisible(hash) {
+        const selector = String(hash || '').trim();
+        if (!selector || selector === '#') return null;
+
+        let $target = $(selector);
+        if ($target.length) return $target;
+
+        if (currentView === 'grid') {
+            aplicarVista('carousel');
+            $target = $(selector);
+            if ($target.length) return $target;
+        }
+
+        return null;
+    }
+
+    function scrollToHomeHash(hash, duration = HOME_SCROLL_DURATION) {
+        const normalizedHash = String(hash || '').trim().toLowerCase();
+
+        if (currentView === 'grid' && HOME_CATEGORY_HASHES.has(normalizedHash)) {
+            carregarGrelhaPorCategoria(normalizedHash.replace('#', ''));
+            const targetTop = $categoriesContainer.offset()?.top;
+            scrollToTopWithOffset(targetTop, duration);
+            return;
+        }
+
+        const $target = ensureHashTargetVisible(hash);
+        if (!$target || !$target.length) return;
+        scrollToTopWithOffset($target.offset().top, duration);
     }
 
     // Carregar dados do JSON
@@ -119,23 +171,8 @@ $(document).ready(function() {
                     $searchInput.val(initialQuery);
                     $('#mobile-search-input').val(initialQuery);
                     pesquisarTraducoes(initialQuery);
-                } else if (initialHash && categoryHashes.includes(initialHash)) {
-                    if (currentView === 'grid') {
-                        carregarGrelhaPorCategoria(initialHash.replace('#', ''));
-                        setTimeout(() => {
-                            const targetTop = $categoriesContainer.offset()?.top;
-                            if (typeof targetTop === 'number') {
-                                $('html, body').animate({ scrollTop: targetTop - 80 }, 600);
-                            }
-                        }, 50);
-                    } else {
-                        setTimeout(() => {
-                            const target = $(initialHash);
-                            if (target.length) {
-                                $('html, body').animate({ scrollTop: target.offset().top - 80 }, 600);
-                            }
-                        }, 50);
-                    }
+                } else if (initialHash) {
+                    setTimeout(() => scrollToHomeHash(initialHash), 50);
                 }
 
                 $loadingIndicator.hide();
@@ -908,9 +945,21 @@ $(document).ready(function() {
         });
 
         // Menu mobile
+        const syncMobileMenuState = () => {
+            const isOpen = $mobileMenu.hasClass('active');
+            $menuToggle.toggleClass('is-active', isOpen);
+            $menuToggle.attr('aria-expanded', isOpen ? 'true' : 'false');
+            if (!isOpen) {
+                $mobileSubmenu.stop(true, true).slideUp(120);
+            }
+        };
+
+        syncMobileMenuState();
+
         $menuToggle.on('click', function(e) {
             e.stopPropagation();
             $mobileMenu.toggleClass('active');
+            syncMobileMenuState();
         });
 
         $mobileCategories.on('click', function(e) {
@@ -925,7 +974,7 @@ $(document).ready(function() {
                 !$(e.target).closest('.mobile-menu').length &&
                 $mobileMenu.hasClass('active')) {
                 $mobileMenu.removeClass('active');
-            $mobileSubmenu.slideUp();
+                syncMobileMenuState();
                 }
         });
 
@@ -968,7 +1017,7 @@ $(document).ready(function() {
                 });
                 // Fechar menu mobile após pesquisa
                 $mobileMenu.removeClass('active');
-                $mobileSubmenu.slideUp();
+                syncMobileMenuState();
             } else {
                 const url = new URL(window.location.href);
                 url.searchParams.delete('q');
@@ -1030,42 +1079,8 @@ $(document).ready(function() {
 
             if (!samePage) return;
 
-            const hash = url.hash;
-            const isCategoria = categoryHashes.includes(hash);
-
-            if (isCategoria && currentView === 'grid') {
-                e.preventDefault();
-                carregarGrelhaPorCategoria(hash.replace('#', ''));
-                $('html, body').animate({
-                    scrollTop: $categoriesContainer.offset().top - 80
-                }, 600);
-
-                $mobileMenu.removeClass('active');
-                $mobileSubmenu.slideUp();
-                return;
-            }
-
-            const needsCarousel = isCategoria && currentView !== 'carousel';
-            if (isCategoria) {
-                aplicarVista('carousel');
-            }
-
             e.preventDefault();
-
-            const doScroll = () => {
-                const target = $(hash);
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 80
-                    }, 600);
-                }
-            };
-
-            if (needsCarousel) {
-                setTimeout(doScroll, 50);
-            } else {
-                doScroll();
-            }
+            scrollToHomeHash(url.hash);
 
             // Fechar menu mobile se aberto
             $mobileMenu.removeClass('active');
@@ -1158,11 +1173,7 @@ $(document).ready(function() {
     function scrollToResults() {
         setTimeout(() => {
             const targetTop = $categoriesContainer.offset()?.top;
-            if (typeof targetTop === 'number') {
-                $('html, body').animate({
-                    scrollTop: targetTop - 80
-                }, 600);
-            }
+            scrollToTopWithOffset(targetTop);
         }, 0);
     }
 

@@ -9,7 +9,8 @@ $(document).ready(function() {
         window.SiteShell.init();
     }
 
-    track('view_guide', {});
+    track('view_guide_page', {});
+    initWikiImageLoadingPlaceholders();
 
     function initWikiNavGroups() {
         const $groups = $('.wiki-nav-group[data-nav-group]');
@@ -75,6 +76,27 @@ $(document).ready(function() {
 
     if (!$wikiSearchInput.length) return;
 
+    function initWikiImageLoadingPlaceholders() {
+        const images = document.querySelectorAll('.wiki-content img, .wiki-cover img, .table-image');
+        if (!images.length) return;
+
+        const markLoaded = (img) => {
+            img.classList.remove('wiki-img-loading');
+            img.classList.add('wiki-img-loaded');
+        };
+
+        images.forEach(img => {
+            img.classList.add('wiki-img-loading');
+            if (img.complete && img.naturalWidth > 0) {
+                markLoaded(img);
+                return;
+            }
+
+            img.addEventListener('load', () => markLoaded(img), { once: true });
+            img.addEventListener('error', () => markLoaded(img), { once: true });
+        });
+    }
+
     const wikiBase = document.body?.dataset?.wikiBase || window.location.pathname.replace(/\/[^/]*$/, '');
     fetch(`${wikiBase}/search-index.json`)
         .then(res => res.json())
@@ -118,7 +140,7 @@ $(document).ready(function() {
         $wikiSearchResults.html(html);
 
         if (query.length >= 2) {
-            track('search_guide_input', {
+            track('input_guide_search', {
                 query_length: query.length,
                 results_count: results.length
             });
@@ -128,8 +150,9 @@ $(document).ready(function() {
     $(document).on('click', '.wiki-cta-btn', function() {
         const href = String($(this).attr('href') || '').trim();
         const isComments = href.includes('#comentarios');
-        track(isComments ? 'click_guide_cta_comments' : 'click_guide_cta_game', {
-            cta_location: $(this).closest('.wiki-translation-banner').length ? 'banner' : 'inline'
+        track('click_guide_cta', {
+            cta_location: $(this).closest('.wiki-translation-banner').length ? 'banner' : 'inline',
+            cta_target: isComments ? 'comments' : 'game_page'
         });
     });
 

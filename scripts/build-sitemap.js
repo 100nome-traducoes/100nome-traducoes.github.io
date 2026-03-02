@@ -2,10 +2,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const { resolveSiteUrl } = require('./site-config');
 
 const ROOT = path.join(__dirname, '..');
 const OUTPUT = path.join(ROOT, 'sitemap.xml');
-const BASE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
+const BASE_URL = resolveSiteUrl();
 const JOGOS_PATH = path.join(ROOT, 'data', 'game-content', 'jogos.json');
 
 function toUrlPath(filePath) {

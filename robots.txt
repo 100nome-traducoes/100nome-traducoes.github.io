@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://100nome-traducoes.github.io/sitemap.xml
+Sitemap: https://100nome.netlify.app/sitemap.xml

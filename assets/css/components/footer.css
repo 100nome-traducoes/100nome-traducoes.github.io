@@ -116,6 +116,26 @@
     opacity: 0.8;
 }
 
+.footer-report-note {
+    margin-top: 0.65rem;
+    font-size: 0.86rem;
+}
+
+.footer-report-note a {
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-report-note a i {
+    margin-right: 0.35rem;
+}
+
+.footer-report-note a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 /* Back to Top Button */
 .back-to-top {
     position: fixed;

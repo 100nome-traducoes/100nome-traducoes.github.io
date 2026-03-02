@@ -1,0 +1,7 @@
+/index.html / 301!
+/jogo/:slug.html /jogo/:slug 301!
+/jogo/:slug/index.html /jogo/:slug 301!
+/wiki/:game.html /wiki/:game 301!
+/wiki/:game/index.html /wiki/:game 301!
+/wiki/:game/:page.html /wiki/:game/:page 301!
+/wiki/:game/:page/index.html /wiki/:game/:page 301!

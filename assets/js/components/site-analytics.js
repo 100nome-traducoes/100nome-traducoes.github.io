@@ -2,6 +2,12 @@
   'use strict';
 
   const ATTR_KEY = 'site_attr_v1';
+  const PAGE_TYPES = Object.freeze({
+    HOME: 'home',
+    GAME: 'game',
+    GUIDE: 'guide',
+    OTHER: 'other'
+  });
 
   function safeTrim(value) {
     return String(value || '').trim();
@@ -13,10 +19,10 @@
 
   function getPageType() {
     const path = getPathname();
-    if (path === '/' || path.endsWith('/index.html')) return 'home';
-    if (path.startsWith('/jogo/')) return 'game';
-    if (path.startsWith('/wiki/')) return 'guide';
-    return 'other';
+    if (path === '/' || path.endsWith('/index.html')) return PAGE_TYPES.HOME;
+    if (path.startsWith('/jogo/')) return PAGE_TYPES.GAME;
+    if (path.startsWith('/wiki/')) return PAGE_TYPES.GUIDE;
+    return PAGE_TYPES.OTHER;
   }
 
   function getPageSlug() {
@@ -32,9 +38,14 @@
     return '';
   }
 
-  function getGuidePage() {
+  function getGuideEntry() {
     const match = getPathname().match(/^\/wiki\/[^/]+\/([^/]+)/);
     return match ? decodeURIComponent(match[1]) : 'index';
+  }
+
+  function getGuideSlug() {
+    const match = getPathname().match(/^\/wiki\/([^/]+)/);
+    return match ? decodeURIComponent(match[1]) : '';
   }
 
   function readStoredAttribution() {
@@ -95,11 +106,15 @@
   }
 
   function getBaseContext() {
+    const pageType = getPageType();
+    const guideEntry = pageType === PAGE_TYPES.GUIDE ? getGuideEntry() : '';
+
     const attr = detectAttribution();
     return {
-      page_type: getPageType(),
+      page_type: pageType,
       page_slug: getPageSlug(),
-      guide_page: getPageType() === 'guide' ? getGuidePage() : '',
+      guide_slug: pageType === PAGE_TYPES.GUIDE ? getGuideSlug() : '',
+      guide_entry: guideEntry,
       page_path: getPathname(),
       user_language: safeTrim(navigator.language || navigator.userLanguage || ''),
       site_language: safeTrim(document.documentElement?.lang || ''),

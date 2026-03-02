@@ -53,8 +53,7 @@
       "categorias": [
         "objetosescondidos",
         "misterio",
-        "quebracabecas",
-        "aventura"
+        "quebracabecas"
       ],
       "link": "https://100nome.blogs.sapo.pt/vampireville-traducao-em-portugues-48704",
       "slug": "vampireville-portugues",
@@ -119,7 +118,7 @@
       "autores": [
         {
           "nome": "João Frade",
-          "papel": "Tradução"
+          "papel": "Coordenação e Tradução"
         },
         {
           "nome": "Lorena Lago",
@@ -173,7 +172,8 @@
       "criador": "Rockstar Games",
       "atributos": [
         "textos",
-        "menus"
+        "menus",
+        "revisao"
       ],
       "autores": [
         {
@@ -201,27 +201,28 @@
       "nome": "Transport Giant",
       "criador": "Fancy Bytes, Reactor, JoWooD",
       "atributos": [
-        "ao90",
         "textos",
-        "menus"
+        "menus",
+        "revisao"
       ],
       "autores": [
         {
-          "nome": "Joel Amorim",
-          "papel": "Tradução"
-        },
-        {
           "nome": "João Rodrigues",
-          "papel": "Tradução"
+          "papel": "Coordenação e Tradução"
         },
         {
           "nome": "Adriana Veleda",
+          "papel": "Tradução"
+        },
+        {
+          "nome": "Joel Amorim",
           "papel": "Tradução"
         }
       ],
       "fornecido_por": "Portugalações",
       "categorias": [
-        "estrategia"
+        "estrategia",
+        "simulacao"
       ],
       "link": "https://100nome.blogs.sapo.pt/transport-giant-down-under-portugues-pt-28855",
       "slug": "transport-giant-portugues",
@@ -230,7 +231,7 @@
     {
       "guid": "beneath-a-steel-sky-pt-pt-portugues-20354",
       "titulo": "Tradução: Beneath a Steel Sky PT-PT",
-      "capa": "data/game-content/imgs/beneath-a-steel-sky-pt-pt.png",
+      "capa": "data/game-content/imgs/beneath-a-steel-sky-pt-pt.webp",
       "descricao": "Depois de ser raptado por soldados brutais e de testemunhar o massacre dos seus familiares, Robert Foster encontra-se em Union City, uma vasta metrópole sob a tirania de uma IA fascista. Sozinho, acompanhado apenas do circuito impresso do seu melhor amigo, Foster terá de descobrir a verdade sinistra e a razão pela qual é particularmente perseguido.",
       "nome": "Beneath a Steel Sky",
       "criador": "Revolution Software",
@@ -257,7 +258,8 @@
       "criador": "Creative Assembly",
       "atributos": [
         "textos",
-        "menus"
+        "menus",
+        "revisao"
       ],
       "autores": [
         {
@@ -292,7 +294,7 @@
       "autores": [
         {
           "nome": "João Frade",
-          "papel": "Tradução e Revisão"
+          "papel": "Tradução e Revisão + Examtaker"
         },
         {
           "nome": "Yumi Hideaki",
@@ -367,14 +369,6 @@
           "papel": "Tradução"
         },
         {
-          "nome": "Matheus Leal",
-          "papel": "Tradução"
-        },
-        {
-          "nome": "Daniel Lorenzi",
-          "papel": "Tradução"
-        },
-        {
           "nome": "Henrique Oliveira",
           "papel": "Tradução"
         },
@@ -383,11 +377,19 @@
           "papel": "Tradução"
         },
         {
-          "nome": "Rui",
+          "nome": "Daniel Lorenzi",
+          "papel": "Tradução"
+        },
+        {
+          "nome": "Matheus Leal",
           "papel": "Tradução"
         },
         {
           "nome": "Henrique de Souza",
+          "papel": "Tradução"
+        },
+        {
+          "nome": "Rui",
           "papel": "Tradução"
         }
       ],
@@ -481,11 +483,11 @@
       ],
       "autores": [
         {
-          "nome": "João Frade",
+          "nome": "Guilherme Neves",
           "papel": "Tradução"
         },
         {
-          "nome": "Guilherme Neves",
+          "nome": "João Frade",
           "papel": "Tradução"
         }
       ],
@@ -661,7 +663,7 @@
           "papel": "Tradução (menus da v. Landmark)"
         }
       ],
-      "fornecido_por": "particular e 100Nome",
+      "fornecido_por": "comunidade e 100Nome",
       "categorias": [
         "misterio",
         "aventura"
@@ -736,11 +738,11 @@
       ],
       "autores": [
         {
-          "nome": "Alice Alexandre",
+          "nome": "João Rodrigues",
           "papel": "Tradução"
         },
         {
-          "nome": "João Rodrigues",
+          "nome": "Alice Alexandre",
           "papel": "Tradução"
         }
       ],
@@ -766,7 +768,8 @@
       "criador": "Rockstar Games",
       "atributos": [
         "textos",
-        "menus"
+        "menus",
+        "revisao"
       ],
       "autores": [
         {
@@ -796,7 +799,8 @@
       "criador": "Rockstar Games",
       "atributos": [
         "textos",
-        "menus"
+        "menus",
+        "revisao"
       ],
       "autores": [
         {
@@ -819,7 +823,7 @@
     {
       "guid": "jogo-glest-13167",
       "titulo": "Tradução: Glest PT-PT",
-      "capa": "data/game-content/imgs/glest-pt-pt.png",
+      "capa": "data/game-content/imgs/glest-portugues.jpg",
       "descricao": "Glest é um gratuito jogo 3D de estratégia em tempo real, no qual controlas os exércitos de duas diferentes fações: Tec, essencialmente composta por guerreiros e dispositivos mecânicos, e Magia, que prefere chamar magos e criaturas para o campo de batalha.",
       "nome": "Glest",
       "criador": "Equipa de Desenvolvimento do Glest",
@@ -846,31 +850,25 @@
       "guid": "the-path-jogo-game-traducao-portugues-pt-32417",
       "titulo": "Tradução: The Path PT-PT",
       "capa": "data/game-content/imgs/the-path-pt-pt.jpeg",
-      "descricao": "Parado num bosque nevado, é surpreendido por uma pitada de névoa e de repente está na Floresta, onde todos os contos de fadas têm raiz. A caminho da avó, a menina não segue o caminho, deixando-a livre para explorar a Floresta. A rapariga vai aprender uma valiosa lição com a sua visita ao Bosque? Ou será que as coisas não são como parecem? Podes ler o conto clássico? Dirige-a às tentações, corta caminho até à casa da avó, ou enfrenta o mal que está lá dentro?",
+      "descricao": "Este jogo tem uma regra. E essa regra tem de ser quebrada. Este jogo tem um objetivo. E, alcançado, ele mata-te. Vivem seis irmãs num apartamento na cidade. Uma a uma, são enviadas pela mãe até à avó, que está doente e acamada. Às jovens é-lhes indicado o caminho até à casa da avó, no meio da floresta, e ensinado que nunca, a todo o custo, se desviem dele! Na floresta, encovam-se lobos, confiantes na dispersão. Mas as meninas não são exatamente conhecidas pela sua obediência, são? Saberão resistir às tentações da floresta? Impossibilitarão o antigo conto de ser recontado? Este é um jogo sobre crescimento, sobre mudança e sobre as escolhas. Sobre aceitar as consequências dessas escolhas. Um jogo sobre jogar e falhar, sobre abraçar a vida, porventura aceitando a morte.",
       "nome": "The Path",
       "criador": "Tale of Tales",
       "atributos": [
+        "ao90",
         "textos",
         "menus"
       ],
       "autores": [
         {
-          "nome": "João Frade",
-          "papel": "Tradução"
-        },
-        {
-          "nome": "Matt",
-          "papel": "Tradução"
-        },
-        {
-          "nome": "Paulo",
+          "nome": "Bruno de Figueiredo",
           "papel": "Tradução"
         }
       ],
-      "fornecido_por": "Zero Online",
+      "fornecido_por": "comunidade",
       "categorias": [
         "misterio",
-        "aventura"
+        "aventura",
+        "terror"
       ],
       "link": "https://100nome.blogs.sapo.pt/the-path-jogo-game-traducao-portugues-pt-32417",
       "notas": [
@@ -882,10 +880,10 @@
     {
       "guid": "jogo-widelands-10962",
       "titulo": "Tradução: Widelands PT-PT",
-      "capa": "data/game-content/imgs/widelands-pt-pt.png",
+      "capa": "data/game-content/imgs/widelands-pt-pt.jpg",
       "descricao": "Widelands é um jogo de estratégia em tempo real com focos em economia e construção. Constrói as tuas habitações e desenvolve a economia do teu reino para produzir recursos necessários para conquistar novas áreas e derrotar os teus inimigos.",
       "nome": "Widelands",
-      "criador": "Widelands Development Team",
+      "criador": "Equipa de Desenvolvimento do Widelands",
       "atributos": [
         "ao90",
         "textos",
@@ -913,28 +911,30 @@
     {
       "guid": "world-of-goo-traducao-pt-pt-portugues-31909",
       "titulo": "Tradução: World of Goo PT-PT",
-      "capa": "data/game-content/imgs/world-of-goo-pt-pt.png",
-      "descricao": "World of Goo é um jogo de quebra-cabeças baseado na física. A grande maioria dos níveis envolve a construção de uma torre usando as bolas de goo que vivem na área, para alcançar a tubulação que os vai salvá-los.",
+      "capa": "data/game-content/imgs/world-of-goo-pt-pt.webp",
+      "descricao": "World of Goo é um jogo de quebra-cabeças baseado na física. A grande maioria dos níveis envolve a construção de uma torre usando as bolas de goo que vivem na área, para alcançar a tubulação que os vai salvá-los. Arrasta e larga vivas, contorcistas e falantes bolhas de goo para construíres estruturas, pontes, balas de canhão, zepelins e línguas gigantes. As milhões de Bolas de Goo que vivem no maravilhoso Mundo de Goo são curiosas exploradoras, só que não sabem que estão num jogo nem que são extremamente deliciosas.",
       "nome": "World of Goo",
       "criador": "2D Boy",
       "atributos": [
+        "ao90",
         "textos",
         "menus"
       ],
       "autores": [
         {
-          "nome": "João Frade",
+          "nome": "Espyo",
+          "papel": "Tradução"
+        },
+        {
+          "nome": "Aelfric Raven",
           "papel": "Tradução"
         }
       ],
-      "fornecido_por": "C64",
+      "fornecido_por": "Comunidade",
       "categorias": [
         "quebracabecas"
       ],
       "link": "https://100nome.blogs.sapo.pt/world-of-goo-traducao-pt-pt-portugues-31909",
-      "notas": [
-        "Esta tradução é válida apenas para a versão original do jogo, não funciona na Steam."
-      ],
       "slug": "world-of-goo-pt-pt",
       "dataPublicacao": "Sat, 09 Apr 2016 00:00:00 GMT"
     },
@@ -963,9 +963,6 @@
         "acao"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-harry-potter-e-a-pedra-filosofal-6615",
-      "notas": [
-        "Esta tradução é válida apenas para a versão original do jogo."
-      ],
       "slug": "harry-potter-pedra-filosofal-pt-pt",
       "dataPublicacao": "Tue, 23 Jun 2015 00:00:00 GMT"
     },
@@ -1003,17 +1000,19 @@
       ],
       "autores": [
         {
-          "nome": "João Frade",
-          "papel": "Tradução e Revisão"
+          "nome": "Hpfm2",
+          "papel": "Tradução"
         }
+      ],
+      "fornecido_por": "Comunidade (Fórum Klei Entertainment)",
+      "agradecimentos": [
+        "Alvhem",
+        "Simplex"
       ],
       "categorias": [
         "sobrevivencia"
       ],
       "link": "https://100nome.blogs.sapo.pt/jogo-dont-starve-5538",
-      "notas": [
-        "Esta tradução não foi testada na versão GOG."
-      ],
       "slug": "dont-starve-pt-pt",
       "dataPublicacao": "Mon, 16 Feb 2015 00:00:00 GMT"
     },
@@ -1024,27 +1023,24 @@
       "descricao": "Dupin, um famoso detetive, pede a tua ajuda para resolver um crime horrível. Um assassino aterrorizou Paris e só tu, o detetive Dupin, podes parar esta sangrenta rampage.",
       "nome": "Dark Tales - Crimes da Rua Morgue",
       "nome_original": "Dark Tales - Murders in the Rue Morgue",
-      "criador": "ERS Games | Big Fish Games",
+      "criador": "ERS Games",
       "atributos": [
-        "ao90",
         "textos",
         "menus",
-        "revisao"
+        "revisao",
+        "imagens"
       ],
       "autores": [
         {
           "nome": "João Frade",
-          "papel": "Tradução e Revisão"
+          "papel": "Tradução"
         }
       ],
       "categorias": [
         "objetosescondidos",
-        "aventura"
+        "misterio"
       ],
       "link": "https://100nome.blogs.sapo.pt/1687.html",
-      "notas": [
-        "O jogo necessita da ativação de uma chave no site da Big Fish Games."
-      ],
       "slug": "dark-tales-crimes-rua-morgue-portugues",
       "dataPublicacao": "Mon, 08 Sep 2014 00:00:00 GMT"
     },
@@ -1052,13 +1048,13 @@
       "guid": "jogo-gone-home-4673",
       "titulo": "Tradução: Gone Home PT-PT",
       "capa": "data/game-content/imgs/gone-home-pt-pt.png",
-      "descricao": "7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esperas uma festa por parte da tua família, mas dás-te de caras com a casa vazia. Qualquer coisa não está bem. Onde andam todos? O que terá acontecido aqui? Desvenda o mistério em Gone Home, um jogo de história e exploração da The Fullbright Company.",
+      "descricao": "7 de junho de 1995, 1h15 da manhã. Regressas a casa depois de um ano no estrangeiro. Esperas uma festa por parte da tua família, mas dás-te de caras com a casa vazia. Qualquer coisa não está bem. Onde andam todos? O que terá acontecido aqui? Desvenda o mistério em Gone Home, um jogo de exploração de história da The Fullbright Company.",
       "nome": "Gone Home",
       "criador": "The Fullbright Company",
       "atributos": [
         "textos",
         "menus",
-        "imagens"
+        "melhorias"
       ],
       "autores": [
         {
@@ -1092,20 +1088,19 @@
     {
       "guid": "jogo-cry-of-fear-3138",
       "titulo": "Tradução: Cry of Fear PT-PT",
-      "capa": "data/game-content/imgs/cry-of-fear-portugal-pt-pt.jpg",
-      "descricao": "Em Cry of Fear, terás de explorar e navegar pela cidade decadente e abandonada e os seus misteriosos arredores. Jogas como Simon, um jovem que um dia acordou numa rua desconhecida e mal reconhece a sua própria cidade.",
+      "capa": "data/game-content/imgs/cry-of-fear-pt-pt.webp",
+      "descricao": "Acordas num beco escuro, esquecido de tudo. Que aconteceu? Esta é a luta que enfrentas: saber a verdade e obter respostas para as dominantes perguntas. Respostas à tua cegueira e medo que te agitam a pulsação como violentas pancadas contra a tua cabeça. O que são \"eles\"? De onde vêm? O que raio aconteceu aqui? Serão indulgências da insanidade? Acabou o tempo. Não podes ficar parado a ler aqueles SMS para sempre. Está na hora de mexer os pés e procurar respostas.",
       "nome": "Cry of Fear",
       "criador": "Team Psykskallar",
       "atributos": [
         "ao90",
         "textos",
-        "menus",
         "revisao"
       ],
       "autores": [
         {
           "nome": "João Frade",
-          "papel": "Tradução e Revisão"
+          "papel": "Tradução"
         }
       ],
       "categorias": [
@@ -1116,9 +1111,6 @@
       "link": "https://100nome.blogs.sapo.pt/jogo-cry-of-fear-3138",
       "avisos": [
         "Linguagem agressiva."
-      ],
-      "notas": [
-        "A tradução PT-PT não é compatível com o modo co-op."
       ],
       "slug": "cry-of-fear-pt-pt",
       "dataPublicacao": "Sat, 09 Aug 2014 00:00:00 GMT"

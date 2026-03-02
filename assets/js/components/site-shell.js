@@ -90,11 +90,23 @@
         }
 
         if (settings.enableMobileMenu && $menuToggle.length && $mobileMenu.length) {
+            const syncMobileMenuState = () => {
+                const isOpen = $mobileMenu.hasClass('active');
+                $menuToggle.toggleClass('is-active', isOpen);
+                $menuToggle.attr('aria-expanded', isOpen ? 'true' : 'false');
+                if (!isOpen && $mobileSubmenu.length) {
+                    $mobileSubmenu.stop(true, true).slideUp(120);
+                }
+            };
+
+            syncMobileMenuState();
+
             $menuToggle
                 .off('click.siteShellMenuToggle')
                 .on('click.siteShellMenuToggle', function(e) {
                     e.stopPropagation();
                     $mobileMenu.toggleClass('active');
+                    syncMobileMenuState();
                 });
 
             if ($mobileCategories.length && $mobileSubmenu.length) {
@@ -115,7 +127,7 @@
                         const clickedInsideMobile = $(e.target).closest('.mobile-menu').length > 0;
                         if (!clickedInsideNav && !clickedInsideMobile && $mobileMenu.hasClass('active')) {
                             $mobileMenu.removeClass('active');
-                            $mobileSubmenu.stop(true, true).slideUp(120);
+                            syncMobileMenuState();
                         }
                     });
             }
@@ -159,6 +171,8 @@
             $(document)
                 .off('click.siteShellAnchors', 'a[href^="#"]')
                 .on('click.siteShellAnchors', 'a[href^="#"]', function(e) {
+                    // Se outro handler já tratou este clique, não aplicar segundo scroll.
+                    if (e.isDefaultPrevented()) return;
                     const target = $(this.getAttribute('href'));
                     if (target.length) {
                         e.preventDefault();

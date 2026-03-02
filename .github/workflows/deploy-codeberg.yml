@@ -52,22 +52,67 @@ jobs:
         run: |
           rm -rf .publish
           mkdir -p .publish
-
-          # Copiar tudo o que é necessário para runtime estático.
-          rsync -a \
-            --exclude ".git/" \
-            --exclude ".github/" \
-            --exclude "node_modules/" \
-            --exclude "scripts/" \
-            --exclude "templates/" \
-            --exclude "package.json" \
-            --exclude "package-lock.json" \
-            --exclude "README.md" \
-            ./ .publish/
-
-          # Remover fontes privadas pedidas.
-          rm -f .publish/data/game-content/jogos.json
-          find .publish/data/wiki-content -type f -name "*.wikimd" -delete || true
+          
+          # DEBUG - ver o que existe antes de copiar
+          echo "=== A procurar pastas jogo/ e wiki/ ==="
+          find . -type d -name "jogo" -o -name "wiki" 2>/dev/null || echo "Pastas não encontradas"
+          echo "=== A procurar ficheiros HTML gerados ==="
+          find . -name "*.html" | head -20
+          
+          # Copiar ficheiros da raiz
+          cp *.html .publish/ 2>/dev/null || true
+          cp *.xml .publish/ 2>/dev/null || true
+          cp *.txt .publish/ 2>/dev/null || true
+          
+          # Copiar assets se existir
+          if [ -d "assets" ]; then
+            cp -r assets .publish/
+            echo "✅ assets copiado"
+          fi
+          
+          # Copiar jogo/ se existir
+          if [ -d "jogo" ]; then
+            cp -r jogo .publish/
+            echo "✅ jogo copiado"
+          else
+            echo "❌ jogo não encontrado na raiz"
+          fi
+          
+          # Copiar wiki/ se existir
+          if [ -d "wiki" ]; then
+            cp -r wiki .publish/
+            echo "✅ wiki copiado"
+          else
+            echo "❌ wiki não encontrado na raiz"
+          fi
+          
+          # Copiar data/ se existir (para imagens e assets públicos)
+          if [ -d "data" ]; then
+            cp -r data .publish/
+            echo "✅ data copiado"
+            
+            # Remover ficheiros fonte privados (se existirem)
+            rm -f .publish/data/game-content/jogos.json 2>/dev/null || true
+            find .publish/data/wiki-content -type f -name "*.wikimd" -delete 2>/dev/null || true
+            echo "✅ Ficheiros fonte privados removidos de data/"
+          else
+            echo "❌ data não encontrado na raiz"
+          fi
+          
+          echo "=== Conteúdo final de .publish/ ==="
+          ls -la .publish/
+          if [ -d ".publish/jogo" ]; then
+            echo "✅ jogo/ está em .publish/jogo"
+            ls -la .publish/jogo/ | head -10
+          fi
+          if [ -d ".publish/wiki" ]; then
+            echo "✅ wiki/ está em .publish/wiki"
+            ls -la .publish/wiki/ | head -10
+          fi
+          if [ -d ".publish/data" ]; then
+            echo "✅ data/ está em .publish/data"
+            ls -la .publish/data/ | head -10
+          fi
 
       - name: Publish to Codeberg
         run: |

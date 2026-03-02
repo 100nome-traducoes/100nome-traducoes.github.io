@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { resolveSiteUrl, applyGlobalSiteLinks } = require('./site-config');
 
 const dataPath = path.join(__dirname, '..', 'data', 'game-content', 'jogos.json');
 const downloadsPath = path.join(__dirname, '..', 'data', 'game-content', 'downloads.json');
@@ -11,7 +12,7 @@ const templatePath = path.join(__dirname, '..', 'templates', 'home.html');
 const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
 const outputPath = path.join(__dirname, '..', 'index.html');
 const wikiContentDir = path.join(__dirname, '..', 'data', 'wiki-content');
-const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
+const SITE_URL = resolveSiteUrl();
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -21,10 +22,34 @@ function readPartial(name) {
   return fs.readFileSync(path.join(partialsDir, name), 'utf8');
 }
 
+function collectAssetContent(fullPath, visited = new Set()) {
+  const normalizedPath = path.resolve(fullPath);
+  if (visited.has(normalizedPath)) return '';
+  visited.add(normalizedPath);
+
+  const content = fs.readFileSync(normalizedPath, 'utf8');
+  let combined = `${normalizedPath}\n${content}\n`;
+
+  if (path.extname(normalizedPath) === '.css') {
+    const importRegex = /@import\s+url\((['\"]?)([^'\")]+)\1\)\s*;|@import\s+(['\"])([^'\"]+)\3\s*;/g;
+    let match;
+    while ((match = importRegex.exec(content)) !== null) {
+      const importPath = match[2] || match[4] || '';
+      if (!importPath || /^(https?:|data:)/i.test(importPath)) continue;
+      const resolvedImportPath = path.resolve(path.dirname(normalizedPath), importPath);
+      if (fs.existsSync(resolvedImportPath)) {
+        combined += collectAssetContent(resolvedImportPath, visited);
+      }
+    }
+  }
+
+  return combined;
+}
+
 function getAssetVersion(relativePath) {
   const fullPath = path.join(__dirname, '..', relativePath);
-  const content = fs.readFileSync(fullPath);
-  return crypto.createHash('sha1').update(content).digest('hex').slice(0, 10);
+  const bundledContent = collectAssetContent(fullPath);
+  return crypto.createHash('sha1').update(bundledContent).digest('hex').slice(0, 10);
 }
 
 function limparTitulo(titulo) {
@@ -414,7 +439,7 @@ function main() {
   const homeTitle = '100Nome Traduções [Jogos em PT-PT]';
   const homeDescription = 'Traduções em PT-PT! O maior portal de traduções de jogos de Portugal, com traduções dos mais variados jogos em português de Portugal.';
   const homeUrl = `${SITE_URL}/`;
-  const homeImage = `${SITE_URL}/data/site-assets/logo-image.png`;
+  const homeImage = `${SITE_URL}/assets/images/site/logo.png`;
   const homeJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -428,7 +453,7 @@ function main() {
     }
   });
 
-  const html = template
+  const html = applyGlobalSiteLinks(template
     .replace(/\{\{HOME_CSS_VERSION\}\}/g, assetVersions.homeCss)
     .replace(/\{\{SITE_ANALYTICS_JS_VERSION\}\}/g, assetVersions.siteAnalyticsJs)
     .replace(/\{\{MOTION_JS_VERSION\}\}/g, assetVersions.motionJs)
@@ -443,7 +468,7 @@ function main() {
     .replace(/\{\{HEADER\}\}/g, header)
     .replace(/\{\{FOOTER\}\}/g, footer)
     .replace(/\{\{FEATURED_GRID\}\}/g, featuredGrid)
-    .replace(/\{\{CATEGORIES_HTML\}\}/g, categoriesHtml);
+    .replace(/\{\{CATEGORIES_HTML\}\}/g, categoriesHtml));
 
   fs.writeFileSync(outputPath, html, 'utf8');
   console.log(`Gerado: ${outputPath}`);

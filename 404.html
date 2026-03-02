@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <title>Página não encontrada | 100Nome Traduções</title>
+  <meta name="description" content="A página que procuras não existe. Volta ao início e encontra traduções em PT-PT no 100Nome.">
+  <link rel="canonical" href="https://100nome.netlify.app/404">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="/assets/images/site/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/assets/images/site/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/pages/home.css">
+  <style>
+    .notfound-wrap {
+      min-height: calc(100vh - 120px);
+      display: grid;
+      place-items: center;
+      padding: 6rem 1.25rem 2.5rem;
+    }
+    .notfound-card {
+      width: min(760px, 100%);
+      background: rgba(0, 17, 29, 0.78);
+      border: 1px solid rgba(227, 158, 68, 0.28);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+    .notfound-code {
+      margin: 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      color: var(--primary-color);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .notfound-title {
+      margin: 0.7rem 0 0;
+      color: var(--text-light);
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
+    .notfound-text {
+      margin: 0.85rem auto 1.1rem;
+      max-width: 52ch;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    .notfound-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+    .notfound-actions .btn {
+      width: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/assets/images/site/logo.png" alt="100Nome Logo" width="60">
+      </a>
+    </div>
+  </nav>
+
+  <main class="notfound-wrap">
+    <section class="notfound-card" aria-labelledby="notfoundTitle">
+      <p class="notfound-code">404</p>
+      <h1 id="notfoundTitle" class="notfound-title">Página não encontrada</h1>
+      <p class="notfound-text">
+        O link pode estar antigo ou incompleto. Volta ao início para encontrar a tradução ou guia certo.
+      </p>
+      <div class="notfound-actions">
+        <a href="/" class="btn btn-primary"><i class="fas fa-home"></i> Ir para Início</a>
+        <a href="/#acao" class="btn btn-secondary"><i class="fas fa-th-large"></i> Explorar Categorias</a>
+        <a href="https://discord.gg/FAsYZURnFW" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-discord"></i> Suporte no Discord</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

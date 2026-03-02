@@ -1,7 +1,7 @@
 {
   "source": "google-sheets",
-  "syncedAt": "2026-02-23T17:57:45.080Z",
-  "lastUpdated": "2026-02-23T17:57:44.123Z",
+  "syncedAt": "2026-03-02T19:48:27.074Z",
+  "lastUpdated": "2026-03-02T19:48:26.213Z",
   "totalFiles": 34,
   "packages": {
     "beneath-a-steel-sky-pt-pt": {
@@ -19,7 +19,7 @@
       "packageFilename": "Blur PT-EU.zip"
     },
     "cry-of-fear-pt-pt": {
-      "packageVersion": "1.0",
+      "packageVersion": "1.2",
       "packageLastModified": "2024-02-17T10:40:00.735Z",
       "packageSizeBytes": 819016,
       "packageChecksum": "c676ec7538221f239a65663c80eddaf2",
@@ -61,7 +61,7 @@
       "packageFilename": "Extreme Tux Racer PT-EU.zip"
     },
     "glest-portugues": {
-      "packageVersion": "1.0",
+      "packageVersion": "1.1",
       "packageLastModified": "2023-07-25T14:01:30.212Z",
       "packageSizeBytes": 7652,
       "packageChecksum": "a143e78004dadaf28e945c859a3256a2",

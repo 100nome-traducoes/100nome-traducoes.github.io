@@ -2,10 +2,12 @@
 (function() {
   'use strict';
 
-  const API_BASE = 'https://100nome-api.netlify.app/.netlify/functions';
+  const API_BASE = '/.netlify/functions/downloads';
   const RATE_LIMIT_MS = 5 * 60 * 1000; // 5 minutos
   const DISCORD_URL = 'https://discord.gg/Xv7ax2VkEp';
-  const NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 dias
+  const NUDGE_COOLDOWN_DEFAULT_MS = 7 * 24 * 60 * 60 * 1000; // 7 dias
+  const NUDGE_COOLDOWN_DISCORD_MS = 30 * 24 * 60 * 60 * 1000; // 30 dias
+  const NUDGE_COOLDOWN_FEEDBACK_MS = 24 * 60 * 60 * 1000; // 24h
   const MODAL_CLOSE_MS = 360;
   const NUDGE_CLOSE_MS = 240;
   const track = (eventName, params = {}) => {
@@ -53,7 +55,7 @@
     if (!counterEl) return;
 
     try {
-      const response = await fetch(`${API_BASE}/count?id=${gameSlug}`)
+      const response = await fetch(`${API_BASE}?action=count&id=${encodeURIComponent(gameSlug)}`)
       const data = await response.json();
 
       if (typeof data.downloads === 'number') {
@@ -72,7 +74,7 @@
     }
 
     try {
-      const response = await fetch(`${API_BASE}/download?id=${gameSlug}`)
+      const response = await fetch(`${API_BASE}?action=download&id=${encodeURIComponent(gameSlug)}`)
       const data = await response.json();
 
       if (!data.url) throw new Error('URL em falta na resposta');
@@ -154,24 +156,28 @@
       const key = getNudgeStorageKey(gameSlug);
       const raw = localStorage.getItem(key);
       if (!raw) return true;
-      const lastAt = parseInt(raw, 10);
-      if (!Number.isFinite(lastAt)) return true;
-      return Date.now() - lastAt > NUDGE_COOLDOWN_MS;
+      const storedValue = parseInt(raw, 10);
+      if (!Number.isFinite(storedValue)) return true;
+
+      const now = Date.now();
+      if (storedValue > now) {
+        // Formato novo: timestamp absoluto para próxima exibição.
+        return false;
+      }
+
+      // Formato antigo: timestamp da última interação/exibição.
+      return now - storedValue > NUDGE_COOLDOWN_DEFAULT_MS;
     } catch {
       return true;
     }
   }
 
-  function markPostDownloadNudge(gameSlug, longCooldown) {
+  function setPostDownloadNudgeCooldown(gameSlug, cooldownMs) {
     try {
       const key = getNudgeStorageKey(gameSlug);
       const now = Date.now();
-      if (longCooldown) {
-        const longMs = 30 * 24 * 60 * 60 * 1000; // 30 dias
-        localStorage.setItem(key, String(now + longMs - NUDGE_COOLDOWN_MS));
-      } else {
-        localStorage.setItem(key, String(now));
-      }
+      const value = now + Math.max(0, Number(cooldownMs) || 0);
+      localStorage.setItem(key, String(value));
     } catch {
       // noop
     }
@@ -241,7 +247,7 @@
       track('click_download_post_nudge_close', {
         game_slug: gameSlug
       });
-      markPostDownloadNudge(gameSlug, false);
+      setPostDownloadNudgeCooldown(gameSlug, NUDGE_COOLDOWN_DEFAULT_MS);
       removePostDownloadNudge();
     });
 
@@ -249,7 +255,7 @@
       track('click_download_post_nudge_discord', {
         game_slug: gameSlug
       });
-      markPostDownloadNudge(gameSlug, true);
+      setPostDownloadNudgeCooldown(gameSlug, NUDGE_COOLDOWN_DISCORD_MS);
       removePostDownloadNudge();
     });
 
@@ -258,13 +264,13 @@
         track('click_download_post_nudge_feedback', {
           game_slug: gameSlug
         });
-        markPostDownloadNudge(gameSlug, false);
+        setPostDownloadNudgeCooldown(gameSlug, NUDGE_COOLDOWN_FEEDBACK_MS);
         removePostDownloadNudge();
       });
     }
 
     document.body.appendChild(nudge);
-    markPostDownloadNudge(gameSlug, false);
+    setPostDownloadNudgeCooldown(gameSlug, NUDGE_COOLDOWN_DEFAULT_MS);
     window.requestAnimationFrame(() => {
       nudge.classList.add('is-visible');
     });

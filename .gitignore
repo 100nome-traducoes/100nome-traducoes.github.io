@@ -1,0 +1,10 @@
+node_modules/
+index.html
+/jogo/
+/wiki/
+sitemap.xml
+robots.txt
+node_modules/
+dist/
+.env
+/.vscode/

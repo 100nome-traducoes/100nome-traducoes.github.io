@@ -11,15 +11,17 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const marked = require('marked'); // npm install marked
+const { resolveSiteUrl, applyGlobalSiteLinks } = require('./site-config');
 
 // Configuração
 const CONFIG = {
     inputDir: '../data/wiki-content',
     outputDir: '../wiki',
     templateFile: '../templates/wiki-page.html',
-    dataFile: '../data/game-content/jogos.json'
+    dataFile: '../data/game-content/jogos.json',
+    packagesMetadataFile: '../data/game-content/packages-metadata.json'
 };
-const SITE_URL = (process.env.SITE_URL || 'https://100nome-traducoes.github.io').replace(/\/$/, '');
+const SITE_URL = resolveSiteUrl();
 const SITE_HOST = (() => {
     try {
         return new URL(SITE_URL).hostname.replace(/^www\./i, '');
@@ -54,6 +56,31 @@ function truncateText(text, maxLen = 170) {
     const t = String(text || '').replace(/\s+/g, ' ').trim();
     if (t.length <= maxLen) return t;
     return `${t.slice(0, maxLen - 1).trim()}…`;
+}
+
+function readPackagesMetadata() {
+    const metadataPath = path.join(__dirname, CONFIG.packagesMetadataFile);
+    if (!fs.existsSync(metadataPath)) return {};
+    try {
+        const raw = JSON.parse(fs.readFileSync(metadataPath, 'utf-8'));
+        if (!raw || typeof raw !== 'object') return {};
+        if (!raw.packages || typeof raw.packages !== 'object') return {};
+        return raw.packages;
+    } catch {
+        return {};
+    }
+}
+
+function mergePackageMetadata(jogoData, gameSlug, packagesMap) {
+    const baseData = (jogoData && typeof jogoData === 'object') ? jogoData : {};
+    const meta = packagesMap?.[gameSlug];
+    if (!meta || typeof meta !== 'object') return baseData;
+
+    return {
+        ...baseData,
+        packageVersion: String(meta.packageVersion || '').trim() || null,
+        packageLastModified: String(meta.packageLastModified || '').trim() || null
+    };
 }
 
 function isExternalHttpUrl(href) {
@@ -452,7 +479,7 @@ function buildWikiPromoBanner(jogoSlug, gameTitle) {
             <div class="wiki-translation-banner-content">
                 <p class="wiki-translation-banner-label"><i class="mdi mdi-translate"></i> Tradução PT-PT disponível</p>
                 <p class="wiki-translation-banner-title">Joga <strong>${escapeHtml(gameTitle)}</strong> em português de Portugal</p>
-                <p>Esta wiki faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
+                <p>Este guia faz parte da tradução oficial no 100Nome. Explora os conteúdos e descarrega a tradução completa.</p>
             </div>
             <div class="wiki-translation-banner-actions">
                 <a href="/jogo/${encodeURIComponent(jogoSlug)}" class="wiki-cta-btn wiki-cta-btn--primary">
@@ -467,9 +494,10 @@ function buildWikiPromoBanner(jogoSlug, gameTitle) {
 }
 
 function buildWikiTranslationStatus(jogoData, jogoSlug, gameTitle) {
-    const version = String(jogoData?.versao || '1.0').trim();
-    const dateRaw = jogoData?.dataPublicacao;
-    const date = dateRaw ? formatDatePt(new Date(dateRaw)) : 'n/d';
+    const version = String(jogoData?.packageVersion || jogoData?.versao || jogoData?.informacoesTraducao?.versao || '1.0').trim();
+    const dateRaw = jogoData?.packageLastModified || jogoData?.dataPublicacao;
+    const parsedDate = dateRaw ? new Date(dateRaw) : null;
+    const date = parsedDate && !Number.isNaN(parsedDate.getTime()) ? formatDatePt(parsedDate) : 'n/d';
 
     return `
         <section class="wiki-translation-status">
@@ -796,7 +824,7 @@ function buildWikiHomeNavSectionMarkdown(wikiPages, limit = 6, hasGroupedSidebar
         : '> Dica: usa a pesquisa na barra lateral para encontrar páginas e termos mais depressa.';
 
     return [
-        '## Explorar a Wiki',
+        '## Explorar o Guia',
         '',
         ':::grid',
         gridLines,
@@ -813,21 +841,21 @@ function buildWikiUsageSectionMarkdown(hasGroupedSidebar = false) {
         : '2. Usa a barra lateral para navegar pelas páginas disponíveis.';
 
     return [
-        '## Como usar esta Wiki',
+        '## Como usar este Guia',
         '',
-        '1. Começa pela **Visão Geral** para entenderes a estrutura da wiki.',
+        '1. Começa pela **Visão Geral** para entenderes a estrutura do guia.',
         navigationLine,
-        '3. Usa a pesquisa da wiki para encontrar termos, páginas e secções mais depressa.',
+        '3. Usa a pesquisa do guia para encontrar termos, páginas e secções mais depressa.',
         '4. No fim das páginas, usa os links **Relacionados** para continuar a exploração.',
         '',
-        '> Esta wiki é atualizada conforme a tradução evolui ou é melhorada. Se encontrares algo em falta, deixa sugestão nos comentários do jogo.',
+        '> Este guia é atualizado conforme a tradução evolui ou é melhorada. Se encontrares algo em falta, deixa sugestão nos comentários do jogo.',
         ''
     ].join('\n');
 }
 
 function stripManualWikiUsageSection(markdownContent) {
     return markdownContent
-        .replace(/\n##\s+Como usar esta Wiki[\s\S]*?(?=\n##\s+|\n#\s+|$)/i, '\n')
+        .replace(/\n##\s+Como usar (?:esta Wiki|este Guia)[\s\S]*?(?=\n##\s+|\n#\s+|$)/i, '\n')
         .replace(/\n{3,}/g, '\n\n');
 }
 
@@ -890,7 +918,7 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
     const sidebarNav = buildSidebarNav(gameSlug, filename, allWikiPages);
     const relatedLinks = buildRelatedLinks(filename, allWikiPages, gameSlug);
     const indexPage = allWikiPages.find(p => p.filename === 'index');
-    const wikiHomeTitle = (indexPage?.metadata?.titulo || 'Wiki').trim();
+    const wikiHomeTitle = (indexPage?.metadata?.titulo || 'Guia').trim();
     
     // Substituir placeholders
     const fallbackTitle = jogoData?.titulo || jogoId.replace(/-/g, ' ').toUpperCase();
@@ -898,16 +926,16 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
     const jogoSlug = String(gameSlug || jogoData?.slug || jogoId).trim();
     const htmlContentWithCta = injectWikiContentCta(htmlContent, jogoSlug, gameTitle);
     const gameCover = jogoData?.capa ? `/${jogoData.capa.replace(/^\/+/, '')}` : '';
-    const ogImage = gameCover ? `${SITE_URL}${gameCover}` : `${SITE_URL}/data/site-assets/logo-image.png`;
+    const ogImage = gameCover ? `${SITE_URL}${gameCover}` : `${SITE_URL}/assets/images/site/logo.png`;
     const pageDescription = buildWikiMetaDescription(metadata.descricao, gameTitle);
     const promoBanner = buildWikiPromoBanner(jogoSlug, gameTitle);
     const translationStatus = buildWikiTranslationStatus(jogoData, jogoSlug, gameTitle);
     const pageUrl = `${SITE_URL}${getWikiPagePath(jogoSlug, filename)}`;
-    const pageTitle = `${metadata.titulo || 'Wiki'} - Wiki ${gameTitle} - 100Nome`;
+    const pageTitle = `${metadata.titulo || 'Guia'} - Guia ${gameTitle} - 100Nome`;
     const wikiJsonLd = JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: metadata.titulo || 'Wiki',
+        headline: metadata.titulo || 'Guia',
         description: pageDescription,
         inLanguage: 'pt-PT',
         url: pageUrl,
@@ -938,7 +966,7 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
         ? ''
         : `<span class="breadcrumb-separator">/</span><span class="breadcrumb-current">${metadata.titulo || 'Página'}</span>`;
 
-    template = template
+    template = applyGlobalSiteLinks(template
         .replace(/\{\{WIKI_CSS_VERSION\}\}/g, ASSET_VERSIONS.wikiCss)
         .replace(/\{\{SITE_ANALYTICS_JS_VERSION\}\}/g, ASSET_VERSIONS.siteAnalyticsJs)
         .replace(/\{\{MOTION_JS_VERSION\}\}/g, ASSET_VERSIONS.motionJs)
@@ -948,7 +976,7 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
         .replace(/\{\{HEADER\}\}/g, header)
         .replace(/\{\{FOOTER\}\}/g, footer)
         .replace(/\{\{PAGE_TITLE\}\}/g, pageTitle)
-        .replace(/\{\{TITULO\}\}/g, metadata.titulo || 'Wiki')
+        .replace(/\{\{TITULO\}\}/g, metadata.titulo || 'Guia')
         .replace(/\{\{DESCRICAO\}\}/g, pageDescription)
         .replace(/\{\{PAGE_URL\}\}/g, pageUrl)
         .replace(/\{\{OG_IMAGE\}\}/g, ogImage)
@@ -968,7 +996,7 @@ function processWikiFile(filePath, jogoId, gameSlug, allWikiPages, jogoData) {
         .replace(/\{\{JOGO_CAPA\}\}/g, gameCover)
         .replace(/\{\{JOGO_TITULO\}\}/g, gameTitle)
         .replace(/\{\{WIKI_BREADCRUMB_NODE\}\}/g, wikiBreadcrumbNode)
-        .replace(/\{\{PAGE_BREADCRUMB_NODE\}\}/g, pageBreadcrumbNode);
+        .replace(/\{\{PAGE_BREADCRUMB_NODE\}\}/g, pageBreadcrumbNode));
     
     return {
         filename,
@@ -1003,7 +1031,7 @@ function findWikiFiles(jogoId) {
 }
 
 // Processar todas as wikis de um jogo
-function processGameWiki(jogoId, jogosData) {
+function processGameWiki(jogoId, jogosData, packagesMap) {
     console.log(`\n🎮 Processando wiki: ${jogoId}`);
     
     // Descobrir todos os ficheiros
@@ -1015,8 +1043,9 @@ function processGameWiki(jogoId, jogosData) {
     }
     
     // Criar diretório de output
-    const jogoData = jogosData?.jogos?.find(j => j.slug === jogoId);
-    const gameSlug = String(jogoData?.slug || jogoId).trim();
+    const jogoDataRaw = jogosData?.jogos?.find(j => j.slug === jogoId);
+    const gameSlug = String(jogoDataRaw?.slug || jogoId).trim();
+    const jogoData = mergePackageMetadata(jogoDataRaw, gameSlug, packagesMap);
     const outputDir = path.join(__dirname, CONFIG.outputDir, `${gameSlug}`);
     fs.rmSync(outputDir, { recursive: true, force: true });
     fs.mkdirSync(outputDir, { recursive: true });
@@ -1097,6 +1126,7 @@ function main() {
     const jogosData = JSON.parse(
         fs.readFileSync(path.join(__dirname, CONFIG.dataFile), 'utf-8')
     );
+    const packagesMap = readPackagesMetadata();
     
     // Processar wikis para cada jogo que tenha pasta de wiki
     const wikiDirs = fs.readdirSync(path.join(__dirname, CONFIG.inputDir))
@@ -1106,7 +1136,7 @@ function main() {
         });
     
     wikiDirs.forEach(jogoId => {
-        processGameWiki(jogoId, jogosData);
+        processGameWiki(jogoId, jogosData, packagesMap);
     });
     
     console.log('\n✨ Build concluído!\n');
