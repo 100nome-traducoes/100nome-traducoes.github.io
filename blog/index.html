@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Blog 100Nome</title>
+  <meta name="description" content="Notas e atualizações sobre traduções e o projeto 100Nome.">
+  <link rel="canonical" href="https://100nome.net/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="100Nome">
+  <meta property="og:title" content="Blog 100Nome">
+  <meta property="og:description" content="Notas e atualizações sobre traduções e o projeto 100Nome.">
+  <meta property="og:url" content="https://100nome.net/blog/">
+  <meta property="og:image" content="https://100nome.net/assets/imagens/site/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog 100Nome">
+  <meta name="twitter:description" content="Notas e atualizações sobre traduções e o projeto 100Nome.">
+  <meta name="twitter:image" content="https://100nome.net/assets/imagens/site/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/build/blog.css?v=64363cdae4">
+  <link rel="icon" href="/assets/imagens/site/favicon.png" type="image/png">
+<link rel="shortcut icon" href="/assets/imagens/site/favicon.png" type="image/png">
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body data-ga-id="G-ZNRR1FVXYQ">
+  <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <img src="/assets/imagens/site/logo.webp" alt="100Nome Logo" width="60" height="60" decoding="async">
+        </a>
+
+        <div class="nav-links">
+            <a href="/apoiar" class="nav-link">
+                <i class="fas fa-heart"></i> Apoiar
+            </a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+                    <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+                    <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+                    <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+                    <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+                </div>
+            </div>
+            <a href="/#traduzir" class="nav-link">
+                <i class="fas fa-language"></i> Traduzir
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="https://discord.gg/Xv7ax2VkEp" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+        </div>
+
+        <div class="search-container">
+            <form id="search-form" method="get" action="/">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" name="q" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                    <button type="submit" class="search-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu de navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-search">
+            <form id="mobile-search-form" class="mobile-search-form" method="get" action="/">
+                <div class="mobile-search-wrapper">
+                    <input type="text" id="mobile-search-input" name="q" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                    <button type="submit" class="mobile-search-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <a href="/apoiar" class="mobile-link">
+            <i class="fas fa-heart"></i> Apoiar o projeto
+        </a>
+        <a href="#" class="mobile-link" id="mobileCategories">
+            <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="mobile-submenu" id="mobileSubmenu">
+            <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+            <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+            <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+            <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+            <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+        </div>
+        <a href="/#traduzir" class="mobile-link">
+            <i class="fas fa-language"></i> Traduzir jogos
+        </a>
+        <a href="https://www.youtube.com/@100NomePT" class="mobile-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> Canal YouTube
+        </a>
+        <a href="https://discord.gg/Xv7ax2VkEp" class="mobile-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-discord"></i> Servidor Discord
+        </a>
+    </div>
+</nav>
+
+
+  <main class="blog-page">
+    <header class="blog-hero" data-reveal>
+      <h1>Notas do Projeto</h1>
+      <p>Atualizações curtas sobre traduções e bastidores.</p>
+    </header>
+
+    <section class="blog-list" data-reveal>
+      
+        <article class="blog-card">
+          <div class="blog-card-meta">
+            <span>23/04/2023</span>
+          </div>
+          <h2>A Pedra de Anamara Finalmente em Português</h2>
+          <p>Apresentação da tradução pelo seu autor</p>
+          <a href="/blog/a-pedra-de-anamara-finalmente-em-portugues/">Ler artigo</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-meta">
+            <span>04/02/2020</span>
+          </div>
+          <h2>O Mundo Travesso de &#39;Vizinhos do Inferno&#39; em Português</h2>
+          <p>Neighbours From Hell volta num remake e está em português aqui!</p>
+          <a href="/blog/traducao-neighbours-from-hell-pt-pt/">Ler artigo</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-meta">
+            <span>08/12/2015</span>
+          </div>
+          <h2>Ilha Sombria e a Fantástica História</h2>
+          <p>Processo de tradução de Twisted Lands - Ilha Sombria.</p>
+          <a href="/blog/ilha-sombria-e-a-fantastica-historia/">Ler artigo</a>
+        </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3><i class="fas fa-th-large"></i> Categorias</h3>
+            <a href="/#acao">Ação / Sobrevivência</a>
+            <a href="/#misterio">Mistério</a>
+            <a href="/#quebracabecas">Quebra-cabeças</a>
+            <a href="/#corrida">Corrida</a>
+            <a href="/#estrategia">Estratégia</a>
+        </div>
+
+        <div class="footer-section">
+            <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="/apoiar">
+                <i class="fas fa-heart"></i> Apoiar o Projeto
+            </a>
+            <a href="/#traduzir">
+                <i class="fas fa-language"></i> Quero Traduzir
+            </a>
+            <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Servidor Discord
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> Canal YouTube
+            </a>
+            <a href="mailto:100nome.portugal@gmail.com">
+                <i class="fas fa-envelope"></i> Contactar (e-mail)
+            </a>
+        </div>
+
+        <div class="footer-section">
+            <h3><i class="fas fa-gavel"></i> Legal</h3>
+            <p>As traduções estão ao abrigo das respetivas licenças atualizadas.</p>
+            <p>Solicita-se a leitura da Nota Legal disponível.</p>
+            <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="legal-link">
+                <i class="fas fa-folder-open"></i> Pasta de Licenças
+            </a>
+        </div>
+
+        <div class="footer-section logo-section">
+            <img src="/assets/imagens/site/logo.webp" alt="100Nome Logo" width="80" height="80" decoding="async">
+            <h3>100Nome Traduções</h3>
+            <p>Traduções em PT-PT desde 2009</p>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 100Nome Traduções. Todos os direitos reservados.</p>
+        <p class="footer-note">Este projeto é mantido por voluntários apaixonados pela língua portuguesa.</p>
+        <p class="footer-report-note">
+            <a href="https://discord.gg/FAsYZURnFW" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Encontraste um bug? Reporta no Discord
+            </a>
+        </p>
+    </div>
+</footer>
+
+<button class="scroll-top-control" id="scrollTopControl" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+
+  <script src="/assets/js/components/consent-manager.js?v=7d3b2b1759"></script>
+  <script src="/assets/js/components/site-analytics.js?v=3ce28bbbb3"></script>
+  <script src="/assets/js/components/motion.js?v=6aa23b1c1c"></script>
+  <script src="/assets/js/components/site-shell.js?v=ad82b2689a"></script>
+</body>
+</html>

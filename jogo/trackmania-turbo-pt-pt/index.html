@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Trackmania Turbo — Tradução PT-PT | 100Nome Traduções</title>
+    <meta name="description" content="Trackmania Turbo oferece-te o mais recente universo da corrida arcada onde tudo se trata de conseguir os tempo… Tradução PT-PT de Trackmania Turbo para PC.">
+    <link rel="canonical" href="https://100nome.net/jogo/trackmania-turbo-pt-pt/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="100Nome">
+    <meta property="og:title" content="Trackmania Turbo — Tradução PT-PT | 100Nome Traduções">
+    <meta property="og:description" content="Trackmania Turbo oferece-te o mais recente universo da corrida arcada onde tudo se trata de conseguir os tempo… Tradução PT-PT de Trackmania Turbo para PC.">
+    <meta property="og:url" content="https://100nome.net/jogo/trackmania-turbo-pt-pt/">
+    <meta property="og:image" content="https://100nome.net/assets/jogo/trackmania-turbo-pt-pt/capa.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trackmania Turbo — Tradução PT-PT | 100Nome Traduções">
+    <meta name="twitter:description" content="Trackmania Turbo oferece-te o mais recente universo da corrida arcada onde tudo se trata de conseguir os tempo… Tradução PT-PT de Trackmania Turbo para PC.">
+    <meta name="twitter:image" content="https://100nome.net/assets/jogo/trackmania-turbo-pt-pt/capa.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/build/game.css?v=dev">
+    <link rel="icon" href="/assets/imagens/site/favicon.png" type="image/png">
+<link rel="shortcut icon" href="/assets/imagens/site/favicon.png" type="image/png">
+
+
+    <script>
+        (() => {
+            const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
+            const fallbackHref = `${window.location.origin}${window.location.pathname}`;
+            const shareUrl = canonicalHref || fallbackHref;
+
+            const showShareToast = (message) => {
+                const existing = document.querySelector('.share-toast');
+                if (existing) existing.remove();
+                const toast = document.createElement('div');
+                toast.className = 'share-toast';
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                requestAnimationFrame(() => {
+                    toast.classList.add('is-visible');
+                });
+                setTimeout(() => {
+                    toast.classList.remove('is-visible');
+                    setTimeout(() => toast.remove(), 180);
+                }, 2000);
+            };
+
+            const fallbackCopyShare = async () => {
+                try {
+                    if (navigator.clipboard?.writeText && window.isSecureContext) {
+                        await navigator.clipboard.writeText(shareUrl);
+                        showShareToast('Link copiado!');
+                        return;
+                    }
+                } catch (err) {
+                    // Fallback below.
+                }
+                window.prompt('Copia o link:', shareUrl);
+            };
+
+            window.shareCurrentGamePage = async () => {
+                if (navigator.share) {
+                    try {
+                        await navigator.share({ title: document.title, url: shareUrl });
+                        showShareToast('Partilha iniciada');
+                        return;
+                    } catch (err) {
+                        // Ignore cancellation; fallback for unsupported/blocked cases.
+                    }
+                }
+                await fallbackCopyShare();
+            };
+        })();
+    </script>
+    <script>
+        window.SiteLinks = Object.freeze({
+            discordMain: 'https://discord.gg/Xv7ax2VkEp',
+            discordReport: 'https://discord.gg/FAsYZURnFW',
+            youtube: 'https://www.youtube.com/@100NomePT',
+            contactEmail: '100nome.portugal@gmail.com'
+        });
+    </script>
+
+    <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"VideoGame","name":"Trackmania Turbo","description":"Trackmania Turbo oferece-te o mais recente universo da corrida arcada onde tudo se trata de conseguir os tempo… Tradução PT-PT de Trackmania Turbo para PC.","url":"https://100nome.net/jogo/trackmania-turbo-pt-pt/","image":"https://100nome.net/assets/jogo/trackmania-turbo-pt-pt/capa.webp","inLanguage":"pt-PT","author":{"@type":"Organization","name":"100Nome"}}
+    </script>
+    <script src="/assets/js/components/site-utils.js?v=2bfa6b2c42"></script>
+    <script src="/assets/js/components/download-counter.js?v=079d91fb0d"></script>
+</head>
+<body data-slug="trackmania-turbo-pt-pt" data-ga-id="G-ZNRR1FVXYQ">
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <img src="/assets/imagens/site/logo.webp" alt="100Nome Logo" width="60" height="60" decoding="async">
+        </a>
+
+        <div class="nav-links">
+            <a href="/apoiar" class="nav-link">
+                <i class="fas fa-heart"></i> Apoiar
+            </a>
+            <div class="dropdown">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+                    <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+                    <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+                    <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+                    <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+                </div>
+            </div>
+            <a href="/#traduzir" class="nav-link">
+                <i class="fas fa-language"></i> Traduzir
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="https://discord.gg/Xv7ax2VkEp" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+        </div>
+
+        <div class="search-container">
+            <form id="search-form" method="get" action="/">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" name="q" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                    <button type="submit" class="search-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu de navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-search">
+            <form id="mobile-search-form" class="mobile-search-form" method="get" action="/">
+                <div class="mobile-search-wrapper">
+                    <input type="text" id="mobile-search-input" name="q" placeholder="Pesquisar traduções..." autocomplete="off" aria-label="Pesquisar traduções">
+                    <button type="submit" class="mobile-search-btn" aria-label="Pesquisar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <a href="/apoiar" class="mobile-link">
+            <i class="fas fa-heart"></i> Apoiar o projeto
+        </a>
+        <a href="#" class="mobile-link" id="mobileCategories">
+            <i class="fas fa-th-large"></i> Categorias <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="mobile-submenu" id="mobileSubmenu">
+            <a href="/#acao"><i class="fas fa-fist-raised"></i> Ação / Sobrevivência</a>
+            <a href="/#misterio"><i class="fas fa-search"></i> Mistério</a>
+            <a href="/#quebracabecas"><i class="fas fa-puzzle-piece"></i> Quebra-cabeças</a>
+            <a href="/#corrida"><i class="fas fa-car"></i> Corrida</a>
+            <a href="/#estrategia"><i class="fas fa-chess-board"></i> Estratégia</a>
+        </div>
+        <a href="/#traduzir" class="mobile-link">
+            <i class="fas fa-language"></i> Traduzir jogos
+        </a>
+        <a href="https://www.youtube.com/@100NomePT" class="mobile-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> Canal YouTube
+        </a>
+        <a href="https://discord.gg/Xv7ax2VkEp" class="mobile-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-discord"></i> Servidor Discord
+        </a>
+    </div>
+</nav>
+
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-container">
+            <a href="/" class="breadcrumb-link">
+                <i class="fas fa-home"></i> Início
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="/#corrida" class="breadcrumb-link">
+                <i class="fas fa-car"></i> Corrida
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Trackmania Turbo</span>
+        </div>
+    </nav>
+
+    <main class="game-page">
+        <section class="game-header" data-reveal>
+            <div class="game-header-bg" style="--game-hero-image: url('/assets/jogo/trackmania-turbo-pt-pt/hero.webp');"></div>
+            <div class="game-header-container">
+                <div class="game-cover-wrapper">
+                    <img src="../../assets/jogo/trackmania-turbo-pt-pt/capa.webp" alt="Trackmania Turbo - Tradução PT-PT - 100Nome" class="game-cover">
+                    <div class="game-badges-top">
+                        <span class="badge badge-category"><i class="fas fa-car"></i> Corrida</span>
+                    </div>
+                </div>
+                <div class="game-header-info">
+                    <h1 class="game-page-title">Trackmania Turbo — Tradução PT-PT</h1>
+                    
+
+                    <div class="game-meta-row">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>18 Abril 2026</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>v1.0</span>
+                        </div>
+                    </div>
+
+                    <div class="game-actions">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-arrow-down"></i> Descarregar
+                        </a>
+                        
+                        <button class="btn btn-secondary" onclick="shareCurrentGamePage()">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="game-content-shell">
+            <div class="game-top-notices" aria-live="polite"></div>
+            <div class="game-content-wrapper">
+                <div class="game-main-content">
+                <section class="game-section gp-about" data-reveal>
+                    <div class="gp-description-wrap">
+                        <p class="gp-description" id="gpDesc">Trackmania Turbo oferece-te o mais recente universo da corrida arcada onde tudo se trata de conseguir os tempos perfeitos. Testa a tua habilidade em mais de 200 pistas e experiencia diversão imediata quando desafiares os teus amigos em casa - dividindo o ecrã - ou em rede.</p>
+                        <button class="gp-read-more" id="gpReadMore" aria-expanded="false">Ler mais <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="gp-info-row">
+                        <div class="gp-info-item">
+                            <i class="fas fa-gamepad"></i>
+                            <div>
+                                <span class="gp-info-name">Trackmania Turbo</span>
+                                
+                            </div>
+                        </div>
+                        <div class="gp-info-item">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <span class="gp-info-label">Criador</span>
+                                <span class="gp-info-value">Nadeo · Ubisoft</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+  <section class="game-section gp-translation">
+    <div class="gp-translation-inner">
+      <div class="gp-carousel-col">
+        <p class="gp-col-label"><i class="fas fa-images"></i> Capturas de ecrã</p>
+        <div class="carousel-wrap" id="screenshotsCarousel" tabindex="0">
+          <div class="carousel-track" id="carouselTrack">
+            
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_115921.webp" alt="Captura 1" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_115950.webp" alt="Captura 2" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120015.webp" alt="Captura 3" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120035.webp" alt="Captura 4" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120050.webp" alt="Captura 5" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120106.webp" alt="Captura 6" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120122.webp" alt="Captura 7" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120304.webp" alt="Captura 8" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120317.webp" alt="Captura 9" loading="lazy">
+        </div>
+      
+        <div class="carousel-slide">
+          <img src="/assets/jogo/trackmania-turbo-pt-pt/traducao/Screenshot_20260418_120646.webp" alt="Captura 10" loading="lazy">
+        </div>
+      
+          </div>
+          <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Seguinte"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+
+      <div class="gp-trans-info-col">
+        <p class="gp-col-label"><i class="fas fa-language"></i> Tradução</p>
+
+        <div class="gp-info-row gp-info-row--col">
+          <div class="gp-info-item">
+            <i class="fas fa-code-branch"></i>
+            <div>
+              <span class="gp-info-label">Versão</span>
+              <span class="gp-info-value">1.0</span>
+            </div>
+          </div>
+
+          
+          <div class="gp-info-item">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <span class="gp-info-label">Atributos</span>
+              <div class="gp-badges">
+      <span class="gp-tooltip-wrap gp-tooltip-wrap--attribute">
+        <img class="attribute-badge" alt="AO90" src="/assets/imagens/site/atributos/ao.png">
+        <span class="gp-tooltip">Acordo ortográfico de &#39;90</span>
+      </span>
+    
+      <span class="gp-tooltip-wrap gp-tooltip-wrap--attribute">
+        <img class="attribute-badge" alt="Textos" src="/assets/imagens/site/atributos/t.png">
+        <span class="gp-tooltip">Textos e legendas traduzidos</span>
+      </span>
+    
+      <span class="gp-tooltip-wrap gp-tooltip-wrap--attribute">
+        <img class="attribute-badge" alt="Menus" src="/assets/imagens/site/atributos/m.png">
+        <span class="gp-tooltip">Menus traduzidos</span>
+      </span>
+    
+      <span class="gp-tooltip-wrap gp-tooltip-wrap--attribute">
+        <img class="attribute-badge" alt="Revisão" src="/assets/imagens/site/atributos/r.png">
+        <span class="gp-tooltip">Revisão aprovada pelo 100Nome</span>
+      </span>
+    </div>
+            </div>
+          </div>
+
+          
+          <div class="gp-info-item">
+            <i class="fas fa-users"></i>
+            <div>
+              <span class="gp-info-label">Autores</span>
+              <div class="gp-authors">
+      <span class="gp-tooltip-wrap">
+        <span class="gp-author-chip">JF</span>
+        <span class="gp-tooltip">Tradução</span>
+      </span>
+    
+      <span class="gp-tooltip-wrap">
+        <span class="gp-author-chip">RU</span>
+        <span class="gp-tooltip">Tradução</span>
+      </span>
+    </div>
+              <p class="gp-authors-names">João Frade · Ruben103</p>
+            </div>
+          </div>
+
+          
+          <div class="gp-info-item">
+        <i class="fas fa-box-archive"></i>
+        <div>
+          <span class="gp-info-label gp-info-label-row">Pacote <button type="button" class="gp-integrity-toggle" data-integrity-toggle aria-expanded="false">Verificar ficheiro</button></span>
+          <span class="gp-info-value">202.2 KB · 18 Abril 2026</span>
+          
+          <div class="gp-integrity-panel" data-integrity-panel hidden>
+            <div class="gp-integrity-row">
+              <span class="gp-info-value gp-info-value--checksum">MD5: b0b9bb6c80cbf994fdf819088ef1311e</span>
+              <button type="button" class="gp-integrity-copy" data-copy-hash="b0b9bb6c80cbf994fdf819088ef1311e">Copiar hash</button>
+            </div>
+            <div class="gp-integrity-row gp-integrity-row--note">
+              <span class="gp-integrity-note">Para utilizadores avançados: validar ficheiro descarregado.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+                
+  <section class="game-section download-section" id="download">
+    <h2 class="section-title"><i class="fas fa-download"></i> Descargas e Avisos</h2>
+    <div class="section-content">
+      <div class="download-actions">
+        <a href="#" class="btn btn-primary download-btn"
+          data-game-id="trackmania-turbo-pt-pt"
+          data-action-type="download"
+          data-action-url=""
+          data-action-via-api="true"
+          data-counter-label="descargas"
+          data-action-message="Ups, parece que ainda não há link. Vê a última atualização no Discord."
+          data-action-help-url="https://discord.gg/Xv7ax2VkEp"
+          aria-label="Descarregar Tradução">
+          <i class="fas fa-download"></i>
+          <div class="download-btn-text">
+            <div>Descarregar Tradução</div>
+            <div class="download-stats-number" aria-hidden="true" style="display:none"></div>
+          </div>
+        </a>
+        
+        <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <i class="fas fa-folder-open"></i> Licenças
+        </a>
+      </div>
+      
+      <div class="license-warning">
+        <i class="fas fa-scale-balanced"></i>
+        <div>
+          <strong>Licença atualizada:</strong> consulta a pasta oficial antes de usar esta tradução.
+        </div>
+      </div>
+      
+      
+      <p class="download-report-links">
+        <a href="https://discord.gg/FAsYZURnFW" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Reportar bug no Discord</a>
+      </p>
+    </div>
+  </section>
+
+                <div class="gp-support-nudge" data-reveal>
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <strong>Gostaste da tradução?</strong> Esta tradução representa dezenas de horas de trabalho. Se puderes, considera apoiar o projeto.
+                    </div>
+                    <a href="/apoiar" class="btn btn-support">Apoiar</a>
+                </div>
+
+                    
+  <section class="game-section comments-section" id="comentarios">
+    <h2 class="section-title"><i class="fas fa-comments"></i> Comentários</h2>
+    <div class="section-content">
+      <div class="comments-nudge" data-comments-nudge aria-live="polite">
+        <p class="comments-empty-note" data-comments-empty-note>
+          <strong>Se esta discussão ainda estiver vazia,</strong> o teu feedback pode definir a próxima atualização.
+        </p>
+        <div class="comment-prompt-list">
+          
+        <button type="button" class="comment-prompt-chip" data-copy-comment="Testado em: [versão do jogo/sistema]">
+          <i class="fas fa-copy"></i> Testado em: [versão do jogo/sistema]
+        </button>
+      
+        <button type="button" class="comment-prompt-chip" data-copy-comment="Problema encontrado: [texto/menu/contexto]">
+          <i class="fas fa-copy"></i> Problema encontrado: [texto/menu/contexto]
+        </button>
+      
+        <button type="button" class="comment-prompt-chip" data-copy-comment="Sugestão de melhoria: [explicação curta]">
+          <i class="fas fa-copy"></i> Sugestão de melhoria: [explicação curta]
+        </button>
+      
+        </div>
+      </div>
+      <p class="comments-game-context">Estás a comentar a tradução de <strong>Trackmania Turbo</strong>.</p>
+      <div class="giscus-wrap">
+        <div class="giscus" data-giscus-title="Trackmania Turbo"></div>
+      </div>
+      <script src="https://giscus.app/client.js"
+        data-repo="100nome-traducoes/site-comments"
+        data-repo-id="R_kgDORK-2Yg"
+        data-category="Comentários"
+        data-category-id="DIC_kwDORK-2Ys4C2BON"
+        data-mapping="specific"
+        data-term="Trackmania Turbo"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="bottom"
+        data-theme="https://100nome.net/assets/css/components/giscus-theme.css?v=aad01d9809"
+        data-lang="pt"
+        crossorigin="anonymous"
+        async
+        data-loading="lazy">
+      </script>
+    </div>
+  </section>
+                </div>
+
+                <aside class="game-sidebar" data-reveal>
+                    <div class="sidebar-section" data-reveal data-reveal-delay="40">
+                        <h3><i class="fas fa-gamepad"></i> Jogos Relacionados</h3>
+                        <div class="related-games">
+                            
+      <a class="related-game-card" href="../blur-jogo-pt-pt/">
+        <img src="../../assets/jogo/blur-jogo-pt-pt/capa.webp" alt="Blur" class="related-game-image" loading="lazy">
+        <div class="related-game-info">
+          <h4 class="related-game-title">Blur</h4>
+          <div class="related-game-categories">
+            <span class="category-tag-small">Corrida</span>
+          </div>
+        </div>
+      </a>
+      <a class="related-game-card" href="../extreme-tux-racer-pt-pt/">
+        <img src="../../assets/jogo/extreme-tux-racer-pt-pt/capa.webp" alt="Extreme Tux Racer" class="related-game-image" loading="lazy">
+        <div class="related-game-info">
+          <h4 class="related-game-title">Extreme Tux Racer</h4>
+          <div class="related-game-categories">
+            <span class="category-tag-small">Corrida</span>
+          </div>
+        </div>
+      </a>
+      <a class="related-game-card" href="../supertuxkart-pt-pt/">
+        <img src="../../assets/jogo/supertuxkart-pt-pt/capa.webp" alt="SuperTuxKart" class="related-game-image" loading="lazy">
+        <div class="related-game-info">
+          <h4 class="related-game-title">SuperTuxKart</h4>
+          <div class="related-game-categories">
+            <span class="category-tag-small">Corrida</span>
+          </div>
+        </div>
+      </a>
+      <a class="related-game-card" href="../trackmania-united-forever-pt-pt/">
+        <img src="../../assets/jogo/trackmania-united-forever-pt-pt/capa.webp" alt="Trackmania United Forever" class="related-game-image" loading="lazy">
+        <div class="related-game-info">
+          <h4 class="related-game-title">Trackmania United Forever</h4>
+          <div class="related-game-categories">
+            <span class="category-tag-small">Corrida</span>
+          </div>
+        </div>
+      </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section" data-reveal data-reveal-delay="80">
+                        <h3><i class="fas fa-users"></i> Comunidade</h3>
+                        <div class="community-links">
+                            <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-discord"></i> Discord
+                            </a>
+                            <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section" data-reveal data-reveal-delay="120">
+                        <h3><i class="fas fa-heart"></i> Apoiar o Projeto</h3>
+                        <p>Esta tradução deu-te prazer? Podes apoiar o trabalho que a tornou possível.</p>
+                        <a href="/apoiar" class="btn btn-support">
+                            <i class="fas fa-heart"></i> Como apoiar
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3><i class="fas fa-th-large"></i> Categorias</h3>
+            <a href="/#acao">Ação / Sobrevivência</a>
+            <a href="/#misterio">Mistério</a>
+            <a href="/#quebracabecas">Quebra-cabeças</a>
+            <a href="/#corrida">Corrida</a>
+            <a href="/#estrategia">Estratégia</a>
+        </div>
+
+        <div class="footer-section">
+            <h3><i class="fas fa-link"></i> Ligações</h3>
+            <a href="/apoiar">
+                <i class="fas fa-heart"></i> Apoiar o Projeto
+            </a>
+            <a href="/#traduzir">
+                <i class="fas fa-language"></i> Quero Traduzir
+            </a>
+            <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Servidor Discord
+            </a>
+            <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> Canal YouTube
+            </a>
+            <a href="mailto:100nome.portugal@gmail.com">
+                <i class="fas fa-envelope"></i> Contactar (e-mail)
+            </a>
+        </div>
+
+        <div class="footer-section">
+            <h3><i class="fas fa-gavel"></i> Legal</h3>
+            <p>As traduções estão ao abrigo das respetivas licenças atualizadas.</p>
+            <p>Solicita-se a leitura da Nota Legal disponível.</p>
+            <a href="https://drive.google.com/drive/folders/12kypBij0cTK4ih-ug3b4z0H3CcrzTJJY?usp=sharing" target="_blank" rel="noopener noreferrer" class="legal-link">
+                <i class="fas fa-folder-open"></i> Pasta de Licenças
+            </a>
+        </div>
+
+        <div class="footer-section logo-section">
+            <img src="/assets/imagens/site/logo.webp" alt="100Nome Logo" width="80" height="80" decoding="async">
+            <h3>100Nome Traduções</h3>
+            <p>Traduções em PT-PT desde 2009</p>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@100NomePT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://discord.gg/Xv7ax2VkEp" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="mailto:100nome.portugal@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 100Nome Traduções. Todos os direitos reservados.</p>
+        <p class="footer-note">Este projeto é mantido por voluntários apaixonados pela língua portuguesa.</p>
+        <p class="footer-report-note">
+            <a href="https://discord.gg/FAsYZURnFW" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i> Encontraste um bug? Reporta no Discord
+            </a>
+        </p>
+    </div>
+</footer>
+
+<button class="scroll-top-control" id="scrollTopControl" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+
+    <script src="../../assets/js/components/consent-manager.js?v=7d3b2b1759"></script>
+    <script src="../../assets/js/components/site-analytics.js?v=3ce28bbbb3"></script>
+    <script src="../../assets/js/components/motion.js?v=6aa23b1c1c"></script>
+    <script src="../../assets/js/components/image-placeholders.js?v=94df299377"></script>
+    <script src="../../assets/js/components/site-shell.js?v=ad82b2689a"></script>
+    <script src="../../assets/js/pages/game-page.js?v=157d18b553"></script>
+</body>
+</html>
