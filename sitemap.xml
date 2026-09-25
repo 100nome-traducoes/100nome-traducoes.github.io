@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://100nome.net/sitemap-home.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://100nome.net/sitemap-jogos.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://100nome.net/sitemap-wiki.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://100nome.net/sitemap-blog.xml</loc>
+  </sitemap>
+</sitemapindex>
